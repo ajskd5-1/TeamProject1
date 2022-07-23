@@ -1,5 +1,5 @@
 package com.sist.dao;
-//Ŀ��
+// 커밋(한글)
 public class BookDAO {
 
 }
