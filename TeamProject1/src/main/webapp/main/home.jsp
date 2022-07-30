@@ -9,103 +9,106 @@
 <body>
 	<%-- 메인 이미지 --%>
 	<section class="u-align-center u-clearfix u-section-1" id="sec-27b9">
+      <!-- <div class="u-clearfix u-image u-sheet u-image-1" data-image-width="960" data-image-height="502"> -->
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <img class="u-expanded-width u-image u-image-1" src="../images/1.png" data-image-width="960" data-image-height="502">
+      	<img class="u-expanded-width u-image u-image-1" src="../images/1.png" data-image-width="960" data-image-height="502">
       </div>
     </section>
-    <%-- 추천 블록 --%>
+    <%-- 추천 --%>
     <section class="u-clearfix u-custom-color-4 u-section-2" id="sec-1753">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <h2 class="u-text u-text-default u-text-1">추천</h2>
+        <h2 class="u-text u-text-1">강의 추천</h2>
+        <h2 class="u-text u-text-2">교재 추천</h2>
         <div class="u-clearfix u-expanded-width u-gutter-100 u-layout-wrap u-layout-wrap-1">
           <div class="u-layout">
             <div class="u-layout-row">
-            <%-- 추천 첫번째 --%>
+            
+              <%-- 강의 추천 --%>
               <div class="u-container-style u-layout-cell u-shape-rectangle u-size-30 u-layout-cell-1">
                 <div class="u-border-2 u-border-grey-75 u-container-layout u-container-layout-1">
-                  <div data-interval="5000" data-u-ride="carousel" class="u-carousel u-expanded-width u-slider u-slider-1" id="carousel-8786">
+                  <div data-interval="5000" data-u-ride="carousel" class="u-carousel u-slider u-slider-1" id="carousel-2555">
                     <ol class="u-absolute-hcenter u-carousel-indicators u-carousel-indicators-1">
-                      <li data-u-target="#carousel-8786" class="u-active u-active-grey-10 u-grey-30" data-u-slide-to="0"></li>
-                      <li data-u-target="#carousel-8786" class="u-active-grey-10 u-grey-30" data-u-slide-to="1"></li>
-                      <li data-u-target="#carousel-8786" class="u-active-grey-10 u-grey-30" data-u-slide-to="2"></li>
-                      <li data-u-target="#carousel-8786" class="u-active-grey-10 u-grey-30" data-u-slide-to="3"></li>
-                      <li data-u-target="#carousel-8786" class="u-active-grey-10 u-grey-30" data-u-slide-to="4"></li>
+                      <li data-u-target="#carousel-2555" class="u-active u-active-grey-10" data-u-slide-to="0" style=""></li>
+                      <li data-u-target="#carousel-2555" class="u-active-grey-10" data-u-slide-to="1" style=""></li>
+                      <li data-u-target="#carousel-2555" class="u-active-grey-10" data-u-slide-to="2" style=""></li>
+                      <li data-u-target="#carousel-2555" class="u-active-grey-10" data-u-slide-to="3" style=""></li>
+                      <li data-u-target="#carousel-2555" class="u-active-grey-10" data-u-slide-to="4" style=""></li>
                     </ol>
                     <div class="u-carousel-inner" role="listbox">
-                      <div class="u-active u-carousel-item u-container-style u-slide u-carousel-item-1">
+                      <div class="u-active u-carousel-item u-container-style u-slide">
                         <div class="u-container-layout u-container-layout-2"><!--post_details--><!--post_details_options_json--><!--{"source":""}--><!--/post_details_options_json--><!--blog_post-->
                           <div class="u-container-style u-expanded-width u-post-details u-post-details-1">
                             <div class="u-container-layout u-container-layout-3"><!--blog_post_header-->
-                              <h2 class="u-blog-control u-text">
+                              <h2 class="u-blog-control u-text u-text-3">
                                 <a class="u-post-header-link" href="blog/post-5.html"><!--blog_post_header_content-->Post 6 Headline<!--/blog_post_header_content--></a>
                               </h2><!--/blog_post_header--><!--blog_post_image-->
-                              <img src="../images/4.jpeg" alt="" class="u-blog-control u-expanded-width u-image u-image-default u-image-1"><!--/blog_post_image--><!--blog_post_content-->
-                              <div class="u-blog-control u-post-content u-text"><!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
+                              <img src="../images/4.jpeg" alt="" class="u-blog-control u-image u-image-default u-image-1"><!--/blog_post_image--><!--blog_post_content-->
+                              <div class="u-blog-control u-post-content u-text u-text-4"><!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
                             </div>
                           </div><!--/blog_post--><!--/post_details-->
                         </div>
                       </div>
-                      <div class="u-carousel-item u-container-style u-slide u-carousel-item-2">
+                      <div class="u-carousel-item u-container-style u-slide">
                         <div class="u-container-layout u-container-layout-4"><!--post_details--><!--post_details_options_json--><!--{"source":""}--><!--/post_details_options_json--><!--blog_post-->
                           <div class="u-container-style u-expanded-width u-post-details u-post-details-2">
                             <div class="u-container-layout u-container-layout-5"><!--blog_post_header-->
-                              <h2 class="u-blog-control u-text">
+                              <h2 class="u-blog-control u-text u-text-5">
                                 <a class="u-post-header-link" href="blog/post-5.html"><!--blog_post_header_content-->Post 6 Headline<!--/blog_post_header_content--></a>
                               </h2><!--/blog_post_header--><!--blog_post_image-->
-                              <img src="../images/4.jpeg" alt="" class="u-blog-control u-expanded-width u-image u-image-default u-image-2"><!--/blog_post_image--><!--blog_post_content-->
-                              <div class="u-blog-control u-post-content u-text"><!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
+                              <img src="../images/4.jpeg" alt="" class="u-blog-control u-image u-image-default u-image-2"><!--/blog_post_image--><!--blog_post_content-->
+                              <div class="u-blog-control u-post-content u-text u-text-6"><!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
                             </div>
                           </div><!--/blog_post--><!--/post_details-->
                         </div>
                       </div>
-                      <div class="u-carousel-item u-container-style u-slide u-carousel-item-3">
+                      <div class="u-carousel-item u-container-style u-slide">
                         <div class="u-container-layout u-container-layout-6"><!--post_details--><!--post_details_options_json--><!--{"source":""}--><!--/post_details_options_json--><!--blog_post-->
                           <div class="u-container-style u-expanded-width u-post-details u-post-details-3">
                             <div class="u-container-layout u-container-layout-7"><!--blog_post_header-->
-                              <h2 class="u-blog-control u-text">
+                              <h2 class="u-blog-control u-text u-text-7">
                                 <a class="u-post-header-link" href="blog/post-5.html"><!--blog_post_header_content-->Post 6 Headline<!--/blog_post_header_content--></a>
                               </h2><!--/blog_post_header--><!--blog_post_image-->
-                              <img src="../images/4.jpeg" alt="" class="u-blog-control u-expanded-width u-image u-image-default u-image-3"><!--/blog_post_image--><!--blog_post_content-->
-                              <div class="u-blog-control u-post-content u-text"><!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
+                              <img src="../images/4.jpeg" alt="" class="u-blog-control u-image u-image-default u-image-3"><!--/blog_post_image--><!--blog_post_content-->
+                              <div class="u-blog-control u-post-content u-text u-text-8"><!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
                             </div>
                           </div><!--/blog_post--><!--/post_details-->
                         </div>
                       </div>
-                      <div class="u-carousel-item u-container-style u-slide u-carousel-item-4">
+                      <div class="u-carousel-item u-container-style u-slide">
                         <div class="u-container-layout u-container-layout-8"><!--post_details--><!--post_details_options_json--><!--{"source":""}--><!--/post_details_options_json--><!--blog_post-->
                           <div class="u-container-style u-expanded-width u-post-details u-post-details-4">
                             <div class="u-container-layout u-container-layout-9"><!--blog_post_header-->
-                              <h2 class="u-blog-control u-text">
+                              <h2 class="u-blog-control u-text u-text-9">
                                 <a class="u-post-header-link" href="blog/post-5.html"><!--blog_post_header_content-->Post 6 Headline<!--/blog_post_header_content--></a>
                               </h2><!--/blog_post_header--><!--blog_post_image-->
-                              <img src="../images/4.jpeg" alt="" class="u-blog-control u-expanded-width u-image u-image-default u-image-4"><!--/blog_post_image--><!--blog_post_content-->
-                              <div class="u-blog-control u-post-content u-text"><!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
+                              <img src="../images/4.jpeg" alt="" class="u-blog-control u-image u-image-default u-image-4"><!--/blog_post_image--><!--blog_post_content-->
+                              <div class="u-blog-control u-post-content u-text u-text-10"><!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
                             </div>
                           </div><!--/blog_post--><!--/post_details-->
                         </div>
                       </div>
-                      <div class="u-carousel-item u-container-style u-slide u-carousel-item-5">
+                      <div class="u-carousel-item u-container-style u-slide">
                         <div class="u-container-layout u-container-layout-10"><!--post_details--><!--post_details_options_json--><!--{"source":""}--><!--/post_details_options_json--><!--blog_post-->
                           <div class="u-container-style u-expanded-width u-post-details u-post-details-5">
                             <div class="u-container-layout u-container-layout-11"><!--blog_post_header-->
-                              <h2 class="u-blog-control u-text u-text-10">
+                              <h2 class="u-blog-control u-text u-text-11">
                                 <a class="u-post-header-link" href="blog/post-5.html"><!--blog_post_header_content-->Post 6 Headline<!--/blog_post_header_content--></a>
                               </h2><!--/blog_post_header--><!--blog_post_image-->
-                              <img src="../images/4.jpeg" alt="" class="u-blog-control u-expanded-width u-image u-image-default u-image-5"><!--/blog_post_image--><!--blog_post_content-->
-                              <div class="u-blog-control u-post-content u-text u-text-11"><!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
+                              <img src="../images/4.jpeg" alt="" class="u-blog-control u-image u-image-default u-image-5"><!--/blog_post_image--><!--blog_post_content-->
+                              <div class="u-blog-control u-post-content u-text u-text-12"><!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
                             </div>
                           </div><!--/blog_post--><!--/post_details-->
                         </div>
                       </div>
                     </div>
-                    <a class="u-absolute-vcenter u-carousel-control u-carousel-control-prev u-spacing-5 u-text-grey-30 u-carousel-control-1" href="#carousel-8786" role="button" data-u-slide="prev">
+                    <a class="u-absolute-vcenter u-carousel-control u-carousel-control-prev u-spacing-5 u-text-grey-30 u-carousel-control-1" href="#carousel-2555" role="button" data-u-slide="prev">
                       <span aria-hidden="true">
                         <svg viewBox="0 0 477.175 477.175"><path d="M145.188,238.575l215.5-215.5c5.3-5.3,5.3-13.8,0-19.1s-13.8-5.3-19.1,0l-225.1,225.1c-5.3,5.3-5.3,13.8,0,19.1l225.1,225
                     c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1L145.188,238.575z"></path></svg>
                       </span>
                       <span class="sr-only">Previous</span>
                     </a>
-                    <a class="u-absolute-vcenter u-carousel-control u-carousel-control-next u-spacing-5 u-text-grey-30 u-carousel-control-2" href="#carousel-8786" role="button" data-u-slide="next">
+                    <a class="u-absolute-vcenter u-carousel-control u-carousel-control-next u-spacing-5 u-text-grey-30 u-carousel-control-2" href="#carousel-2555" role="button" data-u-slide="next">
                       <span aria-hidden="true">
                         <svg viewBox="0 0 477.175 477.175"><path d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5
                     c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-4l225.1-225.1C365.931,242.875,365.931,234.275,360.731,229.075z"></path></svg>
@@ -116,92 +119,92 @@
                 </div>
               </div>
               
-              <%-- 추천 두번째 --%>
-              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+              <%-- 교재 추천 --%>
+              <div class="u-align-left u-container-style u-layout-cell u-shape-rectangle u-size-30 u-layout-cell-2">
                 <div class="u-border-2 u-border-grey-75 u-container-layout u-container-layout-12">
-                  <div data-interval="5000" data-u-ride="carousel" class="u-carousel u-slider u-slider-2" id="carousel-2555">
+                  <div data-interval="5000" data-u-ride="carousel" class="u-carousel u-slider u-slider-2" id="carousel-6887">
                     <ol class="u-absolute-hcenter u-carousel-indicators u-carousel-indicators-2">
-                      <li data-u-target="#carousel-2555" class="u-active u-active-grey-10 u-grey-30" data-u-slide-to="0"></li>
-                      <li data-u-target="#carousel-2555" class="u-active-grey-10 u-grey-30" data-u-slide-to="1"></li>
-                      <li data-u-target="#carousel-2555" class="u-active-grey-10 u-grey-30" data-u-slide-to="2"></li>
-                      <li data-u-target="#carousel-2555" class="u-active-grey-10 u-grey-30" data-u-slide-to="3"></li>
-                      <li data-u-target="#carousel-2555" class="u-active-grey-10 u-grey-30" data-u-slide-to="4"></li>
+                      <li data-u-target="#carousel-6887" class="u-active u-active-grey-10" data-u-slide-to="0" style=""></li>
+                      <li data-u-target="#carousel-6887" class="u-active-grey-10" data-u-slide-to="1" style=""></li>
+                      <li data-u-target="#carousel-6887" class="u-active-grey-10" data-u-slide-to="2" style=""></li>
+                      <li data-u-target="#carousel-6887" class="u-active-grey-10" data-u-slide-to="3" style=""></li>
+                      <li data-u-target="#carousel-6887" class="u-active-grey-10" data-u-slide-to="4" style=""></li>
                     </ol>
                     <div class="u-carousel-inner" role="listbox">
-                      <div class="u-active u-carousel-item u-container-style u-slide u-carousel-item-6">
+                      <div class="u-active u-carousel-item u-container-style u-slide">
                         <div class="u-container-layout u-container-layout-13"><!--post_details--><!--post_details_options_json--><!--{"source":""}--><!--/post_details_options_json--><!--blog_post-->
                           <div class="u-container-style u-expanded-width u-post-details u-post-details-6">
                             <div class="u-container-layout u-container-layout-14"><!--blog_post_header-->
-                              <h2 class="u-blog-control u-text">
+                              <h2 class="u-blog-control u-text u-text-13">
                                 <a class="u-post-header-link" href="blog/post-5.html"><!--blog_post_header_content-->Post 6 Headline<!--/blog_post_header_content--></a>
                               </h2><!--/blog_post_header--><!--blog_post_image-->
-                              <img src="../images/4.jpeg" alt="" class="u-blog-control u-expanded-width u-image u-image-default u-image-6"><!--/blog_post_image--><!--blog_post_content-->
-                              <div class="u-blog-control u-post-content u-text"><!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
+                              <img src="../images/4.jpeg" alt="" class="u-blog-control u-image u-image-default u-image-6"><!--/blog_post_image--><!--blog_post_content-->
+                              <div class="u-blog-control u-post-content u-text u-text-14"><!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
                             </div>
                           </div><!--/blog_post--><!--/post_details-->
                         </div>
                       </div>
-                      <div class="u-carousel-item u-container-style u-slide u-carousel-item-7">
+                      <div class="u-carousel-item u-container-style u-slide">
                         <div class="u-container-layout u-container-layout-15"><!--post_details--><!--post_details_options_json--><!--{"source":""}--><!--/post_details_options_json--><!--blog_post-->
                           <div class="u-container-style u-expanded-width u-post-details u-post-details-7">
                             <div class="u-container-layout u-container-layout-16"><!--blog_post_header-->
-                              <h2 class="u-blog-control u-text">
+                              <h2 class="u-blog-control u-text u-text-15">
                                 <a class="u-post-header-link" href="blog/post-5.html"><!--blog_post_header_content-->Post 6 Headline<!--/blog_post_header_content--></a>
                               </h2><!--/blog_post_header--><!--blog_post_image-->
-                              <img src="../images/4.jpeg" alt="" class="u-blog-control u-expanded-width u-image u-image-default u-image-7"><!--/blog_post_image--><!--blog_post_content-->
-                              <div class="u-blog-control u-post-content u-text"><!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
+                              <img src="../images/4.jpeg" alt="" class="u-blog-control u-image u-image-default u-image-7"><!--/blog_post_image--><!--blog_post_content-->
+                              <div class="u-blog-control u-post-content u-text u-text-16"><!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
                             </div>
                           </div><!--/blog_post--><!--/post_details-->
                         </div>
                       </div>
-                      <div class="u-carousel-item u-container-style u-slide u-carousel-item-8">
+                      <div class="u-carousel-item u-container-style u-slide">
                         <div class="u-container-layout u-container-layout-17"><!--post_details--><!--post_details_options_json--><!--{"source":""}--><!--/post_details_options_json--><!--blog_post-->
                           <div class="u-container-style u-expanded-width u-post-details u-post-details-8">
                             <div class="u-container-layout u-container-layout-18"><!--blog_post_header-->
-                              <h2 class="u-blog-control u-text">
+                              <h2 class="u-blog-control u-text u-text-17">
                                 <a class="u-post-header-link" href="blog/post-5.html"><!--blog_post_header_content-->Post 6 Headline<!--/blog_post_header_content--></a>
                               </h2><!--/blog_post_header--><!--blog_post_image-->
-                              <img src="../images/4.jpeg" alt="" class="u-blog-control u-expanded-width u-image u-image-default u-image-8"><!--/blog_post_image--><!--blog_post_content-->
-                              <div class="u-blog-control u-post-content u-text"><!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
+                              <img src="../images/4.jpeg" alt="" class="u-blog-control u-image u-image-default u-image-8"><!--/blog_post_image--><!--blog_post_content-->
+                              <div class="u-blog-control u-post-content u-text u-text-18"><!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
                             </div>
                           </div><!--/blog_post--><!--/post_details-->
                         </div>
                       </div>
-                      <div class="u-carousel-item u-container-style u-slide u-carousel-item-9">
+                      <div class="u-align-left u-carousel-item u-container-style u-slide">
                         <div class="u-container-layout u-container-layout-19"><!--post_details--><!--post_details_options_json--><!--{"source":""}--><!--/post_details_options_json--><!--blog_post-->
                           <div class="u-container-style u-expanded-width u-post-details u-post-details-9">
                             <div class="u-container-layout u-container-layout-20"><!--blog_post_header-->
-                              <h2 class="u-blog-control u-text">
+                              <h2 class="u-blog-control u-text u-text-19">
                                 <a class="u-post-header-link" href="blog/post-5.html"><!--blog_post_header_content-->Post 6 Headline<!--/blog_post_header_content--></a>
                               </h2><!--/blog_post_header--><!--blog_post_image-->
-                              <img src="../images/4.jpeg" alt="" class="u-blog-control u-expanded-width u-image u-image-default u-image-9"><!--/blog_post_image--><!--blog_post_content-->
-                              <div class="u-blog-control u-post-content u-text"><!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
+                              <img src="../images/4.jpeg" alt="" class="u-blog-control u-image u-image-default u-image-9"><!--/blog_post_image--><!--blog_post_content-->
+                              <div class="u-blog-control u-post-content u-text u-text-20"><!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
                             </div>
                           </div><!--/blog_post--><!--/post_details-->
                         </div>
                       </div>
-                      <div class="u-carousel-item u-container-style u-slide u-carousel-item-10">
+                      <div class="u-carousel-item u-container-style u-slide">
                         <div class="u-container-layout u-container-layout-21"><!--post_details--><!--post_details_options_json--><!--{"source":""}--><!--/post_details_options_json--><!--blog_post-->
-                          <div class="u-container-style u-expanded-width u-post-details u-post-details-10">
+                          <div class="u-container-style u-expanded-width u-post-details u-shape-rectangle u-post-details-10">
                             <div class="u-container-layout u-container-layout-22"><!--blog_post_header-->
-                              <h2 class="u-blog-control u-text">
+                              <h2 class="u-blog-control u-text u-text-21">
                                 <a class="u-post-header-link" href="blog/post-5.html"><!--blog_post_header_content-->Post 6 Headline<!--/blog_post_header_content--></a>
                               </h2><!--/blog_post_header--><!--blog_post_image-->
-                              <img src="../images/4.jpeg" alt="" class="u-blog-control u-expanded-width u-image u-image-default u-image-10"><!--/blog_post_image--><!--blog_post_content-->
-                              <div class="u-blog-control u-post-content u-text"><!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
+                              <img src="../images/4.jpeg" alt="" class="u-blog-control u-image u-image-default u-image-10"><!--/blog_post_image--><!--blog_post_content-->
+                              <div class="u-blog-control u-post-content u-text u-text-22"><!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
                             </div>
                           </div><!--/blog_post--><!--/post_details-->
                         </div>
                       </div>
                     </div>
-                    <a class="u-absolute-vcenter u-carousel-control u-carousel-control-prev u-spacing-5 u-text-grey-30 u-carousel-control-3" href="#carousel-2555" role="button" data-u-slide="prev">
+                    <a class="u-absolute-vcenter u-carousel-control u-carousel-control-prev u-spacing-5 u-text-grey-30 u-carousel-control-3" href="#carousel-6887" role="button" data-u-slide="prev">
                       <span aria-hidden="true">
                         <svg viewBox="0 0 477.175 477.175"><path d="M145.188,238.575l215.5-215.5c5.3-5.3,5.3-13.8,0-19.1s-13.8-5.3-19.1,0l-225.1,225.1c-5.3,5.3-5.3,13.8,0,19.1l225.1,225
                     c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1L145.188,238.575z"></path></svg>
                       </span>
                       <span class="sr-only">Previous</span>
                     </a>
-                    <a class="u-absolute-vcenter u-carousel-control u-carousel-control-next u-spacing-5 u-text-grey-30 u-carousel-control-4" href="#carousel-2555" role="button" data-u-slide="next">
+                    <a class="u-absolute-vcenter u-carousel-control u-carousel-control-next u-spacing-5 u-text-grey-30 u-carousel-control-4" href="#carousel-6887" role="button" data-u-slide="next">
                       <span aria-hidden="true">
                         <svg viewBox="0 0 477.175 477.175"><path d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5
                     c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-4l225.1-225.1C365.931,242.875,365.931,234.275,360.731,229.075z"></path></svg>
@@ -211,15 +214,16 @@
                   </div>
                 </div>
               </div>
+              
             </div>
           </div>
         </div>
       </div>
     </section>
     
-    <%-- 인기 게시판 --%>
-    <section class="u-clearfix u-grey-10 u-section-3" id="carousel_4065">
-      <div class="u-clearfix u-sheet u-valign-middle-xs u-sheet-1">
+    <%-- 인기글 --%>
+    <section class="u-clearfix u-gradient u-section-3" id="carousel_4065">
+      <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
           <div class="u-layout">
             <div class="u-layout-row">
@@ -244,10 +248,11 @@
         </div>
       </div>
     </section>
+    
     <%-- 지도 --%>
-    <section class="u-clearfix u-grey-5 u-section-4" id="sec-d526">
+    <section class="u-clearfix u-custom-color-7 u-section-4" id="sec-d526">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+        <div class="u-clearfix u-layout-wrap u-layout-wrap-1">
           <div class="u-layout">
             <div class="u-layout-row">
               <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1">

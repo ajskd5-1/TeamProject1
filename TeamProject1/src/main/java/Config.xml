@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 	<typeAliases>
 	<!-- VO 등록 -->
-	<typeAlias type="com.sist.dao.LicenseVO" alias="LicenseVO"/>
+	<typeAlias type="com.sist.vo.LicenseVO" alias="LicenseVO"/>
 	
 	</typeAliases>
 	<environments default="development">
