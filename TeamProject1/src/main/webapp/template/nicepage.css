@@ -365,7 +365,7 @@ span.fr-img-caption.fr-view {
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 html {
   /* font-family: sans-serif; */
-  font-family: 'NanumSquareRound';
+  font-family: 'NanumSquareRound' imporant;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -457,7 +457,8 @@ code,
 kbd,
 pre,
 samp {
-  font-family: monospace,monospace;
+  /* font-family: monospace,monospace; */
+  font-family: 'NanumSquareRound';
   font-size: 1em;
 }
 hr {
@@ -22416,7 +22417,8 @@ a.u-button-style.u-border-20 {
 }
 /*begin-variables font-family*/
 .u-body {
-  font-family: 'Open Sans',sans-serif;
+  /* font-family: 'Open Sans',sans-serif; */
+   font-family: 'NanumSquareRound';
 }
 h1,
 h2,
