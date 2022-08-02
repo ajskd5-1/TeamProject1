@@ -2,128 +2,155 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head id="top">
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 </head>
-  <body class="u-body u-xl-mode" data-lang="en"><header class=" u-clearfix u-header u-section-row-container" id="sec-a889" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">
-    <div class="u-section-rows">
-    <%-- 네비게이션바 section1 --%>
-      <div class="u-clearfix u-section-row u-section-row-1" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="" id="sec-8671">
-        <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-          <a href="https://nicepage.com" class="u-image u-logo u-image-1">
-            <img src="../images/default-logo.png" class="u-logo-image u-logo-image-1">
-          </a>
-          <a class="u-login u-login-1">Login</a>
-          
-          	<%-- 네비게이션바 --%>
-            <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
-              <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
-                <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
-                  <svg class="u-svg-link" viewBox="0 0 24 24">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use>
-                  </svg>
-                  <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-                    <g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect></g>
-				  </svg>
-                </a>
-              </div>
-              
-              <%-- 자격증 --%>
-              <div class="u-custom-menu u-nav-container">
-                <ul class="u-nav u-spacing-10 u-unstyled u-nav-1">
-	                <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#" style="padding: 10px 20px;">자격증</a>
-		                <div class="u-nav-popup">
-			                <ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10">
-			                	<li class="u-nav-item"><a class="u-button-style u-nav-link u-white">추천 자격증</a></li>
-								<li class="u-nav-item"><a class="u-button-style u-nav-link u-white">분야별 자격증</a></li>
-							</ul>
-						</div>
-					</li>
-					<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#" style="padding: 10px 20px;">강의</a>
-					  <div class="u-nav-popup">
-					    <ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10">
-					      <li class="u-nav-item"><a class="u-button-style u-nav-link u-white">추천 강의</a></li>
-					    </ul>
-					  </div>
-					</li>
-					<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#" style="padding: 10px 20px;">교재</a>
-					  <div class="u-nav-popup">
-					    <ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10">
-					      <li class="u-nav-item"><a class="u-button-style u-nav-link u-white">추천 교재</a></li>
-					    </ul>
-					  </div>
-					</li>
-					<li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" style="padding: 10px 20px;">커뮤니티</a>
-					  <div class="u-nav-popup">
-					    <ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10">
-					      <li class="u-nav-item"><a class="u-button-style u-nav-link u-white">자유게시판?</a></li>
-					      <li class="u-nav-item"><a class="u-button-style u-nav-link u-white">공지사항?</a></li>
-					    </ul>
-					  </div>
-					</li>
-				</ul>
-              </div>
-              <%--??? --%>
-              <div class="u-custom-menu u-nav-container-collapse">
-                <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
-                  <div class="u-inner-container-layout u-sidenav-overflow">
-                    <div class="u-menu-close">
-                    </div>
-                    <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-6">
-                      <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#">자격증123</a>
-                        <div class="u-nav-popup">
-                          <ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10">
-                            <li class="u-nav-item">
-                              <a class="u-button-style u-nav-link">추천 자격증</a></li>
-								<li class="u-nav-item"><a class="u-button-style u-nav-link">분야별 자격증</a></li>
-						  </ul>
-						</div>
-					  </li>
-					  <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#">강의</a>
-					    <div class="u-nav-popup">
-					      <ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10">
-					        <li class="u-nav-item">
-					          <a class="u-button-style u-nav-link">추천 강의</a>
-							</li>
-						  </ul>
-						</div>
-					  </li>
-					<li class="u-nav-item"><a class="u-button-style u-nav-link" href="#">교재</a>
-					  <div class="u-nav-popup">
-					    <ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10">
-						  <li class="u-nav-item"><a class="u-button-style u-nav-link">추천 교재</a></li>
-					    </ul>
-					  </div>
-					</li>
-					<li class="u-nav-item">
-					  <a class="u-button-style u-nav-link">커뮤니티</a>
-					  <div class="u-nav-popup">
-					    <ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10">
-					      <li class="u-nav-item">
-					        <a class="u-button-style u-nav-link">자유게시판?</a>
-					      </li>
-					      <li class="u-nav-item">
-					        <a class="u-button-style u-nav-link">공지사항?</a>
-					      </li>
-					    </ul>
-					  </div>
-					</li>
-					</ul>
-                  </div>
-                </div>
-                <div class="u-black u-menu-overlay u-opacity u-opacity-70">
-                </div>
-              </div>
-            </nav><span class="u-file-icon u-icon u-icon-1"><img src="../images/3144456.png" alt=""></span><span class="u-file-icon u-icon u-icon-2"><img src="../images/1077114.png" alt=""></span>
+<body>
+  <!-- ======= Property Search Section ======= -->
+  <div class="click-closed"></div>
+  <!--/ Form Search Star /-->
+  <div class="box-collapse">
+    <div class="title-box-d">
+      <h3 class="title-d">Search Property</h3>
+    </div>
+    <span class="close-box-collapse right-boxed bi bi-x"></span>
+    <div class="box-collapse-wrap form">
+      <form class="form-a">
+        <div class="row">
+          <div class="col-md-12 mb-2">
+            <div class="form-group">
+              <label class="pb-2" for="Type">Keyword</label>
+              <input type="text" class="form-control form-control-lg form-control-a" placeholder="Keyword">
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label class="pb-2" for="Type">Type</label>
+              <select class="form-control form-select form-control-a" id="Type">
+                <option>All Type</option>
+                <option>For Rent</option>
+                <option>For Sale</option>
+                <option>Open House</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label class="pb-2" for="city">City</label>
+              <select class="form-control form-select form-control-a" id="city">
+                <option>All City</option>
+                <option>Alabama</option>
+                <option>Arizona</option>
+                <option>California</option>
+                <option>Colorado</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label class="pb-2" for="bedrooms">Bedrooms</label>
+              <select class="form-control form-select form-control-a" id="bedrooms">
+                <option>Any</option>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label class="pb-2" for="garages">Garages</label>
+              <select class="form-control form-select form-control-a" id="garages">
+                <option>Any</option>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label class="pb-2" for="bathrooms">Bathrooms</label>
+              <select class="form-control form-select form-control-a" id="bathrooms">
+                <option>Any</option>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label class="pb-2" for="price">Min Price</label>
+              <select class="form-control form-select form-control-a" id="price">
+                <option>Unlimite</option>
+                <option>$50,000</option>
+                <option>$100,000</option>
+                <option>$150,000</option>
+                <option>$200,000</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-b">Search Property</button>
           </div>
         </div>
-        
-        <%-- 네비게이션바 section2 --%>
-        <div class="u-section-row u-section-row-2" id="sec-6506">
-          <div class="u-clearfix u-sheet u-sheet-2"></div>
-        </div>
+      </form>
     </div>
-</header>
+  </div><!-- End Property Search Section -->>
+
+  <!-- ======= Header/Navbar ======= -->
+  <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+    <div class="container">
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a class="navbar-brand text-brand" href="index.html">Estate<span class="color-b">Agency</span></a>
+
+      <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="about.html">About</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="property-grid.html">Property</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="blog-grid.html">Blog</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item " href="property-single.html">Property Single</a>
+              <a class="dropdown-item " href="blog-single.html">Blog Single</a>
+              <a class="dropdown-item " href="agents-grid.html">Agents Grid</a>
+              <a class="dropdown-item " href="agent-single.html">Agent Single</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+
+      <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
+        <i class="bi bi-search"></i>
+      </button>
+
+    </div>
+  </nav><!-- End Header/Navbar -->
 </body>
 </html>
