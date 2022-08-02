@@ -9,7 +9,8 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+  font-family: 'NanumSquareRound' important;
   color: #555555;
 }
 
@@ -789,7 +790,7 @@ a:hover {
 
 .navbar-default .dropdown .dropdown-menu .dropdown-item.active {
   background-color: #ffffff;
-  color: #2eca6a;
+  color: #2eca6a; /*메뉴 색상 변경?*/
 }
 
 .navbar-default .dropdown:hover .dropdown-menu {

@@ -110,46 +110,60 @@
         <span></span>
         <span></span>
       </button>
-      <a class="navbar-brand text-brand" href="index.html">Estate<span class="color-b">Agency</span></a>
+      <a class="navbar-brand text-brand" href="index.html"><!-- 로고 앞부분 --><span class="color-b">다잇다</span></a>
 
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
 
-          <li class="nav-item">
-            <a class="nav-link active" href="index.html">Home</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link " href="about.html">About</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link " href="property-grid.html">Property</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link " href="blog-grid.html">Blog</a>
-          </li>
-
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+            <a class="nav-link dropdown-toggle active" href="../license/license_list" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">자격증</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item " href="property-single.html">추천 자격증</a>
+              <a class="dropdown-item " href="blog-single.html">분야별 자격증</a>
+            </div>
+          </li>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">강의</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item " href="property-single.html">추천 강의</a>
+            </div>
+          </li>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">교재</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item " href="property-single.html">추천 교재</a>
+            </div>
+          </li>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">게시판</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item " href="property-single.html">공지사항</a>
+              <a class="dropdown-item " href="blog-single.html">자유게시판</a>
+            </div>
+          </li>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">마이페이지</a>
             <div class="dropdown-menu">
               <a class="dropdown-item " href="property-single.html">Property Single</a>
               <a class="dropdown-item " href="blog-single.html">Blog Single</a>
-              <a class="dropdown-item " href="agents-grid.html">Agents Grid</a>
-              <a class="dropdown-item " href="agent-single.html">Agent Single</a>
             </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link " href="contact.html">Contact</a>
-          </li>
+
         </ul>
       </div>
-
+      <!-- <img src="../assets/img/main_icon/carts.png" style="width: 50px; height: 50px;"> -->
+      &nbsp;&nbsp;&nbsp;
+      <img src="../assets/img/main_icon/carts.png" style="width: 50px; height: 50px;">
+      &nbsp;&nbsp;&nbsp;
+      <img src="../assets/img/main_icon/user.png" style="width: 50px; height: 50px;">
+      &nbsp;&nbsp;&nbsp;
       <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
         <i class="bi bi-search"></i>
       </button>
-
     </div>
   </nav><!-- End Header/Navbar -->
 </body>
