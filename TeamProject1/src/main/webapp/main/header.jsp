@@ -124,9 +124,9 @@
           </li>
           
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">강의</a>
+            <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">강의</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item " href="property-single.html">추천 강의</a>
+              <a class="dropdown-item " href="../video/video_list.do">추천 강의</a>
             </div>
           </li>
           
@@ -157,11 +157,11 @@
       </div>
       <!-- <img src="../assets/img/main_icon/carts.png" style="width: 50px; height: 50px;"> -->
       &nbsp;&nbsp;&nbsp;
-      <img src="../assets/img/main_icon/carts.png" style="width: 50px; height: 50px;">
+      <a href="../member/login.do"><img src="../assets/img/main_icon/carts.png" style="width: 50px; height: 50px;"></a>
       &nbsp;&nbsp;&nbsp;
-      <img src="../assets/img/main_icon/user.png" style="width: 50px; height: 50px;">
+      <a href="../member/login.do"><img src="../assets/img/main_icon/user.png" style="width: 50px; height: 50px;"></a>
       &nbsp;&nbsp;&nbsp;
-      <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
+      <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" style="width: 50px; height: 50px;">
         <i class="bi bi-search"></i>
       </button>
     </div>

@@ -6,6 +6,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>
 	<!-- VO 등록 -->
 	<typeAlias type="com.sist.vo.LicenseVO" alias="LicenseVO"/>
+	<typeAlias type="com.sist.vo.VideoVO" alias="VideoVO"/>
 
 	</typeAliases>
 	<environments default="development">
@@ -22,6 +23,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mappers>
 		<!-- mapper 추가 -->
 		<mapper resource="com/sist/mapper/license-mapper.xml"/>
+		<mapper resource="com/sist/mapper/video-mapper.xml"/>
 		
 	</mappers>
 </configuration>

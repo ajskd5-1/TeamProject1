@@ -15,6 +15,9 @@
 <link href="../assets/img/favicon.png" rel="icon">
 <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+<!-- 로그인css -->
+<link rel="stylesheet" href="../member/login/dist/style.css">
+
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 

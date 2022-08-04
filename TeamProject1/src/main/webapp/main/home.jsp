@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -190,7 +191,7 @@
                 <h2 class="title-a">추천 강의</h2>
               </div>
               <div class="title-link">
-                <a href="blog-grid.html">강의 전체보기
+                <a href="../video/video_list.do">강의 전체보기
                   <span class="bi bi-chevron-right"></span>
                 </a>
               </div>
@@ -200,103 +201,59 @@
 
         <div id="news-carousel" class="swiper">
           <div class="swiper-wrapper">
-
-            <div class="carousel-item-c swiper-slide">
-              <div class="card-box-b card-shadow news-box">
-                <div class="img-box-b">
-                  <img src="../assets/img/post-2.jpg" alt="" class="img-b img-fluid">
-                </div>
-                <div class="card-overlay">
-                  <div class="card-header-b">
-                    <div class="card-category-b">
-                      <a href="#" class="category-b">House</a>
-                    </div>
-                    <div class="card-title-b">
-                      <h2 class="title-2">
-                        <a href="blog-single.html">House is comming
-                          <br> new</a>
-                      </h2>
-                    </div>
-                    <div class="card-date">
-                      <span class="date-b">18 Sep. 2017</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End carousel item -->
-
-            <div class="carousel-item-c swiper-slide">
-              <div class="card-box-b card-shadow news-box">
-                <div class="img-box-b">
-                  <img src="../assets/img/post-5.jpg" alt="" class="img-b img-fluid">
-                </div>
-                <div class="card-overlay">
-                  <div class="card-header-b">
-                    <div class="card-category-b">
-                      <a href="#" class="category-b">Travel</a>
-                    </div>
-                    <div class="card-title-b">
-                      <h2 class="title-2">
-                        <a href="blog-single.html">Travel is comming
-                          <br> new</a>
-                      </h2>
-                    </div>
-                    <div class="card-date">
-                      <span class="date-b">18 Sep. 2017</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End carousel item -->
-
-            <div class="carousel-item-c swiper-slide">
-              <div class="card-box-b card-shadow news-box">
-                <div class="img-box-b">
-                  <img src="../assets/img/post-7.jpg" alt="" class="img-b img-fluid">
-                </div>
-                <div class="card-overlay">
-                  <div class="card-header-b">
-                    <div class="card-category-b">
-                      <a href="#" class="category-b">Park</a>
-                    </div>
-                    <div class="card-title-b">
-                      <h2 class="title-2">
-                        <a href="blog-single.html">Park is comming
-                          <br> new</a>
-                      </h2>
-                    </div>
-                    <div class="card-date">
-                      <span class="date-b">18 Sep. 2017</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End carousel item -->
-
-            <div class="carousel-item-c swiper-slide">
-              <div class="card-box-b card-shadow news-box">
-                <div class="img-box-b">
-                  <img src="../assets/img/post-3.jpg" alt="" class="img-b img-fluid">
-                </div>
-                <div class="card-overlay">
-                  <div class="card-header-b">
-                    <div class="card-category-b">
-                      <a href="#" class="category-b">Travel</a>
-                    </div>
-                    <div class="card-title-b">
-                      <h2 class="title-2">
-                        <a href="#">Travel is comming
-                          <br> new</a>
-                      </h2>
-                    </div>
-                    <div class="card-date">
-                      <span class="date-b">18 Sep. 2017</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End carousel item -->
-
+			<c:forEach var="vo" begin="0" end="282" step="40" items="${vd_list }">
+	            <div class="carousel-item-c swiper-slide">
+	              <div class="card-box-b card-shadow news-box">
+	                <div class="img-box-b">
+	                  <img src="${vo.vd_poster }" alt="" class="img-b img-fluid" style="width:415px; height:415px;">
+	                </div>
+	                <div class="card-overlay">
+	                  <div class="card-header-b">
+	                    <div class="card-category-b">
+	                      <a href="#" class="category-b">${vo.vd_subtitle }</a>
+	                    </div>
+	                    <div class="card-title-b">
+	                      <h2 class="title-2">
+	                        <a href="../video/video_detail_before.do?vd_no=${vo.vd_no }">${vo.vd_title }</a>
+	                      </h2>
+	                    </div>
+	                    <div class="card-date">
+	                      <span class="date-b">${vo.vd_deadline }</span>
+	                    </div>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+			</c:forEach>
+          </div>
+        </div>
+        <div style="padding:10px"></div>
+        <div id="news-carousel" class="swiper">
+          <div class="swiper-wrapper">
+			<c:forEach var="vo" begin="2" end="282" step="42" items="${vd_list }">
+	            <div class="carousel-item-c swiper-slide" onclick="location.href='../video/video_detail.do?vd_no=${vo.vd_no }'">
+	              <div class="card-box-b card-shadow news-box">
+	                <div class="img-box-b">
+	                  <img src="${vo.vd_poster }" alt="" class="img-b img-fluid" style="width:415px; height:415px;">
+	                </div>
+	                <div class="card-overlay">
+	                  <div class="card-header-b">
+	                    <div class="card-category-b">
+	                      <a href="#" class="category-b">${vo.vd_subtitle }</a>
+	                    </div>
+	                    <div class="card-title-b">
+	                      <h2 class="title-2">
+	                        <a href="../video/video_detail.do?vd_no=${vo.vd_no }">${vo.vd_title }</a>
+	                      </h2>
+	                    </div>
+	                    <div class="card-date">
+	                      <span class="date-b">${vo.vd_deadline }</span>
+	                    </div>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+			</c:forEach>
           </div>
         </div>
 
