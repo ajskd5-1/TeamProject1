@@ -110,16 +110,16 @@
         <span></span>
         <span></span>
       </button>
-      <a class="navbar-brand text-brand" href="index.html"><!-- 로고 앞부분 --><span class="color-b">다잇다</span></a>
+      <a class="navbar-brand text-brand" href="../main/main.do"><!-- 로고 앞부분 --><span class="color-b">다잇다</span></a>
 
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="../license/license_list" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">자격증</a>
+            <a class="nav-link dropdown-toggle active" href="../license/license_list.do" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">자격증</a>
             <div class="dropdown-menu">
               <a class="dropdown-item " href="property-single.html">추천 자격증</a>
-              <a class="dropdown-item " href="blog-single.html">분야별 자격증</a>
+              <a class="dropdown-item " href="../license/license_list.do">분야별 자격증</a>
             </div>
           </li>
           

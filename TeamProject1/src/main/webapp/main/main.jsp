@@ -27,12 +27,6 @@
 <!-- Template Main CSS File -->
 <link href="../assets/css/style.css" rel="stylesheet">
 
-<!-- =======================================================
-* Template Name: EstateAgency - v4.8.0
-* Template URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-======================================================== -->
 <style type="text/css">
 @font-face {
     font-family: 'NanumSquareRound';

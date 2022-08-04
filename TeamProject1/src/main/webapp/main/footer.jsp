@@ -36,13 +36,13 @@
         <div class="col-sm-12 col-md-4 section-md-t3">
           <div class="widget-a">
             <div class="w-header-a">
-              <h3 class="w-title-a text-brand">Team Project</h3>
+              <h3 class="w-title-a text-brand"><a href="https://github.com/ajskd5-1" target="_blank">Team Project</a></h3>
             </div>
             <div class="w-body-a">
               <div class="w-body-a">
                 <ul class="list-unstyled">
                   <li class="item-list-a">
-                    <i class="bi bi-chevron-right"></i> <a href="#">이종환</a>
+                    <i class="bi bi-chevron-right"></i> <a href="https://github.com/ajskd5" target="_blank">이종환</a>
                   </li>
                   <li class="item-list-a">
                     <i class="bi bi-chevron-right"></i> <a href="#">박지원</a>
