@@ -31,7 +31,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-primary);
+	  font-family: var(--font-primary);
 }
 
 /*--------------------------------------------------------------
@@ -958,7 +958,7 @@ section {
 
 .hero-fullscreen:before {
   content: "";
-  background: rgba(var(--color-white-rgb), 0.85);
+  background: rgba(var(--color-white-rgb), 0);
   position: absolute;
   inset: 0;
 }
