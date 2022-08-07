@@ -48,6 +48,12 @@
             </ul>
           </li>
           
+          <li class="dropdown"><a href="../board/list.do"><span>문의</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+            </ul>
+          </li>
+          
         </ul>
         <i class="bi bi-list mobile-nav-toggle d-none"></i><!-- 아마 모바일창 -->
       </nav><!-- .navbar -->
