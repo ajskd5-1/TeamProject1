@@ -31,7 +31,8 @@ h3,
 h4,
 h5,
 h6 {
-	  font-family: var(--font-primary);
+	  /* font-family: var(--font-primary); */
+	  font-family: 'NanumSquareRound' important;
 }
 
 /*--------------------------------------------------------------
@@ -578,7 +579,7 @@ section {
 .hero-animated {
   width: 100%;
   min-height: 50vh;
-  background: url("../img/main/campmain.jpg") center center;
+  background: url("../img/main/main2.jpg") center center;
   background-size: cover;
   position: relative;
   padding: 120px 0 60px;
@@ -711,7 +712,7 @@ section {
   min-height: 60vh;
   padding: 0;
   background: var(--color-black);
-  background: url("../img/main/campmain.jpg") center center;
+  background: url("../img/main/main2.jpg") center center;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -950,7 +951,7 @@ section {
 .hero-fullscreen {
   width: 100%;
   min-height: 100vh;
-  background: url("../img/main/campmain.jpg") center center;
+  background: url("../img/main/main2.jpg") center center;
   background-size: cover;
   position: relative;
   padding: 120px 0 60px;
@@ -973,7 +974,8 @@ section {
   margin: 0 0 10px 0;
   font-size: 48px;
   font-weight: 300;
-  color: var(--color-secondary);
+  /* color: var(--color-secondary); */
+  color: #ffffff;
   font-family: var(--font-secondary);
 }
 
@@ -982,7 +984,8 @@ section {
 }
 
 .hero-fullscreen p {
-  color: rgba(var(--color-secondary-rgb), 0.8);
+  /* color: rgba(var(--color-secondary-rgb), 0.8); */
+  color: #ffffff;
   margin: 0 0 30px 0;
   font-size: 20px;
   font-weight: 400;
