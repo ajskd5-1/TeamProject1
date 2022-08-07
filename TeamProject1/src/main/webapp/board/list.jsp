@@ -19,7 +19,7 @@
 	font-family: 'NanumSquareRound';
 }
 .container{
-	margin-top: 10px;
+	margin-top: 70px;
 }
 .img_free{
 	margin-left: 170px;
@@ -38,13 +38,13 @@
 	margin: 0px auto;
 	width:800px;
 }
-.board_search{
+/* .board_search{
   position: fixed;
   bottom: 10px;
-  /* width: 100% */
-  /* left: 35%; */
- /*  right: 30%; */
-}
+   width: 100%
+   left: 35%;
+   right: 30%; 
+} */
 #submit_style{
 	width:80px;
 	height:25px;
@@ -85,9 +85,13 @@ a{
 	       <th class="text-center" width=15%>작성자</th>
 	       <th class="text-center" width=10%>작성일</th>
 	     </tr>
-     </table>
-     
-		<table class="table_search">
+     	</table>
+     	
+     	
+
+     </div>
+     <div class="row">
+     	<table class="table_search">
 			<tr>
 			<td class="board_search">
 			 	<select name=fs style="width:80px;height:25px";>
