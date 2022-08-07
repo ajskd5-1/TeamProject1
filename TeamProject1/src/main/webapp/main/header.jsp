@@ -58,7 +58,14 @@
         <i class="bi bi-list mobile-nav-toggle d-none"></i><!-- 아마 모바일창 -->
       </nav><!-- .navbar -->
 
-      <a class="btn-getstarted" href="index.html#about"">로그인</a>
+ 		  <!--  
+     <a class="btn-getstarted" href="index.html#about"">로그인</a>
+      -->
+   
+        <a href="../cart/shoppingcart.do"><img src="../cart/images/cart.png" style="width:50px; height:50px"></a>
+       
+   
+     
 
     </div>
   </header><!-- End Header -->
