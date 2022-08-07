@@ -12,15 +12,16 @@
   <header id="header" class="header fixed-top" data-scrollto-offset="0">
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
-      <a href="../main/main.do" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
+      <!-- <a href="../main/main.do" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
+        Uncomment the line below if you also wish to use an image logo
+        <img src="assets/img/logo.png" alt="">
         <h1>HeroBiz<span>.</span></h1>
-      </a>
+      </a> -->
+      <!-- 아이콘 수정 -->
+      <a href="../main/main.do"><img src="../assets/img/main/tent.png" class="d-flex align-items-center scrollto me-auto" style="width: 50px; height: 50px;"></a>
 		
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="../main/main.do">Home</a></li>
           <li class="dropdown"><a href="#"><span>캠핑장</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
