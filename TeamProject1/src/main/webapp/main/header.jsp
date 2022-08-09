@@ -42,7 +42,7 @@
           
           <li class="dropdown"><a href="#"><span>캠핑 레시피</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
+              <li><a href="../recipe/recipe_list.do">레시피 전체보기</a></li>
               <li><a href="#">Drop Down 2</a></li>
               <li><a href="#">Drop Down 3</a></li>
               <li><a href="#">Drop Down 4</a></li>
@@ -63,8 +63,10 @@
      <a class="btn-getstarted" href="index.html#about"">로그인</a>
       -->
    
-        <a href="../cart/shoppingcart.do"><img src="../cart/images/cart.png" style="width:50px; height:50px"></a>
-       
+		<div class="header-icon" style="display: inline;">
+        	<a href="../cart/shoppingcart.do"><img src="../cart/images/cart.png" style="width:50px; height:50px;  margin-right: 10px;"></a>
+        	<a href="../member/login.do"><img src="../assets/img/main/user.png"" style="width:50px; height:50px"></a>
+      	</div>
    
      
 

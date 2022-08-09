@@ -82,7 +82,7 @@ button {
   top: 0;
   width: 900px;
   height: 100%;
-  background-image: url("../member_member.jpg");
+  background-image: url("./member_member.jpg");
   background-size: cover;
   transition: transform 1.2s ease-in-out;
 }

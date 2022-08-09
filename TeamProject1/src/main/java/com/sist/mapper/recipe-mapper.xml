@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.recipe-mapper">
+	<select id="recipeListData" resultType="RecipeVO" parameterType="hashmap">
+		SELECT cr_no,cr_title,cr_subtitle,cr_subject,cr_poster,cr_hit,cr_writer,TO_CHAR(cr_regdate,'YYYY-MM-DD') as cr_dbday,num
+		FROM (SELECT cr_no,cr_title,cr_subtitle,cr_subject,cr_poster,cr_hit,cr_writer,cr_regdate,rownum as num
+		FROM (SELECT /*+ INDEX_ASC(CR_RNO_PK)*/cr_no,cr_title,cr_subtitle,cr_subject,cr_poster,cr_hit,cr_writer,cr_regdate
+		FROM camp_recipe_1))
+		WHERE cr_no BETWEEN #{start} AND #{end}
+	</select>
+	<select id="recipeTotalPage" resultType="int" parameterType="hashmap">
+		SELECT CEIL(COUNT(*)/9.0) FROM camp_recipe_1
+	</select>
+</mapper>

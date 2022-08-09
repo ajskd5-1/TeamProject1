@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'><link rel="stylesheet" href="../login/dist/style.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'><link rel="stylesheet" href="./style.css">
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -22,7 +22,7 @@
       <input type="password" id="pwd" />
     </label>
     <p class="forgot-pass"><br></p>
-    <button type="button" class="submit" style="margin:0px auto;width:100px;border-radius:20px;">로그인</button><
+    <button type="button" class="submit" style="margin:0px auto;width:100px;border-radius:20px;">로그인</button><br>
     <button type="button" class="fb-btn" style="margin:0px auto;width:350px; border-radius:20px;">회원정보를 잊으셨나요?  <span> 아이디 비밀번호 찾기</span></button>
   </div>
  
@@ -32,9 +32,9 @@
         <h2 style="color: white">
         회원이<br>
          아니신가요?</h2><br><br>
-        <p>자격증, 강의, 교재 모든 자료를<br>
-        한 곳에서 다 잇는 다잇다!의<br>
-         편리함을 경험해보세요.</p><br><br>
+        <p>캠핑장,캠핑용품,캠핑레시피<br>
+         캠핑에 관한 모든 정보를 제공하는<br>
+         캠핑<sup>+</sup>의 편리함을 경험해보세요</p><br>
         <button type="button" class="submit" style="margin:0px auto;width:100px;border-radius:20px;">가입하기</button>
       </div>
       <div class="img__text m--in">
