@@ -1,23 +1,27 @@
 package com.sist.model;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
-import com.sist.dao.LicenseDAO;
-import com.sist.vo.LicenseVO;
+import com.sist.vo.*;
+import com.sist.dao.*;
 
 @Controller
-public class licenseModel {
-	@RequestMapping("license/license_list.do")
-	public String license_list(HttpServletRequest request, HttpServletResponse response) {
+public class CampModel {
+	@RequestMapping("camp/list.do")
+	public String campListData(HttpServletRequest request, HttpServletResponse response) {
 		String page = request.getParameter("page");
 		if(page == null) {
 			page = "1";
 		}
 		int curpage = Integer.parseInt(page);
-		int rowSize = 16;
+		int rowSize = 10;
 		int start = (rowSize*curpage)-(rowSize-1); //rownum
 		int end = (rowSize*curpage);
 		
@@ -27,8 +31,8 @@ public class licenseModel {
 		map.put("start", start);
 		map.put("end", end);
 		
-		List<LicenseVO> list = LicenseDAO.licenseListData(map);
-		int totalpage = LicenseDAO.licenseTotalPage();
+		List<CampVO> list = CampDAO.campListData(map);
+		int totalpage = CampDAO.campTotalPage();
 		final int BLOCK = 5;
 		int startPage = ((curpage-1)/BLOCK*BLOCK) + 1;
 		// [1] [2] [3] [4] [5]  => start = 1, 6, ... / end = 5, 10, ...
@@ -42,7 +46,7 @@ public class licenseModel {
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("list", list);
-		request.setAttribute("main_jsp", "../license/license_list.jsp");
+		request.setAttribute("main_jsp", "../camp/list.jsp");
 		return "../main/main.jsp";
 	}
 }

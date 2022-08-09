@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.camp-mapper">
+	<!-- 캠핑장 리스트 -->
+	<select id="campListData" resultType="CampVO" parameterType="hashmap">
+		SELECT no, c_title, c_poster, c_content, c_addr, num
+		FROM (SELECT no, c_title, c_poster, c_content, c_addr, rownum as num
+		FROM (SELECT /*+ INDEX_ASC()*/ no, c_title, c_poster, c_content, c_addr
+		FROM camp_1))
+		WHERE num BETWEEN #{start} AND #{end}
+	</select>
+	<!-- 캠핑장 총페이지 -->
+	<select id="campTotalPage" resultType="int">
+		SELECT CEIL(COUNT(*)/10.0) FROM camp_1
+	</select>
+	
+	<!-- 캠핑장 상세페이지 -->
+	<update id="campHitIncrement" parameterType="int">
+		UPDATE camp_1 SET
+		hit = hit + 1
+		WHERE no=#{no}
+	</update>
+	<select id="campDetailData" resultType="CampVO" parameterType="int">
+		SELECT * FROM camp_1 WHERE no=#{no}
+	</select>
+	
+	<!-- 안전수칙동영상 -->
+	<select id="campVideo" resultType="CampVideoVO">
+		SELECT * FROM campvideo_1 ORDER BY cv_no ASC
+	</select>
+</mapper>

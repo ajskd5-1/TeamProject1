@@ -5,9 +5,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 	<typeAliases>
 	<!-- VO 등록 -->
-	<typeAlias type="com.sist.vo.LicenseVO" alias="LicenseVO"/>
-	<typeAlias type="com.sist.vo.VideoVO" alias="VideoVO"/>
 	<typeAlias type="com.sist.vo.RecipeVO" alias="RecipeVO"/>
+	<typeAlias type="com.sist.vo.CampVO" alias="CampVO"/>
+	<typeAlias type="com.sist.vo.CampVideoVO" alias="CampVideoVO"/>
 
 	</typeAliases>
 	<environments default="development">
@@ -23,9 +23,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</environments>
 	<mappers>
 		<!-- mapper 추가 -->
-		<mapper resource="com/sist/mapper/license-mapper.xml"/>
-		<mapper resource="com/sist/mapper/video-mapper.xml"/>
 		<mapper resource="com/sist/mapper/recipe-mapper.xml"/>
+		<mapper resource="com/sist/mapper/camp-mapper.xml"/>
 		
 	</mappers>
 </configuration>
