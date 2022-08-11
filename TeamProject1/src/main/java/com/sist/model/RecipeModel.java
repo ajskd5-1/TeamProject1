@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -46,6 +47,26 @@ public class RecipeModel {
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("list", list);
 		request.setAttribute("main_jsp", "../recipe/recipe_list.jsp");
+		return "../main/main.jsp";
+	}
+	@RequestMapping("recipe/recipe_detail_before.do")
+	public String recipe_detail_before(HttpServletRequest request,HttpServletResponse response)
+	{
+		String cr_no=request.getParameter("cr_no");
+		Cookie cookie=new Cookie("cr_no"+cr_no, cr_no);
+		cookie.setPath("/");
+		cookie.setMaxAge(60*60*24);
+		response.addCookie(cookie);
+		return "redirect:../recipe/recipe_detail.do?cr_no="+cr_no;
+		
+	}
+	@RequestMapping("recipe/recipe_detail.do")
+	public String recipe_detail(HttpServletRequest request,HttpServletResponse response)
+	{
+		String cr_no=request.getParameter("cr_no");
+		RecipeVO vo=RecipeDAO.recipeDetailData(Integer.parseInt(cr_no));
+		request.setAttribute("vo", vo);
+		request.setAttribute("main_jsp", "../recipe/recipe_detail.jsp");
 		return "../main/main.jsp";
 	}
 }

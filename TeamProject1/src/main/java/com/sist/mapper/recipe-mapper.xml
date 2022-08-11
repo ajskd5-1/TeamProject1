@@ -11,4 +11,8 @@
 	<select id="recipeTotalPage" resultType="int" parameterType="hashmap">
 		SELECT CEIL(COUNT(*)/9.0) FROM camp_recipe_1
 	</select>
+	<select id="recipeDetailData" resultType="RecipeVO" parameterType="int">
+		SELECT * FROM camp_recipe_1
+		WHERE cr_no=#{cr_no}
+	</select>
 </mapper>

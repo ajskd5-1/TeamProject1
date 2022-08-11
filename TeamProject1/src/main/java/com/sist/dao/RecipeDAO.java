@@ -69,5 +69,28 @@ public class RecipeDAO {
 		}
 		return total;
 	}
+	//<select id="recipeDetailData" resultType="RecipeVO" parameterType="int">
+	public static RecipeVO recipeDetailData(int cr_no)
+	{
+		SqlSession session=null;
+		RecipeVO vo=null;
+		try 
+		{
+			session=ssf.openSession();
+			vo=session.selectOne("recipeDetailData",cr_no);
+		}catch(Exception ex)
+		{
+			System.out.println("recipeDetailData:error");
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+		return vo;
+	}
 	
 }

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로그인</title>
+<title>아이디 비밀번호 찾기</title>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'><link rel="stylesheet" href="./style.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
@@ -22,11 +22,6 @@ $(function(){
 				$('#pwd').focus();
 				return;
 			}
-	})
-	
-	$.ajax({
-		type:'post',
-		url:'idfind',
 	})
 })
 </script>

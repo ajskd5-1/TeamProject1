@@ -15,7 +15,14 @@ CR_REGDATE           DATE
 public class RecipeVO {
 	private int cr_no,cr_hit;
 	private String cr_title,cr_subtitle,cr_subject,cr_poster,cr_recipe,cr_detail,cr_writer,cr_dbday;
-	private Date regdate;
+	private Date cr_regdate;
+	
+	public Date getCr_regdate() {
+		return cr_regdate;
+	}
+	public void setCr_regdate(Date cr_regdate) {
+		this.cr_regdate = cr_regdate;
+	}
 	public int getCr_no() {
 		return cr_no;
 	}
@@ -76,12 +83,7 @@ public class RecipeVO {
 	public void setCr_dbday(String cr_dbday) {
 		this.cr_dbday = cr_dbday;
 	}
-	public Date getRegdate() {
-		return regdate;
-	}
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
-	}
+
 	
 	
 }
