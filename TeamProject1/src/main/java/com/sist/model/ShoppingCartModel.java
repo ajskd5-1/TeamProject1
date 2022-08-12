@@ -18,17 +18,18 @@ public class ShoppingCartModel {
 	}
 
 //결제하기
-@RequestMapping("cart/checkout.do")
-public String order(HttpServletRequest request, HttpServletResponse response)
-{
-	request.setAttribute("main_jsp", "../cart/checkout.jsp");
-	return "../main/main.jsp";
-}
+	@RequestMapping("cart/checkout.do")
+	public String order(HttpServletRequest request, HttpServletResponse response)
+	{
+		request.setAttribute("main_jsp", "../cart/checkout.jsp");
+		return "../main/main.jsp";
+	}
+	
 //결제확인
-@RequestMapping("cart/thankyou.do")
-public String check(HttpServletRequest request, HttpServletResponse response)
-{
-	request.setAttribute("main_jsp", "../cart/thankyou.jsp");
-	return "../main/main.jsp";
-}
+	@RequestMapping("cart/thankyou.do")
+	public String check(HttpServletRequest request, HttpServletResponse response)
+	{
+		request.setAttribute("main_jsp", "../cart/thankyou.jsp");
+		return "../main/main.jsp";
+	}
 }
