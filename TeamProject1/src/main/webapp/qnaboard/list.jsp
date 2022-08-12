@@ -19,32 +19,25 @@
 	font-family: 'NanumSquareRound';
 }
 .container{
-	margin-top: 70px;
+	margin-top: 100px;
 }
-.img_free{
-	margin-left: 170px;
-	margin-right: 170px;
+.qna_img{
 	position: relative;
 }
 .text_board{
 	padding: 5px 10px;
 	text-align: center;
 	position: absolute;
-	top: 40%;
+	top: 45%;
 	left: 50%;
 	transform: translate( -50%, -50% );
 }
-.row{
-	margin: 0px auto;
-	width:800px;
+
+.table_search{
+ /*  position: fixed; */
+  margin-bottom:20px;
+  margin-left: 15px;
 }
-/* .board_search{
-  position: fixed;
-  bottom: 10px;
-   width: 100%
-   left: 35%;
-   right: 30%; 
-} */
 #submit_style{
 	width:80px;
 	height:25px;
@@ -55,11 +48,11 @@
 	background-color:#84a98c;
 }
 .button1{
-	margin-left:240px;
+	margin-left:550px;
 	padding : 5px;
 	background-color:#cbdfbd; 
 }
-.button2{
+.button2, .btn1{
 	padding : 5px;
 	background-color:#d3d3d3; 
 }
@@ -67,29 +60,59 @@ a{
 	color:#333;
 	text-decoration : none;
 }
+.btn2{
+	padding : 5px;
+	background-color:#cbdfbd; 
+}
+.bn{
+	margin-left:550px;
+	margin-bottom:10px;
+}
 </style>
 </head>
 <body>
    <div class="container">
-    <div class="img_free">
+    <div class="col-lg-12">
+    <div class="qna_img"> 
      <p>
-   	   <img src="../assets/img/board/qna.jpg" style="width:100%; height:50%;">
+   	   <img src="../assets/img/qnaboard/qna.jpg" style="width:100%; height:50%;">
    	 </p>
        <h1 class="text_board" style="font-size:50px; color:#FFFFFF; font-weight: bold;">문의게시판</h1>
    </div>
      <div class="row">
+     <div style="height: 450px;">
        <table class="table">
 	     <tr style="background-color:#cbdfbd;">
 	       <th class="text-center" width=10%>번호</th>
-	       <th class="text-center" width=55%>제목</th>
+	       <th class="text-center" width=50%>제목</th>
 	       <th class="text-center" width=15%>작성자</th>
-	       <th class="text-center" width=10%>작성일</th>
+	       <th class="text-center" width=15%>작성일</th>
+	       <th class="text-center" width=10%>조회수</th>
 	     </tr>
+	     <c:forEach var="vo" items="${list }">
+        <tr>
+          <td width="10%" class="text-center">${vo.no }</td>
+          <td width="50%"><a href="../qnaboard/detail.do?no=${vo.no }">${vo.title }</a>
+            &nbsp;&nbsp;
+            <c:if test="${vo.rcount>0 }">
+             (${vo.rcount })
+            </c:if>
+          </td>
+          <td width="15%" class="text-center">${vo.name }</td>
+          <td width="15%" class="text-center">${vo.dbday }</td>
+          <td width="10%" class="text-center">${vo.hit }</td>
+        </tr>
+        </c:forEach>
      	</table>
-     	
-     	
-
-     </div>
+    </div>
+    <div class=bn>
+     	<td class="text-center inline">
+		   <a href="#" class="btn1 btn-sm">이전</a>
+		   ${curpage } / ${totalpage }
+		   <a href="#" class="btn2 btn-sm">다음</a>
+		</td>
+	</div>
+    </div>
      <div class="row">
      	<table class="table_search">
 			<tr>
@@ -108,4 +131,5 @@ a{
 		</table>
      </div>
    </div>
+ </div>
 </body>
