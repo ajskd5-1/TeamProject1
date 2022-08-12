@@ -49,7 +49,7 @@
             </ul>
           </li>
           
-          <li class="dropdown"><a href="../board/list.do"><span>문의</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li class="dropdown"><a href="../qnaboard/list.do"><span>문의</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
             </ul>
