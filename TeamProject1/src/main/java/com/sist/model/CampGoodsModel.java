@@ -51,6 +51,14 @@ public class CampGoodsModel {
 			endPage = totalpage;
 		}
 
+		
+		for(CampGoodsVO vo : list) {
+			String image = vo.getG_image();
+			if(image.indexOf(";") != -1) {
+				image = image.substring(0, image.indexOf(";"));
+			} 
+			vo.setG_image(image);
+		}
 
 		request.setAttribute("curpage", curpage);
 		request.setAttribute("totalpage", totalpage);
