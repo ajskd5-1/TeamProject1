@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.campgoods-mapper">
+	<select id="campgoodsListData" resultType="CampGoodsVO" parameterType="hashmap">
+		SELECT g_id,g_brand,g_name,g_image,g_price,num
+		FROM (SELECT g_id,g_brand,g_name,g_image,g_price,rownum as num
+		FROM (SELECT /*+ INDEX_ASC()*/ g_id,g_brand,g_name,g_image,g_price
+		FROM goods_1))
+		WHERE g_id BETWEEN #{start} AND #{end}
+	</select>
+	<select id="campgoodsTotalPage" resultType="int" parameterType="hashmap">
+		SELECT CEIL(COUNT(*)/9.0) FROM goods_1
+	</select>
+</mapper>
