@@ -24,6 +24,27 @@ public class QnaboardDAO {
 			   ex.printStackTrace();
 		   }
 	   }
+	   // 문의게시판 총페이지 출력
+	   public static int qnaboardTotalPage()
+	   {
+		   int total=0;
+		   SqlSession session=null;
+		   try
+		   {
+			   session=ssf.openSession();
+			   total=session.selectOne("qnaboardTotalPage");
+		   }catch(Exception ex)
+		   {
+			   System.out.println("qnaboardTotalPage : error");
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   if(session!=null)
+				   session.close(); // POOL => 반환 
+		   }
+		   return total;
+	   }
 	   
 	   // 문의게시판 목록 출력
 	   public static List<QnaBoardVO> qnaboardListData(Map map)
@@ -46,7 +67,7 @@ public class QnaboardDAO {
 		   }
 		   return list;
 	   }
-	   
+	     
 	   // 게시글 쓰기
 	   public static void qnaboardInsert(QnaBoardVO vo)
 	   {
@@ -67,29 +88,5 @@ public class QnaboardDAO {
 				   session.close();
 		   }
 	   }
-	  
-	   // 게시글 상세보기
-	   /*public static QnaBoardVO qnaboardDetailData(int no) 
-	   {
-		   QnaBoardVO vo=new QnaBoardVO();
-		   SqlSession session=null;		   
-		   try
-		   {
-			   session=ssf.openSession();
-			   // ? session.update("countIncrement",no);
-			   session.commit();
-			   vo=session.selectOne("qnaboardDetailData",no);
-		   }catch(Exception ex)
-		   {
-			   System.out.println("qnaboardDetailData : error");
-			   ex.printStackTrace();
-		   }
-		   finally
-		   {
-			   if(session!=null)
-				   session.close();
-		   }
-		   return vo;
-	   }*/
 
 }

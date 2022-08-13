@@ -5,6 +5,30 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#writeBtn').click(function(){
+		let subject=$('#title').val();
+		if(subject.trim()=="")
+		{
+			$('#title').focus();
+			$('#title_result1').text("제목을 입력하세요.");
+			return;
+		}
+		
+		let content=$('#content').val();
+		if(content.trim()=="")
+		{
+			$('#content').focus();
+			$('#content_result1').text("내용을 입력하세요.");
+			return;
+		}
+		
+		$('#frm').submit();
+	})
+})
+</script>
 <style type="text/css">
 @font-face {
     font-family: 'NanumSquareRound';
@@ -39,35 +63,45 @@
 .div1{
 	margin-left: 200px;
 }
+.hr{
+	border: 0;
+    height: 5px;
+    background: #cbdfbd;
+}
 </style>
 </head>
 <body>
-<!-- <div class="wrapper row3">
-  <div id="breadcrumb" class="clear"> 
-    ################################################################################################
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">문의게시판</a></li>
-    </ul>
-    ################################################################################################ 
-  </div>
-</div> -->
+<div class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <a href="../qnaboard/list.do"><h2 style="font-size: 18pt; font-weight: bold;">캠핑<sup>+</sup> 문의</h2></a>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>문의게시판</li>
+            <li>작성</li>
+          </ol>
+        </div>
+
+      </div>
+</div>
 <div class="wrapper row3">
 <main class="container clear">
 	<div class=div1>
-    <h2 class="sectiontitle" style="font-weight: bold">글쓰기</h2>
+    <h2 class="sectiontitle" style="font-weight: bold">1:1문의</h2>
+    <hr class="hr">
      <form method=post action="../qnaboard/insert_ok.do" id="frm">
       <table class="table">
         <tr>
-          <th width=20%>제목</th>
-          <td width=10%>
-            <input type=text name=subject size=50 class="input-sm" id="subject">
-          </td>
+         <th width=20%>제목</th>
+         <td width=10%>
+            <input type=text name=title size=50 class="input-sm" id="title" placeholder="제목을 입력하세요.">
+         </td>
         </tr>
         <tr>
           <th width=20%>내용</th>
           <td width=80%>
-            <textarea rows="10" cols="50" name=content id="content"></textarea>
+            <textarea rows="10" cols="50" name=content id="content" placeholder="내용을 입력하세요." ></textarea>
           </td>
         </tr>
         <tr>
@@ -77,8 +111,18 @@
 		  </td>
 		</tr>
 		<tr>
+		  <td colspan="2">
+		      <h6 id="title_result1" style="color:red;"></h6>
+		  </td>
+		</tr>
+		<tr>
+		  <td colspan="2">
+		      <h6 id="content_result1" style="color:red;"></h6>
+		  </td>
+		</tr>
+		<tr>
           <td colspan="2" class="text-center">
-            <input type=button value="글쓰기" class="btn1 btn-sm" id="writeBtn">
+            <input type=button value="등록" class="btn1 btn-sm" id="writeBtn">
             <input type=button value="취소" class="btn2 btn-sm"
               onclick="javascript:history.back()">
           </td>
