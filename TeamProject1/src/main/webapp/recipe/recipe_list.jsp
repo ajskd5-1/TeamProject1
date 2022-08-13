@@ -38,9 +38,9 @@
               <div class="col-lg-4" >
                 <article class="d-flex flex-column">
                   <div class="post-img"  style="height: 400px;" onclick="location.href='../recipe/recipe_detail_before.do?cr_no=${vo.cr_no}'">
-                    <img src="${vo.cr_poster }" alt="" class="img-fluid">
+                    <img src="${vo.cr_poster }" style="height: 110%; width: 140%;"alt="" class="img-fluid" >
                   </div>
-                  <h2 class="title">
+                  <h2 class="title" style="margin-top: 18px;">
                     <a href="../recipe/recipe_detail_before.do?cr_no=${vo.cr_no}">${vo.cr_title }</a>
                   </h2>
                   <div class="meta-top">
@@ -50,11 +50,12 @@
                       <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">!!수정필!!</a></li>
                     </ul>
                   </div>
-                  <div class="content">
-                    <p>${vo.cr_subtitle }</p>
+                  <div class="content"style="margin-top: 15px;">
+                    <p style="margin-bottom: 0px;">${vo.cr_subtitle }</p>
                   </div>
                   <div class="read-more mt-auto align-self-end">
-                    <a href="../recipe/recipe_detail_before.do?cr_no=${vo.cr_no}">레시피 보기</a>
+                    <a href="../recipe/recipe_detail_before.do?cr_no=${vo.cr_no}
+                    "style="margin-bottom: 0px; background-color: white; color:#0ea2bd; padding-right: 5px;">레시피 보기 →</a>
                   </div>
                 </article>
               </div><!-- End post list item -->

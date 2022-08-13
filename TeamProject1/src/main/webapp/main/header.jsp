@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,6 +55,28 @@
               <li><a href="#">Drop Down 1</a></li>
             </ul>
           </li>
+          <c:if test="${sessionScope.id!=null }">
+	          <c:if test="${sessionScope.m_admin=='n' }">
+	          <li class="dropdown"><a href="#"><span>마이페이지</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+	            <ul>
+	              <li><a href="#">마이페이지</a></li>
+	              <li><a href="#">Drop Down 2</a></li>
+	              <li><a href="#">Drop Down 3</a></li>
+	              <li><a href="#">Drop Down 4</a></li>
+	            </ul>
+	          </li>
+	          </c:if>
+	          <c:if test="${sessionScope.m_admin=='y' }">
+	          <li class="dropdown"><a href="#"><span>어드민페이지</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+	            <ul>
+	              <li><a href="#">어드민페이지</a></li>
+	              <li><a href="#">Drop Down 2</a></li>
+	              <li><a href="#">Drop Down 3</a></li>
+	              <li><a href="#">Drop Down 4</a></li>
+	            </ul>
+	          </li>
+	          </c:if>
+          </c:if>
           
         </ul>
         <i class="bi bi-list mobile-nav-toggle d-none"></i><!-- 아마 모바일창 -->
@@ -63,9 +86,17 @@
      <a class="btn-getstarted" href="index.html#about"">로그인</a>
       -->
    
+   		<c:if test="${sessionScope.id!=null }">
+		<p style="margin: 14px 20px; color:#3A4753B3">[ <span style="font-weight: bold;"><%=(String)session.getAttribute("nickname")%></span> ]님 환영합니다.</p>
+		</c:if>
 		<div class="header-icon" style="display: inline;">
-        	<a href="../cart/shoppingcart.do"><img src="../cart/images/cart.png" style="width:50px; height:50px;  margin-right: 10px;"></a>
-        	<a href="../member/login.do"><img src="../assets/img/main/user.png"" style="width:50px; height:50px"></a>
+        	<a href="../cart/shoppingcart.do"><img src="../cart/images/cart.png" style="width:50px; height:50px;  margin-right: 20px;"></a>
+        	<c:if test="${sessionScope.id==null }">
+        		<a href="../member/login.do"><img src="../assets/img/main/user5.png"" style="width:50px; height:50px; margin-right: 20px;"></a>
+      		</c:if>
+        	<c:if test="${sessionScope.id!=null }">
+        		<a href="../member/logout.do"><img src="../assets/img/main/logout1.png"" style="width:40px; height:40px; margin-right: 20px;"></a>
+      		</c:if>
       	</div>
    
      

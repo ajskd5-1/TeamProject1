@@ -37,6 +37,9 @@
 <!-- Template Main CSS File -->
 <link href="../assets/css/main.css" rel="stylesheet">
 
+<!-- recipe CSS -->
+<link href="../assets/css/recipe.css" rel="stylesheet">
+
 <!-- =======================================================
 * Template Name: HeroBiz - v2.2.0
 * Template URL: https://bootstrapmade.com/herobiz-bootstrap-business-template/

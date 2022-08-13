@@ -6,7 +6,7 @@
 
 body {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  background: #ededed;
+  background: #f9f9f9;
 }
 
 input, button {
@@ -82,7 +82,7 @@ button {
   top: 0;
   width: 900px;
   height: 100%;
-  background-image: url("./member_member.jpg");
+  background-image: url("./m_camping1.jpg");
   background-size: cover;
   transition: transform 1.2s ease-in-out;
 }

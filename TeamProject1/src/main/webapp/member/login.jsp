@@ -22,11 +22,33 @@ $(function(){
 				$('#pwd').focus();
 				return;
 			}
-	})
-	
 	$.ajax({
 		type:'post',
-		url:'idfind',
+		url:'../member/login_ok.do',
+		data:{"id":id,"pwd":pwd},
+		success:function(result)
+		{
+			let res=result.trim();
+			if(res==='NOID')
+			{
+				alert("아이디가 존재하지 않습니다.");
+				$('#id').val("")
+				$('#pwd').val("")
+				$('#id').focus();
+			}
+			else if(res==='NOPWD')
+			{
+				alert("비밀번호가 틀립니다.");
+				$('#pwd').val("");
+				$('#pwd').focus();
+			}
+			else
+			{
+				location.href="../main/main.do";
+			}
+			
+		}
+		})
 	})
 })
 </script>
@@ -55,8 +77,8 @@ $(function(){
         <h2 style="color: white">
         회원이<br>
          아니신가요?</h2><br><br>
-        <p>캠핑장,캠핑용품,캠핑레시피<br>
-         캠핑에 관한 모든 정보를 제공하는<br>
+        <p>캠핑에 관한<br>
+         다양한 정보를 제공하는<br>
          캠핑<sup>+</sup>의 편리함을 경험해보세요</p><br>
         <button type="button" class="submit" style="margin:0px auto;width:100px;border-radius:20px;">가입하기</button>
       </div>

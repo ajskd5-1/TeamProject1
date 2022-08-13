@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+
+.img_box.clr img{
+	height: 540x;
+	width: 720px;
+	margin: 100px 0 20px;
+}
+
+.recipe_detail .num{
+	font-size: 15pt; 
+	font-weight: bold;
+	color: #0ea2bd;
+	margin-bottom: 30px;
+	text-decoration: underline;
+}
+
+.recipe_detail .text_exp{
+	color:#485664;
+	font-size: 21px;
+	font-family: "Open Sans";
+	font-weight: bold;
+	margin-bottom: 30px;
+	
+}
+
+.recipe_detail .tip img{
+	width: 70px;
+	height: 27px;
+	margin-bottom: 3px;
+}
+
+.recipe_detail .tip_text{
+	color: gray;
+	font-weight: bold;
+}
+
+.rec_mate .mate_title.clr{
+	color:#485664;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.rec_mate .text_o img{
+	width: 15px;
+	height: 17px;
+	margin-bottom: 6px;
+	margin-left: 20px;
+	margin-right: 3px;
+}
+
+.rec_mate .text_o{
+	color:#fd7405;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.rec_mate h3{
+	color:#485664;
+}
+	
