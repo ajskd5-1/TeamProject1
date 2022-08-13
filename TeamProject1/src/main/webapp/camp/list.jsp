@@ -8,13 +8,28 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>캠핑<sup>+</sup> 캠핑장</h2>
+          <ol>
+            <li><a href="../main/main.do">Home</a></li>
+            <li><a href="../camp/list.do">캠핑장</a></li>
+          </ol>
+        </div>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
 	<!-- ======= Features Section ======= -->
     <section id="features" class="features">
       <div class="container" data-aos="fade-up">
         <div class="tab-content">
 		<c:forEach var="vo" items="${list }">
           <div class="tab-pane active show" id="tab-1">
-            <div class="row gy-4">
+            <div class="row gy-4" style=" cursor: pointer; margin-bottom: 50px;" onclick="location.href='../camp/detail.do?no=${vo.no}'">
               <div class="col-lg-8 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="100">
                 <h3>${vo.c_title }</h3>
                 <p>
@@ -22,18 +37,16 @@
                   ${vo.c_addr }
                 </p>
                 <ul>
-                  <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                  <li><i class="bi bi-check-circle-fill"></i> ${vo.c_content }</li>
                   <li><i class="bi bi-check-circle-fill"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                  <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+                  <li><i class="bi bi-check-circle-fill"></i> ${vo.c_info2 }</li>
                 </ul>
                 <p>
-                  Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                  culpa qui officia deserunt mollit anim id est laborum
+                  
                 </p>
               </div>
               <div class="col-lg-4 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-                <img src="${vo.c_poster }" alt="" class="img-fluid">
+                <img src="${vo.c_poster }" alt="" class="img-fluid" style="height: 300px">
               </div>
             </div>
           </div><!-- End Tab Content 1 -->

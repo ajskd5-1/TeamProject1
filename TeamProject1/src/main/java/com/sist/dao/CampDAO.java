@@ -69,4 +69,21 @@ public class CampDAO {
 		}
 		return list;
 	}
+	
+	// 캠핑장 상세보기
+	// <select id="campDetailData" resultType="CampVO" parameterType="int">  조회수 증가 <update id="campHitIncrement" parameterType="int">
+	public static CampVO campDetailData(int no) {
+		SqlSession session = null;
+		CampVO vo = new CampVO();
+		try {
+			session = ssf.openSession();
+			session.update("campHitIncrement", no);
+			vo = session.selectOne("campDetailData", no);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return vo;
+	}
 }

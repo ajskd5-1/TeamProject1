@@ -215,8 +215,7 @@ section{
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>캠핑장 안전수칙 동영상</h2>
-          <p>Ea vitae aspernatur deserunt voluptatem impedit deserunt magnam occaecati dssumenda quas ut ad dolores adipisci aliquam.</p>
+          <h2><i class="bi bi-youtube" style="color: #0ea2bd;"></i>캠핑장 안전수칙 동영상</h2>
         </div>
 
         <div class="row gy-5">
@@ -225,8 +224,7 @@ section{
             <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200" style="margin-bottom: 50px;">
               <div class="service-item" style="height: 250px;">
                 <div class="img" style="height: 100%;">
-                  <!-- <img src="../assets/img/services-1.jpg" class="img-fluid" alt=""> -->
-                  <iframe width="100%" height="100%" src="${video.cv_link }" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <iframe width="100%" height="100%" src="${video.cv_link }?controls=1&showinfo=0&modestbranding=1"></iframe>
                 </div>
                 <div class="p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end" style="margin-top: 10px;">
                   ${video.cv_title }
@@ -240,7 +238,6 @@ section{
     </section><!-- End Services Section -->
 
 
-
     <!-- ======= F.A.Q Section ======= -->
     <section id="faq" class="faq">
       <div class="container-fluid" data-aos="fade-up">
@@ -250,7 +247,7 @@ section{
           <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
 
             <div class="content px-xl-5">
-              <h3>Frequently Asked <strong>Questions</strong></h3>
+              <h3>캠핑<sup>+</sup><strong> 이런게 궁금해요</strong></h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
               </p>
@@ -262,7 +259,7 @@ section{
                 <h3 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
                     <i class="bi bi-question-circle question-icon"></i>
-                    Non consectetur a erat nam at lectus urna duis?
+                    캠핑장에 반려동물과 함께 이용할 수 있나요
                   </button>
                 </h3>
                 <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
@@ -276,7 +273,7 @@ section{
                 <h3 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
                     <i class="bi bi-question-circle question-icon"></i>
-                    Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?
+                    캠핑장 예약 날짜를 변경하고 싶어요
                   </button>
                 </h3>
                 <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
@@ -290,7 +287,7 @@ section{
                 <h3 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
                     <i class="bi bi-question-circle question-icon"></i>
-                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?
+                    캠핑장 예약 취소 및 환불 규정이 어떻게 되나요
                   </button>
                 </h3>
                 <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
@@ -304,7 +301,7 @@ section{
                 <h3 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4">
                     <i class="bi bi-question-circle question-icon"></i>
-                    Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?
+                    캠핑용품 재입고 알림을 받고싶어요
                   </button>
                 </h3>
                 <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
@@ -319,7 +316,7 @@ section{
                 <h3 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-5">
                     <i class="bi bi-question-circle question-icon"></i>
-                    Tempus quam pellentesque nec nam aliquam sem et tortor consequat?
+                    캠핑용품 환불 및 교환 규정이 궁금해요
                   </button>
                 </h3>
                 <div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist">
@@ -332,8 +329,7 @@ section{
             </div>
 
           </div>
-
-          <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("../assets/img/faq.jpg");'>&nbsp;</div>
+          <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("../assets/img/main/faq.jpg");'>&nbsp;</div>
         </div>
 
       </div>

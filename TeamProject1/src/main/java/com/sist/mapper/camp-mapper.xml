@@ -3,10 +3,10 @@
 <mapper namespace="com.sist.mapper.camp-mapper">
 	<!-- 캠핑장 리스트 -->
 	<select id="campListData" resultType="CampVO" parameterType="hashmap">
-		SELECT no, c_title, c_poster, c_content, c_addr, num
-		FROM (SELECT no, c_title, c_poster, c_content, c_addr, rownum as num
-		FROM (SELECT /*+ INDEX_ASC()*/ no, c_title, c_poster, c_content, c_addr
-		FROM camp_1))
+		SELECT no, c_title, c_poster, c_content, c_addr, c_info2, num
+		FROM (SELECT no, c_title, c_poster, c_content, c_addr, c_info2, rownum as num
+		FROM (SELECT /*+ INDEX_ASC()*/ no, c_title, c_poster, c_content, c_addr, c_info2
+		FROM camp_1 ORDER BY no ASC))
 		WHERE num BETWEEN #{start} AND #{end}
 	</select>
 	<!-- 캠핑장 총페이지 -->
@@ -17,7 +17,7 @@
 	<!-- 캠핑장 상세페이지 -->
 	<update id="campHitIncrement" parameterType="int">
 		UPDATE camp_1 SET
-		hit = hit + 1
+		c_hit = c_hit + 1
 		WHERE no=#{no}
 	</update>
 	<select id="campDetailData" resultType="CampVO" parameterType="int">

@@ -14,6 +14,7 @@ import com.sist.dao.*;
 
 @Controller
 public class CampModel {
+	// 캠핑장 리스트
 	@RequestMapping("camp/list.do")
 	public String campListData(HttpServletRequest request, HttpServletResponse response) {
 		String page = request.getParameter("page");
@@ -47,6 +48,35 @@ public class CampModel {
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("list", list);
 		request.setAttribute("main_jsp", "../camp/list.jsp");
+		return "../main/main.jsp";
+	}
+	
+	// 캠핑장 상세보기
+	@RequestMapping("camp/detail.do")
+	public String campDetailData(HttpServletRequest request, HttpServletResponse response) {
+		String no = request.getParameter("no");
+		CampVO vo = CampDAO.campDetailData(Integer.parseInt(no));
+		String info = vo.getC_info();
+		if(info.replaceAll("<i class=\"ico_link\"><span class=\"skip\">새창으로</span></i>", " ") != null) {
+			info = info.replaceAll("<i class=\"ico_link\"><span class=\"skip\">새창으로</span></i>", " ");
+		}
+		String etcinfo = vo.getC_etcinfo();
+		String etcinfo2 = "";
+		if(etcinfo.replaceAll("table_t4 camp_etc_tb", "") != null	) {
+			etcinfo = etcinfo.replaceAll("table_t4 camp_etc_tb", "table");
+			etcinfo = etcinfo.replaceAll("<br>", "");
+		}
+		if(etcinfo.indexOf("<strong>")!=-1) {
+			etcinfo2 = etcinfo.substring(etcinfo.lastIndexOf("</p>"), etcinfo.length());
+			etcinfo = etcinfo.substring(0, etcinfo.indexOf("<strong>"));
+			etcinfo = etcinfo + etcinfo2;
+			
+		}
+		
+		request.setAttribute("vo", vo);
+		request.setAttribute("info", info);
+		request.setAttribute("etcinfo", etcinfo);
+		request.setAttribute("main_jsp", "../camp/detail.jsp");
 		return "../main/main.jsp";
 	}
 }

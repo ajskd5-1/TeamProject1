@@ -53,6 +53,10 @@
 *.{
 	font-family: 'NanumSquareRound' important;
 }
+section{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
 </style>
 </head>
 <body>
