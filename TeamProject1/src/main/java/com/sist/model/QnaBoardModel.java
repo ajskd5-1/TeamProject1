@@ -14,4 +14,11 @@ public class QnaBoardModel {
 		request.setAttribute("main_jsp", "../qnaboard/list.jsp");
 		return "../main/main.jsp";
 	}
+
+	@RequestMapping("qnaboard/insert.do")
+	public String freeboard_insert(HttpServletRequest request, HttpServletResponse response)
+	{
+		request.setAttribute("main_jsp", "../qnaboard/insert.jsp");
+		return "../main/main.jsp";
+	}
 }

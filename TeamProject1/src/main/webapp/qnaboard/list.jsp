@@ -7,7 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style type="text/css">
 @font-face {
     font-family: 'NanumSquareRound';
@@ -19,7 +18,7 @@
 	font-family: 'NanumSquareRound';
 }
 .container{
-	margin-top: 100px;
+	margin-top: 5px;
 }
 .qna_img{
 	position: relative;
@@ -32,15 +31,13 @@
 	left: 50%;
 	transform: translate( -50%, -50% );
 }
-
 .table_search{
- /*  position: fixed; */
   margin-bottom:20px;
   margin-left: 15px;
 }
 #submit_style{
 	width:80px;
-	height:25px;
+	height:30px;
 	background-color:#cbdfbd; 
 	border: none;
 }
@@ -48,12 +45,12 @@
 	background-color:#84a98c;
 }
 .button1{
-	margin-left:550px;
-	padding : 5px;
+	margin-left:650px;
+	padding : 8px;
 	background-color:#cbdfbd; 
 }
 .button2, .btn1{
-	padding : 5px;
+	padding : 8px;
 	background-color:#d3d3d3; 
 }
 a{
@@ -61,7 +58,7 @@ a{
 	text-decoration : none;
 }
 .btn2{
-	padding : 5px;
+	padding : 8px;
 	background-color:#cbdfbd; 
 }
 .bn{
@@ -71,8 +68,21 @@ a{
 </style>
 </head>
 <body>
+<div class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <a href="../qnaboard/list.do"><h2 style="font-size: 18pt; font-weight: bold;">캠핑<sup>+</sup> 문의</h2></a>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>문의게시판</li>
+          </ol>
+        </div>
+
+      </div>
+    </div>
+
    <div class="container">
-    <div class="col-lg-12">
     <div class="qna_img"> 
      <p>
    	   <img src="../assets/img/qnaboard/qna.jpg" style="width:100%; height:50%;">
@@ -80,7 +90,7 @@ a{
        <h1 class="text_board" style="font-size:50px; color:#FFFFFF; font-weight: bold;">문의게시판</h1>
    </div>
      <div class="row">
-     <div style="height: 450px;">
+     <div style="height: 500px;">
        <table class="table">
 	     <tr style="background-color:#cbdfbd;">
 	       <th class="text-center" width=10%>번호</th>
@@ -105,31 +115,30 @@ a{
         </c:forEach>
      	</table>
     </div>
-    <div class=bn>
+    <%-- <div class=bn>
      	<td class="text-center inline">
 		   <a href="#" class="btn1 btn-sm">이전</a>
 		   ${curpage } / ${totalpage }
 		   <a href="#" class="btn2 btn-sm">다음</a>
 		</td>
-	</div>
+	</div> --%>
     </div>
      <div class="row">
      	<table class="table_search">
 			<tr>
 			<td class="board_search">
-			 	<select name=fs style="width:80px;height:25px";>
+			 	<select name=fs style="width:80px;height:30px";>
 			 		<option value="name">작성자</option>
 					<option value="title">제목</option>
 					<option value="content">내용</option>
 			 	</select>
 			 	<input type=text name=ss size=40>
 			 	<input id="submit_style" type=submit value="검색하기">
-			 	<a href="#" class="button1">작성</a>
+			 	<a href="../qnaboard/insert.do" class="button1">작성</a>
             	<a href="#" class="button2">목록</a>
 			 </td>
 			</tr>
 		</table>
      </div>
    </div>
- </div>
 </body>

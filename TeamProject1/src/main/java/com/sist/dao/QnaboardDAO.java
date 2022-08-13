@@ -1,6 +1,6 @@
 package com.sist.dao;
 
-import java.io.Reader;
+import java.io.Reader; 
 import java.util.List;
 import java.util.Map;
 
@@ -47,15 +47,15 @@ public class QnaboardDAO {
 		   return list;
 	   }
 	   
-	   // 게시글 파일 첨부
+	   // 게시글 쓰기
 	   public static void qnaboardInsert(QnaBoardVO vo)
 	   {
 		   SqlSession session=null;
-		   List<QnaBoardVO> list=null;
 		   try
 		   {
 			   session=ssf.openSession();
 			   session.insert("qnaboardInsert",vo);
+			   session.commit();
 		   }catch(Exception ex)
 		   {
 			   System.out.println("qnaboardInsert : error");
