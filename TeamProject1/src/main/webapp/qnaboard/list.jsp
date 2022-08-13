@@ -104,24 +104,24 @@ a{
           <td width="10%" class="text-center">${vo.no }</td>
           <td width="50%"><a href="../qnaboard/detail.do?no=${vo.no }">${vo.title }</a>
             &nbsp;&nbsp;
-            <c:if test="${vo.rcount>0 }">
-             (${vo.rcount })
+            <c:if test="${vo.count>0 }">
+             (${vo.count })
             </c:if>
           </td>
           <td width="15%" class="text-center">${vo.name }</td>
           <td width="15%" class="text-center">${vo.dbday }</td>
-          <td width="10%" class="text-center">${vo.hit }</td>
+          <td width="10%" class="text-center">${vo.count }</td>
         </tr>
         </c:forEach>
      	</table>
     </div>
-    <%-- <div class=bn>
+ 	<div class=bn>
      	<td class="text-center inline">
 		   <a href="#" class="btn1 btn-sm">이전</a>
 		   ${curpage } / ${totalpage }
 		   <a href="#" class="btn2 btn-sm">다음</a>
 		</td>
-	</div> --%>
+	</div>
     </div>
      <div class="row">
      	<table class="table_search">

@@ -4,6 +4,13 @@ public class QnaBoardVO {
 	private int no,count,groud_id,group_step,group_tab,isreply;
 	private String name,title,content,filesize,filename,dbday;
 	private Date regdate;
+	
+	public String getDbday() {
+		return dbday;
+	}
+	public void setDbday(String dbday) {
+		this.dbday = dbday;
+	}
 	public int getNo() {
 		return no;
 	}
