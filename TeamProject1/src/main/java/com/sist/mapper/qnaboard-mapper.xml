@@ -6,9 +6,9 @@
 	private Date regdate; -->
 <!-- 목록 출력 -->
 <select id="qnaboardListData" resultType="QnaBoardVO" parameterType="hashmap">
-	SELECT no,title,name,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,count,isreply,group_id,group_tab,num
-    FROM (SELECT no,title,name,regdate,count,isreply,group_id,group_tab,rownum as num
-    FROM (SELECT no,title,name,regdate,count,isreply,group_id,group_tab
+	SELECT no,title,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,count,isreply,group_id,group_tab,num
+    FROM (SELECT no,title,regdate,count,isreply,group_id,group_tab,rownum as num
+    FROM (SELECT no,title,regdate,count,isreply,group_id,group_tab
     FROM qna_board_1 ORDER BY group_id DESC,group_step ASC))
     WHERE num BETWEEN #{start} AND #{end}
 </select>
@@ -16,17 +16,20 @@
 <select id="qnaboardTotalPage" resultType="int">
     SELECT CEIL(COUNT(*)/10.0) FROM qna_board_1
 </select>
-<!-- 파일 첨부 -->
+<!-- 게시글 작성 -->
 <select id="qnaboardInsert">
-	INSERT INTO qna_board_1(no,name,title,content,filename,filesize)
- --></select>
+	INSERT INTO qna_board_1(no,title,content,filename,filesize)
+	VALUES((SELECT NVL(MAX(no)+1,1) FROM qna_board_1,
+	#{title},#{content},#{filename},#{filesize}
+	)
+</select>
 <!-- 상세 보기 -->
 <select id="qnaboardDetailData" resultType="QnaBoardVO" parameterType="int">
-	SELECT no,name,title,content,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,count
+	SELECT no,title,content,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,count
     FROM qna_board_1
     WHERE no=#{no}
 </select>
-<!-- 수정, 삭제 --> 
+<!-- 수정, 삭제 -->
 <update id="qnaboardUpdate" parameterType="QnaBoardVO">
     UPDATE qna_board_1 SET
     name=#{name},title=#{title},content=#{content}
