@@ -1,0 +1,67 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+body {
+  margin: 0;
+  font-family: Open Sans, sans-serif;
+  font-size: 20px;
+  text-align: center;
+
+}
+
+html {
+  min-height: 100%;
+}
+
+#content {
+  width: 180px;
+  margin: auto;
+  text-align: center;
+  
+}
+
+.arrow {
+  width: 180px;
+  border: none;
+  margin: 30px 0;
+  line-height: 34px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  color: #efefef;
+  border-radius: 10px;
+  transition: all 0.4s;
+}
+.arrow.arrow {
+  background-color: #008299;;
+}
+.arrow.arrow:after, .arrow.arrow:before {
+  border-width: 17px 0 17px 17px;
+  transition: all 0.2s;
+}
+.arrow.arrow:before {
+  border-color: #008299 transparent;
+  left: 10px;
+}
+.arrow.arrow:after {
+  border-color: transparent #008299;
+  right: 10px;
+}
+.arrow.arrow:hover {
+  border-radius: 0px;
+}
+.arrow.arrow:hover:before {
+  border-color: #008299 transparent;
+  left: -17px;
+}
+.arrow.arrow:hover:after {
+  border-color: transparent #008299;;
+  right: -17px;
+}
+
+.arrow:before, .arrow:after {
+  content: '';
+  position: absolute;
+  height: 0;
+  width: 0;
+  border-style: solid;
+  border-width: 0;
+}

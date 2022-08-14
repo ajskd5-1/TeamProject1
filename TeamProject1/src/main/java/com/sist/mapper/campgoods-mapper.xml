@@ -2,13 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sist.mapper.campgoods-mapper">
 	<select id="campgoodsListData" resultType="CampGoodsVO" parameterType="hashmap">
-		SELECT g_id,g_brand,g_name,g_image,g_price,num
-		FROM (SELECT g_id,g_brand,g_name,g_image,g_price,rownum as num
-		FROM (SELECT /*+ INDEX_ASC()*/ g_id,g_brand,g_name,g_image,g_price
+		SELECT g_id,g_brand,g_name,g_image,g_price,g_detail, num
+		FROM (SELECT g_id,g_brand,g_name,g_image,g_price,g_detail, rownum as num
+		FROM (SELECT /*+ INDEX_ASC()*/ g_id,g_brand,g_name,g_image,g_price,g_detail
 		FROM goods_1))
 		WHERE g_id BETWEEN #{start} AND #{end}
 	</select>
 	<select id="campgoodsTotalPage" resultType="int" parameterType="hashmap">
 		SELECT CEIL(COUNT(*)/9.0) FROM goods_1
 	</select>
+	<select id="campgoodsDetailData" resultType="CampGoodsVO" parameterType="int">
+		SELECT * FROM goods_1
+		WHERE g_id=#{g_id}
+	</select>
 </mapper>
+
+<!-- 
+	NO       NOT NULL NUMBER        
+	G_TYPE            VARCHAR2(500) 
+	G_TITLE           VARCHAR2(500) 
+	G_POSTER          VARCHAR2(500) 
+	G_PRICE           NUMBER        
+	G_IMGS            CLOB          
+	G_HIT             NUMBER      
+	
+
+ -->

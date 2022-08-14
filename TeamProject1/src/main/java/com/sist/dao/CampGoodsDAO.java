@@ -11,6 +11,9 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.sist.vo.CampGoodsVO;
 
+
+
+
 public class CampGoodsDAO {
 	private static SqlSessionFactory ssf;
 	static 
@@ -69,5 +72,28 @@ public class CampGoodsDAO {
 		}
 		return total;
 	}
-
+//	<select id="campgoodsDetailData" resultType="CampGoodsVO" parameterType="int">
+		public static CampGoodsVO campgoodsDetailData(int g_id)
+		{
+			SqlSession session=null;
+			CampGoodsVO vo=null;
+			try 
+			{
+				session=ssf.openSession();
+				vo=session.selectOne("campgoodsDetailData",g_id);
+			}catch(Exception ex)
+			{
+				System.out.println("campgoodsDetailData:error");
+				ex.printStackTrace();
+			}
+			finally
+			{
+				if(session!=null)
+				{
+					session.close();
+				}
+			}
+			return vo;
+		}
+	
 }

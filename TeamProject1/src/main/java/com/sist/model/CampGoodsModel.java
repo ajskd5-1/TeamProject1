@@ -50,7 +50,6 @@ public class CampGoodsModel {
 		if(endPage>totalpage) {
 			endPage = totalpage;
 		}
-
 		
 		for(CampGoodsVO vo : list) {
 			String image = vo.getG_image();
@@ -59,6 +58,8 @@ public class CampGoodsModel {
 			} 
 			vo.setG_image(image);
 		}
+		
+
 
 		request.setAttribute("curpage", curpage);
 		request.setAttribute("totalpage", totalpage);
@@ -69,5 +70,32 @@ public class CampGoodsModel {
 		return "../main/main.jsp";
 	
 	}
+	@RequestMapping("campgoods/campgoods_detail_before.do")
+	public String campgoods_detail_before(HttpServletRequest request,HttpServletResponse response)
+	{
+		String g_id=request.getParameter("g_id");
+		Cookie cookie=new Cookie("g_id"+g_id, g_id);
+		cookie.setPath("/");
+		cookie.setMaxAge(60*60*24);
+		response.addCookie(cookie);
+		return "redirect:../campgoods/campgoods_detail.do?g_id="+g_id;
+		
+	}
+	@RequestMapping("campgoods/campgoods_detail.do")
+	public String campgoods_detail(HttpServletRequest request,HttpServletResponse response)
+	{
+		
+		String g_id=request.getParameter("g_id");
+		CampGoodsVO vo=CampGoodsDAO.campgoodsDetailData(Integer.parseInt(g_id));	
+		String image = vo.getG_image();
+		if(image.indexOf(";") != -1) {
+			image = image.substring(0, image.indexOf(";"));
+		} 
+		vo.setG_image(image);
+		request.setAttribute("vo", vo);
+		request.setAttribute("main_jsp", "../campgoods/campgoods_detail.jsp");
+		return "../main/main.jsp";
+	}
+	
 
 }

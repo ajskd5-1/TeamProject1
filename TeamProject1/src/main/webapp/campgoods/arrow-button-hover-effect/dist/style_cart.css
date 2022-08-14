@@ -1,0 +1,69 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+body {
+  margin: 0;
+  font-family: Open Sans, sans-serif;
+  font-size: 20px;
+  text-align: center;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VhZWFlYSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZGRkZGRkIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZWFlYWVhIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #eaeaea), color-stop(50%, #dddddd), color-stop(100%, #eaeaea));
+  background: -moz-linear-gradient(left, #eaeaea, #dddddd 50%, #eaeaea);
+  background: -webkit-linear-gradient(left, #eaeaea, #dddddd 50%, #eaeaea);
+  background: linear-gradient(to right, #eaeaea, #dddddd 50%, #eaeaea);
+}
+
+html {
+  min-height: 100%;
+}
+
+#content {
+  width: 180px;
+  margin: 45vh auto;
+}
+
+.arrow {
+  width: 180px;
+  border: none;
+  margin: 30px 0;
+  line-height: 34px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  color: #efefef;
+  border-radius: 10px;
+  transition: all 0.4s;
+}
+.arrow.arrow {
+  background-color: #c90c12;
+}
+.arrow.arrow:after, .arrow.arrow:before {
+  border-width: 17px 0 17px 17px;
+  transition: all 0.2s;
+}
+.arrow.arrow:before {
+  border-color: #c90c12 transparent;
+  left: 10px;
+}
+.arrow.arrow:after {
+  border-color: transparent #c90c12;
+  right: 10px;
+}
+.arrow.arrow:hover {
+  border-radius: 0px;
+}
+.arrow.arrow:hover:before {
+  border-color: #c90c12 transparent;
+  left: -17px;
+}
+.arrow.arrow:hover:after {
+  border-color: transparent #c90c12;
+  right: -17px;
+}
+
+.arrow:before, .arrow:after {
+  content: '';
+  position: absolute;
+  height: 0;
+  width: 0;
+  border-style: solid;
+  border-width: 0;
+}

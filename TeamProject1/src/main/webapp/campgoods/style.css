@@ -179,9 +179,13 @@ body {
   background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%);
 }
 .product-grid__price {
-  color: #E91E63;
+  color:#0ea2bd;
   font-weight: bold;
   letter-spacing: 0.4px;
+}
+.product-grid__price2 {
+  color:#0ea2bd;
+ 
 }
 .product-grid__extend-wrapper {
   position: relative;

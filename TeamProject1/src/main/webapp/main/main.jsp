@@ -61,7 +61,9 @@
 }
 *{
 	font-family: 'NanumSquareRound';
+	
 }
+
 .title{
 	font-family: 'BMJUA';
 }

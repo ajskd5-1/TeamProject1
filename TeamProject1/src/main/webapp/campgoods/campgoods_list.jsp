@@ -9,19 +9,48 @@
 <!--   <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="style.css">
+<style type="text/css">
+span{
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+li{
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+}
+p2{color:#4C4C4C;
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    
+}
+
+
+
+</style>
 </head>
 <body>
 <main id="main">
-   <!-- ======= Blog Section ======= -->
-    <div class="breadcrumbs">
+
+    <!-- ======= Breadcrumbs ======= -->
+      <div class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-         <h2>캠핑<sup>+</sup> 캠핑용품</h2>
+         <a href="../campgoods/campgoods_list.do"><h2 class="title" style="color:#0ea2bd;">캠핑<sup>+</sup> 캠핑용품</h2></a>
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>Blog</li>
+            <li ><a href="../main/main.do" class="title" style="color:#0ea2bd;">Home</a></li>
+            <li>CampGoods_list</li>
           </ol>
         </div>
 
@@ -39,16 +68,21 @@
 				<!-- Single product -->
 				<div class="product-grid__product-wrapper">
 					<div class="product-grid__product">
-						<div class="product-grid__img-wrapper">			
+						<div class="product-grid__img-wrapper" onclick="location.href='../campgoods/campgoods_detail_before.do?g_id=${vo.g_id}'">
+						 		
 							<img src="${vo.g_image }" alt="Img" class="product-grid__img">
+							
 						</div>
-						<span class="product-grid__title">${vo.g_name }</span>
-						<span class="product-grid__price">${vo.g_price }</span>
+						
+						<div class="title" onclick=" location.href='../campgoods/campgoods_detail_before.do?g_id=${vo.g_id}'">${vo.g_name }</div>
+						<div style="color:#0ea2bd; font-weight: bold;" onclick="location.href='../campgoods/campgoods_detail_before.do?g_id=${vo.g_id}'">￦: ${vo.g_price/100000 }원</div>
 						<div class="product-grid__extend-wrapper">
 							<div class="product-grid__extend">
-								<p class="product-grid__description">${vo.g_brand }</p>
-								<span class="product-grid__btn product-grid__add-to-cart"><i class="fa fa-cart-arrow-down"></i> Add to cart</span>				
-								<span class="product-grid__btn product-grid__view"><i class="fa fa-eye"></i> View more</span>
+								<p2 style="font-size: 12px;">${vo.g_brand }</p2>
+								<br>
+								<img src="../campgoods/cart2.png" style="width:35px; heigh:35px;">
+								<a href="../campgoods/campgoods_detail_before.do?g_id=${vo.g_id}"><img src="../campgoods/information2.png" style="width:35px; heigh:35px;"></a>			
+								
 							</div>
 						</div>
 					</div>
@@ -90,9 +124,12 @@
             </nav>
           </div>
         </div>
-       
+      
 				
         
 
 </main>
 </body>
+
+
+</html>
