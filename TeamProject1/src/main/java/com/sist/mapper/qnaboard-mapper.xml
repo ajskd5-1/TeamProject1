@@ -38,8 +38,12 @@
     <selectKey keyProperty="no" resultType="int" order="BEFORE">
       SELECT NVL(MAX(no)+1,1) as no FROM qna_board_1
     </selectKey>
-    INSERT INTO qna_board_1(no,name,title,content,filename,filesize,group_id)
-    VALUES(#{no},#{name},#{title},#{content},#{filename},#{filesize}
+    <!-- INSERT INTO qna_board_1(no,name,title,content,filename,filesize,group_id)   ==> filename, filesize를 jsp에서 받아야함
+    VALUES(#{no},#{name},#{title},#{content},#{filename},#{filesize},
+     (SELECT NVL(MAX(group_id)+1,1) FROM qna_board_1)
+    ) -->
+    INSERT INTO qna_board_1(no,name,title,content,group_id)
+    VALUES(#{no},#{name},#{title},#{content},
      (SELECT NVL(MAX(group_id)+1,1) FROM qna_board_1)
     )
 </insert>

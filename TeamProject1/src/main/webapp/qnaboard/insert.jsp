@@ -90,6 +90,7 @@ $(function(){
          <th width=20%>제목</th>
          <td width=10%>
             <input type=text name=title size=50 class="input-sm" id="title" placeholder="제목을 입력하세요.">
+            <input type="hidden" name="name" value="${sessionScope.name }"><!-- 세션에 저장된 name값 model로 넘겨줌 -->
          </td>
         </tr>
         <tr>
@@ -121,9 +122,9 @@ $(function(){
               onclick="javascript:history.back()">
           </td>
         </tr>
-        </div>
-      	</table>
+      </table>
       </form>
+      </div>
 </main>
 </div>
 </body>

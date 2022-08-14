@@ -7,11 +7,14 @@ import java.util.jar.Attributes.Name;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 import com.sist.dao.QnaboardDAO;
 import com.sist.vo.QnaBoardVO;
+
+import oracle.net.ns.SessionAtts;
 
 
 @Controller
@@ -69,12 +72,12 @@ public class QnaBoardModel {
 		{
 			request.setCharacterEncoding("UTF-8");
 		}catch(Exception ex) {}
-		
+
 		String name=request.getParameter("name");
 		String title=request.getParameter("title");
 		String content=request.getParameter("content");
-		String filesize=request.getParameter("filesize");
-		String filename=request.getParameter("filename");
+		String filesize=request.getParameter("filesize");//jsp에서 name="filesize로 받아야 하는데 insert.jsp에서 안넘겨줌
+		String filename=request.getParameter("filename");//jsp에서 name="filename로 받아야 하는데 insert.jsp에서 안넘겨줌
 		
 		QnaBoardVO vo=new QnaBoardVO();
 		vo.setName(name);
