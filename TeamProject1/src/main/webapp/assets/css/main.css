@@ -31,8 +31,7 @@ h3,
 h4,
 h5,
 h6 {
-	  /* font-family: var(--font-primary); */
-	  font-family: 'NanumSquareRound' important;
+	  font-family: var(--font-primary);
 }
 
 /*--------------------------------------------------------------
@@ -951,7 +950,7 @@ section {
 .hero-fullscreen {
   width: 100%;
   min-height: 100vh;
-  background: url("../img/main/main2.jpg") center center;
+  background: url("../img/main/campmain.jpg") center center;
   background-size: cover;
   position: relative;
   padding: 120px 0 60px;

@@ -18,10 +18,7 @@ section{
     <div class="container d-flex flex-column align-items-center position-relative text-center" data-aos="zoom-out">
       <h2 style="font-size: 80px;">캠핑<sup><span>+</span></sup></h2>
       <p style="font-size: 40px;">캠핑을 시작한다면 이들처럼! 캠핑의 다양한 정보가 가득</p>
-      <!-- <div class="d-flex">
-        <a href="#about" class="btn-get-started scrollto">Get Started</a>
-        <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
-      </div> -->
+      
     </div>
   </section>
 

@@ -31,15 +31,32 @@
           <div class="tab-pane active show" id="tab-1">
             <div class="row gy-4" style=" cursor: pointer; margin-bottom: 50px;" onclick="location.href='../camp/detail.do?no=${vo.no}'">
               <div class="col-lg-8 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="100">
-                <h3>${vo.c_title }</h3>
+                <h3 class="title">${vo.c_title }</h3>
                 <p>
                   <i class="bi bi-map-fill" style="color: #0ea2bd;"></i>
                   ${vo.c_addr }
                 </p>
                 <ul>
                   <li><i class="bi bi-check-circle-fill"></i> ${vo.c_content }</li>
-                  <li><i class="bi bi-check-circle-fill"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                  <li><i class="bi bi-check-circle-fill"></i> ${vo.c_info2 }</li>
+                  <li><i class="bi bi-check-circle-fill"></i> 캠핑장 시설</li>
+                  <li>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <c:forTokens items="${vo.c_info2 }" delims=" " var="info">
+                      <c:choose>
+                        <c:when test="${info eq '전기' }"><img src="https://img.icons8.com/external-phatplus-lineal-phatplus/64/000000/external-electric-electric-vehicles-phatplus-lineal-phatplus.png"/>&nbsp;&nbsp;&nbsp;&nbsp;</c:when>
+                        <c:when test="${info eq '와이파이' }"><img src="https://img.icons8.com/glyph-neue/64/000000/wifi.png"/>&nbsp;&nbsp;&nbsp;&nbsp;</c:when>
+                        <c:when test="${info eq '장작판매' }"><img src="https://img.icons8.com/pastel-glyph/64/000000/bonfire.png"/>&nbsp;&nbsp;&nbsp;&nbsp;</c:when>
+                        <c:when test="${info eq '온수' }"><img src="https://img.icons8.com/external-inipagistudio-mixed-inipagistudio/64/000000/external-water-manicure-and-pedicure-inipagistudio-mixed-inipagistudio.png"/>&nbsp;&nbsp;&nbsp;&nbsp;</c:when>
+                        <c:when test="${info eq '트렘폴린' }"><img src="https://img.icons8.com/ios/50/000000/trampoline-park.png"/>&nbsp;&nbsp;&nbsp;&nbsp;</c:when>
+                        <c:when test="${info eq '물놀이장' }"><img src="https://img.icons8.com/cotton/64/000000/swimming-pool--v2.png"/>&nbsp;&nbsp;&nbsp;&nbsp;</c:when>
+                        <c:when test="${info eq '놀이터' }"><img src="https://img.icons8.com/ios/50/000000/playground.png"/>&nbsp;&nbsp;&nbsp;&nbsp;</c:when>
+                        <c:when test="${info eq '산책로' }"><img src="https://img.icons8.com/ios/50/000000/trail--v2.png"/>&nbsp;&nbsp;&nbsp;&nbsp;</c:when>
+                        <c:when test="${info eq '운동장' }"><img src="https://img.icons8.com/dotty/80/000000/stadium.png"/>&nbsp;&nbsp;&nbsp;&nbsp;</c:when>
+                        <c:when test="${info eq '운동시설' }"><img src="https://img.icons8.com/fluency-systems-regular/48/000000/sports.png"/>&nbsp;&nbsp;&nbsp;&nbsp;</c:when>
+                        <c:when test="${info eq '마트.편의점' }"><img src="https://img.icons8.com/ios-glyphs/60/000000/shop.png"/></c:when>
+                        <c:otherwise></c:otherwise>
+                      </c:choose>
+                    </c:forTokens>
+                  </li>
                 </ul>
                 <p>
                   
