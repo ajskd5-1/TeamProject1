@@ -22,6 +22,17 @@
     FROM qna_board_1
     WHERE no=#{no}
 </select>
+<!-- 상세 보기 사용자, 관리자 -->
+<update id="qnaboardHitIncrement" parameterType="int">
+    UPDATE qna_board_1 SET
+    count=count-1
+    WHERE no=#{no}
+</update>
+<update id="qnaboardHitDecrement" parameterType="int">
+    UPDATE qna_board_1 SET
+    count=count+1
+    WHERE no=#{no}
+</update>
 <!-- 게시글 작성(사용자) -->
 <insert id="qnaboardInsert" parameterType="QnaBoardVO">
     <selectKey keyProperty="no" resultType="int" order="BEFORE">

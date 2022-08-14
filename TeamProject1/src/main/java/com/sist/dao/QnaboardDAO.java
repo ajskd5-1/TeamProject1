@@ -120,7 +120,7 @@ public class QnaboardDAO {
 		   try
 		   {
 			   session=ssf.openSession();
-			   session.update("hitIncrement",no);
+			   session.update("countIncrement",no);
 			   session.commit();
 			   vo=session.selectOne("qnaboardDetailData",no);
 		   }catch(Exception ex)
