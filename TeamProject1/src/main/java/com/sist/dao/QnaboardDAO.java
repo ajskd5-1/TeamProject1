@@ -1,6 +1,6 @@
 package com.sist.dao;
 
-import java.io.Reader; 
+import java.io.Reader;  
 import java.util.List;
 import java.util.Map;
 
@@ -68,7 +68,7 @@ public class QnaboardDAO {
 		   return list;
 	   }
 	     
-	   // 게시글 쓰기
+	   // 게시글 쓰기(사용자)
 	   public static void qnaboardInsert(QnaBoardVO vo)
 	   {
 		   SqlSession session=null;
@@ -88,5 +88,54 @@ public class QnaboardDAO {
 				   session.close();
 		   }
 	   }
+	   // 답변 달기(관리자)
+	   public static List<QnaBoardVO> qnaboardReplyAdminData()
+	   {
+		   List<QnaBoardVO> list=null;
+		   SqlSession session=null;
+			  
+		   try
+		   {
+			   session=ssf.openSession(true);
+			   list=session.selectList("qnaboardReplyAdminData");
+		   }catch(Exception ex)
+		   {
+			   System.out.println("qnaboardReplyAdminData : error");
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   if(session!=null)
+				   session.close();
+		   }
+		   return list;
+	   }
+	   
+	   // 상세보기
+	   public static QnaBoardVO qnaboardDetailData(int no) 
+	   {
+		   QnaBoardVO vo=new QnaBoardVO();
+		   SqlSession session=null;
+		   
+		   try
+		   {
+			   session=ssf.openSession();
+			   session.update("hitIncrement",no);
+			   session.commit();
+			   vo=session.selectOne("qnaboardDetailData",no);
+		   }catch(Exception ex)
+		   {
+			   System.out.println("qnaboardDetailData : error");
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   if(session!=null)
+				   session.close();
+		   }
+		   return vo;
+	   }
+	   
 
 }
+

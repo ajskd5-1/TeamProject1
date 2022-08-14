@@ -39,13 +39,8 @@ $(function(){
 *{
 	font-family: 'NanumSquareRound';
 }
-.wrapper{
-	margin-top: 100px;
-}
-.table{
-}
 .sectiontitle{
-	margin-bottom: 30px;
+	margin-top: 30px;
 }
 .btn1{
 	padding : 5px;
@@ -61,7 +56,7 @@ $(function(){
 	margin-left: 300px;
 }
 .div1{
-	margin-left: 200px;
+	margin-left: 150px;
 }
 .hr{
 	border: 0;
@@ -82,7 +77,6 @@ $(function(){
             <li>작성</li>
           </ol>
         </div>
-
       </div>
 </div>
 <div class="wrapper row3">
