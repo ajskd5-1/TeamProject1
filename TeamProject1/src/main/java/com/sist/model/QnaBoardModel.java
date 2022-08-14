@@ -1,5 +1,6 @@
 package com.sist.model;
 
+import java.io.File;
 import java.util.HashMap; 
 import java.util.List;
 import java.util.Map;
@@ -71,24 +72,42 @@ public class QnaBoardModel {
 		try
 		{
 			request.setCharacterEncoding("UTF-8");
+			String path="c:\\download";
+			File dir=new File(path); // 파일이 없으면 생성하는 디렉토리
+			if(!dir.exists())
+			{
+				dir.mkdir();
+			}
+			String enctype="UTF-8";
+			int maxsize=1024*1024*100;
+			MultipartRequest mr= new MultipartRequest(request,path,maxsize,enctype,new DefaultFileRenamePolicy());
+			
 		}catch(Exception ex) {}
 
 		String name=request.getParameter("name");
 		String title=request.getParameter("title");
 		String content=request.getParameter("content");
-		String filesize=request.getParameter("filesize");//jsp에서 name="filesize로 받아야 하는데 insert.jsp에서 안넘겨줌
-		String filename=request.getParameter("filename");//jsp에서 name="filename로 받아야 하는데 insert.jsp에서 안넘겨줌
+		String filename=request.getOriginalFileName("upload");
+		
 		
 		QnaBoardVO vo=new QnaBoardVO();
 		vo.setName(name);
 		vo.setTitle(title);
 		vo.setContent(content);
-		vo.setFilesize(filesize);
-		vo.setFilename(filename);
-
-		
+		if(filename==null)
+		{
+			vo.setFilename("");
+			vo.setFilesize(0);
+		}
+		else
+		{
+			File file=new File(path+"\\"+filename);
+			vo.setFilename(filename);
+			vo.setFilesize((int)file.length());
+		}
 		QnaboardDAO.qnaboardInsert(vo);
 		return "redirect:../qnaboard/list.do";
+		
 	} 
 	// 답변작성 (어드민)
 }

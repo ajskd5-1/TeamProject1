@@ -23,11 +23,11 @@
 .qna_img{
 	position: relative;
 }
-.text_board{
+#text_box{
 	padding: 5px 10px;
 	text-align: center;
 	position: absolute;
-	top: 45%;
+	top: 50%;
 	left: 50%;
 	transform: translate( -50%, -50% );
 }
@@ -72,22 +72,21 @@ a{
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <a href="../qnaboard/list.do"><h2 style="font-size: 18pt; font-weight: bold;">캠핑<sup>+</sup> 문의</h2></a>
+          <a href="../qnaboard/list.do"><h2 class="title" style="font-size: 20pt; font-weight: bold;">캠핑<sup>+</sup> 문의</h2></a>
           <ol>
             <li><a href="index.html">Home</a></li>
             <li>문의게시판</li>
           </ol>
         </div>
-
       </div>
 </div>
 
    <div class="container">
-    <div class="qna_img"> 
-     <p>
-   	   <img src="../assets/img/qnaboard/qna.jpg" style="width:100%; height:50%;">
+    <div class="qna_img">  
+     <p> 
+   	   <img src="../assets/img/qnaboard/qna.jpg" style="width:100%;">
    	 </p>
-       <h1 class="text_board" style="font-size:50px; color:#FFFFFF; font-weight: bold;">문의게시판</h1>
+       <h1 class="title" id="text_box" style="font-size:50px; color:#FFFFFF; font-weight: bold;">문의게시판</h1>
    </div>
      <div class="row">
      <div style="height: 500px;">

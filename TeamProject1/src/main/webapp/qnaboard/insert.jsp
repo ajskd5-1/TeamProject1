@@ -79,12 +79,13 @@ $(function(){
         </div>
       </div>
 </div>
+
 <div class="wrapper row3">
 <main class="container clear">
 	<div class=div1>
     <h2 class="sectiontitle" style="font-weight: bold">1:1문의</h2>
     <hr class="hr">
-     <form method=post action="../qnaboard/insert_ok.do" id="frm">
+     <form method=post action="../qnaboard/insert_ok.do" id="frm" enctype="multipart/form-data">
       <table class="table">
         <tr>
          <th width=20%>제목</th>

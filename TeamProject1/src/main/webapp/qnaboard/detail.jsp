@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
+/* $(document).ready(function(){
 	 $('#delBtn').click(function(){  
 		let no=$(this).attr("data-no");
 		if()
@@ -27,7 +27,7 @@ $(document).ready(function(){
 			{
 				alert(error);
 			}
-		})
+		}) */
 </script>
 <style type="text/css">
 @font-face {
