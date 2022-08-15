@@ -1,14 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sist.mapper.member-mapper">
-<select id="loginIdCount" resultType="int" parameterType="string">
-	SELECT COUNT(*)
-	FROM member_1
-	WHERE id=#{id}
-</select>
-<select id="loginInfoData" resultType="MemberVO" parameterType="string">
-	SELECT id,pwd,name,nickname,m_admin
-	FROM member_1
-	WHERE id=#{id}
-</select>
+	<select id="loginIdCount" resultType="int" parameterType="string">
+		SELECT COUNT(*)
+		FROM member_1
+		WHERE id=#{id}
+	</select>
+	<select id="loginInfoData" resultType="MemberVO" parameterType="string">
+		SELECT id,pwd,name,nickname,m_admin
+		FROM member_1
+		WHERE id=#{id}
+	</select>
+	<select id="joinIdCheck" resultType="int" parameterType="string">
+		SELECT COUNT(*) FROM member_1
+		WHERE id=#{id}
+	</select>
+	<select id="joinNNCheck" resultType="int" parameterType="string">
+		SELECT COUNT(*) FROM member_1
+		WHERE nickname=#{nickname}
+	</select>
+	<select id="joinTelCheck" resultType="int" parameterType="string">
+		SELECT COUNT(*) FROM member_1
+		WHERE tel=#{tel}
+	</select>
+	<select id="joinEmailCheck" resultType="int" parameterType="string">
+		SELECT COUNT(*) FROM member_1
+		WHERE email=#{email}
+	</select>
+	<insert id="joinInsert" parameterType="MemberVO">
+		INSERT INTO member_1(id,pwd,nickname,name,sex,birthdate,tel,email,post,addr1,addr2)
+		VALUES(
+		#{id},
+		#{pwd},
+		#{nickname},
+		#{name},
+		#{sex},
+		#{birthdate},
+		#{tel},
+		#{email},
+		#{post},
+		#{addr1},
+		#{addr2})
+	</insert>
 </mapper>

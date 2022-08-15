@@ -80,7 +80,8 @@ $(function(){
         <p>캠핑에 관한<br>
          다양한 정보를 제공하는<br>
          캠핑<sup>+</sup>의 편리함을 경험해보세요</p><br>
-        <button type="button" class="submit" style="margin:0px auto;width:100px;border-radius:20px;">가입하기</button>
+        <button type="button" class="submit" id="joinBtn" onclick="location.href='../member/join.do'"
+        style="margin:0px auto;width:100px;border-radius:20px;">가입하기</button>
       </div>
     </div>
   </div>

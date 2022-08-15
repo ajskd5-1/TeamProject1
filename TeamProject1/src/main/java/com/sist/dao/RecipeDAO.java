@@ -70,6 +70,7 @@ public class RecipeDAO {
 		return total;
 	}
 	//<select id="recipeDetailData" resultType="RecipeVO" parameterType="int">
+	//<update id="recipeHitIncrement" parameterType="int">
 	public static RecipeVO recipeDetailData(int cr_no)
 	{
 		SqlSession session=null;
@@ -77,6 +78,8 @@ public class RecipeDAO {
 		try 
 		{
 			session=ssf.openSession();
+			session.update("recipeHitIncrement",cr_no);
+			session.commit();
 			vo=session.selectOne("recipeDetailData",cr_no);
 		}catch(Exception ex)
 		{

@@ -15,4 +15,9 @@
 		SELECT * FROM camp_recipe_1
 		WHERE cr_no=#{cr_no}
 	</select>
+	<update id="recipeHitIncrement" parameterType="int">
+		UPDATE camp_recipe_1 SET
+		cr_hit = cr_hit + 1
+		WHERE cr_no=#{cr_no}
+	</update>
 </mapper>

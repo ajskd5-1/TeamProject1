@@ -19,7 +19,7 @@
           <ol>
             <li><a href="index.html">Home</a></li>
             <li><a href="blog.html">recipe</a></li>
-            <li>recipe Details</li>
+            <li>${vo.cr_title }</li>
           </ol>
         </div>
 

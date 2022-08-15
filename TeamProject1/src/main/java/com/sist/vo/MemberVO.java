@@ -17,8 +17,15 @@ M_CONNECT          VARCHAR2(1)
  */
 public class MemberVO {
 	private String id,pwd,name,nickname,sex,email,post,addr1,addr2,tel,m_admin,m_connect;
-	private Date birthdate;
+	private String birthdate;
 	private String tel1,tel2,msg;
+	
+	public String getBirthdate() {
+		return birthdate;
+	}
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
+	}
 	public String getTel1() {
 		return tel1;
 	}
@@ -108,12 +115,6 @@ public class MemberVO {
 	}
 	public void setM_connect(String m_connect) {
 		this.m_connect = m_connect;
-	}
-	public Date getBirthdate() {
-		return birthdate;
-	}
-	public void setBirthdate(Date birthdate) {
-		this.birthdate = birthdate;
 	}
 	
 }
