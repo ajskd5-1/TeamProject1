@@ -55,7 +55,7 @@
 	            <ul>
 	              <li><a href="../mypage/myhome.do">마이페이지</a></li>
 	              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
+              	  <li><a href="#">Drop Down 3</a></li>
 	              <li><a href="#">Drop Down 4</a></li>
 	            </ul>
 	          </li>

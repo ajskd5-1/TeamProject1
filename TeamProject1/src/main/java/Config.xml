@@ -30,5 +30,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="com/sist/mapper/campgoods-mapper.xml"/>
 		<mapper resource="com/sist/mapper/qnaboard-mapper.xml"/>
 		<mapper resource="com/sist/mapper/member-mapper.xml"/>
+		<mapper resource="com/sist/mapper/mypage-mapper.xml"/>
 	</mappers>
 </configuration>

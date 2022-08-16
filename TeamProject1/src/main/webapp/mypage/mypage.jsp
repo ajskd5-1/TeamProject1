@@ -33,33 +33,36 @@
 		  <div class="col-lg-3">
 
             <div class="sidebar">
-
-              <div class="sidebar-item search-form">
-                <h3 class="sidebar-title title">Search</h3>
-                <form action="" class="mt-3">
-                  <input type="text">
-                  <button type="submit"><i class="bi bi-search"></i></button>
-                </form>
-              </div><!-- End sidebar search formn-->
-
-              <div class="sidebar-item categories">
-                <h3 class="sidebar-title title">Categories</h3>
-                <ul class="mt-3">
-                  <li><a href="#">General <span>(25)</span></a></li>
-                  <li><a href="#">Lifestyle <span>(12)</span></a></li>
-                  <li><a href="#">Travel <span>(5)</span></a></li>
-                  <li><a href="#">Design <span>(22)</span></a></li>
-                  <li><a href="#">Creative <span>(8)</span></a></li>
-                  <li><a href="#">Educaion <span>(14)</span></a></li>
-                </ul>
-              </div><!-- End sidebar categories-->
-
-              <div class="sidebar-item recent-posts">
-                <h3 class="sidebar-title title">회원정보 관리</h3>
-
+            
+              <div class="sidebar-item">
+				<h3 class="sidebar-title title">예약/결제내역</h3>
                 <div class="mt-3">
-				  <a href="../member/join_update.do">회원정보 수정</a> <br>
-				  회원 탈퇴
+                  <ul>
+                    <li><a href="#">예약내역</a></li>
+                    <li><a href="#">결제내역</a></li>
+                    <li><a href="#">장바구니</a></li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="sidebar-item">
+				<h3 class="sidebar-title title">내가 쓴 글</h3>
+                <div class="mt-3">
+                  <ul>
+                    <li><a href="#">묻고답하기</a></li>
+                    <li><a href="#">댓글</a></li>
+                    <li><a href="#">리뷰</a></li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="sidebar-item">
+                <h3 class="sidebar-title title">회원정보 관리</h3>
+                <div class="mt-3">
+                  <ul>
+                    <li><a href="../member/join_update.do">회원정보 수정</a></li>
+                    <li><a href="#">회원 탈퇴</a></li>
+                  </ul>
                 </div>
 
               </div><!-- End sidebar recent posts-->
@@ -70,16 +73,14 @@
           </div>
 
           <div class="col-lg-9"><%-- 홈 --%>
-
+			<h1 class="title" style="margin-top: -60px; margin-left: 15px;"> 마이페이지</h1>
             <div class="row gy-4 posts-list">
 			  <jsp:include page="${mypage_jsp }"></jsp:include>
               
 
             </div><!-- End blog posts list -->
           </div>
-
           
-
         </div>
 
       </div>
