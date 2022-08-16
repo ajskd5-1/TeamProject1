@@ -1,6 +1,10 @@
 package com.sist.model;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.net.URLEncoder;
 import java.util.HashMap; 
 import java.util.List;
 import java.util.Map;
@@ -10,13 +14,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.oreilly.servlet.*;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 import com.sist.dao.QnaboardDAO;
 import com.sist.vo.QnaBoardVO;
 
 import oracle.net.ns.SessionAtts;
-
 
 @Controller
 public class QnaBoardModel {
@@ -53,12 +58,12 @@ public class QnaBoardModel {
 		String no=request.getParameter("no");
 		QnaBoardVO vo=QnaboardDAO.qnaboardDetailData(Integer.parseInt(no));
 		request.setAttribute("vo", vo);
-		  
+
 		request.setAttribute("main_jsp", "../qnaboard/detail.jsp");
 		return "../main/main.jsp";
 	}
 	
-	// 게시글 작성(유저)
+	// 게시글 작성
 	@RequestMapping("qnaboard/insert.do")
 	public String freeboard_insert(HttpServletRequest request, HttpServletResponse response)
 	{
@@ -67,13 +72,13 @@ public class QnaBoardModel {
 	}
 	
 	@RequestMapping("qnaboard/insert_ok.do")
-	public String freeboard_insert_ok(HttpServletRequest request, HttpServletResponse response)
+	public String qnaboard_insert_ok(HttpServletRequest request, HttpServletResponse response)
 	{
+		String path="c:\\download";
 		try
 		{
 			request.setCharacterEncoding("UTF-8");
-			String path="c:\\download";
-			File dir=new File(path); // 파일이 없으면 생성하는 디렉토리
+			File dir=new File(path);
 			if(!dir.exists())
 			{
 				dir.mkdir();
@@ -81,15 +86,11 @@ public class QnaBoardModel {
 			String enctype="UTF-8";
 			int maxsize=1024*1024*100;
 			MultipartRequest mr= new MultipartRequest(request,path,maxsize,enctype,new DefaultFileRenamePolicy());
-			
-		}catch(Exception ex) {}
 
-		String name=request.getParameter("name");
-		String title=request.getParameter("title");
-		String content=request.getParameter("content");
-		String filename=request.getOriginalFileName("upload");
-		
-		
+		String name=mr.getParameter("name");
+		String title=mr.getParameter("title");
+		String content=mr.getParameter("content");
+		String filename=mr.getOriginalFileName("upload");
 		QnaBoardVO vo=new QnaBoardVO();
 		vo.setName(name);
 		vo.setTitle(title);
@@ -105,9 +106,78 @@ public class QnaBoardModel {
 			vo.setFilename(filename);
 			vo.setFilesize((int)file.length());
 		}
-		QnaboardDAO.qnaboardInsert(vo);
+			QnaboardDAO.qnaboardInsert(vo);
+		}
+		catch(Exception ex) {}
 		return "redirect:../qnaboard/list.do";
-		
-	} 
-	// 답변작성 (어드민)
+	} 	
+	// 파일 다운로드 
+	/*@RequestMapping("qnaboard/download.do") 
+	public int qnaboard_download(HttpServletRequest request, HttpServletResponse response) 
+	{
+		try
+		{
+    		request.setCharacterEncoding("UTF-8");
+    		String fn=request.getParameter("fn");
+    		File file=new File("c:\\download\\"+fn);
+    		
+    		// 다운로드 창을 보여준다 => 실제 데이터값은 아직 안받아옴
+    		response.setHeader("Content-Disposition", "attachement;filename="
+    						+URLEncoder.encode(fn, "UTF-8"));
+    		// 실제 다운로드 
+    		BufferedInputStream bis= 
+    				new BufferedInputStream(new FileInputStream(file));
+    		// 서버에 존재하는 파일 읽기
+    		BufferedOutputStream bos=
+    			new BufferedOutputStream(response.getOutputStream());
+    		int i=0;
+    		byte[] buffer=new byte[1024];
+    		while((i=bis.read(buffer,0,1024))!=-1)
+    		{
+    			bos.write(buffer, 0, i);
+    		}
+    		out.clear();
+    		out=pageContext.pushBody(); // 객체 초기화, 파일 연결
+    		bis.close();
+    		bos.close();
+		}
+		catch(Exception ex){}
+	}*/
+	
+	// 게시글 수정하기
+	@RequestMapping("qnaboard/update.do")
+	public String qnaboard_update(HttpServletRequest request,HttpServletResponse response)
+	{
+		 String no=request.getParameter("no");
+		 QnaBoardVO vo=QnaboardDAO.qnaboardupdateData(Integer.parseInt(no));
+		 request.setAttribute("vo", vo);
+		 request.setAttribute("main_jsp", "../qnaboard/update.jsp");
+		 return "../main/main.jsp";
+	 }
+	
+	@RequestMapping("qnaboard/update_ok.do")
+	public String qnaboard_update_ok(HttpServletRequest request,HttpServletResponse response)
+	{
+		try
+		{
+			request.setCharacterEncoding("UTF-8");
+			   
+		}catch(Exception ex) {}
+		   
+		 String name=request.getParameter("name");
+		 System.out.println("name="+name);
+		 String title=request.getParameter("title");
+		 String content=request.getParameter("content");
+		 String no=request.getParameter("no");
+		 QnaBoardVO vo=new QnaBoardVO();
+		   
+		 vo.setName(name);
+		 vo.setTitle(title);
+		 vo.setContent(content);
+		 vo.setNo(Integer.parseInt(no));
+		 QnaboardDAO.qnaboardUpdate(vo);
+		 return "redirect:../qnaboard/detail.do?no="+no;
+	}
+	
+
 }
