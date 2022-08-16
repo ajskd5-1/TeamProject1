@@ -24,8 +24,7 @@
     
   </head>
   <body>
-  
-  
+ 
     
 
     <div class="site-section">

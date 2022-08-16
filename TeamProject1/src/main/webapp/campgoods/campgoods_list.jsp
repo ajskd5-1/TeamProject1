@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,9 @@
 <!--   <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
 <link rel="stylesheet" href="style.css">
+
 <style type="text/css">
 span{
 @font-face {
@@ -62,7 +65,7 @@ p2{color:#4C4C4C;
 	<div class="content">
 		<!-- content here -->
 		<div class="product-grid product-grid--flexbox">
-			<div class="product-grid__wrapper">
+			<div class="product-grid__wrapper" data-aos="fade-up">
 				<!-- Product list start here -->
 				<c:forEach var="vo" items="${list }">
 				<!-- Single product -->
@@ -97,7 +100,7 @@ p2{color:#4C4C4C;
         <div class="row">
           <div class="col-sm-12">
             <nav class="pagination-a">
-              <ul class="pagination justify-content-center"><!--start, center, end -->
+              <ul class="pagination justify-content-center" style="margin: 50px;"><!--start, center, end -->
                 <c:if test="${startPage>1 }">
                   <li class="page-item prev">
                     <a class="page-link" href="../campgoods/campgoods_list.do?page=${startPage-1 }" tabindex="-1">

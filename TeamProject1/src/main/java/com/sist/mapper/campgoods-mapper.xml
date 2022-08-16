@@ -15,6 +15,7 @@
 		SELECT * FROM goods_1
 		WHERE g_id=#{g_id}
 	</select>
+	 
 </mapper>
 
 <!-- 
