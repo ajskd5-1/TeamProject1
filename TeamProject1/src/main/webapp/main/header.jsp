@@ -63,7 +63,7 @@
 	          <c:if test="${sessionScope.m_admin=='y' }">
 	          <li class="dropdown"><a href="#"><span>어드민페이지</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
 	            <ul>
-	              <li><a href="#">어드민페이지</a></li>
+	              <li><a href="../adminpage/adminhome.do">어드민페이지</a></li>
 	              <li><a href="#">Drop Down 2</a></li>
 	              <li><a href="#">Drop Down 3</a></li>
 	              <li><a href="#">Drop Down 4</a></li>

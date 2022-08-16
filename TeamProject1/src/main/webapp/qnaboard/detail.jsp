@@ -5,30 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-<script type="text/javascript">
-/* $(document).ready(function(){
-	 $('#delBtn').click(function(){  
-		let no=$(this).attr("data-no");
-		if()
-		{
-
-		}
-    }
-})
-		$.ajax({
-			type:'post',
-			url:'../qnaboard/delete.do',
-			data:{"no":no},
-			success:function(result)
-			{
-				location.href="../qnaboard/list.do"
-			    error:function(request, status, error)
-			{
-				alert(error);
-			}
-		}) */
-</script>
 <style type="text/css">
 @font-face {
     font-family: 'NanumSquareRound';
@@ -42,7 +18,7 @@
 .container{
 	margin-top: 5px;
 }
-.sectiontitle{
+.title{
 	margin-top: 30px;
 }
 .btn1{
@@ -61,7 +37,7 @@
     height: 5px;
     background: #cbdfbd;
 }
-.div1{
+.wrapper{
 	margin-left: 150px;
 }
 </style>
@@ -71,7 +47,7 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <a href="../qnaboard/list.do"><h2 style="font-size: 18pt; font-weight: bold;">캠핑<sup>+</sup> 문의</h2></a>
+          <a href="../qnaboard/list.do"><h2 class="title" style="font-size: 18pt; font-weight: bold;">캠핑<sup>+</sup> 문의</h2></a>
           <ol>
             <li><a href="index.html">Home</a></li>
             <li>문의게시판</li>
@@ -83,8 +59,7 @@
 
 <div class="wrapper row3">
   <main class="container clear"> 
-  <div class="div1">
-    <h2 class="sectiontitle" style="font-weight: bold">상세보기</h2>
+    <h2 class="title" style="font-weight: bold">상세보기</h2>
     <hr class="hr">
     <div class="two_first">
      <table class="table">
@@ -107,12 +82,13 @@
        </tr>
        <tr>
          <td colspan="4" class="text-center">
+         <c:if test="${sessionScope.id!=null }">
            <a href="../qnaboard/update.do?no=${vo.no }" class="btn1 btn-sm">수정</a>
-           <span class="btn2 btn-xs" id="delBtn">삭제</span>
+           <a href="../qnaboard/delete.do?no=${vo.no }" class="btn2 btn-sm">삭제</a>
+         </c:if>
            <a href="../qnaboard/list.do" class="btn1 btn-sm">목록</a>
          </td>
        </tr>
-    </div>
      </table>
       </div>
    </main>

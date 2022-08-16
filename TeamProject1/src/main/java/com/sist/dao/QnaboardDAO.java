@@ -1,6 +1,6 @@
 package com.sist.dao;
 
-import java.io.Reader;    
+import java.io.Reader;     
 import java.util.List;
 import java.util.Map;
 
@@ -88,8 +88,29 @@ public class QnaboardDAO {
 					session.close();
 			}
 		}
+		// 게시글 파일 다운로드
+		/*public static QnaBoardVO qnaboardDownload(int no)
+		{
+			QnaBoardVO vo=new QnaBoardVO();
+			SqlSession session=null;
+			try
+			{
+				session=ssf.openSession();
+				session.commit();
+				vo=session.selectOne("qnaboardDownload",no);
+			}catch(Exception ex)
+			{
+				 System.out.println("qnaboardDownload : error");
+				 ex.printStackTrace();
+			}
+			finally
+			{
+				 if(session!=null)
+					 session.close();
+			}
+		}*/
 		
-	   // 게시글 쓰기(사용자)
+	   // 게시글 쓰기
 	   public static void qnaboardInsert(QnaBoardVO vo)
 	   {
 		   SqlSession session=null;
@@ -109,6 +130,7 @@ public class QnaboardDAO {
 				   session.close();
 		   }
 	   }
+	   
 	   // 답변 달기(관리자)
 	   public static List<QnaBoardVO> qnaboardReplyAdminData()
 	   {
@@ -158,7 +180,29 @@ public class QnaboardDAO {
 	   }
 	   
 	   // 게시글 수정하기
-	   public static void boardUpdate(QnaBoardVO vo)
+	   public static QnaBoardVO qnaboardupdateData(int no) 
+	   {
+		   QnaBoardVO vo=new QnaBoardVO();
+		   SqlSession session=null;
+		   
+		   try
+		   {
+			   session=ssf.openSession();
+			   vo=session.selectOne("qnaboardDetailData",no);
+		   }catch(Exception ex)
+		   {
+			   System.out.println("qnaboardupdateData : error");
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   if(session!=null)
+				   session.close(); // POOL => 반환 
+		   }
+		   return vo;
+	   }
+	   
+	   public static void qnaboardUpdate(QnaBoardVO vo)
 	   {
 		   SqlSession session=null;
 		   try
@@ -176,8 +220,7 @@ public class QnaboardDAO {
 				   session.close();
 		   }
 	   }
+	  // 게시글 삭제하기
 	   
-	   
-
 }
 
