@@ -1,5 +1,10 @@
 @charset "UTF-8";
-
+*{
+	font-family: 'NanumSquareRound';
+}
+.title{
+	font-family: 'BMJUA';
+}
 
 .img_box.clr img{
 	height: 540x;
@@ -18,7 +23,6 @@
 .recipe_detail .text_exp{
 	color:#485664;
 	font-size: 21px;
-	font-family: "Open Sans";
 	font-weight: bold;
 	margin-bottom: 30px;
 	
@@ -57,5 +61,6 @@
 
 .rec_mate h3{
 	color:#485664;
+	font-family: 'NanumSquareRound';
 }
 	

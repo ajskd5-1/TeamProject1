@@ -5,8 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'><link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="./style.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script type="text/javascript">
 $(function(){
 	$('#logBtn').on("click",function(){
@@ -31,14 +32,14 @@ $(function(){
 			let res=result.trim();
 			if(res==='NOID')
 			{
-				alert("아이디가 존재하지 않습니다.");
-				$('#id').val("")
-				$('#pwd').val("")
+				$('#loginMsg').text("아이디가 존재하지 않습니다.");
+				$('#id').val("");
+				$('#pwd').val("");
 				$('#id').focus();
 			}
 			else if(res==='NOPWD')
 			{
-				alert("비밀번호가 틀립니다.");
+				$('#loginMsg').text("비밀번호가 틀립니다.");
 				$('#pwd').val("");
 				$('#pwd').focus();
 			}
@@ -52,6 +53,29 @@ $(function(){
 	})
 })
 </script>
+<style type="text/css">
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'BMJUA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+	font-family: 'NanumSquareRound';
+}
+h2{
+	font-family: 'BMJUA';
+}
+span#title{
+	font-family: 'BMJUA';
+}
+</style>
 </head>
 <body>
 <p class="tip"><br></p>
@@ -60,15 +84,19 @@ $(function(){
     <h2>Login</h2><br>
     <label class="login">
       <span class="login">ID</span>
-      <input type="text" placeholder="아이디를 입력하세요" id="id">
+      <input type="text" placeholder="아이디를 입력하세요"  id="id" style="font-size: 10pt;">
     </label><br>
     <label class="login">
       <span class="login">Password</span>
-      <input type="password" placeholder="비밀번호를 입력하세요" id="pwd">
+      <input type="password" placeholder="아이디를 입력하세요" id="pwd" style="font-size: 10pt;">
     </label>
+    <br>
+  <div class="forgot-pass">
+  	<span id="loginMsg" style="color:red; font-weight: bold; font-size: 11pt;" ></span>
+  </div>
     <p class="forgot-pass"><br></p>
     <button type="button" class="submit" id="logBtn" style="margin:0px auto;width:100px;border-radius:20px;">로그인</button><br>
-    <button type="button" class="fb-btn" style="margin:0px auto;width:350px; border-radius:20px;">회원정보를 잊으셨나요?  <span> 아이디 비밀번호 찾기</span></button>
+    <button type="button" class="fb-btn" style="margin:0px auto;width:350px; border-radius:20px;"onclick="location.href='../member/idfind.do'">회원정보를 잊으셨나요?  <span> 아이디 비밀번호 찾기</span></button>
   </div>
  
   <div class="sub-cont">
@@ -77,9 +105,10 @@ $(function(){
         <h2 style="color: white">
         회원이<br>
          아니신가요?</h2><br><br>
-        <p>캠핑에 관한<br>
+        <p>캠핑과 관련된<br>
          다양한 정보를 제공하는<br>
-         캠핑<sup>+</sup>의 편리함을 경험해보세요</p><br>
+         <span id="title" style="font-size: 18pt;">캠핑<sup>+</sup></span>의 <br>
+         놀라움을 경험해보세요</p><br><br>
         <button type="button" class="submit" id="joinBtn" onclick="location.href='../member/join.do'"
         style="margin:0px auto;width:100px;border-radius:20px;">가입하기</button>
       </div>

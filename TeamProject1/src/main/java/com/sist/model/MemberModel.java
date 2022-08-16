@@ -117,4 +117,16 @@ public class MemberModel {
 		MemberDAO.joinInsert(vo);
 		return "redirect:../main/main.do";
 	}
+	@RequestMapping("member/idfind.do")
+	public String member_idfind(HttpServletRequest request,HttpServletResponse response)
+	{
+		return "../member/idfind.jsp";
+	}
+	@RequestMapping("member/join_update.do")
+	public String member_join_update(HttpServletRequest request,HttpServletResponse response)
+	{
+		request.setAttribute("mypage_jsp", "../member/join_update.jsp");
+		request.setAttribute("main_jsp", "../mypage/mypage.jsp");
+		return "../main/main.jsp";
+	}
 }

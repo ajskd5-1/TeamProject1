@@ -17,7 +17,7 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <a href="../recipe/recipe_list.do"><h2 style="font-size: 18pt; font-weight: bold;">캠핑<sup>+</sup> 레시피</h2></a>
+          <a href="../recipe/recipe_list.do"><h2 class="title">캠핑<sup>+</sup> 레시피</h2></a>
           <ol>
             <li><a href="index.html">Home</a></li>
             <li>recipe</li>

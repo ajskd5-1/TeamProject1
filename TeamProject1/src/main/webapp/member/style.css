@@ -5,15 +5,14 @@
 }
 
 body {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
   background: #f9f9f9;
+  font-family: 'NanumSquareRound';
 }
 
 input, button {
   border: none;
   outline: none;
   background: none;
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
 .tip {
@@ -194,7 +193,7 @@ input {
   width: 100%;
   margin-top: 5px;
   padding-bottom: 5px;
-  font-size: 16px;
+  font-size: 12px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   text-align: center;
 }
@@ -209,7 +208,7 @@ input {
 .submit {
   margin-top: 40px;
   margin-bottom: 20px;
-  background: #d4af7a;
+  background: #8fc1c7;
   text-transform: uppercase;
 }
 

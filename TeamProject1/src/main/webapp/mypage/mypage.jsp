@@ -58,7 +58,7 @@
                 <h3 class="sidebar-title title">회원정보 관리</h3>
 
                 <div class="mt-3">
-				  회원정보 수정 <br>
+				  <a href="../member/join_update.do">회원정보 수정</a> <br>
 				  회원 탈퇴
                 </div>
 

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
+<title>개인 정보 수정</title>
 <script type="text/javascript" src="//code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
@@ -127,48 +127,20 @@ $(function(){
 			}
 		}).open()
 	})
-	$('#joinBtn').click(function(){
-		$('#join_frm').submit();
+	$('').click(function(){
+		$('').submit();
 	})
 })
 </script>
-<style type="text/css">
-*{
-	font-family: 'NanumSquareRound';
-}
-.title{
-	font-family: 'BMJUA';
-}
-</style>
 </head>
 <body>
-<main id="main">
-
-    <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs">
-      <div class="container">
-
-        <div class="d-flex justify-content-between align-items-center">
-          <h2 class="title">회원 가입</h2>
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>회원가입</li>
-          </ol>
-        </div>
-
-      </div>
-    </div><!-- End Breadcrumbs -->
-
     <!-- ======= Blog Details Section ======= -->
-    <section id="blog" class="blog">
-      <div class="container" data-aos="fade-up">
-        <div class="row g-5">
-          <div class="col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+          <div class="col-md-10 col-lg-10">
             <div class="comments">
-              <div class="reply-form" style="padding: 120px;">
-                <h4 class="title">회원 가입</h4>
+              <div class="reply-form" style="padding: 100px;">
+                <h4>개인 정보 수정</h4>
                 <br>
-                <h6 class="title">캠핑<sup>+</sup>에 오신걸 환영합니다.</h6>
+                <h6>캠핑<sup>+</sup>에 오신걸 환영합니다.</h6>
                 <br>
                 <br>
                 <form method="post" action="../member/join_ok.do" name="join_frm" id="join_frm">
@@ -178,7 +150,7 @@ $(function(){
                       <label>아이디</label>
                     </div>
                     <div class="col-md-6 form-group">
-                      <input id="id" name="id" type="text" class="form-control" placeholder="아이디 입력">
+                      <input id="id" name="id" type="text" class="form-control" readonly="readonly" value="${vo.id }">
                       <div class="join msg" id="idMsg" style="font-size: 11pt;" ></div>
                     </div>
                     <div class="col-md-2 form-group">
@@ -209,7 +181,7 @@ $(function(){
                       <label>닉네임</label>
                     </div>
                     <div class="col-md-6 form-group">
-                      <input id="nickname" name="nickname" type="text" class="form-control" placeholder="닉네임 입력">
+                      <input id="nickname" name="nickname" type="text" class="form-control" value="${vo.nickname }">
                       <div class="join msg" id="nicknameMsg" style="font-size: 11pt;" ></div>
                     </div>
                     <div class="col-md-2 form-group">
@@ -222,7 +194,7 @@ $(function(){
                       <label>이름</label>
                     </div>
                     <div class="col-md-6 form-group">
-                      <input id="name" name="name" type="text" class="form-control" placeholder="이름 입력">
+                      <input id="name" name="name" type="text" class="form-control" value="${vo.name }">
                       <div class="join msg" id="nameMsg" hidden="" style="color:red; font-size: 11pt;">  * 이름을 입력하세요</div>
                     </div>
                   </div>
@@ -232,8 +204,8 @@ $(function(){
                       <label>성별</label>
                     </div>
                     <div class="col-md-6 form-group">
-	                   <input type=radio value="남자" name=sex checked="checked">남자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         			   <input type=radio value="여자" name=sex>여자   
+	                   <input type=radio value="남자" name=sex ${vo.sex=='남자'?"checked":"" }>남자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         			   <input type=radio value="여자" name=sex ${vo.sex=='여자'?"checked":"" }>여자   
                     </div>
                   </div>
 <!-- 생년월일 -->
@@ -242,7 +214,7 @@ $(function(){
                       <label>생년월일</label>
                     </div>
                     <div class="col-md-6 form-group">
-                      <input id="birthdate" name="birthdate" type="date" class="form-control" >
+                      <input id="birthdate" name="birthdate" type="date" class="form-control" value="${vo.birthdate }">
                       <div class="join msg" id="birthdateMsg" hidden="" style="color:red; font-size: 11pt;">  * 생년월일을 입력하세요</div>
                     </div>
                   </div>
@@ -252,7 +224,7 @@ $(function(){
                       <label>전화번호</label>
                     </div>
                     <div class="col-md-6 form-group">
-                      <input id="tel" name="tel" type="text" class="form-control" placeholder="전화번호 입력">
+                      <input id="tel" name="tel" type="text" class="form-control" value="${vo.tel }">
                       <div class="join msg" id="telMsg" style="font-size: 11pt;" ></div>
                     </div>
                     <div class="col-md-2 form-group">
@@ -265,7 +237,7 @@ $(function(){
                       <label>e-mail</label>
                     </div>
                     <div class="col-md-6 form-group">
-                      <input id="email" name="email" type="text" class="form-control" placeholder="이메일 입력">
+                      <input id="email" name="email" type="text" class="form-control" value="${vo.email }">
                       <div class="join msg" id="emailMsg" style="font-size: 11pt;" ></div>
                     </div>
                     <div class="col-md-2 form-group">
@@ -278,7 +250,7 @@ $(function(){
                       <label>우편번호</label>
                     </div>
                     <div class="col-md-6 form-group">
-                      <input id="post" name="post" type="text" class="form-control" placeholder="우편번호 찾기 버튼 클릭" readonly="readonly">
+                      <input id="post" name="post" type="text" class="form-control" value="${vo.post }" readonly="readonly">
                       <div class="join msg" id="postMsg" hidden="" style="color:red; font-size: 11pt;">  * 우편번호 찾기 버튼을 클릭하세요</div>
                     </div>
                     <div class="col-md-2 form-group">
@@ -291,7 +263,7 @@ $(function(){
                       <label>주소</label>
                     </div>
                     <div class="col-md-6 form-group">
-                      <input id="addr1" name="addr1" type="text" class="form-control" placeholder="우편번호 찾기 버튼 클릭" readonly="readonly">
+                      <input id="addr1" name="addr1" type="text" class="form-control" value="${vo.addr1 }" readonly="readonly">
                       <div class="join msg" id="addr1Msg" hidden="" style="color:red; font-size: 11pt;">  * 우편번호 찾기 버튼을 클릭하세요</div>
                     </div>
                   </div>
@@ -301,19 +273,16 @@ $(function(){
                       <label>상세 주소</label>
                     </div>
                     <div class="col-md-6 form-group">
-                      <input id="addr2" name="addr2" type="text" class="form-control" placeholder="상세주소 입력">
+                      <input id="addr2" name="addr2" type="text" class="form-control" value="${vo.addr2 }">
                       <div class="join msg" id="addr2Msg" hidden="" style="color:red; font-size: 11pt;">  * 상세주소를 입력하세요</div>
                     </div>
                   </div>
 				  <br>
-                  <button id="joinBtn" type="button" class="btn btn-primary">회원 가입</button>
+                  <button id="joinBtn" type="button" class="btn btn-primary">회원 수정</button>
+                  <button id="joinBtn" type="button" class="btn btn-primary">취소</button>
                 </form>
               </div>
             </div><!-- End blog comments -->
           </div>
-        </div>
-      </div>
-    </section><!-- End Blog Details Section -->
-  </main><!-- End #main -->
 </body>
 </html>
