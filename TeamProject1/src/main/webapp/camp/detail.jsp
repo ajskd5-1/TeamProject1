@@ -16,7 +16,7 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>캠핑<sup>+</sup> 캠핑장</h2>
+          <h2 class="title">캠핑<sup>+</sup> 캠핑장</h2>
           <ol>
             <li><a href="../main/main.do">Home</a></li>
             <li><a href="../camp/list.do">캠핑장</a></li>

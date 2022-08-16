@@ -13,7 +13,7 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>캠핑<sup>+</sup> 캠핑장</h2>
+          <h2 class="title">캠핑<sup>+</sup> 캠핑장</h2>
           <ol>
             <li><a href="../main/main.do">Home</a></li>
             <li><a href="../camp/list.do">캠핑장</a></li>
@@ -29,7 +29,7 @@
         <div class="tab-content">
 		<c:forEach var="vo" items="${list }">
           <div class="tab-pane active show" id="tab-1">
-            <div class="row gy-4" style=" cursor: pointer; margin-bottom: 50px;" onclick="location.href='../camp/detail.do?no=${vo.no}'">
+            <div class="row gy-4" style=" cursor: pointer; margin-bottom: 50px;" onclick="location.href='../camp/detail_before.do?no=${vo.no}'">
               <div class="col-lg-8 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="100">
                 <h3 class="title">${vo.c_title }</h3>
                 <p>
@@ -63,7 +63,7 @@
                 </p>
               </div>
               <div class="col-lg-4 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-                <img src="${vo.c_poster }" alt="" class="img-fluid" style="height: 300px">
+                <img src="${vo.c_poster }" alt="" class="img-fluid" style="height: 300px; width: 410px;">
               </div>
             </div>
           </div><!-- End Tab Content 1 -->
@@ -102,8 +102,24 @@
           </div>
         </div>
         
+        <h2 class="title">최근 본 캠핑장</h2>
+        <div class="row">
+		  <c:forEach var="cvo" items="${cList }" begin="0" end="9">
+	        <div class="card col-lg-2" style="margin-right: 40px; margin-top: 30px;">
+	          <a href="../camp/detail.do?no=${vo.no }">
+			  <img src="${cvo.c_poster }" class="card-img-top" alt="..." style="height: 130px; margin-top: 10px;">
+			  </a>
+			  <div class="card-body">
+			    <p class="card-text">${cvo.c_title }</p>
+			  </div>
+			</div>
+	      </c:forEach>
+	    </div>
+        
       </div>
+      
     </section><!-- End Features Section -->
-    
+        
+
 </body>
 </html>

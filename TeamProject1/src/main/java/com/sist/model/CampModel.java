@@ -1,9 +1,8 @@
 package com.sist.model;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -42,6 +41,35 @@ public class CampModel {
 			endPage = totalpage;
 		}
 		
+		//쿠키
+		List<CampVO> cList = new ArrayList<CampVO>();
+		Cookie[] cookies = request.getCookies();
+		if(cookies != null){
+			// 최신 페이지 => 마지막번째 링크부터 출력
+			for(int i=cookies.length-1; i>=0; i--){
+				if(cookies[i].getName().startsWith("c")){
+					// f부터 시작 (detail_before에서 "f" + fno로 줘서 f부터 시작)
+					String no = cookies[i].getValue();
+					CampVO vo = CampDAO.campDetailData(Integer.parseInt(no));
+					cList.add(vo);
+				}
+			}
+		}
+		request.setAttribute("cList", cList);
+		
+		String content = "";
+		for(CampVO vo: list) {
+			content = vo.getC_content(); 
+			/* content = content.substring(0, 100) + "..."; */
+			if(content.length() > 120) {
+				content = content.substring(0, 120);
+				content = content + "...";
+			}
+			
+			vo.setC_content(content);
+			
+		}
+		
 		request.setAttribute("curpage", curpage);
 		request.setAttribute("totalpage", totalpage);
 		request.setAttribute("startPage", startPage);
@@ -78,5 +106,18 @@ public class CampModel {
 		request.setAttribute("etcinfo", etcinfo);
 		request.setAttribute("main_jsp", "../camp/detail.jsp");
 		return "../main/main.jsp";
+	}
+	
+	//캠핑장 상세보기 전에 쿠키 저장
+	@RequestMapping("camp/detail_before.do")
+	public String campDetailBefore(HttpServletRequest request, HttpServletResponse response) {
+		String cno = request.getParameter("no");
+		// key가 중복이 없음 (최신 방문 여러번해도 하나만 뜸)
+		Cookie cookie = new Cookie("c" + cno, cno);
+		cookie.setPath("/");
+		cookie.setMaxAge(60*60*24);
+		response.addCookie(cookie);	
+		
+		return "redirect:../camp/detail.do?no="+cno;
 	}
 }
