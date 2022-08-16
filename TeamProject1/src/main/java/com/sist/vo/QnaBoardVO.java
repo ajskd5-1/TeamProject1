@@ -1,8 +1,8 @@
 package com.sist.vo;
 import java.util.*;
 public class QnaBoardVO {
-	private int no,count,groud_id,group_step,group_tab,isreply,filesize;
-	private String name,title,content,filename,dbday;
+	private int no,count,groud_id,group_step,group_tab,isreply;
+	private String name,title,content,filesize,filename,dbday;
 	private Date regdate;
 	
 	public String getDbday() {
@@ -65,10 +65,10 @@ public class QnaBoardVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public int getFilesize() {
+	public String getFilesize() {
 		return filesize;
 	}
-	public void setFilesize(int filesize) {
+	public void setFilesize(String filesize) {
 		this.filesize = filesize;
 	}
 	public String getFilename() {
