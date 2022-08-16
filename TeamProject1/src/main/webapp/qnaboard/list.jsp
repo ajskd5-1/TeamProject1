@@ -104,7 +104,7 @@ a{
           <td width="50%"><a href="../qnaboard/detail.do?no=${vo.no }">${vo.title }</a>
             &nbsp;&nbsp;
             <c:if test="${vo.count>0 }">
-            <!-- 수정* 제목에 댓글 수 나타나게 -->
+             (${vo.count })
             </c:if>
           </td>
           <td width="15%" class="text-center">${vo.name }</td>

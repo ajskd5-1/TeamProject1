@@ -8,25 +8,25 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
-   $('#writeBtn').click(function(){
-      let subject=$('#title').val();
-      if(subject.trim()=="")
-      {
-         $('#title').focus();
-         $('#title_result1').text("제목을 입력하세요.");
-         return;
-      }
-      
-      let content=$('#content').val();
-      if(content.trim()=="")
-      {
-         $('#content').focus();
-         $('#content_result1').text("내용을 입력하세요.");
-         return;
-      }
-      
-      $('#frm').submit();
-   })
+	$('#writeBtn').click(function(){
+		let subject=$('#title').val();
+		if(subject.trim()=="")
+		{
+			$('#title').focus();
+			$('#title_result1').text("제목을 입력하세요.");
+			return;
+		}
+		
+		let content=$('#content').val();
+		if(content.trim()=="")
+		{
+			$('#content').focus();
+			$('#content_result1').text("내용을 입력하세요.");
+			return;
+		}
+		
+		$('#frm').submit();
+	})
 })
 </script>
 <style type="text/css">
@@ -37,29 +37,29 @@ $(function(){
     font-style: normal;
 }
 *{
-   font-family: 'NanumSquareRound';
+	font-family: 'NanumSquareRound';
 }
 .sectiontitle{
-   margin-top: 30px;
+	margin-top: 30px;
 }
 .btn1{
-   padding : 5px;
-   background-color:#cbdfbd; 
-   border-style: none;
+	padding : 5px;
+	background-color:#cbdfbd; 
+	border-style: none;
 }
 .btn2{
-   padding : 5px;
-   background-color:#d3d3d3;
-   border-style: none;  
+	padding : 5px;
+	background-color:#d3d3d3;
+	border-style: none;  
 }
 .button{
-   margin-left: 300px;
+	margin-left: 300px;
 }
 .div1{
-   margin-left: 150px;
+	margin-left: 150px;
 }
 .hr{
-   border: 0;
+	border: 0;
     height: 5px;
     background: #cbdfbd;
 }
@@ -79,9 +79,10 @@ $(function(){
         </div>
       </div>
 </div>
+
 <div class="wrapper row3">
 <main class="container clear">
-   <div class=div1>
+	<div class=div1>
     <h2 class="sectiontitle" style="font-weight: bold">1:1문의</h2>
     <hr class="hr">
      <form method=post action="../qnaboard/insert_ok.do" id="frm" enctype="multipart/form-data">
@@ -100,22 +101,22 @@ $(function(){
           </td>
         </tr>
         <tr>
-        <th width=15%>첨부파일</th>
-        <td width=85%>
-         <input type=file name=upload size=25>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
-            <h6 id="title_result1" style="color:red;"></h6>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
-            <h6 id="content_result1" style="color:red;"></h6>
-        </td>
-      </tr>
-      <tr>
+		  <th width=15%>첨부파일</th>
+		  <td width=85%>
+			<input type=file name=upload size=25>
+		  </td>
+		</tr>
+		<tr>
+		  <td colspan="2">
+		      <h6 id="title_result1" style="color:red;"></h6>
+		  </td>
+		</tr>
+		<tr>
+		  <td colspan="2">
+		      <h6 id="content_result1" style="color:red;"></h6>
+		  </td>
+		</tr>
+		<tr>
           <td colspan="2" class="text-center">
             <input type=button value="등록" class="btn1 btn-sm" id="writeBtn">
             <input type=button value="취소" class="btn2 btn-sm"

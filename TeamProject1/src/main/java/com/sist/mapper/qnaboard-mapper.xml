@@ -18,7 +18,7 @@
 </select>
 <!-- 상세 보기 -->
 <select id="qnaboardDetailData" resultType="QnaBoardVO" parameterType="int">
-	SELECT no,name,title,content,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,count,filename,filesize	
+	SELECT no,name,title,content,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,count
     FROM qna_board_1
     WHERE no=#{no}
 </select>
@@ -29,28 +29,22 @@
     WHERE no=#{no}
 </update>
 <!-- 파일 첨부 -->
-<insert id="qnaboardInsertData" >
+<insert id="qnaboardInsertData">
 	INSERT INTO qna_board_1(no,name,title,content,filename,filesize)
 	VALUSE (#{no},#{name},#{title},#{content},#{filename},#{filesize})
 </insert>
-<!-- 파일 다운로드 -->
-<select id="qnaboardDownload" parameterType="int" resultType="QnaBoardVO">
-	SELECT no,filename,ROUND(filesize/1024, 1) as filesize
-	FROM qna_board_1
-	WHERE no=#{no}
-</select>
-<!-- 게시글 작성 -->
+<!-- 게시글 작성(사용자) -->
 <insert id="qnaboardInsert" parameterType="QnaBoardVO">
     <selectKey keyProperty="no" resultType="int" order="BEFORE">
       SELECT NVL(MAX(no)+1,1) as no FROM qna_board_1
     </selectKey>
-	INSERT INTO qna_board_1(no,name,title,content,filename,filesize,group_id)
+	<!-- INSERT INTO qna_board_1(no,name,title,content,filename,filesize,group_id)
     VALUES(#{no},#{name},#{title},#{content},#{filename},#{filesize},
-    (SELECT NVL(MAX(group_id)+1,1) FROM qna_board_1))
-    <!-- INSERT INTO qna_board_1(no,name,title,content,group_id)
-    VALUES(#{no},#{name},#{title},#{content},#{filename},#{filesize},
+    (SELECT NVL(MAX(group_id)+1,1) FROM qna_board_1) -->
+    INSERT INTO qna_board_1(no,name,title,content,group_id)
+    VALUES(#{no},#{name},#{title},#{content},
      (SELECT NVL(MAX(group_id)+1,1) FROM qna_board_1)
-    ) -->
+    )
 </insert>
 <!-- 게시글 수정 -->
 <update id="qnaboardUpdate" parameterType="QnaBoardVO">
@@ -58,9 +52,6 @@
     name=#{name},title=#{title},content=#{content}
     WHERE no=#{no}
 </update>
-<!-- 게시글 삭제 -->
-<delete id="qnaboardDelete" parameterType="int">
-    DELETE FROM qna_board_1
-    WHERE no=#{no}
-</delete>
+<!-- 답변 달기(어드민)-->
+
 </mapper>
