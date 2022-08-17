@@ -1,9 +1,8 @@
 package com.sist.model;
 
-
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
@@ -20,6 +19,10 @@ public class MyPageModel {
 	
 	@RequestMapping("mypage/myhome.do")
 	public String myhome(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("id");
+		MemberVO vo = MypageDAO.campVideo(id);
+		request.setAttribute("vo", vo);
 		request.setAttribute("mypage_jsp", "../mypage/myhome.jsp");
 		request.setAttribute("main_jsp", "../mypage/mypage.jsp");
 		return "../main/main.jsp";
