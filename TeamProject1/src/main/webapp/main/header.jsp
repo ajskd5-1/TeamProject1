@@ -25,16 +25,18 @@
             </ul>
           </li>
           
-          <li class="dropdown"><a href="../campgoods/campgoods_list.do"><span>캠핑용품</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <!--  
+          <li class="dropdown"><a href="#"><span>캠핑용품</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+             
             <ul>
               <li><a href="../campgoods/campgoods_list.do">캠핑용품 전체보기</a></li>
-              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="../campgoods/campgoods_find.do">브랜드별 캠핑용품 찾기</a></li>
+              <!-- 
               <li><a href="#">Drop Down 3</a></li>
               <li><a href="#">Drop Down 4</a></li>
+               -->
             </ul>
           </li>
-          -->
+          
           <li class="dropdown"><a href="#"><span>캠핑 레시피</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="../recipe/recipe_list.do">레시피 전체보기</a></li>
