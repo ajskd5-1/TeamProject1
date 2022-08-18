@@ -25,7 +25,10 @@ $(function(){
 				let count=parseInt(result.trim());
 				if(count===0)
 				{
+					var set
 					$('#idMsg').html("<div style='color:blue'>'"+id+"' 는(은) 사용가능한 아이디 입니다.")
+					$('#idBtn').attr('value','확인완료')
+					$('#idBtn').attr('style','background-color: #ffcf00; padding: 8px 10px')
 				}
 				else
 				{
@@ -53,6 +56,8 @@ $(function(){
 				if(count===0)
 				{
 					$('#nicknameMsg').html("<div style='color:blue'>'"+nickname+"' 는(은) 사용가능한 닉네임 입니다.")
+					$('#nicknameBtn').attr('value','확인완료')
+					$('#nicknameBtn').attr('style','background-color: #ffcf00; padding: 8px 10px')
 				}
 				else
 				{
@@ -65,11 +70,18 @@ $(function(){
 	})
 	$('#telBtn').click(function(){
 		let tel=$('#tel').val();
+		var test="-";
 		if(tel.trim()==="")
 		{
 			$('#tel').focus();
 			return;
 		}
+		if(tel.indexOf(test)===-1)
+		{
+			$('#telMsg').html("<div style='color:red'> - 를 포함하여 작성해주세요. XXX-XXXX-XXXX")
+			return;
+		}
+		if(tel)
 		$.ajax({
 			type:'post',
 			url:'../member/telcheck_ok.do',
@@ -80,6 +92,8 @@ $(function(){
 				if(count===0)
 				{
 					$('#telMsg').html("<div style='color:blue'>'"+tel+"' 는(은) 사용가능한 전화번호 입니다.")
+					$('#telBtn').attr('value','확인완료')
+					$('#telBtn').attr('style','background-color: #ffcf00; padding: 8px 10px')
 				}
 				else
 				{
@@ -107,6 +121,8 @@ $(function(){
 				if(count===0)
 				{
 					$('#emailMsg').html("<div style='color:blue'>'"+email+"' 는(은) 사용가능한 이메일 입니다.")
+					$('#emailBtn').attr('value','확인완료')
+					$('#emailBtn').attr('style','background-color: #ffcf00; padding: 8px 10px')
 				}
 				else
 				{
@@ -124,11 +140,71 @@ $(function(){
 			{
 				$('#post').val(data.zonecode)
 				$('#addr1').val(data.address)
+				
 			}
 		}).open()
 	})
+	$('#pwdCheckBtn').click(function(){
+		let pwd_before=$('#pwd_before').val();
+		let pwd=$('#pwd').val();
+		if(pwd_before.trim()==="")
+		{
+			$('#pwd_before').focus()
+			return;
+		}
+		if(pwd.trim()==="")
+		{
+			$('#pwd').focus()
+			return;
+		}
+		if(pwd_before!=pwd)
+		{
+			$('#pwdcheck').text('  * 비밀번호가 틀립니다.')
+			$('#pwd_before').focus()
+			$('#pwd').val("")
+		}
+		else
+		{
+			$('#pwdCheckBtn').attr('value','완료')
+			$('#pwdCheckBtn').attr('style','background-color: #ffcf00; padding: 8px 10px')
+			$('#pwdcheck').text('')
+		}
+	})
 	$('#joinBtn').click(function(){
-		$('#join_frm').submit();
+		let idBtn=$('#idBtn').val();
+		let nicknameBtn=$('#nicknameBtn').val();
+		let telBtn=$('#telBtn').val();
+		let emailBtn=$('#emailBtn').val();
+		let pwdCheckBtn=$('#pwdCheckBtn').val();
+		let id=$('#id').val();
+		let pwd_before=$('#pwd_before').val();
+		let pwd=$('#pwd').val();
+		let nickname=$('#nickname').val();
+		let name=$('#name').val();
+		let birthdate=$('#birthdate').val();
+		let tel=$('#tel').val();
+		let email=$('#email').val();
+		let post=$('#post').val();
+		let addr1=$('#addr1').val();
+		let addr2=$('#addr2').val();
+		if(idBtn==='확인완료'&&nicknameBtn==='확인완료'&&telBtn==='확인완료'&&emailBtn==='확인완료'&&pwdCheckBtn==='완료')
+		{
+			if(id.trim()!=""&&pwd_before.trim()!=""&&pwd.trim()!=""&&nickname.trim()!=""
+				&&name.trim()!=""&&birthdate.trim()!=""&&tel.trim()!=""
+				&&email.trim()!=""&&post.trim()!=""&&addr1.trim()!=""&&addr2.trim()!="")
+			{
+				$('#join_frm').submit();
+			}
+			else
+			{
+				$('#joinMsg').text('모든 값을 입력해주세요.');
+			}
+		}
+		else
+		{
+			$('#joinMsg').text('확인 과정을 완료해주세요.');
+			return;
+		}
 	})
 })
 </script>
@@ -160,17 +236,18 @@ $(function(){
     </div><!-- End Breadcrumbs -->
 
     <!-- ======= Blog Details Section ======= -->
-    <section id="blog" class="blog">
+    <div class="section-header" style="background-image: url('../member/image/m_join.jpg');">
+    	<br><br>
+    	<h3 class="title" style="padding-top: 50px; padding-bottom: 30px; color:white;">캠핑<sup>+</sup>에 오신걸 환영합니다.</h3>
+    	<h4 class="title" style="color:white;">회원가입을 진행해주세요.</h4>
+    	<br><br>
+    </div>
+    <section id="blog" class="blog" style="margin-top:0px;">
       <div class="container" data-aos="fade-up">
         <div class="row g-5">
           <div class="col-md-10 offset-md-1 col-lg-10 offset-lg-1">
             <div class="comments">
-              <div class="reply-form" style="padding: 120px;">
-                <h4 class="title">회원 가입</h4>
-                <br>
-                <h6 class="title">캠핑<sup>+</sup>에 오신걸 환영합니다.</h6>
-                <br>
-                <br>
+              <div class="reply-form" style="padding: 100px; margin: 0px;">
                 <form method="post" action="../member/join_ok.do" name="join_frm" id="join_frm">
                   <div class="row" style="padding: 5px 0 5px 0; margin: 0px;">
                     <div class="col-md-3 form-group" style="padding: 8px 10px">
@@ -192,15 +269,19 @@ $(function(){
                     </div>
                     <div class="col-md-3 form-group">
                       <input id="pwd_before" name="pwd_before" type="password" class="form-control" placeholder="비밀번호 입력">
+                      <div class="join msg" id="pwdcheck" style="font-size: 11pt; color:red" ></div>
                       <div class="join msg" id="pwd_beforeMsg" hidden="" style="color:red; font-size: 11pt;">  * 비밀번호를 입력하세요</div>
                     </div>
 <!-- 비밀번호 확인 -->
                     <div class="col-md-2 form-group" style="padding: 8px 10px; text-align: right;">
-                      <label>비밀번호 확인</label>
+                      <label>재입력</label>
                     </div>
                     <div class="col-md-3 form-group">
                       <input id="pwd" name="pwd" type="password" class="form-control" placeholder="비밀번호 재입력">
                       <div class="join msg" id="pwdMsg" hidden="" style="color:red; font-size: 11pt;">  * 암호를 다시 입력하십시오</div>
+                    </div>
+                    <div class="col-md-1 form-group">
+                      <input id="pwdCheckBtn" type="button" value="확인" class="btn btn-primary" style="background-color: #0ea2bd; padding: 8px 10px"></input>
                     </div>
                   </div>
 <!-- 닉네임 -->
@@ -306,7 +387,9 @@ $(function(){
                     </div>
                   </div>
 				  <br>
-                  <button id="joinBtn" type="button" class="btn btn-primary">회원 가입</button>
+				  <div class="join msg" id="joinMsg" style="font-size: 13pt; color: red;"></div>
+				  <br>
+                  <button id="joinBtn" type="button" class="btn btn-primary" style="background-color: #528e5b;">회원 가입</button>
                 </form>
               </div>
             </div><!-- End blog comments -->

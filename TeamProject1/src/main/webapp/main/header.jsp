@@ -40,9 +40,8 @@
           <li class="dropdown"><a href="#"><span>캠핑 레시피</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="../recipe/recipe_list.do">레시피 전체보기</a></li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
+              <li><a href="#">카테고리별 레시피</a></li>
+              <li><a href="#">레시피 작성하기???</a></li>
             </ul>
           </li>
           
@@ -91,7 +90,7 @@
         		<a href="../member/login.do"><img src="../assets/img/main/user5.png"" style="width:50px; height:50px; margin-right: 20px;"></a>
       		</c:if>
         	<c:if test="${sessionScope.id!=null }">
-        		<a href="../member/logout.do"><img src="../assets/img/main/logout1.png"" style="width:40px; height:40px; margin-right: 20px;"></a>
+        		<a href="../member/logout.do"><img src="../assets/img/main/logout2.png"" style="width:40px; height:40px; margin-right: 20px;margin-top: 8px;"></a>
       		</c:if>
       	</div>
    

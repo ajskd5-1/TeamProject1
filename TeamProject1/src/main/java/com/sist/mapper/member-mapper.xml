@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sist.mapper.member-mapper">
+<!-- 로그인 -->
 	<select id="loginIdCount" resultType="int" parameterType="string">
 		SELECT COUNT(*)
 		FROM member_1
@@ -11,6 +12,49 @@
 		FROM member_1
 		WHERE id=#{id}
 	</select>
+<!-- 아이디 찾기 -->
+	<select id="idFindNameCount" resultType="int" parameterType="string">
+		SELECT COUNT(*) FROM member_1
+		WHERE name=#{name}
+	</select>
+	<select id="idGetEmail" resultType="string" parameterType="string">
+		SELECT email FROM member_1
+		WHERE name=#{name}
+	</select>
+	<select id="idFindEmail" resultType="string" parameterType="hashmap">
+		SELECT RPAD(SUBSTR(id,1,3),LENGTH(id),'*') FROM member_1
+		WHERE name=#{name} AND email=#{email}
+	</select>
+	<select id="idGetTel" resultType="string" parameterType="string">
+		SELECT tel FROM member_1
+		WHERE name=#{name}
+	</select>
+	<select id="idFindTel" resultType="string" parameterType="hashmap">
+		SELECT RPAD(SUBSTR(id,1,3),LENGTH(id),'*') FROM member_1
+		WHERE name=#{name} AND tel=#{tel}
+	</select>
+<!-- 비밀번호 찾기 -->
+	<select id="pwdFindIDCount" resultType="int" parameterType="string">
+		SELECT COUNT(*) FROM member_1
+		WHERE id=#{id}
+	</select>
+	<select id="pwdGetEmail" resultType="string" parameterType="string">
+		SELECT email FROM member_1
+		WHERE id=#{id}
+	</select>
+	<select id="pwdFindEmail" resultType="string" parameterType="hashmap">
+		SELECT RPAD(SUBSTR(pwd,1,3),LENGTH(pwd),'*') FROM member_1
+		WHERE id=#{id} AND email=#{email}
+	</select>
+	<select id="pwdGetTel" resultType="string" parameterType="string">
+		SELECT tel FROM member_1
+		WHERE id=#{id}
+	</select>
+	<select id="pwdFindTel" resultType="string" parameterType="hashmap">
+		SELECT RPAD(SUBSTR(pwd,1,3),LENGTH(pwd),'*') FROM member_1
+		WHERE id=#{id} AND tel=#{tel}
+	</select>
+<!-- 회원가입 -->
 	<select id="joinIdCheck" resultType="int" parameterType="string">
 		SELECT COUNT(*) FROM member_1
 		WHERE id=#{id}
