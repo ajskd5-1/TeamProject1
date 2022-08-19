@@ -13,6 +13,7 @@ import com.sist.vo.MemberVO;
 
 @Controller
 public class MemberModel {
+/* 로그인 */		
 	@RequestMapping("member/login.do")
 	public String member_login(HttpServletRequest request,HttpServletResponse response)
 	{
@@ -21,10 +22,8 @@ public class MemberModel {
 	@RequestMapping("member/login_ok.do")
 	public String member_login_ok(HttpServletRequest request,HttpServletResponse response)
 	{
-		// id,pwd 보내기 
 		String id=request.getParameter("id");
 		String pwd=request.getParameter("pwd");
-		// SQL 연동 
 		MemberVO vo=MemberDAO.isLogin(id, pwd);
 		String result=vo.getMsg();
 		if(result.equals("LOGINOK"))
@@ -38,6 +37,54 @@ public class MemberModel {
 		request.setAttribute("result", result);
 		return "../member/login_ok.jsp";
 	}
+/* 아이디&비번 찾기 */	
+	@RequestMapping("member/idfind.do")
+	public String member_idfind(HttpServletRequest request,HttpServletResponse response)
+	{
+		return "../member/idfind.jsp";
+	}
+	@RequestMapping("member/pwdfind.do")
+	public String member_pwdfind(HttpServletRequest request,HttpServletResponse response)
+	{
+		return "../member/pwdfind.jsp";
+	}
+	@RequestMapping("member/id_find_email_ok.do")
+	public String member_id_find_email(HttpServletRequest request,HttpServletResponse response)
+	{
+		String name=request.getParameter("name");
+		String email=request.getParameter("email");
+		String result=MemberDAO.idFindEmail(name, email);
+		request.setAttribute("result", result);
+		return "../member/id_find_email_ok.jsp";
+	}
+	@RequestMapping("member/id_find_tel_ok.do")
+	public String member_id_find_tel(HttpServletRequest request,HttpServletResponse response)
+	{
+		String name=request.getParameter("name");
+		String tel=request.getParameter("tel");
+		String result=MemberDAO.idFindTel(name, tel);
+		request.setAttribute("result", result);
+		return "../member/id_find_tel_ok.jsp";
+	}
+	@RequestMapping("member/pwd_find_email_ok.do")
+	public String member_pwd_find_email(HttpServletRequest request,HttpServletResponse response)
+	{
+		String id=request.getParameter("id");
+		String email=request.getParameter("email");
+		String result=MemberDAO.pwdFindEmail(id, email);
+		request.setAttribute("result", result);
+		return "../member/pwd_find_email_ok.jsp";
+	}
+	@RequestMapping("member/pwd_find_tel_ok.do")
+	public String member_pwd_find_tel(HttpServletRequest request,HttpServletResponse response)
+	{
+		String id=request.getParameter("id");
+		String tel=request.getParameter("tel");
+		String result=MemberDAO.pwdFindTel(id, tel);
+		request.setAttribute("result", result);
+		return "../member/pwd_find_tel_ok.jsp";
+	}
+/* 로그아웃 */		
 	@RequestMapping("member/logout.do")
 	public String member_logout(HttpServletRequest request,HttpServletResponse response)
 	{
@@ -45,6 +92,7 @@ public class MemberModel {
 		session.invalidate();
 		return "redirect:../main/main.do";
 	}
+/* 회원가입 */		
 	@RequestMapping("member/join.do")
 	public String member_join(HttpServletRequest request,HttpServletResponse response)
 	{
@@ -117,11 +165,7 @@ public class MemberModel {
 		MemberDAO.joinInsert(vo);
 		return "redirect:../main/main.do";
 	}
-	@RequestMapping("member/idfind.do")
-	public String member_idfind(HttpServletRequest request,HttpServletResponse response)
-	{
-		return "../member/idfind.jsp";
-	}
+
 	@RequestMapping("member/join_update.do")
 	public String member_join_update(HttpServletRequest request,HttpServletResponse response)
 	{

@@ -1,6 +1,8 @@
 package com.sist.dao;
 
 import java.io.Reader;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -23,6 +25,7 @@ public class MemberDAO {
 		}
 		
 	}
+/* 로그인 */	
 	//<select id="loginIdCount" resultType="int" parameterType="string">
 	//<select id="loginInfoData" resultType="MemberVO" parameterType="string">
 	public static MemberVO isLogin(String id,String pwd)
@@ -64,6 +67,187 @@ public class MemberDAO {
 		}
 		return vo;
 	}
+/* 아이디 찾기 */	
+	//<select id="idFindNameCount" resultType="int" parameterType="string">
+	//<select id="idGetEmail" resultType="string" parameterType="string">
+	//<select id="idFindEmail" resultType="string" parameterType="hashmap">
+	public static String idFindEmail(String name,String email)
+	{
+		SqlSession session=null;
+		String result="";
+		int count=0;
+		try
+		{
+			session=ssf.openSession();
+			count=session.selectOne("idFindNameCount",name);
+			if(count==0)
+			{
+				result="존재하지 않는 이름입니다.";
+			}
+			else
+			{
+				String db_email=session.selectOne("idGetEmail",name);
+				if(db_email.equals(email))
+				{
+					Map map=new HashMap();
+					map.put("name", name);
+					map.put("email",email);
+					result=session.selectOne("idFindEmail",map);
+				}
+				else
+				{
+					result="이메일이 틀립니다. 다시 입력하세요.";
+				}
+			}
+		}catch(Exception ex)
+		{
+			System.out.println("idFindEmail : error");
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+		return result;
+	}
+	//<select id="idGetTel" resultType="string" parameterType="string">
+	//<select id="idFindTel" resultType="string" parameterType="hashmap">
+	public static String idFindTel(String name,String tel)
+	{
+		SqlSession session=null;
+		String result="";
+		int count=0;
+		try
+		{
+			session=ssf.openSession();
+			count=session.selectOne("idFindNameCount",name);
+			if(count==0)
+			{
+				result="존재하지 않는 이름입니다.";
+			}
+			else
+			{
+				String db_tel=session.selectOne("idGetTel",name);
+				if(db_tel.equals(tel))
+				{
+					Map map=new HashMap();
+					map.put("name", name);
+					map.put("tel",tel);
+					result=session.selectOne("idFindTel",map);
+				}
+				else
+				{
+					result="전화번호가 틀립니다. 다시 입력하세요.";
+				}
+			}
+		}catch(Exception ex)
+		{
+			System.out.println("idFindTel : error");
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+		return result;
+	}
+/* 비밀번호 찾기 */	
+	//<select id="pwdFindIDCount" resultType="int" parameterType="string">
+	//<select id="pwdGetEmail" resultType="string" parameterType="string">
+	//<select id="pwdFindEmail" resultType="string" parameterType="hashmap">
+	public static String pwdFindEmail(String id,String email)
+	{
+		SqlSession session=null;
+		String result="";
+		int count=0;
+		try
+		{
+			session=ssf.openSession();
+			count=session.selectOne("pwdFindIDCount",id);
+			if(count==0)
+			{
+				result="존재하지 않는 아이디입니다.";
+			}
+			else
+			{
+				String db_email=session.selectOne("pwdGetEmail",id);
+				if(db_email.equals(email))
+				{
+					Map map=new HashMap();
+					map.put("id", id);
+					map.put("email",email);
+					result=session.selectOne("pwdFindEmail",map);
+				}
+				else
+				{
+					result="이메일이 틀립니다. 다시 입력하세요.";
+				}
+			}
+		}catch(Exception ex)
+		{
+			System.out.println("pwdFindEmail : error");
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+		return result;
+	}
+	//<select id="pwdGetTel" resultType="string" parameterType="string">
+	//<select id="pwdFindTel" resultType="string" parameterType="hashmap">
+	public static String pwdFindTel(String id,String tel)
+	{
+		SqlSession session=null;
+		String result="";
+		int count=0;
+		try
+		{
+			session=ssf.openSession();
+			count=session.selectOne("pwdFindIDCount",id);
+			if(count==0)
+			{
+				result="존재하지 않는 아이디입니다.";
+			}
+			else
+			{
+				String db_tel=session.selectOne("pwdGetTel",id);
+				if(db_tel.equals(tel))
+				{
+					Map map=new HashMap();
+					map.put("id", id);
+					map.put("tel",tel);
+					result=session.selectOne("pwdFindTel",map);
+				}
+				else
+				{
+					result="전화번호가 틀립니다. 다시 입력하세요.";
+				}
+			}
+		}catch(Exception ex)
+		{
+			System.out.println("pwdFindTel : error");
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+		return result;
+	}
+/* 회원가입 */		
 	//<select id="JoinIdCheck" resultType="int" parameterType="string">
 	public static int joinIdCheck(String id)
 	{

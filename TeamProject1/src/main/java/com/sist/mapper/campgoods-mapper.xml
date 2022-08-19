@@ -15,7 +15,18 @@
 		SELECT * FROM goods_1
 		WHERE g_id=#{g_id}
 	</select>
-	 
+	 <!--  캠핑용품 찾기 -->
+  <select id="campgoodsFindData" resultType="CampGoodsVO" parameterType="hashmap">
+    SELECT g_id,g_brand,g_name,g_image,g_price,g_detail, num
+    FROM (SELECT g_id,g_brand,g_name,g_image,g_price,g_detail,rownum as num 
+    FROM (SELECT g_id,g_brand,g_name,g_image,g_price,g_detail 
+    FROM goods_1 WHERE g_brand LIKE '%'||#{g_brand}||'%' ORDER BY g_id ASC))
+    WHERE num BETWEEN #{start} AND #{end}
+  </select>
+  <select id="campgoodsFindTotalPage" resultType="int" parameterType="string">
+    SELECT CEIL(COUNT(*)/9.0) FROM goods_1
+    WHERE g_brand LIKE '%'||#{g_brand}||'%'
+  </select>
 </mapper>
 
 <!-- 

@@ -10,10 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
-import com.sist.dao.CampDAO;
+
 import com.sist.dao.CampGoodsDAO;
+
 import com.sist.vo.CampGoodsVO;
-import com.sist.vo.CampVO;
+
+
+
 
 
 //목록
@@ -97,5 +100,49 @@ public class CampGoodsModel {
 		return "../main/main.jsp";
 	}
 	
+	@RequestMapping("campgoods/campgoods_find.do")
+	   public String camp_find(HttpServletRequest request,HttpServletResponse response)
+	   {
+		   try
+		   {
+			   request.setCharacterEncoding("UTF-8");
+		   }catch(Exception ex) {}
+		   String page=request.getParameter("page");
+		   if(page==null)
+			   page="1";
+		   String g_brand=request.getParameter("g_brand");
+		   if(g_brand==null)
+			   g_brand="스노우피크";
+		   
+		   int curpage=Integer.parseInt(page);
+		   int rowSize=9;
+		   int start=(rowSize*curpage)-(rowSize-1);
+		   int end=rowSize*curpage;
+		   
+		   Map map=new HashMap();
+		   map.put("start", start);
+		   map.put("end", end);
+		   map.put("g_brand", g_brand);
+		   
+		   List<CampGoodsVO> list=CampGoodsDAO.campgoodsFindData(map);
+		   int totalpage=CampGoodsDAO.campgoodsFindTotalPage(g_brand);
+		   
+
+			for(CampGoodsVO vo : list) {
+				String image = vo.getG_image();
+				if(image.indexOf(";") != -1) {
+					image = image.substring(0, image.indexOf(";"));
+				} 
+				vo.setG_image(image);
+			}
+			
+		   
+		   request.setAttribute("curpage", curpage);
+		   request.setAttribute("totalpage", totalpage);
+		   request.setAttribute("list", list);
+		   request.setAttribute("g_brand", g_brand);
+		   request.setAttribute("main_jsp", "../campgoods/campgoods_find.jsp");
+		   return "../main/main.jsp";
+	   }
 
 }

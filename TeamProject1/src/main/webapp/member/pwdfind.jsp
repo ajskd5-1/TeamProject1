@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>아이디 찾기</title>
+<title>비밀번호 찾기</title>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="./style.css">
 <script src="https://code.jquery.com/jquery.js"></script>
@@ -14,12 +14,12 @@ $(function(){
 	  $( function() {
 		    $( "#tabs" ).tabs();
 		  } );
-	  $('#id_e_Btn').click(function(){
-		  let e_name=$('#e_name').val()
+	  $('#pwd_e_Btn').click(function(){
+		  let e_id=$('#e_id').val()
 		  let email=$('#email').val()
-		  if(e_name.trim()==="")
+		  if(e_id.trim()==="")
 	  	  {
-			  $('#e_name').focus()
+			  $('#e_id').focus()
 			  return;
 	  	  }
 		  if(email.trim()==="")
@@ -29,22 +29,22 @@ $(function(){
 	  	  }
 		  $.ajax({
 			  type:'post',
-			  url:'../member/id_find_email_ok.do',
-			  data:{"name":e_name,"email":email},
+			  url:'../member/pwd_find_email_ok.do',
+			  data:{"id":e_id,"email":email},
 			  success:function(result)
 			  {
-				  $('#id_e_Msg').text(result);
+				  $('#pwd_e_Msg').text(result);
 			  }
 		  })
 	  })
-	  $('#id_t_Btn').click(function(){
-		  let t_name=$('#t_name').val()
+	  $('#pwd_t_Btn').click(function(){
+		  let t_id=$('#t_id').val()
 		  let tel=$('#tel').val()
 		  $('#telMsg').val("");
 		  var test="-";
-		  if(t_name.trim()==="")
+		  if(t_id.trim()==="")
 	  	  {
-			  $('#t_name').focus()
+			  $('#t_id').focus()
 			  return;
 	  	  }
 		  if(tel.trim()==="")
@@ -59,11 +59,11 @@ $(function(){
 	      }
 		  $.ajax({
 			  type:'post',
-			  url:'../member/id_find_tel_ok.do',
-			  data:{"name":t_name,"tel":tel},
+			  url:'../member/pwd_find_tel_ok.do',
+			  data:{"id":t_id,"tel":tel},
 			  success:function(result)
 			  {
-				  $('#id_t_Msg').text(result);
+				  $('#pwd_t_Msg').text(result);
 			  }
 		  })
 	  })
@@ -124,10 +124,10 @@ h{
   <div id="tabs-1">
   <div class="cont">
   	<div class="row" style="height: 80px;"></div>
-	    <h2 style="font-size: 15pt;">아이디를 찾기 위해 정보를 입력하세요</h2><br>
+	    <h2 style="font-size: 15pt;">비밀번호를 찾기 위해 정보를 입력하세요</h2><br>
 	    <label class="login">
-	      <span class="login">NAME</span>
-	      <input type="text" placeholder="이름을 입력하세요"  id="e_name" style="font-size: 10pt;">
+	      <span class="login">ID</span>
+	      <input type="text" placeholder="아이디를 입력하세요"  id="e_id" style="font-size: 10pt;">
 	    </label><br>
 	    <label class="login">
 	      <span class="login">E-MAIL</span>
@@ -135,19 +135,19 @@ h{
 	    </label>
 	    <br>
 	    <p class="forgot-pass"><br></p>
-	    <button type="button" class="fb-btn" id="id_e_Btn" style="margin:0px auto;width:100px;border-radius:20px;"><span>검색하기</span></button><br>
+	    <button type="button" class="fb-btn" id="pwd_e_Btn" style="margin:0px auto;width:100px;border-radius:20px;"><span>검색하기</span></button><br>
 	  	<div class="forgot-pass">
-	  		<span id="id_e_Msg" style="color:red; font-weight: bold; font-size: 13pt;" ></span>
+	  		<span id="pwd_e_Msg" style="color:red; font-weight: bold; font-size: 13pt;" ></span>
 	 	 </div>
   </div>
   </div>
   <div id="tabs-2">
   <div class="cont">
   	<div class="row" style="height: 80px;"></div>
-	    <h2 style="font-size: 15pt;">아이디를 찾기 위해 정보를 입력하세요</h2><br>
+	    <h2 style="font-size: 15pt;">비밀번호를 찾기 위해 정보를 입력하세요</h2><br>
 	    <label class="login">
-	      <span class="login">NAME</span>
-	      <input type="text" placeholder="이름을 입력하세요"  id="t_name" style="font-size: 10pt;">
+	      <span class="login">ID</span>
+	      <input type="text" placeholder="아이디를 입력하세요"  id="t_id" style="font-size: 10pt;">
 	    </label><br>
 	    <label class="login">
 	      <span class="login">TEL</span>
@@ -156,9 +156,9 @@ h{
 	    </label>
 	    <br>
 	    <p class="forgot-pass"><br></p>
-	    <button type="button" class="fb-btn" id="id_t_Btn" style="margin:0px auto;width:100px;border-radius:20px;"><span>검색하기</span></button><br>
+	    <button type="button" class="fb-btn" id="pwd_t_Btn" style="margin:0px auto;width:100px;border-radius:20px;"><span>검색하기</span></button><br>
 	  	<div class="forgot-pass">
-	  		<span id="id_t_Msg" style="color:red; font-weight: bold; font-size: 13pt;" ></span>
+	  		<span id="pwd_t_Msg" style="color:red; font-weight: bold; font-size: 13pt;" ></span>
 	 	 </div>
   </div>
   </div>

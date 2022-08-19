@@ -80,6 +80,7 @@ span#title{
 <body>
 <p class="tip"><br></p>
 <div class="cont">
+  <img src="../member/image/back8.png" style="height: 40px; width: 40px; cursor: pointer; margin:3px 20px 0px 5px;" onclick="javascript:history.back()">
   <div class="form sign-in">
     <h2>Login</h2><br>
     <label class="login">
@@ -88,16 +89,18 @@ span#title{
     </label><br>
     <label class="login">
       <span class="login">Password</span>
-      <input type="password" placeholder="아이디를 입력하세요" id="pwd" style="font-size: 10pt;">
+      <input type="password" placeholder="비밀번호를 입력하세요" id="pwd" style="font-size: 10pt;">
     </label>
     <br>
   <div class="forgot-pass">
   	<span id="loginMsg" style="color:red; font-weight: bold; font-size: 11pt;" ></span>
-  </div>
-    <p class="forgot-pass"><br></p>
     <button type="button" class="submit" id="logBtn" style="margin:0px auto;width:100px;border-radius:20px;">로그인</button><br>
-    <button type="button" class="fb-btn" style="margin:0px auto;width:350px; border-radius:20px;"onclick="location.href='../member/idfind.do'">회원정보를 잊으셨나요?  <span> 아이디 비밀번호 찾기</span></button>
   </div>
+  <div class="forgot-pass">
+    <button type="button" class="fb-btn" style="display: inline;margin:0px auto;width:120px; "onclick="location.href='../member/idfind.do'"><span>아이디 찾기</span></button>
+    <button type="button" class="fb-btn" style="display: inline;margin:0px auto;width:150px; "onclick="location.href='../member/pwdfind.do'"><span>비밀번호 찾기</span></button>
+  </div>
+ </div>
  
   <div class="sub-cont">
     <div class="img">

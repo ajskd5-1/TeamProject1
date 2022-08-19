@@ -10,9 +10,9 @@
 <!--   <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
+ <link rel="stylesheet" href="./style_find.css">
 <link rel="stylesheet" href="style.css">
-
+ 
 <style type="text/css">
 
 span{
@@ -21,6 +21,7 @@ span{
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
     font-weight: bold;
     font-style: normal;
+}
 }
 li{
 @font-face {
@@ -40,10 +41,9 @@ p2{color:#4C4C4C;
 }
 
 
-
 </style>
 
-</script>
+
 </head>
 <body>
 <main id="main">
@@ -53,31 +53,31 @@ p2{color:#4C4C4C;
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-         <a href="../campgoods/campgoods_list.do"><h2 class="title" style="color:#0ea2bd;">캠핑<sup>+</sup> 캠핑용품</h2></a>
+         <a href="../campgoods/campgoods_find.do"><h2 class="title" style="color:#0ea2bd;">캠핑<sup>+</sup> 캠핑용품</h2></a>
           <ol>
             <li ><a href="../main/main.do" class="title" style="color:#0ea2bd;">Home</a></li>
-            <li>CampGoods_list</li>
+            <li>CampGoods_brand_find</li>
           </ol>
         </div>
 
       </div>
     </div>  
- 
-		<!-- content here -->
-		<!-- 
-		 <div class="container" style="margin: 40px 40px -10px;">
-    <div class="row">
-      <div class="text-center"\>
-       <form method=post action="find.jsp" id="frm">
-         Search:<input type=text size=45 class="input-sm" id="fd" name="fd">
-         <input type=button value="검색" id="btn">
+
+	
+	
+	<div class="row inline" style="margin-top: 30px; margin-left: 144px;" >
+      <form method="post" action="../campgoods/campgoods_find.do">
+       <input type=text name=g_brand size=15 class="input-sm" value="${g_brand }">
+       <input type=submit value="검색" class="btn btn-sm btn-primary">
        </form>
-      </div>
     </div>
-    <div style="height: 50px"></div>
-     </div>
-      -->
-	<div class="content" style="margin: 40px 40px -10px;">
+    <div style="height: 20px"></div>
+
+
+
+ 
+
+	<div class="content" style="margin-top: 10px;">
 		
 		<div class="product-grid product-grid--flexbox">
 			<div class="product-grid__wrapper" data-aos="fade-up">
@@ -117,38 +117,13 @@ p2{color:#4C4C4C;
     
 
      
-        <div class="row">
-          <div class="col-sm-12">
-        
-            <nav class="pagination-a">
-              <ul class="pagination justify-content-center" style="margin: 40px 40px;"><!--start, center, end -->
-                <c:if test="${startPage>1 }">
-                  <li class="page-item prev">
-                    <a class="page-link" href="../campgoods/campgoods_list.do?page=${startPage-1 }" tabindex="-1">
-                      <span class="bi bi-chevron-left"></span>
-                    </a>
-                  </li>
-                </c:if>
-                <c:forEach var="i" begin="${startPage }" end="${endPage }">
-		          <c:if test="${i==curpage }">
-		            <li class="page-item active"><a class="page-link" href="../campgoods/campgoods_list.do?page=${i }">${i }</a></li>
-		          </c:if>
-		          <c:if test="${i!=curpage }">
-		            <li class="page-item"><a class="page-link" href="../campgoods/campgoods_list.do?page=${i }">${i }</a></li>
-		          </c:if>
-		        </c:forEach>
-                <c:if test="${endPage<totalpage }">
-                  <li class="page-item next">
-                    <a class="page-link" href="../campgoods/campgoods_list.do?page=${endPage+1 }">
-                      <span class="bi bi-chevron-right"></span>
-                    </a>
-                  </li>
-                </c:if>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      
+         <div class="row">
+      <div class="text-center" style="margin: 40px; margin-left: 340px; color:#0ea2bd;">
+        <a href="../campgoods/campgoods_find.do?g_brand=${g_brand }&page=${curpage>1?curpage-1:curpage}" class="btn btn-outline-primary " >이전</a>
+        ${curpage } page / ${totalpage } pages
+        <a href="../campgoods/campgoods_find.do?g_brand=${g_brand }&page=${curpage<totalpage?curpage+1:curpage}" class="btn btn-outline-primary" >다음</a>
+      </div>
+    </div>
 				
         
 
