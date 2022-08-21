@@ -38,7 +38,7 @@
 				<h3 class="sidebar-title title">예약/결제내역</h3>
                 <div class="mt-3">
                   <ul>
-                    <li><a href="#">예약내역</a></li>
+                    <li><a href="../mypage/mypage_reserve.do">예약내역</a></li>
                     <li><a href="#">결제내역</a></li>
                     <li><a href="#">장바구니</a></li>
                   </ul>

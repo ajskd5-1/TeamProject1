@@ -11,6 +11,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAlias type="com.sist.vo.CampGoodsVO" alias="CampGoodsVO"/>
 	<typeAlias type="com.sist.vo.QnaBoardVO" alias="QnaBoardVO"/>
 	<typeAlias type="com.sist.vo.MemberVO" alias="MemberVO"/>
+	<typeAlias type="com.sist.vo.ReserveVO" alias="ReserveVO"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -31,5 +32,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="com/sist/mapper/qnaboard-mapper.xml"/>
 		<mapper resource="com/sist/mapper/member-mapper.xml"/>
 		<mapper resource="com/sist/mapper/mypage-mapper.xml"/>
+		<mapper resource="com/sist/mapper/reserve-mapper.xml"/>
 	</mappers>
 </configuration>

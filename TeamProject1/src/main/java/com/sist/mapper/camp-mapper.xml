@@ -6,7 +6,7 @@
 		SELECT no, c_title, c_poster, c_content, c_addr, c_info2, num
 		FROM (SELECT no, c_title, c_poster, c_content, c_addr, c_info2, rownum as num
 		FROM (SELECT /*+ INDEX_ASC()*/ no, c_title, c_poster, c_content, c_addr, c_info2
-		FROM camp_1 ORDER BY no ASC))
+		FROM camp_1 ORDER BY c_hit DESC))
 		WHERE num BETWEEN #{start} AND #{end}
 	</select>
 	<!-- 캠핑장 총페이지 -->
@@ -27,5 +27,12 @@
 	<!-- 안전수칙동영상 -->
 	<select id="campVideo" resultType="CampVideoVO">
 		SELECT * FROM campvideo_1 ORDER BY cv_no ASC
+	</select>
+	
+	<!-- 캠핑장 지도 검색 -->
+	<select id="campMapFind" resultType="CampVO" parameterType="String">
+		SELECT no, c_title, c_poster, c_addr, rownum
+		FROM (select c_title, c_hit, c_addr, c_poster, no FROM camp_1 ORDER BY c_hit DESC)
+		WHERE REGEXP_LIKE(c_addr, #{title}) AND rownum &lt;= 20
 	</select>
 </mapper>

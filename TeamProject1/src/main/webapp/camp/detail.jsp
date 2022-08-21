@@ -6,9 +6,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-
-</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#reserveBtn').click(function(){
+		let title = $('#ctitle').text();
+		let no = $('#cno').val();
+		$.ajax({
+			type:'post',
+			url:'../reserve/reserve.do',
+			data:{"title":title, "no":no},
+			success:function(result){
+				$('#reservePrint').html(result);
+			}
+		})
+	})
+})
+</script>
 </head>
 <body>
 	<!-- ======= Breadcrumbs ======= -->
@@ -20,7 +34,7 @@
           <ol>
             <li><a href="../main/main.do">Home</a></li>
             <li><a href="../camp/list.do">캠핑장</a></li>
-            <li><a href="../camp/detail.do?no=${vo.no }">${vo.c_title }</a></li>
+            <li>${vo.c_title }</li>
           </ol>
         </div>
 
@@ -31,8 +45,8 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2 class="title">${vo.c_title }</h2>
-          <!-- <p>Architecto nobis eos vel nam quidem vitae temporibus voluptates qui hic deserunt iusto omnis nam voluptas asperiores sequi tenetur dolores incidunt enim voluptatem magnam cumque fuga.</p> -->
+          <h2 class="title" id="ctitle">${vo.c_title }</h2>
+          <input type="hidden" id="cno" value="${vo.no }">
         </div>
 
         <div class="row g-4 g-lg-5" data-aos="fade-up" data-aos-delay="200">
@@ -44,14 +58,14 @@
           </div>
 
           <div class="col-lg-7">
-            <%-- <h3 class="pt-0 pt-lg-5" style="font-size: 20px;">${vo.c_content }</h3> --%>
 
             <!-- Tabs -->
             <ul class="nav nav-pills mb-3">
               <li><a class="nav-link active" data-bs-toggle="pill" href="#tab1">캠핑장 기본정보</a></li>
               <li><a class="nav-link" data-bs-toggle="pill" href="#tab2">사진</a></li>
               <li><a class="nav-link" data-bs-toggle="pill" href="#tab3">이용안내</a></li>
-              <li><input type="text" value="예약하기" class="btn btn-sm btn-primary" size="10" style="margin-top: 10px;"></li>
+              <li><span class="btn btn-sm btn-primary" style="margin-top: 10px;" id="reserveBtn">예약하기</span></li>
+              <!-- <li><input type="text" value="예약하기" class="btn btn-sm btn-primary" size="10" style="margin-top: 10px;"></li> -->
             </ul><!-- End Tabs -->
 
             <!-- Tab Content -->
@@ -99,6 +113,9 @@
           </div>
 
         </div>
+        
+        <div class="row" id="reservePrint"></div>
+        
         <hr class="border border-primary opacity-75">
         <!-- 추가 -->
         <h4>캠핑장 소개</h4>
@@ -128,38 +145,159 @@
       </div>
 
     </section><!-- End About Section -->
-    
+
     
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio" data-aos="fade-up">
 
       <div class="container">
-
         <div class="section-header">
           <h2><i class="bi bi-images text-left" style="color: #0ea2bd;"></i>${vo.c_title }</h2>
-          <p></p>
         </div>
-
       </div>
-
       <div class="container-fluid" data-aos="fade-up" data-aos-delay="200">
-
         <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order">
-
-
           <div class="row g-0 portfolio-container">
 			<c:forTokens items="${vo.c_gallery }" delims="^" var="image">
               <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
-	              <img src="${image }" style="width: 100%" class="img-fluid" alt="">
-
+	            <img src="${image }" style="width: 100%" class="img-fluid" alt="">
               </div><!-- End Portfolio Item -->
 			</c:forTokens>
           </div><!-- End Portfolio Container -->
-
         </div>
-
       </div>
+      
     </section><!-- End Portfolio Section -->
-    
+<section id="blog" class="blog">
+  <div class="container" data-aos="fade-up">
+    <div class="row g-5">
+      <div class="col-lg-12">
+        <div class="comments">
+
+	      <h4 class="comments-count">8 Comments</h4>
+	
+	      <div id="comment-1" class="comment">
+	        <div class="d-flex">
+	          <div class="comment-img"><img src="../assets/img/blog/comments-1.jpg" alt=""></div>
+	          <div>
+	            <h5><a href="">Georgia Reader</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+	            <time datetime="2020-01-01">01 Jan,2022</time>
+	            <p>
+	              Et rerum totam nisi. Molestiae vel quam dolorum vel voluptatem et et. Est ad aut sapiente quis molestiae est qui cum soluta.
+	              Vero aut rerum vel. Rerum quos laboriosam placeat ex qui. Sint qui facilis et.
+	            </p>
+	          </div>
+	        </div>
+	      </div><!-- End comment #1 -->
+	
+	      <div id="comment-2" class="comment">
+	        <div class="d-flex">
+	          <div class="comment-img"><img src="../assets/img/blog/comments-2.jpg" alt=""></div>
+	          <div>
+	            <h5><a href="">Aron Alvarado</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+	            <time datetime="2020-01-01">01 Jan,2022</time>
+	            <p>
+	              Ipsam tempora sequi voluptatem quis sapiente non. Autem itaque eveniet saepe. Officiis illo ut beatae.
+	            </p>
+	          </div>
+	        </div>
+	
+	        <div id="comment-reply-1" class="comment comment-reply">
+	          <div class="d-flex">
+	            <div class="comment-img"><img src="../assets/img/blog/comments-3.jpg" alt=""></div>
+	            <div>
+	              <h5><a href="">Lynda Small</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+	              <time datetime="2020-01-01">01 Jan,2022</time>
+	              <p>
+	                Enim ipsa eum fugiat fuga repellat. Commodi quo quo dicta. Est ullam aspernatur ut vitae quia mollitia id non. Qui ad quas nostrum rerum sed necessitatibus aut est. Eum officiis sed repellat maxime vero nisi natus. Amet nesciunt nesciunt qui illum omnis est et dolor recusandae.
+	
+	                Recusandae sit ad aut impedit et. Ipsa labore dolor impedit et natus in porro aut. Magnam qui cum. Illo similique occaecati nihil modi eligendi. Pariatur distinctio labore omnis incidunt et illum. Expedita et dignissimos distinctio laborum minima fugiat.
+	
+	                Libero corporis qui. Nam illo odio beatae enim ducimus. Harum reiciendis error dolorum non autem quisquam vero rerum neque.
+	              </p>
+	            </div>
+	          </div>
+	
+	          <div id="comment-reply-2" class="comment comment-reply">
+	            <div class="d-flex">
+	              <div class="comment-img"><img src="../assets/img/blog/comments-4.jpg" alt=""></div>
+	              <div>
+	                <h5><a href="">Sianna Ramsay</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+	                <time datetime="2020-01-01">01 Jan,2022</time>
+	                <p>
+	                  Et dignissimos impedit nulla et quo distinctio ex nemo. Omnis quia dolores cupiditate et. Ut unde qui eligendi sapiente omnis ullam. Placeat porro est commodi est officiis voluptas repellat quisquam possimus. Perferendis id consectetur necessitatibus.
+	                </p>
+	              </div>
+	            </div>
+	
+	          </div><!-- End comment reply #2-->
+	
+	        </div><!-- End comment reply #1-->
+	
+	      </div><!-- End comment #2-->
+	
+	      <div id="comment-3" class="comment">
+	        <div class="d-flex">
+	          <div class="comment-img"><img src="../assets/img/blog/comments-5.jpg" alt=""></div>
+	          <div>
+	            <h5><a href="">Nolan Davidson</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+	            <time datetime="2020-01-01">01 Jan,2022</time>
+	            <p>
+	              Distinctio nesciunt rerum reprehenderit sed. Iste omnis eius repellendus quia nihil ut accusantium tempore. Nesciunt expedita id dolor exercitationem aspernatur aut quam ut. Voluptatem est accusamus iste at.
+	              Non aut et et esse qui sit modi neque. Exercitationem et eos aspernatur. Ea est consequuntur officia beatae ea aut eos soluta. Non qui dolorum voluptatibus et optio veniam. Quam officia sit nostrum dolorem.
+	            </p>
+	          </div>
+	        </div>
+	
+	      </div><!-- End comment #3 -->
+	
+	      <div id="comment-4" class="comment">
+	        <div class="d-flex">
+	          <div class="comment-img"><img src="../assets/img/blog/comments-6.jpg" alt=""></div>
+	          <div>
+	            <h5><a href="">Kay Duggan</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+	            <time datetime="2020-01-01">01 Jan,2022</time>
+	            <p>
+	              Dolorem atque aut. Omnis doloremque blanditiis quia eum porro quis ut velit tempore. Cumque sed quia ut maxime. Est ad aut cum. Ut exercitationem non in fugiat.
+	            </p>
+	          </div>
+	        </div>
+	
+	      </div><!-- End comment #4 -->
+	
+	      <div class="reply-form">
+	
+	        <h4>Leave a Reply</h4>
+	        <p>Your email address will not be published. Required fields are marked * </p>
+	        <form action="">
+	          <div class="row">
+	            <div class="col-md-6 form-group">
+	              <input name="name" type="text" class="form-control" placeholder="Your Name*">
+	            </div>
+	            <div class="col-md-6 form-group">
+	              <input name="email" type="text" class="form-control" placeholder="Your Email*">
+	            </div>
+	          </div>
+	          <div class="row">
+	            <div class="col form-group">
+	              <input name="website" type="text" class="form-control" placeholder="Your Website">
+	            </div>
+	          </div>
+	          <div class="row">
+	            <div class="col form-group">
+	              <textarea name="comment" class="form-control" placeholder="Your Comment*"></textarea>
+	            </div>
+	          </div>
+	          <button type="submit" class="btn btn-primary">Post Comment</button>
+	
+	        </form>
+	
+	      </div>
+	
+	    </div><!-- End blog comments -->
+	  </div>
+    </div>
+  </div>
+</section>
 </body>
 </html>

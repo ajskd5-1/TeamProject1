@@ -86,4 +86,19 @@ public class CampDAO {
 		}
 		return vo;
 	}
+	
+	// 캠핑장 지도 검색 <select id="campMapFind" resultType="CampVO" parameterType="String">
+	public static List<CampVO> campMapFind(String title) {
+		SqlSession session = null;
+		List<CampVO> list = null;
+		try {
+			session = ssf.openSession();
+			list = session.selectList("campMapFind", title);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return list;
+	}
 }
