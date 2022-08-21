@@ -94,6 +94,8 @@ span#title{
     <br>
   <div class="forgot-pass">
   	<span id="loginMsg" style="color:red; font-weight: bold; font-size: 11pt;" ></span>
+  </div>
+  <div class="forgot-pass">
     <button type="button" class="submit" id="logBtn" style="margin:0px auto;width:100px;border-radius:20px;">로그인</button><br>
   </div>
   <div class="forgot-pass">

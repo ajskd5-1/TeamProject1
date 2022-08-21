@@ -82,7 +82,7 @@
       -->
    
    		<c:if test="${sessionScope.id!=null }">
-		<p style="margin: 14px 20px; color:#3A4753B3">[ <span style="font-weight: bold;"><%=(String)session.getAttribute("nickname")%></span> ]님 환영합니다.</p>
+		<p style="margin: 14px 20px; color:#3A4753B3">[ <span style="font-weight: bold;"><%=(String)session.getAttribute("id")%></span> ]님 환영합니다.</p>
 		</c:if>
 		<div class="header-icon" style="display: inline;">
         	<a href="../cart/shoppingcart.do"><img src="../cart/images/cart2.png" style="width:50px; height:50px;  margin-right: 10px;"></a>
