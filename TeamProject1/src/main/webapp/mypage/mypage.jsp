@@ -61,7 +61,7 @@
                 <div class="mt-3">
                   <ul>
                     <li><a href="../member/join_update.do">회원정보 수정</a></li>
-                    <li><a href="#">회원 탈퇴</a></li>
+                    <li><a href="../member/join_delete.do">회원 탈퇴</a></li>
                   </ul>
                 </div>
 

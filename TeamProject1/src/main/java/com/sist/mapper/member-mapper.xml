@@ -86,4 +86,38 @@
 		#{addr1},
 		#{addr2})
 	</insert>
+<!-- 회원수정 -->	
+	<select id="memberDetailData" resultType="MemberVO" parameterType="string">
+		SELECT * FROM member_1
+		WHERE id=#{id}
+	</select>
+	<update id="memberUpdate" parameterType="MemberVO">
+		UPDATE member_1 SET 
+		nickname=#{nickname},
+		name=#{name},
+		sex=#{sex},
+		birthdate=#{birthdate},
+		tel=#{tel},
+		email=#{email},
+		post=#{post},
+		addr1=#{addr1},
+		addr2=#{addr2}
+		WHERE id=#{id}
+	</update>
+	<update id="pwdUpdate" parameterType="MemberVO">
+		UPDATE member_1 SET 
+		pwd=#{pwd}
+		WHERE id=#{id}
+	</update>
+<!-- 비밀번호 확인 -->
+	<select id="memberPwdInfo" resultType="string" parameterType="string" >
+		SELECT pwd
+		FROM member_1 
+		WHERE id=#{id}
+	</select>
+<!-- 회원탈퇴 -->
+	<delete id="memberDelete" parameterType="string">
+		DELETE FROM member_1 
+		WHERE id=#{id}
+	</delete>
 </mapper>

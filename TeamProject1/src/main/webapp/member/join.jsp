@@ -28,7 +28,7 @@ $(function(){
 					var set
 					$('#idMsg').html("<div style='color:blue'>'"+id+"' 는(은) 사용가능한 아이디 입니다.")
 					$('#idBtn').attr('value','확인완료')
-					$('#idBtn').attr('style','background-color: #ffcf00; padding: 8px 10px')
+					$('#idBtn').attr('style','background-color: #ffcb5f; padding: 8px 10px')
 				}
 				else
 				{
@@ -57,7 +57,7 @@ $(function(){
 				{
 					$('#nicknameMsg').html("<div style='color:blue'>'"+nickname+"' 는(은) 사용가능한 닉네임 입니다.")
 					$('#nicknameBtn').attr('value','확인완료')
-					$('#nicknameBtn').attr('style','background-color: #ffcf00; padding: 8px 10px')
+					$('#nicknameBtn').attr('style','background-color: #ffcb5f; padding: 8px 10px')
 				}
 				else
 				{
@@ -93,7 +93,7 @@ $(function(){
 				{
 					$('#telMsg').html("<div style='color:blue'>'"+tel+"' 는(은) 사용가능한 전화번호 입니다.")
 					$('#telBtn').attr('value','확인완료')
-					$('#telBtn').attr('style','background-color: #ffcf00; padding: 8px 10px')
+					$('#telBtn').attr('style','background-color: #ffcb5f; padding: 8px 10px')
 				}
 				else
 				{
@@ -122,7 +122,7 @@ $(function(){
 				{
 					$('#emailMsg').html("<div style='color:blue'>'"+email+"' 는(은) 사용가능한 이메일 입니다.")
 					$('#emailBtn').attr('value','확인완료')
-					$('#emailBtn').attr('style','background-color: #ffcf00; padding: 8px 10px')
+					$('#emailBtn').attr('style','background-color: #ffcb5f; padding: 8px 10px')
 				}
 				else
 				{
@@ -166,7 +166,7 @@ $(function(){
 		else
 		{
 			$('#pwdCheckBtn').attr('value','완료')
-			$('#pwdCheckBtn').attr('style','background-color: #ffcf00; padding: 8px 10px')
+			$('#pwdCheckBtn').attr('style','background-color: #ffcb5f; padding: 8px 10px')
 			$('#pwdcheck').text('')
 		}
 	})
@@ -389,7 +389,7 @@ $(function(){
 				  <br>
 				  <div class="join msg" id="joinMsg" style="font-size: 13pt; color: red;"></div>
 				  <br>
-                  <button id="joinBtn" type="button" class="btn btn-primary" style="background-color: #528e5b;">회원 가입</button>
+                  <button id="joinBtn" type="button" class="btn btn-primary" style="background-color: #528e5b; border-radius: 30px">회원 가입</button>
                 </form>
               </div>
             </div><!-- End blog comments -->

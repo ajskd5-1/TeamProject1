@@ -363,4 +363,146 @@ public class MemberDAO {
 		}
 		return count;
 	}
+/* 회원수정 */
+	//<select id="memberDetailData" resultType="MemberVO" parameterType="string">
+	public static MemberVO memberDetailData(String id)
+	{
+		SqlSession session=null;
+		MemberVO vo=new MemberVO();
+		try
+		{
+			session=ssf.openSession();
+			vo=session.selectOne("memberDetailData",id);
+		}catch(Exception ex)
+		{
+			System.out.println("memberDetailData : error");
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+		return vo;
+	}
+	//<update id="memberUpdate" parameterType="MemberVO">
+	public static void memberUpdate(MemberVO vo)
+	{
+		SqlSession session=null;
+		try 
+		{
+			session=ssf.openSession();
+			session.update("memberUpdate",vo);
+			session.commit();
+		}catch(Exception ex)
+		{
+			System.out.println("memberUpdate : error");
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+	}
+/* 비밀번호 수정&확인 */
+	//<select id="memberPwdInfo" resultType="string" parameterType="string" >
+	public static String memberPwdInfo(String id,String pwd)
+	{
+		SqlSession session=null;
+		String db_pwd=null;	
+		String bCheck="false";
+		try {
+			session=ssf.openSession();
+			db_pwd=session.selectOne("memberPwdInfo",id);
+			if(db_pwd.equals(pwd))
+			{
+				bCheck="true";
+			}
+			else
+			{
+				bCheck="false";
+			}
+		}catch(Exception ex)
+		{
+			System.out.println("memberPwdInfo");
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+		return bCheck;
+	}
+	//<update id="pwdUpdate" parameterType="MemberVO">
+	public static void pwdUpdate(MemberVO vo)
+	{
+		SqlSession session=null;
+		try 
+		{
+			session=ssf.openSession();
+			session.update("pwdUpdate",vo);
+			session.commit();
+		}catch(Exception ex)
+		{
+			System.out.println("pwdUpdate : error");
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+	}
+/* 회원 탈퇴 */
+	//<select id="memberPwdInfo" resultType="string" parameterType="string" >
+	//<delete id="memberDelete" parameterType="string">
+	public static String memberDelete(String id,String pwd)
+	{
+		SqlSession session=null;
+		String db_pwd=null;	
+		String bCheck="false";
+		try {
+			session=ssf.openSession();
+			db_pwd=session.selectOne("memberPwdInfo",id);
+			if(db_pwd.equals(pwd))
+			{
+				bCheck="true";
+				session.delete("memberDelete",id);
+				session.commit();
+			}
+			else
+			{
+				bCheck="false";
+			}
+		}catch(Exception ex)
+		{
+			System.out.println("memberDelete");
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+		return bCheck;
+	}
 }
+
+
+
+
+
+
+
