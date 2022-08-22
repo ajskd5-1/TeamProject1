@@ -76,10 +76,10 @@ public class QnaReplyDAO {
 	   }
 	
 	//댓글 삭제
-	 public static void qnareplyDelete(int no)
+	public static void qnareplyDelete(int r_no)
 	   {
 		   SqlSession session=ssf.openSession(true);
-		   session.delete("qnareplyDelete",no);
+		   session.delete("qnareplyDelete",r_no);
 		   session.close();
 	   }
 	

@@ -27,12 +27,6 @@ public class QnaReplyModel {
 		   String id=(String)session.getAttribute("id");
 		   String r_name=(String)session.getAttribute("name");
 		   
-		   System.out.println(no);
-		   System.out.println(id);
-		   System.out.println(r_name);
-		   System.out.println(r_content);
-		   System.out.println(r_type);
-		   
 		   QnaReplyVO vo=new QnaReplyVO();
 		   vo.setNo(Integer.parseInt(no));
 		   vo.setId(id);
@@ -64,15 +58,10 @@ public class QnaReplyModel {
 	   @RequestMapping("qnareply/qnareply_delete.do")
 	   public String reply_delete(HttpServletRequest request,HttpServletResponse response)
 	   {
-			String no=request.getParameter("no");
-			String r_no=request.getParameter("r_no"); 
-
-			QnaReplyDAO.qnareplyDelete(Integer.parseInt(no));
-			return "redirect:../qnaboard/detail.do?no="+r_no;
+			String no=request.getParameter("no"); // 게시물 번호
+			String r_no=request.getParameter("r_no"); // 댓글 번호
+			
+			QnaReplyDAO.qnareplyDelete(Integer.parseInt(r_no));
+			return "redirect:../qnaboard/detail.do?no="+no;
 	   }
-	
-	
-	
-	
-	
 }

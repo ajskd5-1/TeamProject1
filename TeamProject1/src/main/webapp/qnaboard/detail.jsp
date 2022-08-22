@@ -106,7 +106,7 @@
                 <figure class="avatar">
                  <c:if test="${sessionScope.id=='admin'}">
                   <span class="btn1 btn-xs up" style="color:black" data-no="${rvo.no }">수정</span>
-                  <a href="../qnareply/qnareply_delete.do?no=${rvo.no }&r_no=${vo.no}" class="btn2 btn-xs" style="color:black">삭제</a>
+                  <a href="../qnareply/qnareply_delete.do?r_no=${rvo.r_no }&no=${vo.no}" class="btn2 btn-xs" style="color:black">삭제</a>
                  </c:if>
                 </figure>
                 <address>
@@ -115,7 +115,7 @@
                 </address>
               </header>
               <div class="comcont">
-                <p><pre style="white-space: pre-wrap;background-color:white;border:none">${rvo.r_content }</pre></p>
+                <p><pre style="white-space: pre-wrap;background-color:white;border:none"> ${rvo.r_content }</pre></p>
               </div>
             </article>
             

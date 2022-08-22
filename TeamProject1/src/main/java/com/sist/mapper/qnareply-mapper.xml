@@ -3,7 +3,7 @@
 <mapper namespace="com.sist.mapper.reply-mapper">
 <!-- 댓글 목록 -->
 <select id="qnareplyListData" resultType="QnaReplyVO" parameterType="int">
-    SELECT /*+ INDEX_DESC(qna_reply_1 pr_no_pk)*/ no,r_no,r_type,id,r_name,r_content,TO_CHAR(r_regdate,'YYYY-MM-DD HH24:MI:SS') as dbday
+    SELECT /*+ INDEX_DESC(qna_reply_1 QR_R_NO_PK)*/ no,r_no,r_type,id,r_name,r_content,TO_CHAR(r_regdate,'YYYY-MM-DD HH24:MI:SS') as dbday
     FROM qna_reply_1
     WHERE no=#{no}
 </select>
