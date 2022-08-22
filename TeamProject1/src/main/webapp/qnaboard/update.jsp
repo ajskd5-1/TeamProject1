@@ -9,12 +9,6 @@
 <script type="text/javascript">
 $(function(){
 	$('#writeBtn').click(function(){
-		let name=$('#name').val();
-		if(name.trim()=="")
-		{
-			$('#name').focus();
-			return;
-		}
 		
 		let title=$('#title').val();
 		if(title.trim()=="")
@@ -29,6 +23,13 @@ $(function(){
 			$('#content').focus();
 			return;
 		}
+		
+		/* let filename=$('#filename').val();
+		if(filename.trim()=="")
+		{
+			$('#filename').focus();
+			return;
+		} */
 		
 		$('#frm').submit();
 	})
@@ -90,13 +91,14 @@ $(function(){
 	<div class=div1>
     <h2 class="title" style="font-weight: bold">수정하기</h2>
     <hr class="hr">
-     <form method=post action="../qnaboard/insert_ok.do" id="frm" enctype="multipart/form-data">
+     <form method=post action="../qnaboard/update_ok.do" id="frm" enctype="multipart/form-data">
       <table class="table">
         <tr>
          <th width=20%>제목</th>
          <td width=10%>
             <input type=text name=title size=50 class="input-sm" id="title" value="${vo.title }">
             <input type="hidden" name="name" value="${sessionScope.name }">
+            <input type="hidden" name="no" value="${vo.no }">
          </td>
         </tr>
         <tr>

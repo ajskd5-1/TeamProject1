@@ -34,7 +34,7 @@
 	VALUSE (#{no},#{name},#{title},#{content},#{filename},#{filesize})
 </insert>
 <!-- 파일 다운로드 -->
-<select id="qnaboardDownload" parameterType="int" resultType="QnaBoardVO">
+<select id="qnaboardDownload" parameterType="string" resultType="QnaBoardVO">
 	SELECT no,filename,ROUND(filesize/1024, 1) as filesize
 	FROM qna_board_1
 	WHERE no=#{no}
@@ -47,15 +47,11 @@
 	INSERT INTO qna_board_1(no,name,title,content,filename,filesize,group_id)
     VALUES(#{no},#{name},#{title},#{content},#{filename},#{filesize},
     (SELECT NVL(MAX(group_id)+1,1) FROM qna_board_1))
-    <!-- INSERT INTO qna_board_1(no,name,title,content,group_id)
-    VALUES(#{no},#{name},#{title},#{content},#{filename},#{filesize},
-     (SELECT NVL(MAX(group_id)+1,1) FROM qna_board_1)
-    ) -->
 </insert>
 <!-- 게시글 수정 -->
 <update id="qnaboardUpdate" parameterType="QnaBoardVO">
     UPDATE qna_board_1 SET
-    name=#{name},title=#{title},content=#{content}
+    title=#{title},content=#{content}, filename=#{filename}, filesize=#{filesize}
     WHERE no=#{no}
 </update>
 <!-- 게시글 삭제 -->

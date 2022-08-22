@@ -39,7 +39,7 @@ $(function(){
 *{
    font-family: 'NanumSquareRound';
 }
-.sectiontitle{
+.title{
    margin-top: 30px;
 }
 .btn1{
@@ -70,7 +70,7 @@ $(function(){
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <a href="../qnaboard/list.do"><h2 style="font-size: 18pt; font-weight: bold;">캠핑<sup>+</sup> 문의</h2></a>
+          <a href="../qnaboard/list.do"><h2 class="title" style="font-size: 18pt; font-weight: bold;">캠핑<sup>+</sup> 문의</h2></a>
           <ol>
             <li><a href="index.html">Home</a></li>
             <li>문의게시판</li>
@@ -82,7 +82,7 @@ $(function(){
 <div class="wrapper row3">
 <main class="container clear">
    <div class=div1>
-    <h2 class="sectiontitle" style="font-weight: bold">1:1문의</h2>
+    <h2 class="title" style="font-weight: bold">1:1문의</h2>
     <hr class="hr">
      <form method=post action="../qnaboard/insert_ok.do" id="frm" enctype="multipart/form-data">
       <table class="table">
@@ -107,12 +107,12 @@ $(function(){
       </tr>
       <tr>
         <td colspan="2">
-            <h6 id="title_result1" style="color:red;"></h6>
+            <h6 id="title_result1" class="title" style="color:red;"></h6>
         </td>
       </tr>
       <tr>
         <td colspan="2">
-            <h6 id="content_result1" style="color:red;"></h6>
+            <h6 id="content_result1" class="title" style="color:red;"></h6>
         </td>
       </tr>
       <tr>

@@ -1,9 +1,6 @@
 package com.sist.model;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.*;
 import java.net.URLEncoder;
 import java.util.HashMap; 
 import java.util.List;
@@ -18,8 +15,10 @@ import com.oreilly.servlet.*;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
+import com.sist.dao.QnaReplyDAO;
 import com.sist.dao.QnaboardDAO;
 import com.sist.vo.QnaBoardVO;
+import com.sist.vo.QnaReplyVO;
 
 import oracle.net.ns.SessionAtts;
 
@@ -58,7 +57,10 @@ public class QnaBoardModel {
 		String no=request.getParameter("no");
 		QnaBoardVO vo=QnaboardDAO.qnaboardDetailData(Integer.parseInt(no));
 		request.setAttribute("vo", vo);
-
+		
+		//
+		List<QnaReplyVO> list = QnaReplyDAO.qnareplyListData(Integer.parseInt(no));
+		request.setAttribute("list", list);
 		request.setAttribute("main_jsp", "../qnaboard/detail.jsp");
 		return "../main/main.jsp";
 	}
@@ -92,6 +94,7 @@ public class QnaBoardModel {
 		String content=mr.getParameter("content");
 		String filename=mr.getOriginalFileName("upload");
 		QnaBoardVO vo=new QnaBoardVO();
+		
 		vo.setName(name);
 		vo.setTitle(title);
 		vo.setContent(content);
@@ -111,9 +114,10 @@ public class QnaBoardModel {
 		catch(Exception ex) {}
 		return "redirect:../qnaboard/list.do";
 	} 	
-	// 파일 다운로드 
-	/*@RequestMapping("qnaboard/download.do") 
-	public int qnaboard_download(HttpServletRequest request, HttpServletResponse response) 
+	
+	// 파일 다운로드
+	@RequestMapping("qnaboard/download.do") 
+	public String qnaboard_download(HttpServletRequest request, HttpServletResponse response) 
 	{
 		try
 		{
@@ -136,13 +140,16 @@ public class QnaBoardModel {
     		{
     			bos.write(buffer, 0, i);
     		}
-    		out.clear();
-    		out=pageContext.pushBody(); // 객체 초기화, 파일 연결
+/*    		out.clear();
+    		out=pageContext.pushBody();*/
     		bis.close();
     		bos.close();
+    		
 		}
 		catch(Exception ex){}
-	}*/
+		return "redirect:../qnaboard/detail.do";
+		
+	}
 	
 	// 게시글 수정하기
 	@RequestMapping("qnaboard/update.do")
@@ -158,26 +165,55 @@ public class QnaBoardModel {
 	@RequestMapping("qnaboard/update_ok.do")
 	public String qnaboard_update_ok(HttpServletRequest request,HttpServletResponse response)
 	{
+		String path="c:\\download";
+		String no = "";
 		try
 		{
 			request.setCharacterEncoding("UTF-8");
-			   
-		}catch(Exception ex) {}
-		   
-		 String name=request.getParameter("name");
-		 System.out.println("name="+name);
-		 String title=request.getParameter("title");
-		 String content=request.getParameter("content");
-		 String no=request.getParameter("no");
-		 QnaBoardVO vo=new QnaBoardVO();
-		   
-		 vo.setName(name);
-		 vo.setTitle(title);
-		 vo.setContent(content);
-		 vo.setNo(Integer.parseInt(no));
-		 QnaboardDAO.qnaboardUpdate(vo);
-		 return "redirect:../qnaboard/detail.do?no="+no;
+			File dir=new File(path);
+			if(!dir.exists())
+			{
+				dir.mkdir();
+			}
+			String enctype="UTF-8";
+			int maxsize=1024*1024*100;
+			MultipartRequest mr= new MultipartRequest(request,path,maxsize,enctype,new DefaultFileRenamePolicy());
+
+			String name=mr.getParameter("name");
+			String title=mr.getParameter("title");
+			String content=mr.getParameter("content");
+			String filename=mr.getOriginalFileName("upload");
+			no = mr.getParameter("no");
+			QnaBoardVO vo=new QnaBoardVO();
+			vo.setNo(Integer.parseInt(no));
+			vo.setName(name);
+			vo.setTitle(title);
+			vo.setContent(content);
+			if(filename==null)
+			{
+				vo.setFilename("");
+				vo.setFilesize(0);
+			}
+			else
+			{
+				File file=new File(path+"\\"+filename);
+				vo.setFilename(filename);
+				vo.setFilesize((int)file.length());
+			}
+			QnaboardDAO.qnaboardUpdate(vo);
+		}
+		catch(Exception ex) {}
+		return "redirect:../qnaboard/detail.do?no="+no;
 	}
 	
+	// 게시글 삭제하기
+	@RequestMapping("qnaboard/delete.do")
+	public String qnaboard_delete(HttpServletRequest request,HttpServletResponse response)
+	{
+		String no=request.getParameter("no"); String
+		result=QnaboardDAO.qnaboardDelete(Integer.parseInt(no));
+		request.setAttribute("result", result);
+	   return "redirect:../qnaboard/list.do";
+	}
 
 }

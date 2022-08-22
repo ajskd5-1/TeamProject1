@@ -116,9 +116,9 @@ a{
     </div>
  	<div class=bn>
      	<td class="text-center inline">
-		   <a href="#" class="btn1 btn-sm">이전</a>
+		   <a href="../qnaboard/list.do?page=${curpage>1?curpage-1:curpage }" class="btn1 btn-sm">이전</a>
 		   ${curpage } / ${totalpage }
-		   <a href="#" class="btn2 btn-sm">다음</a>
+		   <a href="../qnaboard/list.do?page=${curpage<totalpage?curpage+1:curpage }" class="btn2 btn-sm">다음</a>
 		</td>
 	</div>
     </div>
@@ -133,8 +133,10 @@ a{
 			 	</select>
 			 	<input type=text name=ss size=40>
 			 	<input id="submit_style" type=submit value="검색하기">
+			 	<c:if test="${sessionScope.id!=null }">
 			 	<a href="../qnaboard/insert.do" class="button1">작성</a>
             	<a href="#" class="button2">목록</a>
+            	</c:if>
 			 </td>
 			</tr>
 		</table>
