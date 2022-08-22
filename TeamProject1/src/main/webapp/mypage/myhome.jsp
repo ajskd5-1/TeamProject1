@@ -32,7 +32,7 @@
 			            <div class="img" style="margin-top: 30px;">
 			              <img src="https://img.icons8.com/pastel-glyph/64/000000/person-male--v3.png" style="width: 100px; height: 100px;">
 			            </div>
-			            <input type="button" class="btn btn-sm btn-info" value="수정">
+			            <!-- <input type="button" class="btn btn-sm btn-info" value="수정"> -->
 			          </div>
 			
 			          <div class="col-lg-8" style="margin-top: 0px;">

@@ -32,10 +32,7 @@
             <div class="row gy-4" style=" cursor: pointer; margin-bottom: 50px;" onclick="location.href='../camp/detail_before.do?no=${vo.no}'">
               <div class="col-lg-8 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="100">
                 <h3 class="title">${vo.c_title }</h3>
-                <p>
-                  <i class="bi bi-map-fill" style="color: #0ea2bd;"></i>
-                  ${vo.c_addr }
-                </p>
+                <p><i class="bi bi-map-fill" style="color: #0ea2bd;"></i>${vo.c_addr }</p>
                 <ul>
                   <li><i class="bi bi-check-circle-fill"></i> ${vo.c_content }</li>
                   <li><i class="bi bi-check-circle-fill"></i> 캠핑장 시설</li>
@@ -58,15 +55,12 @@
                     </c:forTokens>
                   </li>
                 </ul>
-                <p>
-                  
-                </p>
               </div>
               <div class="col-lg-4 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
                 <img src="${vo.c_poster }" alt="" class="img-fluid" style="height: 300px; width: 410px;">
               </div>
             </div>
-          </div><!-- End Tab Content 1 -->
+          </div>
 		</c:forEach>
         </div>
         

@@ -415,6 +415,88 @@ section{
 
       </div>
     </section><!-- End Contact Section -->
+    
+    <!-- START 추천 캠핑장 -->
+    <section id="features" class="features">
+    
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+			
+	  <!-- Indicators/dots -->
+	  <div class="carousel-indicators">
+	    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active" style="background-color: black;"></button>
+	    <button type="button" data-bs-target="#demo" data-bs-slide-to="1" style="background-color: black;"></button>
+	    <button type="button" data-bs-target="#demo" data-bs-slide-to="2" style="background-color: black;"></button>
+	  </div>
+	  
+	  <!-- The slideshow/carousel -->
+	  <div class="carousel-inner">
+	  
+	    <div class="carousel-item active">
+	      <div class="container" data-aos="fade-up">
+	        <div class="tab-content">
+	          <div class="tab-pane active show" id="tab-1">
+	            <div class="row gy-4">
+	              <div class="col-lg-8 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="100">
+	                <h3>Modinest</h3>
+	                <p class="fst-italic">
+	                  Lorem ipsum dolor sit amet, co
+	                </p>
+	                <ul>
+	                  <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+	                  <li><i class="bi bi-check-circle-fill"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+	                  <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut alrideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+	                </ul>
+	              </div>
+	              <div class="col-lg-4 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
+	                <img src="../assets/img/features-1.svg" alt="" class="img-fluid">
+	              </div>
+	            </div>
+	          </div><!-- End Tab Content 1 -->
+	        </div>
+	      </div>
+        </div>
+      
+      <!-- asdf -->
+	    <div class="carousel-item active">
+	      <div class="container" data-aos="fade-up">
+	        <div class="tab-content">
+	          <div class="tab-pane active show" id="tab-1">
+	            <div class="row gy-4">
+	              <div class="col-lg-8 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="100">
+	                <h3>Modinest</h3>
+	                <p class="fst-italic">
+	                  Lorem ipsum dolor sit amet, co
+	                </p>
+	                <ul>
+	                  <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+	                  <li><i class="bi bi-check-circle-fill"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+	                  <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut alrideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+	                </ul>
+	              </div>
+	              <div class="col-lg-4 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
+	                <img src="../assets/img/features-1.svg" alt="" class="img-fluid">
+	              </div>
+	            </div>
+	          </div><!-- End Tab Content 1 -->
+	        </div>
+	      </div>
+        </div>
+      <!-- asdf -->
+      
+      </div>
+      
+      <!-- 화살표 -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+	    <span class="carousel-control-prev-icon" style="background-color: black;"></span>
+	  </button>
+	  <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+	    <span class="carousel-control-next-icon" style="background-color: black;"></span>
+	  </button>
+  	  <!-- 화살표 -->
+  	  
+      </div>
+    </section>
+	<!-- END 추천 캠핑장 -->
 
   </main><!-- End #main -->
 </body>

@@ -28,4 +28,13 @@ public class MyPageModel {
 		return "../main/main.jsp";
 	}
 	
+	//예약내역
+	@RequestMapping("mypage/mypage_reserve.do")
+	public String mypage_reserve(HttpServletRequest request, HttpServletResponse response) {
+		
+		request.setAttribute("mypage_jsp", "../mypage/mypage_reserve.jsp");
+		request.setAttribute("main_jsp", "../mypage/mypage.jsp");
+		return "../main/main.jsp";
+	}
+	
 }
