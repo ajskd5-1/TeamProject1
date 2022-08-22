@@ -10,6 +10,8 @@
 <script type="text/javascript">
 $(function(){
 	$('.res').hide();
+	let smonth = $('#smonth').val();
+	$('#smonth2').val(smonth);
 	//$('#r_date2').hide();
 	$.ajax({
 		type:'post',
@@ -31,6 +33,7 @@ $(function(){
 	})
 	$('#smonth').change(function(){
 		let smonth = $('#smonth').val();
+		$('#smonth2').val(smonth);
 		$.ajax({
 			type:'post',
 			url:'../reserve/reserve_date.do',
@@ -39,14 +42,18 @@ $(function(){
 				$('#r_date').html(result);
 			}
 		})
+		
 	})
 	
 	$('#smonth2').change(function(){
-		let smonth2 = $('#smonth2').val();
+		let smonth = $('#smonth').val(); // 체크인 달
+		let smonth2 = $('#smonth2').val(); // 체크아웃 선택달
+		//let day = $('.rtds').attr("data-day");
+		let day = $('#sd').val();
 		$.ajax({
 			type:'post',
 			url:'../reserve/reserve_date2.do',
-			data:{"smonth":smonth2},
+			data:{"smonth":smonth2, "day":day, "inmonth":smonth},
 			success:function(result){
 				$('#r_date2').html(result);
 			}
@@ -79,7 +86,7 @@ $(function(){
         	${year }년
         	<select name="month2" class="input-sm" id="smonth2">
               <c:forEach var="i" begin="1" end="12">
-                <option ${month==i?"selected":"" }>${i }</option>
+                <option ${smonth==i?"selected":"" }>${i }</option>
               </c:forEach>
             </select>월
           <div id="r_date2"></div>

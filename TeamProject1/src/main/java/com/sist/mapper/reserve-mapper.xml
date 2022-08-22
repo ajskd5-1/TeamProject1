@@ -9,4 +9,25 @@
 		INSERT INTO reserve_1(no, fno, id, cin, cout, inwon)
 		VALUES(#{no}, #{fno}, #{id}, #{cin}, #{cout}, #{inwon})
 	</insert>
+	
+	<!-- 예약 리스트 -->
+	<select id="reserveMypageData" resultType="ReserveVO" parameterType="String">
+		SELECT no, id, cin, cout, inwon, ischeck, TO_CHAR(regdate, 'YYYY"년 "MM"월 "DD"일 "HH24:MI:SS') as dbday,
+			(SELECT c_title FROM camp_1 WHERE camp_1.no = reserve_1.fno) as c_title,
+			(SELECT c_poster FROM camp_1 WHERE camp_1.no = reserve_1.fno) as c_poster,
+			(SELECT c_addr FROM camp_1 WHERE camp_1.no = reserve_1.fno) as c_addr
+		FROM reserve_1
+		WHERE id=#{id}
+		ORDER BY no DESC
+	</select>
+	<!-- 예약 상세보기 -->
+	<select id="reserveMypageDetail" resultType="ReserveVO" parameterType="int">
+		SELECT no, id, cin, cout, inwon, ischeck, TO_CHAR(regdate, 'YYYY"년 "MM"월 "DD"일 "HH24:MI:SS') as dbday,
+			(SELECT c_title FROM camp_1 WHERE camp_1.no = reserve_1.fno) as c_title,
+			(SELECT c_poster FROM camp_1 WHERE camp_1.no = reserve_1.fno) as c_poster,
+			(SELECT c_addr FROM camp_1 WHERE camp_1.no = reserve_1.fno) as c_addr
+		FROM reserve_1
+		WHERE no=#{no}
+	</select>
+	
 </mapper>

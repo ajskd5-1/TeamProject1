@@ -123,7 +123,10 @@ public class ReserveModel {
 	// 달력출력 => 맛집 클릭하면
 	@RequestMapping("reserve/reserve_date2.do")
 	public String reserve_date2(HttpServletRequest request, HttpServletResponse response) {
-		String smonth = request.getParameter("smonth");
+		String smonth = request.getParameter("smonth"); // 선택된 달 (체크아웃)
+		String selD = request.getParameter("day");// 선택된 날짜
+		String inmonth = request.getParameter("inmonth"); // 체크인 달
+	
 		
 		String today = new SimpleDateFormat("yyyy-M-d").format(new Date()); // 오늘 날짜 가져오기
 		StringTokenizer st = new StringTokenizer(today, "-");
@@ -138,6 +141,9 @@ public class ReserveModel {
 		} else if(smonth == null) {
 			
 		}
+		sm2 = Integer.parseInt(smonth); // 변경된 달
+		strMonth = smonth;
+		strDay = selD;
 		
 		int year = Integer.parseInt(strYear);
 		int month = Integer.parseInt(strMonth);
@@ -159,7 +165,9 @@ public class ReserveModel {
 		request.setAttribute("lastday", lastday);
 		String[] strWeek = {"일", "월", "화", "수", "목", "금", "토"};
 		request.setAttribute("strWeek", strWeek);
+		System.out.println(day);
 		
+		// 달이 같을때 선택된 일보다 크거나 같은날만 예약 가능
 		int[] days = new int[32];
 		for(int d=1; d<=31; d++) {
 			if(day <= d) {
@@ -169,18 +177,18 @@ public class ReserveModel {
 			}
 		}
 		
-		// 선택된 달이 현재 달보다 작으면 예약 못하게 0 현재 달보다 크면 모두 예약 가능하게 1
-		if(sm2 != 0) {
-			if(sm2 > sm1) {
-				for(int d=1; d<=31; d++) {
-					days[d] = 1;
-				}
-			} else if (sm2 < sm1) {
-				for(int d=1; d<=31; d++) {
-					days[d] = 0;
-				}
+		// 체크인달보다 선택된 달(체크아웃 달)이 더 작으면 예약불가(0), 더 크면 예약가능(1)
+		int in = Integer.parseInt(inmonth);
+		if(in < month) {
+			for(int d=1; d<=31; d++) {
+				days[d] = 1;
+			}
+		} else if(in > month){
+			for(int d=1; d<=31; d++) {
+				days[d] = 0;
 			}
 		}
+
 		
 		// 0이면 예약 없는날   1이면 예약 가능한 날    days에 0을 전부 채워 놓고 예약날짜에 해당하는 인덱스를 1로 바꿈
 		request.setAttribute("days", days);

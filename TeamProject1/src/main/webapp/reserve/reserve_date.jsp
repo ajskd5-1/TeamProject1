@@ -18,12 +18,16 @@ $(function(){
 		let days = year + "년 " + month + "월 " + day + "일";
 		$('#r_d').text(days);
 		$('#re_d').val(days);
+		let seld = $(this).text();
+		$('#sd').val(seld);
+		$('#smonth2').val(month);
 		//$('#r_date2').show();
-		let smonth = $('#smonth2').val();
+		let smonth = $('#smonth2').val(); //선택된 달
+		let inmonth = $(this).attr("data-month");
 		$.ajax({
 			type:'post',
 			url:'../reserve/reserve_date2.do',
-			data:{"smonth":smonth},
+			data:{"smonth":month, "day":day, "inmonth":inmonth},
 			success:function(result){
 				$('#r_date2').html(result);
 			}
@@ -62,7 +66,8 @@ $(function(){
           </c:if>
             <c:choose>
               <c:when test="${days[i]==1 }"> <!-- 예약일에 해당하는 인덱스 값이 1임 -->
-                <td class="text-center rtds bg-warning" style="color: black;" data-year="${year }" data-month="${month }">${i }</td><%-- 1일부터 출력 --%>
+                <td class="text-center rtds bg-warning" style="color: black;" data-year="${year }" data-month="${month }" data-day="${i }">${i }</td><%-- 1일부터 출력 --%>
+                <input type="hidden" id="sd">
               </c:when>
               <c:otherwise>
                 <td class="text-center">${i }</td><%-- 1일부터 출력 --%>

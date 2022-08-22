@@ -8,6 +8,7 @@ import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 import com.sist.dao.*;
 import com.sist.vo.*;
+import java.util.*;
 
 @Controller
 public class MyPageModel {
@@ -31,10 +32,22 @@ public class MyPageModel {
 	//예약내역
 	@RequestMapping("mypage/mypage_reserve.do")
 	public String mypage_reserve(HttpServletRequest request, HttpServletResponse response) {
-		
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("id");
+		List<ReserveVO> list = ReserveDAO.reserveMypageData(id);
+		request.setAttribute("list", list);
 		request.setAttribute("mypage_jsp", "../mypage/mypage_reserve.jsp");
 		request.setAttribute("main_jsp", "../mypage/mypage.jsp");
 		return "../main/main.jsp";
+	}
+	
+	// 예약 상세보기
+	@RequestMapping("mypage/reserve_info.do")
+	public String mypage_reserve_info(HttpServletRequest request, HttpServletResponse response) {
+		String no = request.getParameter("no");
+		ReserveVO vo = ReserveDAO.reserveMypageDetail(Integer.parseInt(no));
+		request.setAttribute("vo", vo);
+		return "../mypage/reserve_info.jsp";
 	}
 	
 }

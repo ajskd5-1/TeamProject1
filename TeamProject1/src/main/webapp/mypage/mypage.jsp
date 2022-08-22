@@ -73,7 +73,6 @@
           </div>
 
           <div class="col-lg-9"><%-- 홈 --%>
-			<h1 class="title" style="margin-top: -60px; margin-left: 15px;"> 마이페이지</h1>
             <div class="row gy-4 posts-list">
 			  <jsp:include page="${mypage_jsp }"></jsp:include>
               

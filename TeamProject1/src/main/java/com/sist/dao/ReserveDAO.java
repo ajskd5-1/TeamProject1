@@ -35,4 +35,35 @@ public class ReserveDAO {
 		}
 		
 	}
+	
+	// 마이페이지에서 출력 예약리스트 <select id="reserveMypageData" resultType="ReserveVO" parameterType="String">
+	public static List<ReserveVO> reserveMypageData(String id){
+		SqlSession session = null;
+		List<ReserveVO> list = null;
+		try {
+			session = ssf.openSession(true);
+			list = session.selectList("reserveMypageData", id);
+		} catch (Exception e) {
+			System.out.println("DAO campListData error");
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return list;
+	}
+	// 마이페이지에서 출력 예약 상세보기 <select id="reserveMypageDetail" resultType="ReserveVO" parameterType="int">
+	public static ReserveVO reserveMypageDetail(int no){
+		SqlSession session = null;
+		ReserveVO vo = null;
+		try {
+			session = ssf.openSession(true);
+			vo = session.selectOne("reserveMypageDetail", no);
+		} catch (Exception e) {
+			System.out.println("DAO campListData error");
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return vo;
+	}
 }
