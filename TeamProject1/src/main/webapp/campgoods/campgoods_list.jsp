@@ -1,54 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
-<html>
+<html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title></title>
-<!--   <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
-<link rel="stylesheet" href="style.css">
-
+  <title>CodePen - Product List (Grid Template)</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'><link rel="stylesheet" href="./style_list.css">
 <style type="text/css">
-
-span{
 @font-face {
-    font-family: 'NanumSquareRound';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
-    font-weight: bold;
+    font-family: 'BMJUA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+    font-weight: normal;
     font-style: normal;
 }
-li{
 @font-face {
     font-family: 'NanumSquareRound';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
-}
-p2{color:#4C4C4C;
-@font-face {
-    font-family: 'NanumSquareRound';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    
-}
+a:hover{
 
-
+color:#ffffff;
+}
 
 </style>
-
-</script>
 </head>
 <body>
-<main id="main">
-
-    <!-- ======= Breadcrumbs ======= -->
       <div class="breadcrumbs">
       <div class="container">
 
@@ -62,61 +41,57 @@ p2{color:#4C4C4C;
 
       </div>
     </div>  
+<!-- partial:index.partial.html -->
+<main class="main">
+
+  <div class="product-list" style="margin-top: 60px;"  data-aos="fade-up">
  
-		<!-- content here -->
-		<!-- 
-		 <div class="container" style="margin: 40px 40px -10px;">
-    <div class="row">
-      <div class="text-center"\>
-       <form method=post action="find.jsp" id="frm">
-         Search:<input type=text size=45 class="input-sm" id="fd" name="fd">
-         <input type=button value="검색" id="btn">
-       </form>
-      </div>
-    </div>
-    <div style="height: 50px"></div>
-     </div>
-      -->
-	<div class="content" style="margin: 40px 40px -10px;">
-		
-		<div class="product-grid product-grid--flexbox">
-			<div class="product-grid__wrapper" data-aos="fade-up">
-				<!-- Product list start here -->
-				<c:forEach var="vo" items="${list }">
-				<!-- Single product -->
-				<div class="product-grid__product-wrapper">
-					<div class="product-grid__product">
-						<div class="product-grid__img-wrapper" onclick="location.href='../campgoods/campgoods_detail_before.do?g_id=${vo.g_id}'">
-						 		
-							<img src="${vo.g_image }" alt="Img" class="product-grid__img">
-							
-						</div>
-						
-						<div class="title" onclick=" location.href='../campgoods/campgoods_detail_before.do?g_id=${vo.g_id}'">${vo.g_name }</div>
-						<div style="color:#0ea2bd; font-weight: bold;" onclick="location.href='../campgoods/campgoods_detail_before.do?g_id=${vo.g_id}'">￦: ${vo.g_price/100000 }원</div>
-						<div class="product-grid__extend-wrapper">
-							<div class="product-grid__extend">
-								<p2 style="font-size: 12px;">${vo.g_brand }</p2>
-								<br>
-								<img src="../campgoods/cart2.png" style="width:35px; heigh:35px;">
-								<a href="../campgoods/campgoods_detail_before.do?g_id=${vo.g_id}"><img src="../campgoods/information2.png" style="width:35px; heigh:35px;"></a>			
-								
-							</div>
-						</div>
-					</div>
-				</div>
-				</c:forEach>
+<c:forEach var="vo" items="${list }">
+  
 
-				
-			</div>		
-		</div>
-	</div>
-		<!-- 페이지  중앙?style="justify-content: center"-->
-		  
+
+
+    <article class="product">
+      <a class="product__image-content">
+        <img src="${vo.g_image }" alt="product Name" class="product__image" style="width: 350px; height: 300px">
+      </a>
+      <div class="product__content">
       
-    
+        <h2 class="product__name">
+          <a href="#"></a>
+        </h2>
+        <p class="product__brand" style="font-family: 'NanumSquareRound'">
+       
+          ${vo.g_brand }
+          
+        </p>
+        <p class="product__price" style="font-family: 'BMJUA'">
+         ${vo.g_name }
+        </p>
+        <p class="product__info" style="font-size:18px; color:#0ea2bd; font-weight:bold; font-family: 'NanumSquareRound'">
+         ￦: ${vo.g_price/10000 }
+        </p>
+        <div class="product__button-content">
+          <a href="#" class="product__button" style="background-color: #0ea2bd; hover-color:#ffffff; font-family: 'NanumSquareRound'; font-weight:bold">
+            <i class="fas fa-shopping-basket"></i>
+          장바구니 담기
+          </a>
+        </div>
+         <div class="product__button-content" style="margin:-40px 157px 0px 0px;">
+          <a href="../campgoods/campgoods_detail_before.do?g_id=${vo.g_id}" class="product__button" style="background-color: #9FC93C; font-family: 'NanumSquareRound'; font-weight:bold">
+            <i class=""></i>
+            상세페이지 보기
+          </a>
+        </div>
+      </div>
+    </article>
 
-     
+   </c:forEach>
+
+  </div>
+</main>
+<!-- partial -->
+  
         <div class="row">
           <div class="col-sm-12">
         
@@ -148,12 +123,22 @@ p2{color:#4C4C4C;
             </nav>
           </div>
         </div>
-      
-				
+         <!-- ################################################################################################ -->
+    <h2 class="sectiontitle">최근에 본 상품</h2>
+    <!-- ################################################################################################ -->
+    <ul class="nospace group">
+      <c:forEach var="vo" items="${cList }" varStatus="s">
+        <c:if test="${s.index<=9 }">
+         <a href="../food/food_detail.do?fno=${vo.fno }" >
+          <img src="${vo.poster }" style="width: 105px;height: 100px"
+           title="${vo.name }"
+          >
+         </a>
+        </c:if>
         
-
-</main>
+      </c:forEach>
+    </ul>
+    <!-- ################################################################################################ --> 
 </body>
-
-
 </html>
+
