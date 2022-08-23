@@ -33,6 +33,11 @@ public class MemberModel {
 			session.setAttribute("name", vo.getName());
 			session.setAttribute("nickname", vo.getNickname());
 			session.setAttribute("m_admin", vo.getM_admin());
+			session.setAttribute("email", vo.getEmail()); 
+			session.setAttribute("post", vo.getPost());
+			session.setAttribute("addr1", vo.getAddr1());
+			session.setAttribute("addr2", vo.getAddr2());
+			session.setAttribute("tel", vo.getTel());
 		}
 		request.setAttribute("result", result);
 		return "../member/login_ok.jsp";

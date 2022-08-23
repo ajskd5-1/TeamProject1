@@ -8,7 +8,7 @@
 		WHERE id=#{id}
 	</select>
 	<select id="loginInfoData" resultType="MemberVO" parameterType="string">
-		SELECT id,pwd,name,nickname,m_admin
+		SELECT id,pwd,name,nickname,m_admin,email,post,addr1,addr2,tel
 		FROM member_1
 		WHERE id=#{id}
 	</select>

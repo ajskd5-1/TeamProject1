@@ -245,7 +245,7 @@ $(function(){
     <section id="blog" class="blog" style="margin-top:0px;">
       <div class="container" data-aos="fade-up">
         <div class="row g-5">
-          <div class="col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+          <div class="col-md-8 offset-md-2 col-lg-8 offset-lg-2">
             <div class="comments">
               <div class="reply-form" style="padding: 100px; margin: 0px;">
                 <form method="post" action="../member/join_ok.do" name="join_frm" id="join_frm">

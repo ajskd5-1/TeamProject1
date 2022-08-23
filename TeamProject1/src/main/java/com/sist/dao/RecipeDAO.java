@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.sist.vo.RecipeVO;
+import com.sist.vo.ReviewVO;
 
 public class RecipeDAO {
 	private static SqlSessionFactory ssf;
@@ -23,6 +24,7 @@ public class RecipeDAO {
 			ex.printStackTrace();
 		}
 	}
+/* 레시피 */
 	//<select id="recipeListData" resultType="RecipeVO" parameterType="hashmap">
 	public static List<RecipeVO> recipeListData(Map map)
 	{
@@ -95,5 +97,94 @@ public class RecipeDAO {
 		}
 		return vo;
 	}
-	
+/* 리뷰 목록 출력 */	
+	//<select id="recipeReviewData" resultType="ReviewVO" parameterType="ReviewVO">
+	public static List<ReviewVO> recipeReviewData(ReviewVO re_vo)
+	{
+		SqlSession session=null;
+		List<ReviewVO> list=null;
+		try 
+		{
+			session=ssf.openSession();
+			list=session.selectList("recipeReviewData",re_vo);
+		}catch(Exception ex)
+		{
+			System.out.println("recipeReviewData : error");
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+		return list;
+	}
+/* 리뷰 작성 */
+	//<insert id="recipeReviewInsert" parameterType="ReviewVO">
+	public static void recipeReviewInsert(ReviewVO vo)
+	{
+		SqlSession session=null;
+		try 
+		{
+			session=ssf.openSession(true);
+			session.insert("recipeReviewInsert",vo);
+		}catch(Exception ex)
+		{
+			System.out.println("recipeReviewInsert : error");
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+	}
+/* 리뷰 삭제 */
+	//<delete id="recipeReviewDelete" parameterType="int">
+	public static void recipeReviewDelete(int re_no)
+	{
+		SqlSession session=null;
+		try 
+		{
+			session=ssf.openSession(true);
+			session.delete("recipeReviewDelete",re_no);
+		}catch(Exception ex)
+		{
+			System.out.println("recipeReviewDelete : error");
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+	}
+/* 리뷰 수정 */
+	//<update id="recipeReviewUpdate" parameterType="ReviewVO">
+	public static void recipeReviewUpdate(ReviewVO vo)
+	{
+		SqlSession session=null;
+		try 
+		{
+			session=ssf.openSession(true);
+			session.update("recipeReviewUpdate",vo);
+		}catch(Exception ex)
+		{
+			System.out.println("recipeReviewUpdate : error");
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+	}
 }
