@@ -147,25 +147,25 @@ color:#ffffff;
         <h2 class="product__name">
           <a href="#"></a>
         </h2>
-        <p class="product__brand">
+        <p class="product__brand" style="font-family: 'NanumSquareRound'">
           <a href="#">
           ${vo.g_brand }
           </a>
         </p>
-        <p class="product__price">
+        <p class="product__price" style="font-family: 'BMJUA'">
          ${vo.g_name }
         </p>
-        <p class="product__info" style="font-size:18px; color:#0ea2bd; font-weight:bold">
-         ￦: ${vo.g_price/10000 }
+        <p class="product__info" style="font-size:18px; color:#0ea2bd; font-weight:bold; font-family: 'NanumSquareRound'">
+         ￦: ${vo.g_price}
         </p>
         <div class="product__button-content">
-          <a href="#" class="product__button" style="background-color: #0ea2bd; hover-color:#ffffff;">
+          <a href="#" class="product__button"style="background-color: #0ea2bd; hover-color:#ffffff; font-family: 'NanumSquareRound'; font-weight:bold">
             <i class="fas fa-shopping-basket"></i>
           장바구니 담기
           </a>
         </div>
          <div class="product__button-content" style="margin:-40px 157px 0px 0px;">
-          <a href="../campgoods/campgoods_detail_before.do?g_id=${vo.g_id}" class="product__button" style="background-color: #9FC93C;">
+          <a href="../campgoods/campgoods_detail_before.do?g_id=${vo.g_id}" class="product__button" style="background-color: #9FC93C; font-family: 'NanumSquareRound'; font-weight:bold">
             <i class=""></i>
             상세페이지 보기
           </a>
@@ -190,7 +190,42 @@ color:#ffffff;
         <a href="../campgoods/campgoods_find.do?g_brand=${g_brand }&page=${curpage<totalpage?curpage+1:curpage}" class="btn btn-outline-primary" >다음</a>
       </div>
     </div>
-				
+			
+			 
+          <div class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+         <a href="#"><h2 class="title" style="color:#0ea2bd;">최근 본 캠핑용품</h2></a>
+          <ol>
+          
+          </ol>
+        </div>
+
+      </div>
+    </div>  
+    
+         <!-- ################################################################################################ -->
+
+    <!-- ################################################################################################ -->
+    
+       <ul class="nospace group" style="margin-top:20px;">
+      <c:forEach var="vo" items="${cList }" varStatus="s">
+        <c:if test="${s.index<=10 }">
+         <a href="../campgoods/campgoods_detail.do?g_id=${vo.g_id }" >
+         
+         <img src="${vo.g_image }" style="width: 105px;height: 100px" class="rounded border border-info">
+         
+         </a>
+         
+        </c:if>
+        
+      </c:forEach>
+      
+    </ul>
+   
+        <div class="clear"></div>
+     	
         
 
 </main>

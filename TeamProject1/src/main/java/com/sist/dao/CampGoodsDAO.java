@@ -11,6 +11,8 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.sist.vo.CampGoodsVO;
 
+import com.sist.vo.JjimVO;
+
 
 
 
@@ -139,5 +141,102 @@ public class CampGoodsDAO {
 			   }
 			   return total;
 		   }
+		   
+		   //찜하기
+		   public static void campgoodsJjimInsert(JjimVO vo)
+		   {
+			   SqlSession session=null;
+			   try
+			   {
+				   session=ssf.openSession(true);
+				   session.insert("campgoodsJjimInsert",vo);
+			   }catch(Exception ex)
+			   {
+				   ex.printStackTrace();
+			   }
+			   finally
+			   {
+				   if(session!=null)
+					   session.close();
+			   }
+		   }
+		   public static int campgoodsJjimCount(JjimVO vo)
+		   {
+			   int count=0;
+			   SqlSession session=null;
+			   try
+			   {
+				   session=ssf.openSession();
+				   count=session.selectOne("campgoodsJjimCount", vo);
+			   }catch(Exception ex)
+			   {
+				   ex.printStackTrace();
+			   }
+			   finally
+			   {
+				   if(session!=null)
+					   session.close();
+			   }
+			   return count;
+		   }
+		  
+		   public static CampGoodsVO campgoodsJjimListData(int g_id)
+		   {
+			   CampGoodsVO vo=null;
+			   SqlSession session=null;
+			   try
+			   {
+				   session=ssf.openSession();
+				   vo=session.selectOne("campgoodsJjimListData", g_id);
+			   }catch(Exception ex)
+			   {
+				   ex.printStackTrace();
+			   }
+			   finally
+			   {
+				   if(session!=null)
+					   session.close();
+			   }
+			   return vo;
+		   }
+		  
+		   public static List<Integer> campgoodsJjimGetg_id(String name)
+		   {
+			   List<Integer> list=null;
+			   SqlSession session=null;
+			   try
+			   {
+				   session=ssf.openSession();
+				   list=session.selectList("campgoodsJjimGetg_id",name);
+			   }catch(Exception ex)
+			   {
+				   ex.printStackTrace();
+			   }
+			   finally
+			   {
+				   if(session!=null)
+					   session.close();
+			   }
+			   return list;
+		   }
+		   
+		   public static void campgoodsJjimDelete(JjimVO vo)
+		   {
+			   SqlSession session=null;
+			   try
+			   {
+				   session=ssf.openSession(true);
+				   session.delete("campgoodsJjimDelete",vo);
+			   }catch(Exception ex)
+			   {
+				   ex.printStackTrace();
+			   }
+			   finally
+			   {
+				   if(session!=null)
+					   session.close();
+			   }
+		   }
+		  
 	
 }

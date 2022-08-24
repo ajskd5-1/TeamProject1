@@ -7,6 +7,9 @@
   <meta charset="UTF-8">
   <title>CodePen - Product List (Grid Template)</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'><link rel="stylesheet" href="./style_list.css">
+  
+
+    
 <style type="text/css">
 @font-face {
     font-family: 'BMJUA';
@@ -69,7 +72,7 @@ color:#ffffff;
          ${vo.g_name }
         </p>
         <p class="product__info" style="font-size:18px; color:#0ea2bd; font-weight:bold; font-family: 'NanumSquareRound'">
-         ￦: ${vo.g_price/10000 }
+         ￦: ${vo.g_price}
         </p>
         <div class="product__button-content">
           <a href="#" class="product__button" style="background-color: #0ea2bd; hover-color:#ffffff; font-family: 'NanumSquareRound'; font-weight:bold">
@@ -123,22 +126,42 @@ color:#ffffff;
             </nav>
           </div>
         </div>
+        
+          <div class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+         <a href="#"><h2 class="title" style="color:#0ea2bd;">최근 본 캠핑용품</h2></a>
+          <ol>
+          
+          </ol>
+        </div>
+
+      </div>
+    </div>  
+    
          <!-- ################################################################################################ -->
-    <h2 class="sectiontitle">최근에 본 상품</h2>
+
     <!-- ################################################################################################ -->
-    <ul class="nospace group">
+    
+       <ul class="nospace group" style="margin-top:20px;">
       <c:forEach var="vo" items="${cList }" varStatus="s">
-        <c:if test="${s.index<=9 }">
-         <a href="../food/food_detail.do?fno=${vo.fno }" >
-          <img src="${vo.poster }" style="width: 105px;height: 100px"
-           title="${vo.name }"
-          >
+        <c:if test="${s.index<=10 }">
+         <a href="../campgoods/campgoods_detail.do?g_id=${vo.g_id }" >
+         
+         <img src="${vo.g_image }" style="width: 105px;height: 100px" class="rounded border border-info">
+         
          </a>
+         
         </c:if>
         
       </c:forEach>
+      
     </ul>
-    <!-- ################################################################################################ --> 
+   
+        <div class="clear"></div>
+     
+
 </body>
 </html>
 

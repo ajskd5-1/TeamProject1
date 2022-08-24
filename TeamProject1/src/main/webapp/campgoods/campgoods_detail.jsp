@@ -1,13 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>   
 <!DOCTYPE html>
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
   <title>CodePen - Product Detail page</title>
-  <link rel="stylesheet" href="./style_detail.css">
+  <link rel="stylesheet" href="../campgoods/style_detail.css">
 
+<style type="text/css">
+@font-face {
+    font-family: 'BMJUA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+</style>
 
 </head>
 <body>
@@ -18,7 +36,7 @@
          <a href="../campgoods/campgoods_list.do"><h2 class="title" style="color:#0ea2bd;">캠핑<sup>+</sup> 캠핑용품</h2></a>
           <ol>
             <li ><a href="../main/main.do" class="title" style="color:#0ea2bd;" >Home</a></li>
-            <li>CampGoods_list</li>
+            <li><a href="../campgoods/campgoods_list.do">CampGoods_list</a></li>
              <li>CampGoods_detail</li>
           </ol>
         </div>
@@ -36,7 +54,7 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"><div class="pd-wrap">
 		<div class="container">
-	       
+	        
 	        <div class="row">
 	        	<div class="col-md-6">
 	        		<div id="slider" class="owl-carousel product-slider">
@@ -51,36 +69,59 @@
 	        	<div class="col-md-6">
 	        		<div class="product-dtl">
         				<div class="product-info">
-		        			<div class="product-name">${vo.g_name }</div>
+		        			<div class="product-name" style="font-family: 'BMJUA'; color:#4C4C4C;">${vo.g_name }</div>
+		        		
+		        	
+     
+    
 		        			
 		        			<div class="reviews-counter">
 								
-								<span>${vo.g_brand }</span>
+								<span style="font-family: 'NanumSquareRound';">${vo.g_brand }</span>
 							</div>
-		        			<div class="product-price-discount"><span>￦: ${vo.g_price/10000 }</span></div>
+		        			<div class="product-price-discount" style="font-family: 'NanumSquareRound'; color:#0ea2bd; font-weight:bold;"><span>￦: ${vo.g_price }</span></div>
+		        			
+
 		        		</div>
 
 	        			
 	        			<div class="product-count">
-	        				<label for="size">Quantity</label>
-	        				<form action="#" class="display-flex">
+	        				<label for="size">수량 선택</label>
+	        			
+	        				<form action="#" class="display-flex" style="font-family: 'NanumSquareRound';">
 	        				<!--  
 	        					<input type="hidden" val="${vo.g_id }" id="no">-->
 							    <div class="qtyminus">-</div>
-							    <input type="text" name="quantity" value="1" class="qty">
+							    <input type="text" name="quantity" value="1" class="qty" >
 							    <div class="qtyplus">+</div>
 							    <!--  
 							    <a href="#" class="round-black-btn">Add to Cart</a>
 							    -->
 							</form>
-							<a href="#" class="round-black-btn">Add to Cart</a> <div class="jjim">
+							<a href="#" class="round-black-btn" style="font-family: 'NanumSquareRound'; font-weight:bold">장바구니 담기</a><!--  <div class="jjim">
               <img src="https://cdn.pixabay.com/photo/2014/04/02/10/47/red-304570_1280.png" style="width: 35px; height: 30px; margin-top: -67px; margin-left:200px;">
              
             </div>
-	        			</div>
+             -->
+              <c:if test="${sessionScope.id!=null }">
+        
+         <c:choose>
+          <c:when test="${jcount==0 }">
+          <a href="../campgoods/jjim.do?g_id=${vo.g_id }"><img src="../campgoods/black-love_2.png" style="width: 35px; height: 30px; margin-left:5px;"></a>
+          </c:when>
+        <c:otherwise>
+         <img src="../campgoods/color-love_2.png" style="width: 35px; height: 30px; margin-left:5px;">
+
+        </c:otherwise>
+       </c:choose>
+      </c:if>
+      
+     		</div>
 	        		</div>
 	        	</div>
 	        </div>
+	       
+	        	
 	        <div class="product-info-tabs">
 		        <ul class="nav nav-tabs" id="myTab" role="tablist">
 				  	<li class="nav-item">
@@ -136,8 +177,9 @@
 				  	</div>
 				</div>
 			</div>
-			
-			<div style="text-align:center;font-size:14px;padding-bottom:20px;">Get free icon packs for your next project at <a href="http://iiicons.in/" target="_blank" style="color:#ff5e63;font-weight:bold;">www.iiicons.in</a></div>
+		
+      
+     
 		</div>
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>

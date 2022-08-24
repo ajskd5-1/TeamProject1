@@ -27,6 +27,36 @@
     SELECT CEIL(COUNT(*)/9.0) FROM goods_1
     WHERE g_brand LIKE '%'||#{g_brand}||'%'
   </select>
+  
+   <!-- 찜하기 -->
+  <insert id="campgoodsJjimInsert" parameterType="com.sist.vo.JjimVO">
+    <selectKey keyProperty="no" resultType="int" order="BEFORE">
+     SELECT NVL(MAX(no)+1,1) as no FROM jjim_1
+    </selectKey>
+    INSERT INTO jjim_1 VALUES(#{no},#{name},#{g_id})
+  </insert>
+  
+  <!-- 찜 여부 확인 -->
+  <select id="campgoodsJjimCount" resultType="int" parameterType="com.sist.vo.JjimVO">
+    SELECT COUNT(*) FROM jjim_1
+    WHERE g_id=#{g_id} AND name=#{name}
+  </select>
+  
+  <!-- 찜 출력 (마이페이지) : forEach -->
+  <select id="campgoodsJjimListData" resultType="CampGoodsVO" parameterType="int">
+    SELECT * FROM goods_1
+    WHERE g_id=#{g_id}
+  </select>
+  
+  <select id="campgoodsJjimGetg_id" resultType="int" parameterType="string">
+    SELECT g_id FROM jjim_1
+    WHERE name=#{name}
+  </select>
+  <!--  찜 취소 -->
+  <delete id="campgoodsJjimDelete" parameterType="com.sist.vo.JjimVO">
+   DELETE FROM jjim_1
+   WHERE name=#{name} AND g_id=#{g_id}
+  </delete>
 </mapper>
 
 <!-- 
