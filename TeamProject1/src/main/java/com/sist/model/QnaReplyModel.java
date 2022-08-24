@@ -47,14 +47,15 @@ public class QnaReplyModel {
 		   String no=request.getParameter("no");// 게시물번호 => detail로 이동
 		   String r_no=request.getParameter("r_no"); // 댓글 번호 => 삭제
 		   String r_content=request.getParameter("r_content");
-		   
+
 		   QnaReplyVO vo=new QnaReplyVO();
-		   vo.setNo(Integer.parseInt(no));
+		   vo.setR_no(Integer.parseInt(r_no));
 		   vo.setR_content(r_content);
 		   QnaReplyDAO.qnareplyUpdate(vo);
 		   //DAO연동 
-		   return "redirect:../freeboard/detail.do?no="+r_no;
+		   return "redirect:../qnaboard/detail.do?no="+no;
 	   }
+	   
 	   @RequestMapping("qnareply/qnareply_delete.do")
 	   public String reply_delete(HttpServletRequest request,HttpServletResponse response)
 	   {

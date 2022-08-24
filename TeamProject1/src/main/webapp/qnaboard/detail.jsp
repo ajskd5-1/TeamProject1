@@ -46,6 +46,26 @@
 	margint-left: 120px;
 }
 </style>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+let u=0;
+$(function(){
+	$('.up').click(function(){
+		$('.updates').hide();
+		let no=$(this).attr("data-no");
+		if(u==0)
+		{
+			$('#update'+no).show();
+			u=1;
+		}
+		else
+		{
+            $('#update'+no).hide(); 
+            u=0;
+		}
+	})
+})
+</script>
 </head>
 <body>
 <div class="breadcrumbs">
@@ -86,7 +106,7 @@
        </tr>
        <tr>
          <td colspan="4" class="text-center">
-        <c:if test="${sessionScope.id!=null }">
+         <c:if test="${sessionScope.name==vo.name }">
            <a href="../qnaboard/update.do?no=${vo.no }" class="btn1 btn-sm">수정</a>
            <a href="../qnaboard/delete.do?no=${vo.no }" class="btn2 btn-sm" id="delBtn">삭제</a>
          </c:if>
@@ -105,7 +125,7 @@
               <header>
                 <figure class="avatar">
                  <c:if test="${sessionScope.id=='admin'}">
-                  <span class="btn1 btn-xs up" style="color:black" data-no="${rvo.no }">수정</span>
+                  <span class="btn1 btn-xs btn-danger up" style="color:black" data-no="${rvo.r_no }">수정</span> 
                   <a href="../qnareply/qnareply_delete.do?r_no=${rvo.r_no }&no=${vo.no}" class="btn2 btn-xs" style="color:black">삭제</a>
                  </c:if>
                 </figure>
@@ -120,18 +140,16 @@
             </article>
             
           </li>
-            <div style="display:none" id="update${rvo.no }" class="updates">
+            <div style="display:none" id="update${rvo.r_no }" class="updates">
 	            <table class="table">
 		          <tr>
 		            <td>
 		             <form method=post action="../qnareply/qnareply_update.do">
-		               <input type=hidden name=no value="${vo.no }">
-		               <input type=hidden name=r_type value="1">
-		               <input type=hidden name=r_no value="${rvo.r_no }">
-		               <textarea rows="5" cols="70" name="r_content" style="float: left">${rvo.r_content }</textarea>
-		               <input type=submit class="btn btn-sm btn-primary" style="height: 105px"
-		                value="댓글수정">
-		              </form>
+						<input type=hidden name=no value="${vo.no }">
+						<input type=hidden name=r_no value="${rvo.r_no }">
+						<textarea rows="4" cols="70" name="r_content" style="float: left"> ${rvo.r_content }</textarea>
+						<input type=submit class="btn1 btn-sm" style="height: 100px; margin-left: 5px;" value="댓글수정">
+					</form>
 		            </td>
 		          </tr>
 		        </table>
@@ -147,7 +165,7 @@
                <input type=hidden name=no value="${vo.no }">
                <input type=hidden name=r_type value="1">
                <textarea rows="4" cols="100" name="r_content" style="float: left"></textarea>
-				<input type=submit class="btn1 btn-sm" style="height: 50px; margin-left: 10px; margin-top : 22px;" value="답변쓰기">
+				<input type=submit class="btn1 btn-sm" style="height: 100px; margin-left: 5px;" value="답변쓰기">
               </form>
             </td>
           </tr>
