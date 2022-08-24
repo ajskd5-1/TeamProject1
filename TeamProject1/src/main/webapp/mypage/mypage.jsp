@@ -62,24 +62,8 @@
                   <ul>
                     <li><a href="../member/join_update.do">회원정보 수정</a></li>
                     <li><a href="../member/join_delete.do">회원 탈퇴</a></li>
-                 
                   </ul>
                 </div>
-                
-                
-                  <div class="sidebar-item">
-                <h3 class="sidebar-title title">찜 내역</h3>
-                <div class="mt-3">
-                  <ul>
-                    <li><a href="../campgoods/jjim_list.do">찜 목록 관리</a></li>
-                   
-                 
-                  </ul>
-                </div>
-                </div>
-                
-             
-                
 
               </div><!-- End sidebar recent posts-->
 
@@ -89,7 +73,6 @@
           </div>
 
           <div class="col-lg-9"><%-- 홈 --%>
-			<h1 class="title" style="margin-top: -60px; margin-left: 15px;"> 마이페이지</h1>
             <div class="row gy-4 posts-list">
 			  <jsp:include page="${mypage_jsp }"></jsp:include>
               

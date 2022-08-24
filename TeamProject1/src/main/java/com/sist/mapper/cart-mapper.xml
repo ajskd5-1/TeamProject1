@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.cart-mapper">
+<!-- 
+NO        NOT NULL NUMBER         
+C_ACCOUNT NOT NULL NUMBER         
+C_PRICE   NOT NULL NUMBER         
+ID        NOT NULL VARCHAR2(30)   
+G_ID      NOT NULL NUMBER         
+G_NAME    NOT NULL VARCHAR2(200)  
+G_PRICE   NOT NULL NUMBER         
+G_IMAGE            VARCHAR2(2000) 
+ -->
+ 	<!-- 상품정보 가져오기 -->
+ 	<select id="cartGoodsDetailData" resultType="CampGoodsVO" parameterType="int">
+ 		SELECT * FROM goods_1 WHERE g_id=#{g_id}
+ 	</select>
+ 
+	<!-- 장바구니 목록 가져오기 -->
+	<select id="cartListData" resultType="CartVO" parameterType="String">
+		SELECT * FROM cart_1 WHERE id=#{id} AND o_no=0 ORDER BY no ASC
+	</select>
+	
+	<!-- 장바구니 추가하기 -->
+	<insert id="cartInsertData" parameterType="CartVO">
+		<selectKey keyProperty="no" resultType="int" order="BEFORE"><!-- 시퀀스 -->
+			SELECT NVL(MAX(no)+1, 1) as no FROM cart_1
+		</selectKey>
+		INSERT INTO cart_1(no, c_account, c_price, id, g_id, g_name, g_price, g_image) VALUES(#{no}, #{c_account}, #{c_price}, #{id}, #{g_id}, #{g_name}, #{g_price}, #{g_image})
+	</insert>
+	
+	<!-- 선택 상품 삭제 -->
+	<delete id="cartDeleteDate" parameterType="CartVO">
+		DELETE FROM cart_1 WHERE id=#{id} AND g_id=#{g_id} AND o_no=0
+	</delete>
+	
+	<!-- 수량변경 -->
+	<update id="cartUpdate" parameterType="CartVO">
+		UPDATE cart_1 SET c_account = #{c_account}, c_price = #{c_price} where id=#{id} AND g_id=#{g_id} AND o_no=0
+	</update>
+</mapper>

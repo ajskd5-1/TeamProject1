@@ -147,7 +147,8 @@ $(function(){
 							    <a href="#" class="round-black-btn">Add to Cart</a>
 							    -->
 							</form>
-							<a href="#" class="round-black-btn" style="font-family: 'NanumSquareRound'; font-weight:bold">장바구니 담기</a>
+							<!-- <a href="#" class="round-black-btn" style="font-family: 'NanumSquareRound'; font-weight:bold">장바구니 담기</a> -->
+							<div class="arrow" style="font-weight: bold;"><a href="../cart/cart_insert.do?g_id=${vo.g_id }&g_price=${vo.g_price}" style="color: white">장바구니 담기</a></div>
 							<!-- 
 							<a href="../campgoods/campgoods_list.do"><img src="../campgoods/back.png" style="width:30px; height:30px;"></a>
 							 -->

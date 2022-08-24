@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.order-mapper">
+	<!-- 결제하기 회원 정보 -->
+	<select id="orderMemberData" resultType="MemberVO" parameterType="String">
+		SELECT * FROM member_1 WHERE id=#{id}
+	</select>
+	<!-- 결제하기 장바구니에서 상품정보 -->
+	<select id="orderCartData" resultType="CartVO" parameterType="String">
+		SELECT * FROM cart_1 WHERE id=#{id} AND o_no=0
+	</select>
+	
+	<insert id="orderInsertData" parameterType="OrderVO">
+		<selectKey keyProperty="no" resultType="int" order="BEFORE"><!-- 시퀀스 -->
+			SELECT NVL(MAX(no)+1, 1) as no FROM order_1
+		</selectKey>
+		INSERT INTO order_1(no) VALUES(#no)
+	</insert>
+	
+	<update id="cartCheck" parameterType="CartVO">
+		UDPATE cart_1 SET
+		o_no=#{o_no}
+	</update>
+	
+</mapper>
