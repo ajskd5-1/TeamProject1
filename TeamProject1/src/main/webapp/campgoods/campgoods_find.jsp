@@ -21,11 +21,11 @@ color:#ffffff;
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-         <a href="../campgoods/campgoods_list.do"><h2 class="title" style="color:#0ea2bd;">캠핑<sup>+</sup> 캠핑용품</h2></a>
+         <a href="../campgoods/campgoods_find.do"><h2 class="title" style="color:#0ea2bd;">캠핑<sup>+</sup> 캠핑용품</h2></a>
           <ol>
-            <li ><a href="../main/main.do" class="title" style="color:#0ea2bd;">Home</a></li>
-            <li>CampGoods_list</li>
-             <li>CampGoods_brand_find</li>
+            <li><a href="../main/main.do" class="title" style="color:#0ea2bd;">Home</a></li>
+            <li><a href="../campgoods/campgoods_list.do" style="color:#0ea2bd;">CampGoods_list</a></li>
+             <li style="color:#0ea2bd;">CampGoods_brand_find</li>
           </ol>
         </div>
 
@@ -147,8 +147,8 @@ color:#ffffff;
         <h2 class="product__name">
           <a href="#"></a>
         </h2>
-        <p class="product__brand" style="font-family: 'NanumSquareRound'">
-          <a href="#">
+     <p class="product__brand" style="font-family:'NanumSquareRound'; font-weight: bold">
+         
           ${vo.g_brand }
           </a>
         </p>
@@ -211,7 +211,7 @@ color:#ffffff;
     
        <ul class="nospace group" style="margin-top:20px;">
       <c:forEach var="vo" items="${cList }" varStatus="s">
-        <c:if test="${s.index<=10 }">
+        <c:if test="${s.index<=4 }">
          <a href="../campgoods/campgoods_detail.do?g_id=${vo.g_id }" >
          
          <img src="${vo.g_image }" style="width: 105px;height: 100px" class="rounded border border-info">
@@ -224,7 +224,7 @@ color:#ffffff;
       
     </ul>
    
-        <div class="clear"></div>
+     
      	
         
 

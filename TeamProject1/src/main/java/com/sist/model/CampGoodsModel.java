@@ -13,12 +13,6 @@ import javax.servlet.http.HttpSession;
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 
-import com.sist.dao.CampGoodsDAO;
-
-import com.sist.vo.CampGoodsVO;
-
-import com.sist.vo.JjimVO;
-
 import javax.servlet.http.Cookie;
 
 
@@ -129,12 +123,19 @@ public class CampGoodsModel {
 		
 		String g_id=request.getParameter("g_id");
 		CampGoodsVO vo=CampGoodsDAO.campgoodsDetailData(Integer.parseInt(g_id));	
+		ReviewVO re_vo=new ReviewVO();
+		int type=3; /*<!-- type 1은 레시피예요, jsp 파일에서 넣은 value값 (type 숫자)으로 변경해주세요 -->*/
+		re_vo.setRe_tno(Integer.parseInt(g_id));
+		re_vo.setRe_type(type);
+		List<ReviewVO> list=CampGoodsDAO.campgoodsReviewData(re_vo);
+		
 		String image = vo.getG_image();
 		if(image.indexOf(";") != -1) {
 			image = image.substring(0, image.indexOf(";"));
 		} 
 		vo.setG_image(image);
 		request.setAttribute("vo", vo);
+		request.setAttribute("list", list);
 		request.setAttribute("main_jsp", "../campgoods/campgoods_detail.jsp");
 		 JjimVO jvo=new JjimVO();
 		   jvo.setG_id(Integer.parseInt(g_id));
@@ -148,6 +149,7 @@ public class CampGoodsModel {
 		     jcount=CampGoodsDAO.campgoodsJjimCount(jvo);
 		   }  
 		   request.setAttribute("jcount", jcount);
+		  
 		return "../main/main.jsp";
 	}
 	
@@ -163,7 +165,7 @@ public class CampGoodsModel {
 			   page="1";
 		   String g_brand=request.getParameter("g_brand");
 		   if(g_brand==null)
-			   g_brand="스노우피크";
+			   g_brand="";
 		   
 		   int curpage=Integer.parseInt(page);
 		   int rowSize=9;
@@ -280,5 +282,57 @@ public class CampGoodsModel {
 		   CampGoodsDAO.campgoodsJjimDelete(vo);
 		   return "redirect:../campgoods/jjim_list.do";
 	   }
+	   
+	   /* 리뷰 작성 */
+		@RequestMapping("campgoods/campgoods_review_ok.do")
+		public String campgoods_review_ok(HttpServletRequest request,HttpServletResponse response)
+		{
+			try {
+				request.setCharacterEncoding("UTF-8");
+			}catch(Exception ex) {}
+			/* 데이터 가져오기 */
+			HttpSession session=request.getSession();
+			String re_writer=(String)session.getAttribute("id");
+			String re_msg=request.getParameter("re_msg");
+			String re_score=request.getParameter("re_score");
+			String re_tno=request.getParameter("re_tno");
+			String re_type=request.getParameter("re_type");
+			/* 데이터 넣기 */
+			ReviewVO vo=new ReviewVO();
+			vo.setRe_writer(re_writer);
+			vo.setRe_msg(re_msg);
+			vo.setRe_score(Integer.parseInt(re_score));
+			vo.setRe_tno(Integer.parseInt(re_tno));
+			vo.setRe_type(Integer.parseInt(re_type));
+			CampGoodsDAO.campgoodsReviewInsert(vo);
+			return "redirect:../campgoods/campgoods_detail.do?g_id="+re_tno;
+		}
+	/* 리뷰 삭제 */
+		@RequestMapping("campgoods/campgoods_review_delete.do")
+		public String campgoods_review_delete(HttpServletRequest request,HttpServletResponse response)
+		{
+			String re_no=request.getParameter("re_no");
+			String g_id=request.getParameter("g_id");
+			CampGoodsDAO.campgoodsReviewDelete(Integer.parseInt(re_no));
+			return "redirect:../campgoods/campgoods_detail.do?g_id="+g_id;
+		}
+	/* 리뷰 수정 */
+		@RequestMapping("campgoods/campgoods_review_update.do")
+		public String campgoods_review_update(HttpServletRequest request,HttpServletResponse response)
+		{
+			try {
+				request.setCharacterEncoding("UTF-8");
+			}catch(Exception ex) {}
+			String re_no=request.getParameter("re_no");
+			String g_id=request.getParameter("g_id");
+			String re_msg=request.getParameter("update_msg");
+			ReviewVO vo=new ReviewVO();
+			vo.setRe_no(Integer.parseInt(re_no));
+			vo.setRe_msg(re_msg);
+			CampGoodsDAO.campgoodsReviewUpdate(vo);		
+			return "redirect:../campgoods/campgoods_detail.do?g_id="+g_id;
+		}
+	   
+	  
 
 }

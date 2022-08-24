@@ -57,6 +57,38 @@
    DELETE FROM jjim_1
    WHERE name=#{name} AND g_id=#{g_id}
   </delete>
+  <!-- 리뷰 목록 출력 -->
+	<select id="campgoodsReviewData" resultType="ReviewVO" parameterType="ReviewVO">
+		SELECT /*+ INDEX_DESC(review_1 ro_no_pk)*/ re_no,re_msg,re_writer,re_regdate,re_score 
+		FROM review_1
+		WHERE re_tno=#{re_tno} AND re_type=#{re_type} 
+	</select>
+<!-- 리뷰 작성 -->
+	<insert id="campgoodsReviewInsert" parameterType="ReviewVO">
+		<selectKey keyProperty="re_no" resultType="int" order="BEFORE">
+			SELECT NVL(MAX(re_no)+1,1) as re_no FROM review_1
+		</selectKey>
+		INSERT INTO review_1 VALUES(
+			#{re_no},
+			#{re_msg},
+			#{re_writer},
+			SYSDATE,
+			#{re_score},
+			#{re_tno},
+			#{re_type}
+		)
+	</insert>
+<!-- 리뷰 삭제 -->
+	<delete id="campgoodsReviewDelete" parameterType="int">
+		DELETE FROM review_1
+		WHERE re_no=#{re_no}
+	</delete>
+<!-- 리뷰 수정 -->	
+	<update id="campgoodsReviewUpdate" parameterType="ReviewVO">
+		UPDATE review_1 SET 
+		re_msg=#{re_msg}
+		WHERE re_no=#{re_no}
+	</update>
 </mapper>
 
 <!-- 

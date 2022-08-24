@@ -38,7 +38,7 @@ color:#ffffff;
          <a href="../campgoods/campgoods_list.do"><h2 class="title" style="color:#0ea2bd;">캠핑<sup>+</sup> 캠핑용품</h2></a>
           <ol>
             <li ><a href="../main/main.do" class="title" style="color:#0ea2bd;">Home</a></li>
-            <li>CampGoods_list</li>
+            <li style="color:#0ea2bd;">CampGoods_list</li>
           </ol>
         </div>
 
@@ -63,12 +63,10 @@ color:#ffffff;
         <h2 class="product__name">
           <a href="#"></a>
         </h2>
-        <p class="product__brand" style="font-family: 'NanumSquareRound'">
-       
+        <p class="product__brand" style="font-family:'NanumSquareRound'; font-weight: bold">
           ${vo.g_brand }
-          
         </p>
-        <p class="product__price" style="font-family: 'BMJUA'">
+        <p class="product__price" style="font-family:'BMJUA'">
          ${vo.g_name }
         </p>
         <p class="product__info" style="font-size:18px; color:#0ea2bd; font-weight:bold; font-family: 'NanumSquareRound'">
@@ -146,7 +144,7 @@ color:#ffffff;
     
        <ul class="nospace group" style="margin-top:20px;">
       <c:forEach var="vo" items="${cList }" varStatus="s">
-        <c:if test="${s.index<=10 }">
+        <c:if test="${s.index<=4 }">
          <a href="../campgoods/campgoods_detail.do?g_id=${vo.g_id }" >
          
          <img src="${vo.g_image }" style="width: 105px;height: 100px" class="rounded border border-info">
@@ -159,7 +157,7 @@ color:#ffffff;
       
     </ul>
    
-        <div class="clear"></div>
+       
      
 
 </body>

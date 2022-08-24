@@ -12,6 +12,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import com.sist.vo.CampGoodsVO;
 
 import com.sist.vo.JjimVO;
+import com.sist.vo.ReviewVO;
 
 
 
@@ -237,6 +238,96 @@ public class CampGoodsDAO {
 					   session.close();
 			   }
 		   }
+		   /* 리뷰 목록 출력 */	
+			
+			public static List<ReviewVO> campgoodsReviewData(ReviewVO re_vo)
+			{
+				SqlSession session=null;
+				List<ReviewVO> list=null;
+				try 
+				{
+					session=ssf.openSession();
+					list=session.selectList("campgoodsReviewData",re_vo);
+				}catch(Exception ex)
+				{
+					System.out.println("campgoodsReviewData : error");
+					ex.printStackTrace();
+				}
+				finally
+				{
+					if(session!=null)
+					{
+						session.close();
+					}
+				}
+				return list;
+			}
+		/* 리뷰 작성 */
+			
+			public static void campgoodsReviewInsert(ReviewVO vo)
+			{
+				SqlSession session=null;
+				try 
+				{
+					session=ssf.openSession(true);
+					session.insert("campgoodsReviewInsert",vo);
+				}catch(Exception ex)
+				{
+					System.out.println("campgoodsReviewInsert : error");
+					ex.printStackTrace();
+				}
+				finally
+				{
+					if(session!=null)
+					{
+						session.close();
+					}
+				}
+			}
+		/* 리뷰 삭제 */
+		
+			public static void campgoodsReviewDelete(int re_no)
+			{
+				SqlSession session=null;
+				try 
+				{
+					session=ssf.openSession(true);
+					session.delete("campgoodsReviewDelete",re_no);
+				}catch(Exception ex)
+				{
+					System.out.println("campgoodsReviewDelete : error");
+					ex.printStackTrace();
+				}
+				finally
+				{
+					if(session!=null)
+					{
+						session.close();
+					}
+				}
+			}
+		/* 리뷰 수정 */
+			
+			public static void campgoodsReviewUpdate(ReviewVO vo)
+			{
+				SqlSession session=null;
+				try 
+				{
+					session=ssf.openSession(true);
+					session.update("campgoodsReviewUpdate",vo);
+				}catch(Exception ex)
+				{
+					System.out.println("campgoodsReviewUpdate : error");
+					ex.printStackTrace();
+				}
+				finally
+				{
+					if(session!=null)
+					{
+						session.close();
+					}
+				}
+			}
 		  
 	
 }
