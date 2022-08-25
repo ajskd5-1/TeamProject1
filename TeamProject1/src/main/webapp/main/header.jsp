@@ -14,7 +14,7 @@
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
       <!-- 아이콘 수정 -->
-      <a href="../main/main.do"><img src="../assets/img/main/tent.png" class="d-flex align-items-center scrollto me-auto" style="width: 50px; height: 50px;"></a>
+      <a href="../main/main.do"><img src="../assets/img/main/logo4.png" class="d-flex align-items-center scrollto me-auto" style="width: 100px; height: 70px;"></a>
 		
       <nav id="navbar" class="navbar">
         <ul>
