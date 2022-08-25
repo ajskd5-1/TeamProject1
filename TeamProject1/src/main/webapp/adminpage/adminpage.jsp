@@ -48,7 +48,7 @@
 				<h3 class="sidebar-title title">문의게시판 관리</h3>
                 <div class="mt-3">
                   <ul>
-                    <li><a href="#">답변</a></li>
+                    <li><a href="../adminpage/reply.do">답변</a></li>
                   </ul>
                 </div>
               </div>
@@ -63,7 +63,7 @@
           <div class="col-lg-9"><%-- 홈 --%>
 			<h1 class="title" style="margin-top: -60px; margin-left: 15px;"> 관리자페이지</h1>
             <div class="row gy-4 posts-list">
-			  <jsp:include page="${adminpage_jsp }"></jsp:include>
+			  <jsp:include page="${admin_jsp }"></jsp:include>
               
 
             </div><!-- End blog posts list -->

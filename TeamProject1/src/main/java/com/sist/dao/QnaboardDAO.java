@@ -220,6 +220,49 @@ public class QnaboardDAO {
 		   }
 		   return result;
 	   }
+	  // 관리자 페이지
+	  public static List<QnaBoardVO> qnaboardReplyAdminData()
+	   {
+		   List<QnaBoardVO> list=null;
+		   SqlSession session=null;
+			  
+		   try
+		   {
+			   session=ssf.openSession(true);
+			   list=session.selectList("qnaboardReplyAdminData");
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   if(session!=null)
+				   session.close();
+		   }
+		   return list;
+	   }
+	  
+	  public static QnaBoardVO boardReplyUpdateData(int no)
+	   {
+		  QnaBoardVO vo=null;
+		  SqlSession session=null;
+			  
+		  try
+		  {
+			  session=ssf.openSession();
+			  vo=session.selectOne("qnaboardReplyDetailData", no);
+		  }catch(Exception ex)
+		  {
+			  ex.printStackTrace();
+		  }
+		  finally
+		  {
+			  if(session!=null)
+				  session.close();
+		  }
+		  return vo;
+	   }
+	  
 	   
 }
 

@@ -31,23 +31,23 @@
 			          </div>
 			
 			          <div class="col-lg-8" style="margin-top: 0px;">
-			            <h3 class="title">${vo.nickname }님 안녕하세요</h3>
+			            <h3 class="title">${sessionScope.name }님 안녕하세요</h3>
 			            <table class="myInfo" style="margin-top: 30px; margin-bottom: 30px;">
 			              <tr>
 			                <th>이름</th>
-			                <td>${vo.name }</td>
+			                <td>${sessionScope.name }</td>
 			              </tr>
 			              <tr>
 			                <th>전화번호</th>
-			                <td>${vo.tel }</td>
+			                <td>${sessionScope.tel }</td>
 			              </tr>
 			              <tr>
 			                <th>이메일</th>
-			                <td>${vo.email }</td>
+			                <td>${sessionScope.email }</td>
 			              </tr>
 			              <tr>
 			                <th>주소</th>
-			                <td>${vo.addr1 }</td>
+			                <td>${sessionScope.addr1 }</td>
 			              </tr>
 			            </table>
 			          </div>
