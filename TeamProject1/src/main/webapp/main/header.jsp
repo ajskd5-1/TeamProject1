@@ -72,7 +72,7 @@
 		<p style="margin: 14px 20px; color:#3A4753B3">[ <span style="font-weight: bold;"><%=(String)session.getAttribute("id")%></span> ]님 환영합니다.</p>
 		</c:if>
 		<div class="header-icon" style="display: inline;">
-        	<a href="../cart/shoppingcart.do"><img src="../cart/images/cart2.png" style="width:50px; height:50px;  margin-right: 10px;"></a>
+        	<a href="../cart/cart_home.do"><img src="../cart/images/cart2.png" style="width:50px; height:50px;  margin-right: 10px;"></a>
         	<c:if test="${sessionScope.id==null }">
         		<a href="../member/login.do"><img src="../assets/img/main/user5.png"" style="width:50px; height:50px; margin-right: 20px;"></a>
       		</c:if>
