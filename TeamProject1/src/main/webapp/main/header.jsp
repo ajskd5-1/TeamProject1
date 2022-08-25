@@ -10,11 +10,11 @@
 </head>
 <body>
   <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top" data-scrollto-offset="0">
+  <header id="header" class="header fixed-top" data-scrollto-offset="0"style="padding-top: 0px;">
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
       <!-- 아이콘 수정 -->
-      <a href="../main/main.do"><img src="../assets/img/main/logo4.png" class="d-flex align-items-center scrollto me-auto" style="width: 100px; height: 70px;"></a>
+      <a href="../main/main.do"><img src="../assets/img/main/logo4.png" class="d-flex align-items-center scrollto me-auto" style="width: 120px; height: 80px;"></a>
 		
       <nav id="navbar" class="navbar">
         <ul>

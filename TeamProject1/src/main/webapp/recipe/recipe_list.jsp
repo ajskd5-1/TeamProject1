@@ -47,7 +47,6 @@
                     <ul>
                       <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">${vo.cr_hit }</a></li>
                       <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html">${vo.cr_dbday }</a></li>
-                      <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">!!수정필!!</a></li>
                     </ul>
                   </div>
                   <div class="content"style="margin-top: 15px;">

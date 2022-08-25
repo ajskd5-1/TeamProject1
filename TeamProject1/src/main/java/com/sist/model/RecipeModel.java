@@ -60,7 +60,7 @@ public class RecipeModel {
 			}
 		}
 		// 데이터 전송
-		request.setAttribute("curppage", curpage);
+		request.setAttribute("curpage", curpage);
 		request.setAttribute("totalPage", totalPage);
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
