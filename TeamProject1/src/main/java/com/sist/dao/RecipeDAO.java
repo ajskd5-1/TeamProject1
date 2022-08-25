@@ -24,7 +24,7 @@ public class RecipeDAO {
 			ex.printStackTrace();
 		}
 	}
-/* 레시피 */
+/* 레시피 리스트*/
 	//<select id="recipeListData" resultType="RecipeVO" parameterType="hashmap">
 	public static List<RecipeVO> recipeListData(Map map)
 	{
@@ -48,6 +48,7 @@ public class RecipeDAO {
 		}
 		return list;
 	}
+/* 레시피 총페이지 */
 	//<select id="recipeTotalPage" resultType="int" parameterType="hashmap">
 	public static int recipeTotalPage(Map map)
 	{
@@ -71,6 +72,7 @@ public class RecipeDAO {
 		}
 		return total;
 	}
+/* 레시피 상세보기 */
 	//<select id="recipeDetailData" resultType="RecipeVO" parameterType="int">
 	//<update id="recipeHitIncrement" parameterType="int">
 	public static RecipeVO recipeDetailData(int cr_no)
@@ -96,6 +98,30 @@ public class RecipeDAO {
 			}
 		}
 		return vo;
+	}
+/* 레시피 카테고리 */
+	//<select id="recipeCategoryListData" resultType="RecipeVO">
+	public static List<RecipeVO> recipeCategoryListData()
+	{
+		SqlSession session=null;
+		List<RecipeVO> list=null;
+		try 
+		{
+			session=ssf.openSession();
+			list=session.selectList("recipeCategoryListData");
+		}catch(Exception ex)
+		{
+			System.out.println("recipeCategoryListData : error");
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+		return list;
 	}
 /* 리뷰 목록 출력 */	
 	//<select id="recipeReviewData" resultType="ReviewVO" parameterType="ReviewVO">
@@ -177,6 +203,28 @@ public class RecipeDAO {
 		}catch(Exception ex)
 		{
 			System.out.println("recipeReviewUpdate : error");
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+	}
+/* 레시피 작성하기 */
+	//<insert id="recipeInsert" parameterType="RecipeVO">
+	public static void recipeInsert(RecipeVO vo)
+	{
+		SqlSession session=null;
+		try 
+		{
+			session=ssf.openSession(true);
+			session.insert("recipeInsert",vo);
+		}catch(Exception ex)
+		{
+			System.out.println("recipeInsert : error");
 			ex.printStackTrace();
 		}
 		finally

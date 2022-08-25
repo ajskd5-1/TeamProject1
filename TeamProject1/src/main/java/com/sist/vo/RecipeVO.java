@@ -13,10 +13,47 @@ CR_WRITER            VARCHAR2(30)
 CR_REGDATE           DATE  
  */
 public class RecipeVO {
-	private int cr_no,cr_hit;
+	private int cr_no,cr_hit,cr_cno;
 	private String cr_title,cr_subtitle,cr_subject,cr_poster,cr_recipe,cr_detail,cr_writer,cr_dbday;
+	private String cr_people,cr_Eing,cr_Sing,cr_img,cr_des;
 	private Date cr_regdate;
 	
+	public int getCr_cno() {
+		return cr_cno;
+	}
+	public void setCr_cno(int cr_cno) {
+		this.cr_cno = cr_cno;
+	}
+	public String getCr_people() {
+		return cr_people;
+	}
+	public void setCr_people(String cr_people) {
+		this.cr_people = cr_people;
+	}
+	public String getCr_Eing() {
+		return cr_Eing;
+	}
+	public void setCr_Eing(String cr_Eing) {
+		this.cr_Eing = cr_Eing;
+	}
+	public String getCr_Sing() {
+		return cr_Sing;
+	}
+	public void setCr_Sing(String cr_Sing) {
+		this.cr_Sing = cr_Sing;
+	}
+	public String getCr_img() {
+		return cr_img;
+	}
+	public void setCr_img(String cr_img) {
+		this.cr_img = cr_img;
+	}
+	public String getCr_des() {
+		return cr_des;
+	}
+	public void setCr_des(String cr_des) {
+		this.cr_des = cr_des;
+	}
 	public Date getCr_regdate() {
 		return cr_regdate;
 	}

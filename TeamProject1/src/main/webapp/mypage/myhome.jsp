@@ -56,7 +56,7 @@
 			              </tr>
 			            </table>
 			            <div style="margin-left: 20px;">
-			              <input type="button" class="btn btn-sm btn-primary" value="회원정보 수정" style="width: 100px;" onclick="location.href='../member/join_update.do'">&nbsp;
+			              <input type="button" class="btn btn-sm btn-primary" value="회원정보 수정" style="width: 100px;" onclick="location.href='../member/join_update_before.do'">&nbsp;
 			              <input type="button" class="btn btn-sm btn-success" value="비밀번호 수정" style="width: 100px;" onclick="location.href='../member/pwd_update.do'">&nbsp;
 			              <input type="button" class="btn btn-sm btn-danger" value="회원탈퇴" style="width: 100px;" onclick="location.href='../member/join_delete.do'">
 			            </div>

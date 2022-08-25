@@ -247,7 +247,7 @@ $(function(){
         <div class="row g-5">
           <div class="col-md-8 offset-md-2 col-lg-8 offset-lg-2">
             <div class="comments">
-              <div class="reply-form" style="padding: 100px; margin: 0px;">
+              <div class="reply-form" style="padding: 80px; margin: 0px;">
                 <form method="post" action="../member/join_ok.do" name="join_frm" id="join_frm">
                   <div class="row" style="padding: 5px 0 5px 0; margin: 0px;">
                     <div class="col-md-3 form-group" style="padding: 8px 10px">
@@ -277,7 +277,7 @@ $(function(){
                       <label>재입력</label>
                     </div>
                     <div class="col-md-3 form-group">
-                      <input id="pwd" name="pwd" type="password" class="form-control" placeholder="비밀번호 재입력">
+                      <input id="pwd" name="pwd" type="password" class="form-control" placeholder="재입력">
                       <div class="join msg" id="pwdMsg" hidden="" style="color:red; font-size: 11pt;">  * 암호를 다시 입력하십시오</div>
                     </div>
                     <div class="col-md-1 form-group">

@@ -1,5 +1,6 @@
 package com.sist.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,12 +45,27 @@ public class RecipeModel {
 		{
 			endPage=totalPage;
 		}
+		
+		// 쿠키에용해서 최근 본 레시피 
+		List<RecipeVO> cList=new ArrayList<RecipeVO>();
+		Cookie[] cookies=request.getCookies();
+		if(cookies !=null) {
+			for(int i=cookies.length-1; i>=0; i--) {
+				//recipe_detail_before cr_no~
+				if(cookies[i].getName().startsWith("cr")) {
+					String no=cookies[i].getValue();
+					RecipeVO vo=RecipeDAO.recipeDetailData(Integer.parseInt(no));
+					cList.add(vo);
+				}
+			}
+		}
 		// 데이터 전송
 		request.setAttribute("curppage", curpage);
 		request.setAttribute("totalPage", totalPage);
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("list", list);
+		request.setAttribute("cList", cList);
 		request.setAttribute("main_jsp", "../recipe/recipe_list.jsp");
 		return "../main/main.jsp";
 	}
@@ -64,12 +80,7 @@ public class RecipeModel {
 		return "redirect:../recipe/recipe_detail.do?cr_no="+cr_no;
 		
 	}
-	@RequestMapping("recipe/recipe_insert.do")
-	public String recipe_insert(HttpServletRequest request,HttpServletResponse response)
-	{
-		request.setAttribute("main_jsp", "../recipe/recipe_insert.jsp");
-		return "../main/main.jsp";
-	}
+/* 상세보기 */	
 	@RequestMapping("recipe/recipe_detail.do")
 	public String recipe_detail(HttpServletRequest request,HttpServletResponse response)
 	{
@@ -134,5 +145,79 @@ public class RecipeModel {
 		vo.setRe_msg(re_msg);
 		RecipeDAO.recipeReviewUpdate(vo);		
 		return "redirect:../recipe/recipe_detail.do?cr_no="+cr_no;
+	}
+/* 카테고리별 레시피*/
+	@RequestMapping("recipe/recipe_category.do")
+	public String recipe_category(HttpServletRequest request,HttpServletResponse response)
+	{
+		List<RecipeVO> list=RecipeDAO.recipeCategoryListData();
+		request.setAttribute("list", list);
+		request.setAttribute("main_jsp", "../recipe/recipe_calist.jsp");
+		return "../main/main.jsp";
+	}
+/* 레시피 작성 */
+	@RequestMapping("recipe/recipe_insert.do")
+	public String recipe_insert(HttpServletRequest request,HttpServletResponse response)
+	{
+		request.setAttribute("main_jsp", "../recipe/recipe_insert.jsp");
+		return "../main/main.jsp";
+	}
+	@RequestMapping("recipe/recipe_insert_ok.do")
+	public String recipe_insert_ok(HttpServletRequest request,HttpServletResponse response)
+	{
+		try {
+			request.setCharacterEncoding("UTF-8");
+		}catch(Exception ex) {}
+		HttpSession session=request.getSession();
+		String cr_writer=(String)session.getAttribute("id");
+		String cr_title=request.getParameter("cr_title");
+		String cr_subtitle=request.getParameter("cr_subtitle");
+		String cr_subject=request.getParameter("cr_subject");
+		String cr_poster=request.getParameter("cr_poster");
+		String cr_people=request.getParameter("cr_people");
+		String cr_Eing=request.getParameter("cr_Eing");
+		String cr_Sing=request.getParameter("cr_Sing");
+		String cr_img=request.getParameter("cr_img");
+		String cr_des=request.getParameter("cr_des");
+		
+		String cr_recipe="<div class=\"rec_mate\"> "
+				+ " <div class=\"mate_title clr\">"
+				+ "   재료<span class=\"text_o\"><img src=\"https://2bob.co.kr/skin/nodskin_argio/images/icon_rec_orange.jpg\" alt=\"\">"+cr_people+"인분</span>  "
+				+ " </div> "
+				+ " <div class=\"text_box\"> "
+				+ "  <h3 class=\"s_title\">필수재료</h3> "
+				+ "  <p class=\"mate_list\">"+cr_Eing+"</p> "
+				+ " </div> "
+				+ " <div class=\"text_box\"> "
+				+ "  <h3 class=\"s_title\">선택 재료</h3> "
+				+ "  <p class=\"mate_list\">"+cr_Sing+"</p> "
+				+ " </div> "
+				+ "";
+		
+		String cr_detail="<div class=\"con_box img_s\">"
+				+ " <!-- 이미지 두개일 경우 img_d ---> "
+				+ " <div class=\"img_box clr\"> "+cr_img+"</div>"
+				+ " <div class=\"text_wrap clr\"> "
+				+ "  <div class=\"num\">"
+				+ "   1"
+				+ "  </div> "
+				+ "  <div class=\"text_box\"> "
+				+ "   <div class=\"text_exp\">"+cr_des+"</div>"
+				+ "  </div> "
+				+ " </div> "
+				+ "</div>"
+				+ "";
+		
+		RecipeVO vo=new RecipeVO();
+		vo.setCr_writer(cr_writer);
+		vo.setCr_title(cr_title);
+		vo.setCr_subtitle(cr_subtitle);
+		vo.setCr_subject(cr_subject);
+		vo.setCr_poster(cr_poster);
+		vo.setCr_recipe(cr_recipe);
+		vo.setCr_detail(cr_detail);
+		
+		RecipeDAO.recipeInsert(vo);
+		return "redirect:../recipe/recipe_list.do";
 	}
 }

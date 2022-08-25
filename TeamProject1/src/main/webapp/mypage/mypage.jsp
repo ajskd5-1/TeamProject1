@@ -60,7 +60,7 @@
                 <h3 class="sidebar-title title">회원정보 관리</h3>
                 <div class="mt-3">
                   <ul>
-                    <li><a href="../member/join_update.do">회원정보 수정</a></li>
+                    <li><a href="../member/join_update_before.do">회원정보 수정</a></li>
                     <li><a href="../member/join_delete.do">회원 탈퇴</a></li>
                  
                   </ul>
@@ -89,7 +89,6 @@
           </div>
 
           <div class="col-lg-9"><%-- 홈 --%>
-			<h1 class="title" style="margin-top: -60px; margin-left: 15px;"> 마이페이지</h1>
             <div class="row gy-4 posts-list">
 			  <jsp:include page="${mypage_jsp }"></jsp:include>
               

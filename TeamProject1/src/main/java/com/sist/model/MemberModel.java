@@ -171,6 +171,22 @@ public class MemberModel {
 		return "redirect:../main/main.do";
 	}
 /* 회원수정 */	
+	@RequestMapping("member/join_update_before.do")
+	public String member_join_update_before(HttpServletRequest request,HttpServletResponse response)
+	{
+		request.setAttribute("mypage_jsp", "../member/join_update_before.jsp");
+		request.setAttribute("main_jsp", "../mypage/mypage.jsp");
+		return "../main/main.jsp";
+	}
+	@RequestMapping("member/join_update_before_ok.do")
+	public String member_join_update_before_ok(HttpServletRequest request,HttpServletResponse response)
+	{
+		String pwd=request.getParameter("pwd");
+		String id=request.getParameter("id");
+		String bCheck=MemberDAO.memberPwdInfo(id, pwd);
+		request.setAttribute("bCheck", bCheck);
+		return "../member/join_update_before_ok.jsp";
+	}
 	@RequestMapping("member/join_update.do")
 	public String member_join_update(HttpServletRequest request,HttpServletResponse response)
 	{	

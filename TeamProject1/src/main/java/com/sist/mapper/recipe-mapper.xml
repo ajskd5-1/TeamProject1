@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sist.mapper.recipe-mapper">
+<!-- 레시피 목록출력 -->
 	<select id="recipeListData" resultType="RecipeVO" parameterType="hashmap">
 		SELECT cr_no,cr_title,cr_subtitle,cr_subject,cr_poster,cr_hit,cr_writer,TO_CHAR(cr_regdate,'YYYY-MM-DD') as cr_dbday,num
 		FROM (SELECT cr_no,cr_title,cr_subtitle,cr_subject,cr_poster,cr_hit,cr_writer,cr_regdate,rownum as num
-		FROM (SELECT /*+ INDEX_ASC(camp_recipe_1 CR_NO_PK)*/cr_no,cr_title,cr_subtitle,cr_subject,cr_poster,cr_hit,cr_writer,cr_regdate
+		FROM (SELECT /*+ INDEX_DESC(camp_recipe_1 CR_NO_PK)*/cr_no,cr_title,cr_subtitle,cr_subject,cr_poster,cr_hit,cr_writer,cr_regdate
 		FROM camp_recipe_1))
-		WHERE cr_no BETWEEN #{start} AND #{end}
+		WHERE num BETWEEN #{start} AND #{end}
 	</select>
+<!-- 레시피 총페이지 -->
 	<select id="recipeTotalPage" resultType="int" parameterType="hashmap">
 		SELECT CEIL(COUNT(*)/9.0) FROM camp_recipe_1
 	</select>
+<!-- 레시피 상세보기 -->
 	<select id="recipeDetailData" resultType="RecipeVO" parameterType="int">
 		SELECT * FROM camp_recipe_1
 		WHERE cr_no=#{cr_no}
 	</select>
+<!-- 레시피 조회수 -->
 	<update id="recipeHitIncrement" parameterType="int">
 		UPDATE camp_recipe_1 SET
 		cr_hit = cr_hit + 1
 		WHERE cr_no=#{cr_no}
 	</update>
-
 <!-- 리뷰 
 RE_NO      NOT NULL NUMBER       
 RE_MSG     NOT NULL CLOB         
@@ -62,4 +65,27 @@ RE_TYPE    NOT NULL NUMBER
 		re_msg=#{re_msg}
 		WHERE re_no=#{re_no}
 	</update>
+<!-- 레시피 카테고리 목록 출력 -->
+	<select id="recipeCategoryListData" resultType="RecipeVO">
+		SELECT /*+ INDEX_DESC(camp_recipe_1 CR_NO_PK)*/cr_no,cr_title,cr_subject,cr_poster,cr_cno
+		FROM camp_recipe_1
+	</select>
+<!-- 레시피 작성하기 -->
+	<insert id="recipeInsert" parameterType="RecipeVO">
+		<selectKey keyProperty="cr_no" resultType="int" order="BEFORE">
+			SELECT NVL(MAX(cr_no)+1,1) as cr_no FROM camp_recipe_1
+		</selectKey>
+		INSERT INTO camp_recipe_1(cr_no,cr_title,cr_subtitle,cr_subject,cr_poster,cr_recipe,cr_detail,cr_writer,cr_cno)
+		VALUES(
+			#{cr_no},
+			#{cr_title},
+			#{cr_subtitle},
+			#{cr_subject},
+			#{cr_poster},
+			#{cr_recipe},
+			#{cr_detail},
+			#{cr_writer},
+			#{cr_cno}
+		)
+	</insert>
 </mapper>

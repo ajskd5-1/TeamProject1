@@ -116,10 +116,10 @@ div.review-container{
           <article class="blog-details">
               <div class="meta-top">
                 <ul>
-                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">${vo.cr_hit }</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html">
-                  <fmt:formatDate value="${vo.cr_regdate }" pattern="yyyy-MM-dd"></fmt:formatDate></a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">!!!!!!!!수정필!!!!!</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> ${vo.cr_hit }</li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> 
+                  <fmt:formatDate value="${vo.cr_regdate }" pattern="yyyy-MM-dd"></fmt:formatDate></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> !!!!!!!!수정필!!!!!</li>
                 </ul>
               </div><!-- End meta top -->
               </article><!-- End blog post -->

@@ -36,8 +36,10 @@
           <li class="dropdown"><a href="#"><span>캠핑 레시피</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="../recipe/recipe_list.do">레시피 전체보기</a></li>
-              <li><a href="#">카테고리별 레시피</a></li>
-              <li><a href="#">레시피 작성하기???</a></li>
+              <li><a href="../recipe/recipe_category.do">카테고리별 레시피</a></li>
+              <c:if test="${sessionScope.id!=null }">
+                <li><a href="../recipe/recipe_insert.do">레시피 작성</a></li>
+              </c:if>
             </ul>
           </li>
           

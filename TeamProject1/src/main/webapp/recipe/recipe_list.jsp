@@ -92,6 +92,19 @@
              <div class="row" style="height: 30px;"></div>
           </div>
      	 </div>
+     	<h2 class="title">최근 본 레시피</h2>
+        <div class="row">
+		  <c:forEach var="cvo" items="${cList }" begin="0" end="4">
+	        <div class="card col-lg-2" style="margin-right: 40px; margin-top: 30px; background-color: #485664">
+	          <a href="../recipe/recipe_detail_before.do?cr_no=${cvo.cr_no }">
+			  <img src="${cvo.cr_poster }" class="card-img-top" alt="..." style="height: 130px; margin-top: 10px;">
+			  </a>
+			  <div class="card-body">
+			    <p class="card-text" style="color: white; font-weight: bold;">${cvo.cr_title }</p>
+			  </div>
+			</div>
+	      </c:forEach>
+	    </div>
       </div>
     </section><!-- End Blog Section -->
   </main><!-- End blog-details.htmlmain -->
