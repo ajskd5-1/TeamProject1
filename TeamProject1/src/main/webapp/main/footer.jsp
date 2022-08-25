@@ -16,7 +16,7 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="footer-info">
-              <h3><img alt="" src="../main/camplogo_2.png" style="width:155px; height:150px; margin-top: -60px;"></h3>
+              <h3><img alt="" src="../main/camplogo_2.png" style="width: 200px; height:150px; margin-top: -60px;"></h3>
               <p style=" font-family: 'NanumSquareRound';">
                 서울 강남구 테헤란로 132 8층 쌍용교육센터<br><br>
                 
@@ -45,7 +45,7 @@
             
             </ul>
           </div>
-<div class="col-lg-4 col-md-6 footer-newsletter">
+		  <div class="col-lg-4 col-md-6 footer-newsletter">
          
            
           </div>
