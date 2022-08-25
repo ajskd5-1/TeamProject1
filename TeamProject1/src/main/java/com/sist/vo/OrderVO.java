@@ -1,7 +1,7 @@
 package com.sist.vo;
 import java.util.*;
 public class OrderVO {
-	private int no, c_no;
+	private int no, c_no, o_total;
 	private String o_name, o_post, o_addr1, o_addr2, o_email, o_tel, o_content, id;
 	private Date o_regdate, o_deldate;
 	public int getNo() {
@@ -75,6 +75,12 @@ public class OrderVO {
 	}
 	public void setO_deldate(Date o_deldate) {
 		this.o_deldate = o_deldate;
+	}
+	public int getO_total() {
+		return o_total;
+	}
+	public void setO_total(int o_total) {
+		this.o_total = o_total;
 	}
 	
 }

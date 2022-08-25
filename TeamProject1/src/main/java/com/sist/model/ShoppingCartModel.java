@@ -92,8 +92,38 @@ public class ShoppingCartModel {
 	
 	//결제확인
 	@RequestMapping("cart/thankyou.do")
-	public String check(HttpServletRequest request, HttpServletResponse response)
+	public void check(HttpServletRequest request, HttpServletResponse response)
 	{
+		//data:{"o_name":bname, "o_post":bpost, "o_addr1":addr1, "o_addr2":addr2, "o_email":bemail, "o_tel":btel, "o_content":content, "o_total":total}
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("id");
+		String o_name = request.getParameter("o_name");
+		String o_post = request.getParameter("o_post");
+		String o_addr1 = request.getParameter("o_addr1");
+		String o_addr2 = request.getParameter("o_addr2");
+		String o_email = request.getParameter("o_email");
+		String o_tel = request.getParameter("o_tel");
+		String o_content = request.getParameter("o_content");
+		String o_total = request.getParameter("o_total");
+		
+		OrderVO vo = new OrderVO();
+		vo.setO_name(o_name);
+		vo.setO_post(o_post);
+		vo.setO_addr1(o_addr1);
+		vo.setO_addr2(o_addr2);
+		vo.setO_email(o_email);
+		vo.setO_tel(o_tel);
+		vo.setO_content(o_content);
+		vo.setO_total(Integer.parseInt(o_total));
+		vo.setId(id);
+		OrderDAO.orderInsertData(vo);
+
+		OrderDAO.orderCartUpdate(id);
+	}
+	
+	// 결제 완료 창
+	@RequestMapping("cart/order_ok.do")
+	public String cart_ok(HttpServletRequest request,HttpServletResponse response) {
 		request.setAttribute("main_jsp", "../cart/thankyou.jsp");
 		return "../main/main.jsp";
 	}
@@ -109,8 +139,6 @@ public class ShoppingCartModel {
 		vo.setG_id(Integer.parseInt(g_id));
 		vo.setId(id);
 		CartDAO.cartDeleteDate(vo);
-		
-//		return "../cart/cart_list.jsp";
 	}
 	
 	// 수량 수정

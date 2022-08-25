@@ -8,20 +8,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs">
+	<div class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2 class="title">캠핑<sup>+</sup> 캠핑장</h2>
+          <a href="../camp/list.do"><h2 class="title">캠핑<sup>+</sup> 캠핑장</h2></a>
           <ol>
-            <li><a href="../main/main.do">Home</a></li>
-            <li><a href="../camp/list.do">캠핑장</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li>camping</li>
           </ol>
         </div>
 
       </div>
-    </div><!-- End Breadcrumbs -->
+    </div>
+    
 
 	<!-- ======= Features Section ======= -->
     <section id="features" class="features">
@@ -100,7 +100,7 @@
         <div class="row">
 		  <c:forEach var="cvo" items="${cList }" begin="0" end="9">
 	        <div class="card col-lg-2" style="margin-right: 40px; margin-top: 30px;">
-	          <a href="../camp/detail.do?no=${vo.no }">
+	          <a href="../camp/detail.do?no=${cvo.no }">
 			  <img src="${cvo.c_poster }" class="card-img-top" alt="..." style="height: 130px; margin-top: 10px;">
 			  </a>
 			  <div class="card-body">

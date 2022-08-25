@@ -10,16 +10,23 @@
 		SELECT * FROM cart_1 WHERE id=#{id} AND o_no=0
 	</select>
 	
+	<!-- 결제 정보 저장 -->
 	<insert id="orderInsertData" parameterType="OrderVO">
 		<selectKey keyProperty="no" resultType="int" order="BEFORE"><!-- 시퀀스 -->
 			SELECT NVL(MAX(no)+1, 1) as no FROM order_1
 		</selectKey>
-		INSERT INTO order_1(no) VALUES(#no)
+		INSERT INTO order_1(no, o_name, o_post, o_addr1, o_addr2, o_email, o_tel, o_content, id, o_total)
+		VALUES(#{no}, #{o_name}, #{o_post}, #{o_addr1}, #{o_addr2}, #{o_email}, #{o_tel}, #{o_content}, #{id}, #{o_total})
 	</insert>
-	
-	<update id="cartCheck" parameterType="CartVO">
-		UDPATE cart_1 SET
-		o_no=#{o_no}
+	<!-- 장바구니 업데이트를 위한 o_no => cart_1 MAX(no) -->
+	<select id="orderRecentNo" resultType="int">
+		SELECT NVL(MAX(no), 1) FROM order_1
+	</select>
+	<!-- 결제시 장바구니 o_no 값 저장  장바구니 (아이디 동일 & 결제 안된거 : o_no=0) -->
+	<update id="orderCartUpdate" parameterType="CartVO">
+		UPDATE cart_1 SET
+		o_no=#{o_no} WHERE o_no=0 AND id=#{id}
 	</update>
+	
 	
 </mapper>

@@ -122,10 +122,8 @@ $(function(){
           <div class="col-md-6">
             <div class="row mb-5">
               <div class="col-md-6 mb-3 mb-md-0">
-                <button class="btn btn-primary btn-sm btn-block" id="update">저장하기</button>
-              </div>
-              <div class="col-md-6">
-                <button class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</button>
+                <!-- <button class="btn btn-primary btn-sm btn-block" id="update">돌아가기</button> -->
+                <a href="javascript:history.back();" class="btn btn-primary btn-sm btn-block" id="update" style="color: white; font-size: 20px;" >돌아가기</a>
               </div>
             </div>
 
@@ -133,24 +131,24 @@ $(function(){
           <div class="col-md-6 pl-5">
             <div class="row justify-content-end">
               <div class="col-md-7">
-                <div class="row">
+                <!-- <div class="row">
                   <div class="col-md-12 text-right border-bottom mb-5">
                     <h3 class="text-black h4 text-uppercase">장바구니 총 금액</h3>
                   </div>
-                </div>
+                </div> -->
 
-                <div class="row mb-5">
+                <%-- <div class="row mb-5">
                   <div class="col-md-6">
                     <span class="text-black">총 금액</span>
                   </div>
                   <div class="col-md-6 text-right">
                     <strong class="text-black total">${total }</strong>
                   </div>
-                </div>
+                </div> --%>
 
                 <div class="row">
                   <div class="col-md-12">
-                    <a href="../cart/cart_order.do" style="color: white"><span class="btn btn-primary btn-lg btn-block">결제하기</span></a>
+                    <a href="../cart/cart_order.do" style="color: white; font-size: 20px;" class="btn btn-primary btn-lg btn-block">결제하기</a>
                     
                   </div>
                 </div>

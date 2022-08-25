@@ -22,11 +22,10 @@
 
     <link rel="stylesheet" href="css/style.css">
     
-<!-- iamport.payment.js -->
-<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
-    
 <script type="text/javascript" src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<!-- iamport.payment.js -->
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <script type="text/javascript">
 $(function(){
 	$('#postfind').click(function(){
@@ -40,44 +39,72 @@ $(function(){
 	})
 	
 	let name = $('#g_name').text();
-	let total = $('#total').text();
+	let total1 = $('#total').text();
+	let total = parseInt(total1);
 	let bemail = $('#c_email').val();
 	let bname = $('#c_name').val();
 	let btel = $('#c_tel').val();
 	let baddr = $('#c_addr1').val() + ' ' + $('#c_addr2').val();
 	let bpost = $('#c_post').val();
-	$('#orderBtn').click(function(){
-		function iamport(){
-			//가맹점 식별코드
-			IMP.init('imp20872771');
-			IMP.request_pay({
-			    pg : 'html5_inicis',
-			    pay_method : 'card',
-			    merchant_uid : '123' + new Date().getTime(),
-			    name : name , //결제창에서 보여질 이름
-			    amount : total, //실제 결제되는 가격
-			    buyer_email : bemail,
-			    buyer_name : bname,
-			    buyer_tel : btel,
-			    buyer_addr : baddr,
-			    buyer_postcode : bpost
-			}, function(rsp) {
-				console.log(rsp);
-			    if ( rsp.success ) {
-			    	var msg = '결제가 완료되었습니다.';
-			        msg += '고유ID : ' + rsp.imp_uid;
-			        msg += '상점 거래ID : ' + rsp.merchant_uid;
-			        msg += '결제 금액 : ' + rsp.paid_amount;
-			        msg += '카드 승인번호 : ' + rsp.apply_num;
-			    } else {
-			    	 var msg = '결제에 실패하였습니다.';
-			         msg += '에러내용 : ' + rsp.error_msg;
-			    }
-			    alert(msg);
-			});
-		}
-	})
 	
+	let addr1 = $('#c_addr1').val();
+	let addr2 = $('#c_addr2').val();
+	let content = $('#c_order_notes').val();
+	
+	IMP.init("imp68206770");// 강사님 코드 : imp68206770   내 코드 : imp20872771
+	function requestPay(){
+		//가맹점 식별코드
+		IMP.request_pay({
+		    pg : 'html5_inicis.MID-a',
+		    pay_method : 'card',
+		    merchant_uid : 'merchant_' + new Date().getTime(),
+		    name : name , //결제창에서 보여질 이름
+		    amount : total, //실제 결제되는 가격
+		    buyer_email : bemail,
+		    buyer_name : bname,
+		    buyer_tel : btel,
+		    buyer_addr : baddr,
+		    buyer_postcode : bpost
+		}, function(rsp) {
+			console.log(rsp);
+		    if ( rsp.success ) {
+		    	var msg = '결제가 완료되었습니다.';
+		        msg += '고유ID : ' + rsp.imp_uid;
+		        msg += '상점 거래ID : ' + rsp.merchant_uid;
+		        msg += '결제 금액 : ' + rsp.paid_amount;
+		        msg += '카드 승인번호 : ' + rsp.apply_num;
+		        $.ajax({
+		        	type:'post',
+		        	url:'../cart/thankyou.do',
+		        	data:{"o_name":bname, "o_post":bpost, "o_addr1":addr1, "o_addr2":addr2, "o_email":bemail, "o_tel":btel, "o_content":content, "o_total":total},
+		        	success:function(result){
+		        		location.href="../cart/order_ok.do";
+		        	}
+		         })
+		    } else {
+		    	 //var msg = '결제에 실패하였습니다.';
+		         //msg += '에러내용 : ' + rsp.error_msg;
+		         var msg = '결제가 완료되었습니다.';
+		        msg += '고유ID : ' + rsp.imp_uid;
+		        msg += '상점 거래ID : ' + rsp.merchant_uid;
+		        msg += '결제 금액 : ' + rsp.paid_amount;
+		        msg += '카드 승인번호 : ' + rsp.apply_num;
+		         $.ajax({
+			        	type:'post',
+			        	url:'../cart/thankyou.do',
+			        	data:{"o_name":bname, "o_post":bpost, "o_addr1":addr1, "o_addr2":addr2, "o_email":bemail, "o_tel":btel, "o_content":content, "o_total":total},
+			        	success:function(result){
+			        		location.href="../cart/order_ok.do";
+			        	}
+			         })
+		    }
+		    alert(msg);
+		});
+	}
+	
+	$('#orderBtn').click(function(){
+		requestPay();
+	})
 	
 })
 </script>
@@ -107,12 +134,6 @@ $(function(){
                 </div>
               </div>
 
-              <!-- <div class="form-group row">
-                <div class="col-md-12">
-                  <label for="c_companyname" class="text-black"> 전화번호 </label>
-                  <input type="text" class="form-control" id="c_tel" name="c_tel">
-                </div>
-              </div> -->
 
               <div class="form-group row">
                 

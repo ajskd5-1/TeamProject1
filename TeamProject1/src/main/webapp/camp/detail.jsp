@@ -10,6 +10,11 @@
 <script type="text/javascript">
 $(function(){
 	$('#reserveBtn').click(function(){
+		if(${sessionScope.id==null }){
+			alert('로그인 후 이용가능합니다!');
+			return;
+		}
+		
 		let title = $('#ctitle').text();
 		let no = $('#cno').val();
 		$.ajax({
@@ -25,21 +30,20 @@ $(function(){
 </script>
 </head>
 <body>
-	<!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs">
+	<div class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2 class="title">캠핑<sup>+</sup> 캠핑장</h2>
+          <a href="../camp/list.do"><h2 class="title">캠핑<sup>+</sup> 캠핑장</h2></a>
           <ol>
-            <li><a href="../main/main.do">Home</a></li>
-            <li><a href="../camp/list.do">캠핑장</a></li>
-            <li>${vo.c_title }</li>
+            <li><a href="index.html">Home</a></li>
+            <li>camping</li>
           </ol>
         </div>
 
       </div>
-    </div><!-- End Breadcrumbs -->
+    </div>
+    
 	<!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">

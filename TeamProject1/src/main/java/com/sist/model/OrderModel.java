@@ -13,4 +13,6 @@ public class OrderModel {
 		request.setAttribute("main_jsp", "../order/order.jsp");
 		return "../main/main.jsp";
 	}
+	
+	
 }
