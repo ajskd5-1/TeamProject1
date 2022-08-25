@@ -4,7 +4,14 @@ public class QnaBoardVO {
 	private int no,count,groud_id,group_step,group_tab,isreply,filesize,recount;
 	private String name,title,content,filename,dbday;
 	private Date regdate;
+	private String id;
 	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public int getRecount() {
 		return recount;
 	}

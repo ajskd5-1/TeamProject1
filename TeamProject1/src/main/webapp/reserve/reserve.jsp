@@ -128,6 +128,7 @@ $(function(){
               <td>
                 <form method="post" action="../reserve/reserve_ok.do">
                   <input type="hidden" name="fno" value="${no }"><%-- value는 각 jsp에서 넘겨줌 --%>
+                  <input type="hidden" name="title" value="${title }">
                   <input type="hidden" name="cin" id="re_d">
                   <input type="hidden" name="cout" id="re_d2">
                   <input type="hidden" name="inwon" id="re_i">

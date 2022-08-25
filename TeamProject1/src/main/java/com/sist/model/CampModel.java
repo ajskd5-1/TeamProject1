@@ -5,6 +5,7 @@ import java.util.*;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
@@ -101,6 +102,14 @@ public class CampModel {
 			
 		}
 		
+		/* 리뷰 */
+		ReviewVO re_vo=new ReviewVO();
+		int type=2; /*<!-- type 1은 레시피예요, jsp 파일에서 넣은 value값 (type 숫자)으로 변경해주세요 -->*/
+		re_vo.setRe_tno(Integer.parseInt(no));
+		re_vo.setRe_type(type);
+		List<ReviewVO> list=RecipeDAO.recipeReviewData(re_vo);
+		request.setAttribute("list", list);
+		
 		request.setAttribute("vo", vo);
 		request.setAttribute("info", info);
 		request.setAttribute("etcinfo", etcinfo);
@@ -175,5 +184,56 @@ public class CampModel {
 		
 		request.setAttribute("list", list);
 		return "../camp/map_list.jsp";
+	}
+	
+	
+	/* 리뷰 작성 */
+	@RequestMapping("camp/camp_review_ok.do")
+	public String camp_review_ok(HttpServletRequest request,HttpServletResponse response)
+	{
+		try {
+			request.setCharacterEncoding("UTF-8");
+		}catch(Exception ex) {}
+		/* 데이터 가져오기 */
+		HttpSession session=request.getSession();
+		String re_writer=(String)session.getAttribute("id");
+		String re_msg=request.getParameter("re_msg");
+		String re_score=request.getParameter("re_score");
+		String re_tno=request.getParameter("re_tno");
+		String re_type=request.getParameter("re_type");
+		/* 데이터 넣기 */
+		ReviewVO vo=new ReviewVO();
+		vo.setRe_writer(re_writer);
+		vo.setRe_msg(re_msg);
+		vo.setRe_score(Integer.parseInt(re_score));
+		vo.setRe_tno(Integer.parseInt(re_tno));
+		vo.setRe_type(Integer.parseInt(re_type));
+		CampDAO.campReviewInsert(vo);
+		return "redirect:../camp/detail.do?no="+re_tno;
+	}
+/* 리뷰 삭제 */
+	@RequestMapping("camp/camp_review_delete.do")
+	public String camp_review_delete(HttpServletRequest request,HttpServletResponse response)
+	{
+		String re_no=request.getParameter("re_no");
+		String no=request.getParameter("no");
+		CampDAO.campReviewDelete(Integer.parseInt(re_no));
+		return "redirect:../camp/detail.do?no="+no;
+	}
+/* 리뷰 수정 */
+	@RequestMapping("camp/camp_review_update.do")
+	public String camp_review_update(HttpServletRequest request,HttpServletResponse response)
+	{
+		try {
+			request.setCharacterEncoding("UTF-8");
+		}catch(Exception ex) {}
+		String re_no=request.getParameter("re_no");
+		String no=request.getParameter("no");
+		String re_msg=request.getParameter("update_msg");
+		ReviewVO vo=new ReviewVO();
+		vo.setRe_no(Integer.parseInt(re_no));
+		vo.setRe_msg(re_msg);
+		CampDAO.campReviewUpdate(vo);		
+		return "redirect:../camp/detail.do?no="+no;
 	}
 }

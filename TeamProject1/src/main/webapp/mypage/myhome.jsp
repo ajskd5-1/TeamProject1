@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
 </style>
 </head>
 <body>
-<main id="main">
+  <main id="main">
     <section id="blog" class="blog" style="margin-top: -60px;">
       
       <div class="container" data-aos="fade-up">
@@ -67,72 +68,79 @@
 			    </section><!-- End About Section -->
 			    
               <div class="content">
-				<h2 class="title">예약내역</h2>
+				<h2 class="title">최근 예약내역</h2>
               	<table class="table table-hover">
-                  <tr class="text-center">
-                    <th>예약번호</th>
-                    <th>캠핑장</th>
-                    <th>예약일</th>
-                    <th>인원수</th>
-                    <th>가격</th>
-                  </tr>
-                  <tr>
-                    <td>12</td>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                  </tr>
+              	  <thead class="table-info">
+                    <tr class="text-left">
+                      <th>예약번호</th>
+                      <th>캠핑장</th>
+                      <th>예약일</th>
+                      <th>인원수</th>
+                      <th>등록일</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>${rvo.no }</td>
+                      <td>${title}</td>
+                      <td>${date }</td>
+                      <td>${rvo.inwon }</td>
+                      <td>${rvo.dbday }</td>
+                    </tr>
+                  </tbody>
                 </table>
-                <input type="text" class="btn btn-sm btn-primary" value="더보기" style="float: right;">
+                <!-- <input type="text" class="btn btn-sm btn-primary" value="더보기" style="float: right;"> -->
+                <a href="../mypage/mypage_reserve.do" class="btn btn-sm btn-primary" style="float: right;">더보기</a>
                 <br>
                 <hr>
                 
-                <h2 class="title">결제내역</h2>
+                <h2 class="title">최근 결제내역</h2>
               	<table class="table table-hover">
-                  <tr class="text-center">
-                    <th>결제번호</th>
-                    <th>상품</th>
-                    <th>수량</th>
-                    <th>가격</th>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                  </tr>
+              	  <thead class="table-info">
+                    <tr class="text-left">
+                      <th width="15%">결제번호</th>
+                      <th width="15%">수령인</th>
+                      <th width="55%">주소</th>
+                      <th width="15%">결제 금액</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td width="15%">${ovo.no }</td>
+                      <td width="15%">${ovo.o_name }</td>
+                      <td>${addr}</td>
+                      <td>${ovo.o_total }원</td>
+                    </tr>
+                  </tbody>
                 </table>
-                <input type="text" class="btn btn-sm btn-primary" value="더보기" style="float: right;">
+                <a href="../mypage/mypage_order.do" class="btn btn-sm btn-primary" style="float: right;">더보기</a>
                 <br>
                 <hr>
                 
                 <h2 class="title">내가 작성한 문의사항</h2>
               	<table class="table table-hover">
-                  <tr class="text-center">
-                    <th>글제목</th>
-                    <th>작성일</th>
-                    <th>댓글수</th>
-                    <th>조회수</th>
-                  </tr>
-                  <tr style="background-color: #1ec3e0">
-                    <td>글제목123</td>
-                    <td>작성일123</td>
-                    <td>12</td>
-                    <td>123</td>
-                  </tr>
+              	  <thead class="table-info">
+                    <tr>
+                      <th>글번호</th>
+                      <th>글제목</th>
+                      <th>작성일</th>
+                      <th>조회수</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <c:forEach var="qvo" items="${q_list }">
+                      <tr>
+                        <td>${qvo.no }</td>
+                        <td>${qvo.title }</td>
+                        <td>${qvo.dbday }</td>
+                        <td>${qvo.count }</td>
+                      </tr>
+                    </c:forEach>
+                  </tbody>
                 </table>
-                <input type="text" class="btn btn-sm btn-primary" value="더보기" style="float: right;">
+                <a href="../mypage/mypage_qnaboard.do" class="btn btn-sm btn-primary" style="float: right;">더보기</a>
                 <br>
                 <hr>
-                
-                <blockquote>
-                  <p>
-                    Et vero doloremque tempore voluptatem ratione vel aut. Deleniti sunt animi aut. Aut eos aliquam doloribus minus autem quos.
-                  </p>
-                </blockquote>
-
-                
               </div><!-- End post content -->
 
               <div class="meta-bottom">
@@ -150,6 +158,5 @@
     </section><!-- End Blog Details Section -->
 
   </main><!-- End #main -->
-</main>
 </body>
 </html>

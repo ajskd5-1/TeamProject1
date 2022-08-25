@@ -26,6 +26,53 @@ $(function(){
 			}
 		})
 	})
+	
+	$('#reviewBtn').click(function(){
+		var id='<%=(String)session.getAttribute("id")%>';
+ 		let re_msg=$('#re_msg').val();
+		if(id!="null")
+		{
+			if(re_msg.trim()==="")
+			{
+				$('#re_msg').focus();
+				return;
+			}
+			else
+			{
+				$('#review_frm').submit();
+			}
+		}
+		else
+		{
+			alert("로그인 시 작성 가능합니다.");
+			return;
+		} 
+		
+	})
+	//수정 버튼 클릭 시 
+	$('#updateBtn').click(function(){
+		$('#update_tr').show("slow");
+		let update_msg=$('#update_msg').val();
+		if(update_msg==='')
+		{
+			$('#update_msg').focus();
+		}
+	})
+	//취소 버튼 추가 클릭 시  
+	$('#update_no_Btn').click(function(){
+		$('#update_tr').hide("slow");
+	})
+	//추가하기 버튼 클릭 시 
+	$('#update_ok_Btn').click(function(){
+			$('#update_frm').submit();
+	})
+	//별점 
+	$('#selectStar').change(function(){
+		//var s = document.getElementById("selectStar");
+		//var selectStar = s.option[s.selectedIndex].value;
+		let star = $('#selectStar option:selected').val();
+		$('#re_score').val(star);
+	})
 })
 </script>
 </head>
@@ -222,136 +269,80 @@ $(function(){
       </div>
       
     </section><!-- End Portfolio Section -->
-<section id="blog" class="blog">
-  <div class="container" data-aos="fade-up">
-    <div class="row g-5">
-      <div class="col-lg-12">
-        <div class="comments">
 
-	      <h4 class="comments-count">8 Comments</h4>
-	
-	      <div id="comment-1" class="comment">
-	        <div class="d-flex">
-	          <div class="comment-img"><img src="../assets/img/blog/comments-1.jpg" alt=""></div>
-	          <div>
-	            <h5><a href="">Georgia Reader</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
-	            <time datetime="2020-01-01">01 Jan,2022</time>
-	            <p>
-	              Et rerum totam nisi. Molestiae vel quam dolorum vel voluptatem et et. Est ad aut sapiente quis molestiae est qui cum soluta.
-	              Vero aut rerum vel. Rerum quos laboriosam placeat ex qui. Sint qui facilis et.
-	            </p>
-	          </div>
-	        </div>
-	      </div><!-- End comment #1 -->
-	
-	      <div id="comment-2" class="comment">
-	        <div class="d-flex">
-	          <div class="comment-img"><img src="../assets/img/blog/comments-2.jpg" alt=""></div>
-	          <div>
-	            <h5><a href="">Aron Alvarado</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
-	            <time datetime="2020-01-01">01 Jan,2022</time>
-	            <p>
-	              Ipsam tempora sequi voluptatem quis sapiente non. Autem itaque eveniet saepe. Officiis illo ut beatae.
-	            </p>
-	          </div>
-	        </div>
-	
-	        <div id="comment-reply-1" class="comment comment-reply">
-	          <div class="d-flex">
-	            <div class="comment-img"><img src="../assets/img/blog/comments-3.jpg" alt=""></div>
-	            <div>
-	              <h5><a href="">Lynda Small</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
-	              <time datetime="2020-01-01">01 Jan,2022</time>
-	              <p>
-	                Enim ipsa eum fugiat fuga repellat. Commodi quo quo dicta. Est ullam aspernatur ut vitae quia mollitia id non. Qui ad quas nostrum rerum sed necessitatibus aut est. Eum officiis sed repellat maxime vero nisi natus. Amet nesciunt nesciunt qui illum omnis est et dolor recusandae.
-	
-	                Recusandae sit ad aut impedit et. Ipsa labore dolor impedit et natus in porro aut. Magnam qui cum. Illo similique occaecati nihil modi eligendi. Pariatur distinctio labore omnis incidunt et illum. Expedita et dignissimos distinctio laborum minima fugiat.
-	
-	                Libero corporis qui. Nam illo odio beatae enim ducimus. Harum reiciendis error dolorum non autem quisquam vero rerum neque.
-	              </p>
-	            </div>
-	          </div>
-	
-	          <div id="comment-reply-2" class="comment comment-reply">
-	            <div class="d-flex">
-	              <div class="comment-img"><img src="../assets/img/blog/comments-4.jpg" alt=""></div>
-	              <div>
-	                <h5><a href="">Sianna Ramsay</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
-	                <time datetime="2020-01-01">01 Jan,2022</time>
-	                <p>
-	                  Et dignissimos impedit nulla et quo distinctio ex nemo. Omnis quia dolores cupiditate et. Ut unde qui eligendi sapiente omnis ullam. Placeat porro est commodi est officiis voluptas repellat quisquam possimus. Perferendis id consectetur necessitatibus.
-	                </p>
-	              </div>
-	            </div>
-	
-	          </div><!-- End comment reply #2-->
-	
-	        </div><!-- End comment reply #1-->
-	
-	      </div><!-- End comment #2-->
-	
-	      <div id="comment-3" class="comment">
-	        <div class="d-flex">
-	          <div class="comment-img"><img src="../assets/img/blog/comments-5.jpg" alt=""></div>
-	          <div>
-	            <h5><a href="">Nolan Davidson</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
-	            <time datetime="2020-01-01">01 Jan,2022</time>
-	            <p>
-	              Distinctio nesciunt rerum reprehenderit sed. Iste omnis eius repellendus quia nihil ut accusantium tempore. Nesciunt expedita id dolor exercitationem aspernatur aut quam ut. Voluptatem est accusamus iste at.
-	              Non aut et et esse qui sit modi neque. Exercitationem et eos aspernatur. Ea est consequuntur officia beatae ea aut eos soluta. Non qui dolorum voluptatibus et optio veniam. Quam officia sit nostrum dolorem.
-	            </p>
-	          </div>
-	        </div>
-	
-	      </div><!-- End comment #3 -->
-	
-	      <div id="comment-4" class="comment">
-	        <div class="d-flex">
-	          <div class="comment-img"><img src="../assets/img/blog/comments-6.jpg" alt=""></div>
-	          <div>
-	            <h5><a href="">Kay Duggan</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
-	            <time datetime="2020-01-01">01 Jan,2022</time>
-	            <p>
-	              Dolorem atque aut. Omnis doloremque blanditiis quia eum porro quis ut velit tempore. Cumque sed quia ut maxime. Est ad aut cum. Ut exercitationem non in fugiat.
-	            </p>
-	          </div>
-	        </div>
-	
-	      </div><!-- End comment #4 -->
-	
-	      <div class="reply-form">
-	
-	        <h4>Leave a Reply</h4>
-	        <p>Your email address will not be published. Required fields are marked * </p>
-	        <form action="">
-	          <div class="row">
-	            <div class="col-md-6 form-group">
-	              <input name="name" type="text" class="form-control" placeholder="Your Name*">
-	            </div>
-	            <div class="col-md-6 form-group">
-	              <input name="email" type="text" class="form-control" placeholder="Your Email*">
-	            </div>
-	          </div>
-	          <div class="row">
-	            <div class="col form-group">
-	              <input name="website" type="text" class="form-control" placeholder="Your Website">
-	            </div>
-	          </div>
-	          <div class="row">
-	            <div class="col form-group">
-	              <textarea name="comment" class="form-control" placeholder="Your Comment*"></textarea>
-	            </div>
-	          </div>
-	          <button type="submit" class="btn btn-primary">Post Comment</button>
-	
-	        </form>
-	
-	      </div>
-	
-	    </div><!-- End blog comments -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row g-5">
+	<!-- 후기 -->
+		<div class="col-md-8 offset-md-2 col-lg-8 offset-lg-2">
+		<!-- 후기 목록 -->
+           <div class="comments">
+            <br><br><br><br>
+              <div >
+             	 <h2 class="title" style="display: inline;">&nbsp;&nbsp;캠핑 후기</h2><img src="../recipe/image/recipe5.png" style="margin:5px 10px 20px 20px;; height:60px; width: 60px;">
+              </div>
+              <c:forEach items="${list }" var="rvo">
+              <hr>
+              <div id="comment-1" class="comment" style="text-align: right; margin: 0px;">
+                <c:forEach begin="1" end="${rvo.re_score }"><span style="color:#f1c40f; margin-right: 4px; font-size: 18pt;">★</span></c:forEach></div>
+              <div id="comment-2" class="comment" style="margin: 0px;">
+                <div class="d-flex" style="margin-bottom: 15px;">
+                  <div class="comment-img"><img src="../recipe/image/chef1.png" style="margin:5px 30px 20px 20px; height: 70px; width: 70px; "></div>
+                  <div>
+                    <h5 style="font-size:15pt; margin-bottom: 5px; font-style: italic; font-weight: bold; color: gray;">${rvo.re_writer}</h5>
+                    <h5 style="font-size:13pt; margin-bottom: 8px; color: gray;"> <fmt:formatDate value="${rvo.re_regdate }" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></h5>
+                    <p style="font-size:14pt; font-weight: bold;">
+                      ${rvo.re_msg}
+                    </p>
+                    <c:if test="${sessionScope.id==rvo.re_writer }">
+                    <div class="button">
+                      <input type="button" class="btn btn-primary" style=" border: none;" value="삭제" 
+                    	onclick="location.href='../camp/camp_review_delete.do?re_no=${rvo.re_no}&no=${vo.no }'">
+                      <input id="updateBtn" type="button" class="btn btn-primary" style="background-color: #528e5b; border: none; margin-left: " value="수정"><br>
+                    	<div id ="update_tr" class="button" style="margin: 20px 0px; display:none;" >
+                    	   <form method="post" id="update_frm" action="../camp/camp_review_update.do?re_no=${rvo.re_no}&no=${vo.no }" >
+                    		 <input id="update_msg" name="update_msg" type="text" class="form-control" value="${rvo.re_msg}">
+                    	   </form>
+                    	<button type="submit" id="update_ok_Btn" class="btn btn-primary" style="background-color: #e7c04c;margin-top: 10px;border: none">수정하기</button>
+                    	<button type="submit" id="update_no_Btn" class="btn btn-primary" style="background-color: #fff;margin-top: 10px; color: black;">취소</button>
+                    	</div>
+                    </div>	
+                    </c:if>
+                  </div>
+                </div>
+              </div><!-- End comment #1 -->
+              </c:forEach>
+              <br>
+              <br>
+         <!-- 후기 작성 -->
+              <div class="reply-form">
+                <h4 class="title">후기 작성</h4><br>
+                <div class="star">
+					<span style="font-size: 14pt; font-weight: bold;">별점 : </span><select id="selectStar" class="selectStar" name="selectStar" >
+						<option value="1"> ★ </option>
+						<option value="2"> ★ ★ </option>
+						<option value="3"> ★ ★ ★ </option>
+						<option value="4"> ★ ★ ★ ★ </option>
+						<option value="5"> ★ ★ ★ ★ ★ </option>
+					</select> 
+				</div>
+                <form method="post" action="../camp/camp_review_ok.do" name="review_frm" id="review_frm">
+                  <div class="row" style="margin-top: 20px;">
+                    <div class="col form-group" >
+                      <input type="text"  id="re_msg" name="re_msg" class="form-control" placeholder="캠핑장 후기를 자유롭게 작성해주세요. 별점은 캠핑장 평가를 위해 사용됩니다.">
+                    </div>
+                      <input id="re_score" name="re_score" value="2" type="hidden">
+                      <input id="re_tno" name="re_tno" value="${vo.no }" type="hidden" >
+                      <input id="re_tno" name="re_type" value="2" type="hidden"><!-- type 1은 레시피예요, type 숫자 정해서 value="?" 물음표에 숫자 넣어주시면 됩니다.  -->
+                  </div>
+               </form>
+                  <button type="submit" id="reviewBtn" class="btn btn-primary" style="background-color: #0ea2bd">작성하기</button>
+              </div>
+          </div>
+		</div>
+	    </div>
 	  </div>
-    </div>
-  </div>
-</section>
+	</section>
 </body>
 </html>

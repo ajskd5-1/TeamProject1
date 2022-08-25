@@ -9,11 +9,11 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
-	$('.reserves').click(function(){
+	$('.orders').click(function(){
 		let no = $(this).attr("data-no");
 		$.ajax({
 			type:'post',
-			url:'../mypage/reserve_info.do',
+			url:'../mypage/order_info.do',
 			data:{"no":no},
 			success:function(result){
 				$('#print').html(result);
@@ -33,22 +33,24 @@ $(function(){
             <article class="blog-details">
 			    
               <div class="content">
-				<h2 class="title">예약내역</h2>
+				<h2 class="title">결제 내역</h2>
               	<table class="table table-hover">
-                  <tr class="text-center">
-                    <th></th>
-                    <th>캠핑장</th>
-                    <th>예약 기간</th>
-                    <th>인원수</th>
+                  <tr class="text-center table-info">
+                    <th>결제 번호</th>
+                    <th>수령인</th>
+                    <th>배송 주소</th>
+                    <th>주문일</th>
+                    <th>배송예정일</th>
                     <th></th>
                   </tr>
-                  <c:forEach var="vo" items="${list }" varStatus="a">
+                  <c:forEach var="vo" items="${o_list }" varStatus="a">
                     <tr>
-                      <td><img src="${vo.c_poster }" style="width: 100px; height: 100px;"></td>
-                      <td>${vo.c_title }</td>
-                      <td>${vo.cin } ~ ${vo.cout }</td>
-                      <td>${vo.inwon }</td>
-                      <td><input type="text" class="btn btn-sm btn-primary reserves" value="상세보기" size="15" data-no=${vo.no }></td>
+                      <td class="text-center">${vo.no }</td>
+                      <td>${vo.o_name }</td>
+                      <td>${vo.o_addr1 } ${vo.o_addr2 }</td>
+                      <td>${vo.dbday1 }</td>
+                      <td>${vo.dbday2 }</td>
+                      <td><input type="text" class="btn btn-sm btn-primary orders" value="상세정보" size="15" data-no=${vo.no }></td>
                     </tr>
                   </c:forEach>
                 </table>

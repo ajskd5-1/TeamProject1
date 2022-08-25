@@ -101,4 +101,96 @@ public class CampDAO {
 		}
 		return list;
 	}
+	
+	
+/* 리뷰 목록 출력 */	
+	//<select id="campReviewData" resultType="ReviewVO" parameterType="ReviewVO">
+	public static List<ReviewVO> campReviewData(ReviewVO re_vo)
+	{
+		SqlSession session=null;
+		List<ReviewVO> list=null;
+		try 
+		{
+			session=ssf.openSession();
+			list=session.selectList("campReviewData",re_vo);
+		}catch(Exception ex)
+		{
+			System.out.println("campReviewData : error");
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+		return list;
+	}
+/* 리뷰 작성 */
+	//<insert id="campReviewInsert" parameterType="ReviewVO">
+	public static void campReviewInsert(ReviewVO vo)
+	{
+		SqlSession session=null;
+		try 
+		{
+			session=ssf.openSession(true);
+			session.insert("campReviewInsert",vo);
+		}catch(Exception ex)
+		{
+			System.out.println("campReviewInsert : error");
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+	}
+/* 리뷰 삭제 */
+	//<delete id="campReviewDelete" parameterType="int">
+	public static void campReviewDelete(int re_no)
+	{
+		SqlSession session=null;
+		try 
+		{
+			session=ssf.openSession(true);
+			session.delete("campReviewDelete",re_no);
+		}catch(Exception ex)
+		{
+			System.out.println("campReviewDelete : error");
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+	}
+/* 리뷰 수정 */
+	//<update id="campReviewUpdate" parameterType="ReviewVO">
+	public static void campReviewUpdate(ReviewVO vo)
+	{
+		SqlSession session=null;
+		try 
+		{
+			session=ssf.openSession(true);
+			session.update("campReviewUpdate",vo);
+		}catch(Exception ex)
+		{
+			System.out.println("campReviewUpdate : error");
+			ex.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+	}
 }

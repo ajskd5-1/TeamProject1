@@ -40,7 +40,7 @@ section{
             <div class="service-item position-relative">
               <img src="https://img.icons8.com/emoji/48/000000/camping.png" style="width: 64px; height: 64px;"/>
               <h4><a href="" class="stretched-link">캠핑장</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+              <p>안전한 캠핑의 시작은? 캠핑플러스에서부터! 전국의 모든 캠핑장 정보를 제공합니다.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -170,7 +170,7 @@ section{
 	
 
     <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
+    <section id="services" class="services" style="margin-bottom: 50px;">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
@@ -221,21 +221,6 @@ section{
                 </h3>
                 <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                   <div class="accordion-body">
-                  </div>
-                </div>
-              </div><!-- # Faq item-->
-
-				<!--  
-              <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
-                <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
-                    <i class="bi bi-question-circle question-icon"></i>
-                    캠핑장 예약 날짜를 변경하고 싶어요
-                  </button>
-                </h3>
-                <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                  <div class="accordion-body">
-                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
                   </div>
                 </div>
               </div><!-- # Faq item-->

@@ -5,4 +5,17 @@
 	<select id="myhomeData" resultType="MemberVO" parameterType="String">
 		SELECT * FROM member_1 WHERE id=#{id}
 	</select>
+	
+	<!-- 마이페이지 문의사항 불러오기 -->
+	<select id="mypageQnaBoard" resultType="QnaBoardVO" parameterType="String">
+		SELECT no,name,title,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,count,isreply,group_id,group_tab,recount
+    	FROM qna_board_1 WHERE id=#{id} ORDER BY no DESC
+	</select>
+	<!-- 마이페이지 문의사항 미답변만 -->
+	<select id="mypageQnaBoardNo" resultType="QnaBoardVO" parameterType="String">
+		SELECT no,name,title,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,count,isreply,group_id,group_tab,recount
+    	FROM qna_board_1 WHERE id=#{id} AND recount=0 ORDER BY no DESC
+	</select>
+	
+	
 </mapper>

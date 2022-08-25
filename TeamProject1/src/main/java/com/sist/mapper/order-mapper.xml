@@ -28,5 +28,27 @@
 		o_no=#{o_no} WHERE o_no=0 AND id=#{id}
 	</update>
 	
+	<!-- 마이페이지 결제정보 가져오기 최근 하나만 -->
+	<select id="mypageOrderListData" resultType="OrderVO" parameterType="String">
+		SELECT no, o_name, o_post, o_addr1, o_addr2, o_regdate, o_deldate, o_total, rownum
+		FROM order_1 WHERE id=#{id} AND rownum &lt;= 1
+	</select>
 	
+	<!-- 결제 정보 -->
+	<select id="mypageOrderList" resultType="OrderVO" parameterType="String">
+		SELECT no, o_name, o_post, o_addr1, o_addr2, o_email, o_tel, o_content, o_total,
+			TO_CHAR(o_regdate, 'YYYY-MM-DD') as dbday1, TO_CHAR(o_deldate, 'YYYY-MM-DD') as dbday2
+		 FROM order_1 WHERE id=#{id} ORDER BY no DESC
+	</select>
+	<!-- 장바구니 정보 -->
+	<select id="mypageOrderGoods" resultType="CartVO" parameterType="int">
+		SELECT no, c_account, c_price, id, g_id, g_name, g_price, g_image, o_no
+		FROM cart_1 WHERE o_no=#{o_no} ORDER BY no DESC
+	</select>
+	<!-- 결제 상세 정보 -->
+	<select id="mypageOrderDetailData" resultType="OrderVO" parameterType="int">
+		SELECT no, o_name, o_post, o_addr1, o_addr2, o_email, o_tel, o_content, o_total,
+			TO_CHAR(o_regdate, 'YYYY-MM-DD') as dbday1, TO_CHAR(o_deldate, 'YYYY-MM-DD') as dbday2
+		 FROM order_1 WHERE no=#{no}
+	</select>
 </mapper>

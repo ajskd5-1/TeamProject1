@@ -14,7 +14,7 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2 class="title">마이페이지</h2>
+          <a href="../mypage/mypage.do"><h2 class="title">캠핑<sup>+</sup> 마이페이지</h2></a>
           <ol>
             <li><a href="index.html">Home</a></li>
             <li>마이페이지</li>
@@ -39,8 +39,8 @@
                 <div class="mt-3">
                   <ul>
                     <li><a href="../mypage/mypage_reserve.do">예약내역</a></li>
-                    <li><a href="#">결제내역</a></li>
-                    <li><a href="#">장바구니</a></li>
+                    <li><a href="../mypage/mypage_order.do">결제내역</a></li>
+                    <li><a href="../cart/cart_home.do">장바구니</a></li>
                   </ul>
                 </div>
               </div>
@@ -49,7 +49,7 @@
 				<h3 class="sidebar-title title">내가 쓴 글</h3>
                 <div class="mt-3">
                   <ul>
-                    <li><a href="#">묻고답하기</a></li>
+                    <li><a href="../mypage/mypage_qnaboard.do">묻고답하기</a></li>
                     <li><a href="#">댓글</a></li>
                     <li><a href="#">리뷰</a></li>
                   </ul>

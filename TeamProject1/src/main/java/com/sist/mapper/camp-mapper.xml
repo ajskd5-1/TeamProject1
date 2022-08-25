@@ -35,4 +35,47 @@
 		FROM (select c_title, c_hit, c_addr, c_poster, no FROM camp_1 ORDER BY c_hit DESC)
 		WHERE REGEXP_LIKE(c_addr, #{title}) AND rownum &lt;= 20
 	</select>
+	
+	<!-- 리뷰 
+RE_NO      NOT NULL NUMBER       
+RE_MSG     NOT NULL CLOB         
+RE_WRITER  NOT NULL VARCHAR2(30) 
+RE_REGDATE          DATE         
+RE_SCORE            NUMBER       
+RE_TNO     NOT NULL NUMBER       
+RE_TYPE    NOT NULL NUMBER 
+-->
+<!-- 리뷰 목록 출력 -->
+	<select id="campReviewData" resultType="ReviewVO" parameterType="ReviewVO">
+		SELECT /*+ INDEX_DESC(review_1 ro_no_pk)*/ re_no,re_msg,re_writer,re_regdate,re_score 
+		FROM review_1
+		WHERE re_tno=#{re_tno} AND re_type=#{re_type} 
+	</select>
+<!-- 리뷰 작성 -->
+	<insert id="campReviewInsert" parameterType="ReviewVO">
+		<selectKey keyProperty="re_no" resultType="int" order="BEFORE">
+			SELECT NVL(MAX(re_no)+1,1) as re_no FROM review_1
+		</selectKey>
+		INSERT INTO review_1 VALUES(
+			#{re_no},
+			#{re_msg},
+			#{re_writer},
+			SYSDATE,
+			#{re_score},
+			#{re_tno},
+			#{re_type}
+		)
+	</insert>
+<!-- 리뷰 삭제 -->
+	<delete id="campReviewDelete" parameterType="int">
+		DELETE FROM review_1
+		WHERE re_no=#{re_no}
+	</delete>
+<!-- 리뷰 수정 -->	
+	<update id="campReviewUpdate" parameterType="ReviewVO">
+		UPDATE review_1 SET 
+		re_msg=#{re_msg}
+		WHERE re_no=#{re_no}
+	</update>
+
 </mapper>

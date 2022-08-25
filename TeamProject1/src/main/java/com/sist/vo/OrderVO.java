@@ -4,6 +4,7 @@ public class OrderVO {
 	private int no, c_no, o_total;
 	private String o_name, o_post, o_addr1, o_addr2, o_email, o_tel, o_content, id;
 	private Date o_regdate, o_deldate;
+	private String dbday1, dbday2;
 	public int getNo() {
 		return no;
 	}
@@ -81,6 +82,18 @@ public class OrderVO {
 	}
 	public void setO_total(int o_total) {
 		this.o_total = o_total;
+	}
+	public String getDbday1() {
+		return dbday1;
+	}
+	public void setDbday1(String dbday1) {
+		this.dbday1 = dbday1;
+	}
+	public String getDbday2() {
+		return dbday2;
+	}
+	public void setDbday2(String dbday2) {
+		this.dbday2 = dbday2;
 	}
 	
 }
