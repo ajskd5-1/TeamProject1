@@ -6,9 +6,9 @@
 	private Date regdate; -->
 <!-- 목록 출력 -->
 <select id="qnaboardListData" resultType="QnaBoardVO" parameterType="hashmap">
-	SELECT no,name,title,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,count,isreply,group_id,group_tab,num
-    FROM (SELECT no,name,title,regdate,count,isreply,group_id,group_tab,rownum as num
-    FROM (SELECT no,name,title,regdate,count,isreply,group_id,group_tab
+	SELECT no,name,title,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,count,isreply,group_id,group_tab,recount,num
+    FROM (SELECT no,name,title,regdate,count,isreply,group_id,group_tab,recount,rownum as num
+    FROM (SELECT no,name,title,regdate,count,isreply,group_id,group_tab,recount
     FROM qna_board_1 ORDER BY group_id DESC,group_step ASC))
     WHERE num BETWEEN #{start} AND #{end}
 </select>

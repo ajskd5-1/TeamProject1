@@ -33,4 +33,9 @@
    DELETE FROM qna_reply_1
    WHERE r_no=#{r_no}
 </delete>
+<update id="recountIncrement" parameterType="int">
+	UPDATE qna_board_1 SET
+	recount=NVL(recount,0)+1
+	WHERE no=#{no}
+</update>
 </mapper>

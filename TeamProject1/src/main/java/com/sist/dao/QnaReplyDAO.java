@@ -54,6 +54,7 @@ public class QnaReplyDAO {
 		   {
 			   session=ssf.openSession(true);
 			   session.insert("qnareplyInsert",vo);
+			   session.update("recountIncrement",vo);
 		   }catch(Exception ex)
 		   {
 			   

@@ -103,9 +103,9 @@ a{
           <td width="10%" class="text-center">${vo.no }</td>
           <td width="50%"><a href="../qnaboard/detail.do?no=${vo.no }">${vo.title }</a>
             &nbsp;&nbsp;
-            <c:if test="${vo.count>0 }">
-            <!-- 수정* 제목에 댓글 수 나타나게 -->
-            </c:if>
+           <c:if test="${vo.recount>0 }">
+             (${vo.recount })
+           </c:if>
           </td>
           <td width="15%" class="text-center">${vo.name }</td>
           <td width="15%" class="text-center">${vo.dbday }</td>

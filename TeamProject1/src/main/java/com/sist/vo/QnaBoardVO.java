@@ -1,10 +1,16 @@
 package com.sist.vo;
 import java.util.*;
 public class QnaBoardVO {
-	private int no,count,groud_id,group_step,group_tab,isreply,filesize;
+	private int no,count,groud_id,group_step,group_tab,isreply,filesize,recount;
 	private String name,title,content,filename,dbday;
 	private Date regdate;
 	
+	public int getRecount() {
+		return recount;
+	}
+	public void setRecount(int recount) {
+		this.recount = recount;
+	}
 	public String getDbday() {
 		return dbday;
 	}
