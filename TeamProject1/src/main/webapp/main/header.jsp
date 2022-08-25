@@ -10,62 +10,52 @@
 </head>
 <body>
   <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top" data-scrollto-offset="0"style="padding-top: 0px;">
+  <header id="header" class="header fixed-top" data-scrollto-offset="0">
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
       <!-- 아이콘 수정 -->
-      <a href="../main/main.do"><img src="../assets/img/main/logo4.png" class="d-flex align-items-center scrollto me-auto" style="width: 120px; height: 80px;"></a>
+      <a href="../main/main.do"><img src="../assets/img/main/tent.png" class="d-flex align-items-center scrollto me-auto" style="width: 50px; height: 50px;"></a>
 		
       <nav id="navbar" class="navbar">
         <ul>
-          <li class="dropdown"><a href="#"><span>캠핑장</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li class="dropdown"><a href="#"><span style="font-family: 'BMJUA'; font-size:25px;">캠핑장</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="../camp/list.do">캠핑장 전체보기</a></li>
-              <li><a href="../camp/map.do">지역별 캠핑장 검색</a></li>
+              <li style="font-family: 'NanumSquareRound';"><a href="../camp/list.do">캠핑장 전체보기</a></li>
+              <li style="font-family: 'NanumSquareRound';"><a href="../camp/map.do">지역별 캠핑장 검색</a></li>
             </ul>
           </li>
           
-          <li class="dropdown"><a href="#"><span>캠핑용품</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li class="dropdown"><a href="#"><span style="font-family: 'BMJUA'; font-size:25px;">캠핑용품</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
              
             <ul>
-              <li><a href="../campgoods/campgoods_list.do">캠핑용품 전체보기</a></li>
-              <li><a href="../campgoods/campgoods_find.do">브랜드별 캠핑용품 찾기</a></li>
+              <li style="font-family: 'NanumSquareRound';"><a href="../campgoods/campgoods_list.do">캠핑용품 전체보기</a></li>
+              <li style="font-family: 'NanumSquareRound';"><a href="../campgoods/campgoods_find.do">브랜드별 캠핑용품 찾기</a></li>
             </ul>
           </li>
           
-          <li class="dropdown"><a href="#"><span>캠핑 레시피</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li class="dropdown"><a href="#"><span style="font-family: 'BMJUA'; font-size:25px;">캠핑 레시피</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="../recipe/recipe_list.do">레시피 전체보기</a></li>
-              <li><a href="../recipe/recipe_category.do">카테고리별 레시피</a></li>
-              <c:if test="${sessionScope.id!=null }">
-                <li><a href="../recipe/recipe_insert.do">레시피 작성</a></li>
-              </c:if>
+              <li style="font-family: 'NanumSquareRound';"><a href="../recipe/recipe_list.do">레시피 전체보기</a></li>
+              <li style="font-family: 'NanumSquareRound';"><a href="#">카테고리별 레시피</a></li>
+              <li style="font-family: 'NanumSquareRound';"><a href="#">레시피 작성하기???</a></li>
             </ul>
           </li>
           
-          <li class="dropdown"><a href="../qnaboard/list.do"><span>문의</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-            </ul>
+          <li class="dropdown"><a href="../qnaboard/list.do"><span style="font-family: 'BMJUA'; font-size:25px;">문의</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            
           </li>
           <c:if test="${sessionScope.id!=null }">
 	          <c:if test="${sessionScope.m_admin=='n' }">
-	          <li class="dropdown"><a href="#"><span>마이페이지</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+	          <li class="dropdown"><a href="../mypage/myhome.do"><span style="font-family: 'BMJUA'; font-size:25px;">마이페이지</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
 	            <ul>
-	              <li><a href="../mypage/myhome.do">마이페이지</a></li>
-	              <li><a href="#">Drop Down 2</a></li>
-              	  <li><a href="#">Drop Down 3</a></li>
-	              <li><a href="#">Drop Down 4</a></li>
+	             
 	            </ul>
 	          </li>
 	          </c:if>
 	          <c:if test="${sessionScope.m_admin=='y' }">
-	          <li class="dropdown"><a href="#"><span>어드민페이지</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+	          <li class="dropdown"><a href="../adminpage/adminhome.do"><span style="font-family: 'BMJUA'; font-size:25px;">어드민페이지</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
 	            <ul>
-	              <li><a href="../adminpage/adminhome.do">어드민페이지</a></li>
-	              <li><a href="#">Drop Down 2</a></li>
-	              <li><a href="#">Drop Down 3</a></li>
-	              <li><a href="#">Drop Down 4</a></li>
+	          
 	            </ul>
 	          </li>
 	          </c:if>
@@ -83,7 +73,7 @@
 		<p style="margin: 14px 20px; color:#3A4753B3">[ <span style="font-weight: bold;"><%=(String)session.getAttribute("id")%></span> ]님 환영합니다.</p>
 		</c:if>
 		<div class="header-icon" style="display: inline;">
-        	<a href="../cart/cart_home.do"><img src="../cart/images/cart2.png" style="width:50px; height:50px;  margin-right: 10px;"></a>
+        	<a href="../cart/shoppingcart.do"><img src="../cart/images/cart2.png" style="width:50px; height:50px;  margin-right: 10px;"></a>
         	<c:if test="${sessionScope.id==null }">
         		<a href="../member/login.do"><img src="../assets/img/main/user5.png"" style="width:50px; height:50px; margin-right: 20px;"></a>
       		</c:if>

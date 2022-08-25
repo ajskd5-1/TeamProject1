@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.session.SqlSession;
+
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 
@@ -27,6 +29,7 @@ import com.sist.vo.*;
 @Controller
 public class CampGoodsModel {
 	
+	private Map map;
 	@RequestMapping("campgoods/campgoods_list.do")
 	public String cart(HttpServletRequest request,HttpServletResponse response)
 	{
@@ -103,6 +106,38 @@ public class CampGoodsModel {
 		return "../main/main.jsp";
 	
 	}
+	//메인 슬라이더 목록
+	/*
+	 *  public static List<CampGoodsVO> campgoodsHomeData(Map map_home)
+	    {
+	    	List<CampGoodsVO> hlist=null;
+	    	SqlSession session=null;
+	    	try
+	    	{
+	    		session=ssf.openSession();
+	    		hlist=session.selectList("campgoodsHomeData", map_home);
+	    	}catch(Exception ex)
+	    	{
+	    		ex.printStackTrace();
+	    	}
+	    	finally
+	    	{
+	    		if(session!=null)
+	    			session.close();
+	    	}
+	    	return hlist;
+	    }
+	 */
+	 @RequestMapping("main/home.do")
+	   public String main_campgoods_list(HttpServletRequest request,HttpServletResponse response, Object list)
+	   {
+		  
+		 
+		 
+		   request.setAttribute("main_jsp", "../main/home.jsp");// 데이터 출력
+		   
+		   return "../main/main.jsp";
+	   }
 	
 	 
 
@@ -114,6 +149,7 @@ public class CampGoodsModel {
 		cookie.setPath("/");
 		cookie.setMaxAge(60*60*24);
 		response.addCookie(cookie);
+		CampGoodsDAO.campgoodshit(Integer.parseInt(g_id));
 		return "redirect:../campgoods/campgoods_detail.do?g_id="+g_id;
 		
 	}

@@ -8,9 +8,23 @@
 		FROM goods_1))
 		WHERE g_id BETWEEN #{start} AND #{end}
 	</select>
+	
 	<select id="campgoodsTotalPage" resultType="int" parameterType="hashmap">
 		SELECT CEIL(COUNT(*)/9.0) FROM goods_1
 	</select>
+	
+	
+	<!-- 메인 추천 슬라이더 목록 -->
+	<select id="campgoodsHomeData" resultType="CampGoodsVO">
+		SELECT g_id,g_brand,g_name,g_image,g_price,g_detail,hit,num
+		FROM (SELECT g_id,g_brand,g_name,g_image,g_price,g_detail,hit,rownum as num
+		FROM (SELECT g_id,g_brand,g_name,g_image,g_price,g_detail,hit
+		FROM goods_1 ORDER BY hit DESC))
+		WHERE rownum &lt;=12
+	</select>
+	
+	
+
 	<select id="campgoodsDetailData" resultType="CampGoodsVO" parameterType="int">
 		SELECT * FROM goods_1
 		WHERE g_id=#{g_id}
@@ -89,6 +103,13 @@
 		re_msg=#{re_msg}
 		WHERE re_no=#{re_no}
 	</update>
+	<!-- 조회수 증가 -->
+	<update id="campgoodshit" parameterType="int" >
+		update goods_1 set hit = hit+1 where g_id=#{g_id}
+	
+	</update>
+	
+	
 </mapper>
 
 <!-- 

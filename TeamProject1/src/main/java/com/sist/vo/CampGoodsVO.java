@@ -3,7 +3,7 @@ package com.sist.vo;
 import java.util.Date;
 
 public class CampGoodsVO {
-	private int g_id,g_price,g_sale,g_sold,g_status;
+	private int g_id,g_price,g_sale,g_sold,g_status,hit;
 	private String c_id,g_name,g_brand,g_image,g_detail;
 	private Date g_regdate;
 	public int getG_id() {
@@ -71,6 +71,12 @@ public class CampGoodsVO {
 	}
 	public void setG_regdate(Date g_regdate) {
 		this.g_regdate = g_regdate;
+	}
+	public int getHit() {
+		return hit;
+	}
+	public void setHit(int hit) {
+		this.hit = hit;
 	}
 	
 

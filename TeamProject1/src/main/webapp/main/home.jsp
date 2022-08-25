@@ -6,6 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="./style.css">
+
+
+ 
 <style type="text/css">
 section{
 	margin-top: 100px;
@@ -17,8 +22,8 @@ section{
 <body>
   <section id="hero-fullscreen" class="hero-fullscreen d-flex align-items-center">
     <div class="container d-flex flex-column align-items-center position-relative text-center" data-aos="zoom-out">
-      <h2 style="font-size: 80px;">캠핑<sup><span>+</span></sup></h2>
-      <p style="font-size: 40px;">캠핑을 시작한다면 이들처럼! 캠핑의 다양한 정보가 가득</p>
+      <h2 style="font-size: 80px; font-family: 'BMJUA';">캠핑<sup><span>+</span></sup></h2>
+      <p style="font-size: 40px; font-family: 'BMJUA';">캠핑을 시작한다면 이들처럼! 캠핑의 다양한 정보가 가득</p>
       
     </div>
   </section>
@@ -139,105 +144,30 @@ section{
       </div>
     </section><!-- End Team Section -->
 
-    <!-- ======= Team Section ======= -->
-     <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-			
-	  <!-- Indicators/dots -->
-	 <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-	  
-	  <!-- The slideshow/carousel -->
-	  <div class="carousel-inner">
-    <section id="team" class="team">
- 
-      <div class="container" data-aos="fade-up">
+     <!-- ======= Team Section ======= -->
 
-        <div class="section-header">
-          <h2 style="font-family: 'BMJUA';">캠핑용품 추천</h2>
-          <p style="font-family: 'NanumSquareRound'; font-weight: bold"> * 조회수가 높은 순으로 출력됩니다 * </p>
-        </div>
-
-  <div class="carousel-item active">
-        <div class="row gy-5">
-   
-          <div class="col-xl-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="200">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="../assets/img/team/team-1.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
+	<section class="container">
+		<h2 style=" font-family: 'BMJUA';">캠핑용품 인기순</h2>
+		<div class="carousel">
+			<div class="timeline"><div class="cursor"></div></div>
+			<ul class="wrapper">
+			  <c:forEach var="vo" items="${list }">
+								<li class="card-slide item">
+				<a href="../campgoods/campgoods_detail_before.do?g_id=${vo.g_id}"><img src="${vo.g_image }"></a>
+					
+				</li>
+</c:forEach>
+			</ul>
+			<div class="controls">
+				<button class="btn-prev btn btn-info">이전</button>
+				<button class="btn-next btn btn-info">다음</button>
+			</div>
+		</div>
 
 
-        </div>
-</div>
+	</section>
+	
 
-<div class="carousel-item active">
-        <div class="row gy-5">
-   
-          <div class="col-xl-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="200">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="../assets/img/team/team-1.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-
-        </div>
-</div>
-
-<div class="carousel-item active">
-        <div class="row gy-5">
-   
-          <div class="col-xl-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="200">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="../assets/img/team/team-1.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-
-        </div>
-</div>
-
-<!-- 화살표 -->
-     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-  	  <!-- 화살표 -->
-
-
-
-
-      </div>
-    </section><!-- End Team Section -->
-</div>
-</div>
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
       <div class="container" data-aos="fade-up">
@@ -297,6 +227,7 @@ section{
                 </div>
               </div><!-- # Faq item-->
 
+				<!--  
               <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
                 <h3 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
@@ -365,87 +296,14 @@ section{
 
 
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
+    
 
-        <div class="section-header">
-          <h2>Contact Us</h2>
-          <p>Ea vitae aspernatur deserunt voluptatem impedit deserunt magnam occaecati dssumenda quas ut ad dolores adipisci aliquam.</p>
-        </div>
+      
 
-      </div>
+      
+          
 
-      <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
-      </div><!-- End Google Maps -->
-
-      <div class="container">
-
-        <div class="row gy-5 gx-lg-5">
-
-          <div class="col-lg-4">
-
-            <div class="info">
-              <h3>Get in touch</h3>
-              <p>Et id eius voluptates atque nihil voluptatem enim in tempore minima sit ad mollitia commodi minus.</p>
-
-              <div class="info-item d-flex">
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h4>Location:</h4>
-                  <p>A108 Adam Street, New York, NY 535022</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex">
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h4>Email:</h4>
-                  <p>info@example.com</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex">
-                <i class="bi bi-phone flex-shrink-0"></i>
-                <div>
-                  <h4>Call:</h4>
-                  <p>+1 5589 55488 55</p>
-                </div>
-              </div><!-- End Info Item -->
-
-            </div>
-
-          </div>
-
-          <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" placeholder="Message" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-          </div><!-- End Contact Form -->
-
-        </div>
-
-      </div>
-    </section><!-- End Contact Section -->
+     
     
     <!-- START 추천 캠핑장 -->
     <section id="features" class="features">
@@ -530,5 +388,7 @@ section{
 	<!-- END 추천 캠핑장 -->
 
   </main><!-- End #main -->
+  <!-- partial -->
+  <script  src="./script.js"></script>
 </body>
 </html>

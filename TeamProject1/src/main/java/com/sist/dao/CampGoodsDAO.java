@@ -54,6 +54,29 @@ public class CampGoodsDAO {
 		}
 		return list;
 	}
+	
+	//메인슬라이더 목록 출력
+	//<select id="campgoodsHomeData" resultType="CampGoodsVO" parameterType="hashmap">
+	 public static List<CampGoodsVO> campgoodsHomeData()
+	    {
+	    	List<CampGoodsVO> list=null;
+	    	SqlSession session=null;
+	    	try
+	    	{
+	    		session=ssf.openSession();
+	    		list=session.selectList("campgoodsHomeData");
+	    	}catch(Exception ex)
+	    	{
+	    		ex.printStackTrace();
+	    	}
+	    	finally
+	    	{
+	    		if(session!=null)
+	    			session.close();
+	    	}
+	    	return list;
+	    }
+
 //페이지 출력
 	//<select id="campgoodsTotalPage" resultType="int" parameterType="hashmap">
 	public static int campgoodsTotalPage(Map map)
@@ -327,7 +350,31 @@ public class CampGoodsDAO {
 						session.close();
 					}
 				}
+				
+				
+				
 			}
-		  
+			/* <update id="campgoodshit" parameterType="int" >*/
+			public static void campgoodshit(int g_id)
+			{
+				SqlSession session=null;
+				try 
+				{
+					session=ssf.openSession(true);
+					session.update("campgoodshit",g_id);
+				}catch(Exception ex)
+				{
+					System.out.println("campgoodshit : error");
+					ex.printStackTrace();
+				}
+				finally
+				{
+					if(session!=null)
+					{
+						session.close();
+					}
+				}
+			
 	
+}
 }
