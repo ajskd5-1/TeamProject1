@@ -56,16 +56,17 @@ section{
             <div class="service-item position-relative">
               <img src="../assets/img/main/main_recipe.png">
               <!-- <div class="icon"><i class="bi bi-calendar4-week icon"></i></div> -->
-              <h4><a href="" class="stretched-link">캠핑 레시피</a></h4>
-              <p>캠핑가서 뭐 먹지? 고민된다면 캠핑 레시피를 클릭해보세요.  요리 후기와 레시피를 작성하며 유저들과 소통이 가능합니다. 캠핑 요리 꿀팁 얻어가세요!</p>
+              <h4><a href="../recipe/recipe_category.do" class="stretched-link">캠핑 레시피</a></h4>
+              <p>캠핑가서 뭐 먹지? 고민된다면 캠핑 레시피를 클릭해보세요</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="600">
             <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-broadcast icon"></i></div>
-              <h4><a href="" class="stretched-link">문의</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+              <img src="../assets/img/main/qna.png" style="width: 55px; height: 65px; padding-bottom: 15px;">
+              <!--<div class="icon"><i class="bi bi-broadcast icon"></i></div>-->
+              <h4><a href="../qnaboard/list.do" class="stretched-link">문의</a></h4>
+              <p>캠핑+ 사이트에 대해 궁금한 점이 생긴다면 언제든지 편하게 문의해주세요</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -206,9 +207,7 @@ section{
 
             <div class="content px-xl-5">
               <h3>캠핑<sup>+</sup><strong> 이런게 궁금해요</strong></h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-              </p>
+
             </div>
 
             <div class="accordion accordion-flush px-xl-5" id="faqlist">
@@ -222,7 +221,6 @@ section{
                 </h3>
                 <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                   <div class="accordion-body">
-                    Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
                   </div>
                 </div>
               </div><!-- # Faq item-->
@@ -251,7 +249,6 @@ section{
                 </h3>
                 <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                   <div class="accordion-body">
-                    Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
                   </div>
                 </div>
               </div><!-- # Faq item-->
@@ -266,7 +263,6 @@ section{
                 <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                   <div class="accordion-body">
                     <i class="bi bi-question-circle question-icon"></i>
-                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
                   </div>
                 </div>
               </div><!-- # Faq item-->
@@ -280,7 +276,6 @@ section{
                 </h3>
                 <div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                   <div class="accordion-body">
-                    Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
                   </div>
                 </div>
               </div><!-- # Faq item-->
@@ -288,7 +283,7 @@ section{
             </div>
 
           </div>
-          <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("../assets/img/main/faq.jpg");'>&nbsp;</div>
+          <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("../assets/img/main/qna_camp.jpg");'>&nbsp;</div>
         </div>
 
       </div>

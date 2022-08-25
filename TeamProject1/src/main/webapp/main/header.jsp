@@ -14,7 +14,7 @@
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
       <!-- 아이콘 수정 -->
-      <a href="../main/main.do"><img src="../assets/img/main/tent.png" class="d-flex align-items-center scrollto me-auto" style="width: 50px; height: 50px;"></a>
+      <a href="../main/main.do"><img src="../assets/img/main/logo4.png" class="d-flex align-items-center scrollto me-auto" style="width: 100px; height: 70px;"></a>
 		
       <nav id="navbar" class="navbar">
         <ul>
@@ -36,8 +36,7 @@
           <li class="dropdown"><a href="#"><span style="font-family: 'BMJUA'; font-size:25px;">캠핑 레시피</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li style="font-family: 'NanumSquareRound';"><a href="../recipe/recipe_list.do">레시피 전체보기</a></li>
-              <li style="font-family: 'NanumSquareRound';"><a href="#">카테고리별 레시피</a></li>
-              <li style="font-family: 'NanumSquareRound';"><a href="#">레시피 작성하기???</a></li>
+              <li style="font-family: 'NanumSquareRound';"><a href="../recipe/recipe_category.do">카테고리별 레시피</a></li>
             </ul>
           </li>
           
