@@ -83,13 +83,15 @@ $(function(){
         <div class="d-flex justify-content-between align-items-center">
           <a href="../camp/list.do"><h2 class="title">캠핑<sup>+</sup> 캠핑장</h2></a>
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>camping</li>
+            <li><a href="../main/main.do" class="title" style="color:#0ea2bd;">Home</a></li>
+            <li style="color:#0ea2bd;"><a href="../camp/list.do">camping</a></li>
+            <li style="color:#0ea2bd;">camping detail</li>
           </ol>
         </div>
 
       </div>
     </div>
+
     
 	<!-- ======= About Section ======= -->
     <section id="about" class="about">
@@ -277,10 +279,10 @@ $(function(){
 	<!-- 후기 -->
 		<div class="col-md-8 offset-md-2 col-lg-8 offset-lg-2">
 		<!-- 후기 목록 -->
-           <div class="comments">
+          <div class="comments">
             <br><br><br><br>
               <div >
-             	 <h2 class="title" style="display: inline;">&nbsp;&nbsp;캠핑 후기</h2><img src="../recipe/image/recipe5.png" style="margin:5px 10px 20px 20px;; height:60px; width: 60px;">
+             	 <h2 class="title" style="display: inline;">&nbsp;&nbsp;캠핑 후기</h2><img src="../camp/images/touring.png" style="margin:5px 10px 20px 20px;; height:60px; width: 60px;">
               </div>
               <c:forEach items="${list }" var="rvo">
               <hr>
@@ -288,7 +290,7 @@ $(function(){
                 <c:forEach begin="1" end="${rvo.re_score }"><span style="color:#f1c40f; margin-right: 4px; font-size: 18pt;">★</span></c:forEach></div>
               <div id="comment-2" class="comment" style="margin: 0px;">
                 <div class="d-flex" style="margin-bottom: 15px;">
-                  <div class="comment-img"><img src="../recipe/image/chef1.png" style="margin:5px 30px 20px 20px; height: 70px; width: 70px; "></div>
+                  <div class="comment-img"><img src="../camp/images/man.png" style="margin:5px 30px 20px 20px; height: 70px; width: 70px; "></div>
                   <div>
                     <h5 style="font-size:15pt; margin-bottom: 5px; font-style: italic; font-weight: bold; color: gray;">${rvo.re_writer}</h5>
                     <h5 style="font-size:13pt; margin-bottom: 8px; color: gray;"> <fmt:formatDate value="${rvo.re_regdate }" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></h5>

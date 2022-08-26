@@ -38,8 +38,8 @@
         <div class="d-flex justify-content-between align-items-center">
           <a href="../recipe/recipe_category.do"><h2 class="title">카테고리별 레시피</h2></a>
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>recipe_category</li>
+            <li><a href="../main/main.do" class="title" style="color:#0ea2bd;">Home</a></li>
+            <li style="color:#0ea2bd;">recipe_category</li>
           </ol>
         </div>
 

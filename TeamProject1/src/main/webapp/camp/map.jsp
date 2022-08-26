@@ -104,9 +104,9 @@ $(function(){
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2 class="title">캠핑<sup>+</sup> 캠핑장</h2>
+           <a href="../camp/map.do"><h2 class="title">캠핑<sup>+</sup> 캠핑장</h2></a>
           <ol>
-            <li><a href="../main/main.do">Home</a></li>
+            <li><a href="../main/main.do" class="title" style="color:#0ea2bd;">Home</a></li>
             <li><a href="../camp/list.do">캠핑장</a></li>
           </ol>
         </div>

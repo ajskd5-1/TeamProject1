@@ -206,7 +206,7 @@ section{
           <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
 
             <div class="content px-xl-5">
-              <h3>캠핑<sup>+</sup><strong> 이런게 궁금해요</strong></h3>
+              <a href="../qnaboard/list.do"><h3>캠핑<sup>+</sup><strong> 이런게 궁금해요</strong></h3></a>
 
             </div>
 

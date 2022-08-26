@@ -14,8 +14,8 @@
         <div class="d-flex justify-content-between align-items-center">
           <a href="../camp/list.do"><h2 class="title">캠핑<sup>+</sup> 캠핑장</h2></a>
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>camping</li>
+            <li><a href="../main/main.do" class="title" style="color:#0ea2bd;">Home</a></li>
+            <li style="color:#0ea2bd;">camping</li>
           </ol>
         </div>
 

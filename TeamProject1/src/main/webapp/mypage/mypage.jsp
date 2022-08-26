@@ -20,8 +20,8 @@
         <div class="d-flex justify-content-between align-items-center">
           <a href="../mypage/myhome.do"><h2 class="title">캠핑<sup>+</sup> 마이페이지</h2></a>
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>마이페이지</li>
+         <li><a href="../main/main.do" class="title" style="color:#0ea2bd;">Home</a></li>
+            <li style="color:#0ea2bd; font-family: 'NanumSquareRound'">마이페이지</li>
           </ol>
         </div>
 

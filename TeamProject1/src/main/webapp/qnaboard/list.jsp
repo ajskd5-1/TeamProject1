@@ -72,10 +72,10 @@ a{
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <a href="../qnaboard/list.do"><h2 class="title" style="font-size: 20pt; font-weight: bold;">캠핑<sup>+</sup> 문의</h2></a>
+          <a href="../qnaboard/list.do"><h2 class="title" style="font-size: 20pt; font-weight: bold; color:#0ea2bd;">캠핑<sup>+</sup> 문의</h2></a>
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>문의게시판</li>
+            <li><a href="../main/main.do" class="title" style="color:#0ea2bd;">Home</a></li>
+            <li style="color:#0ea2bd; font-family: 'NanumSquareRound'">문의게시판</li>
           </ol>
         </div>
       </div>
