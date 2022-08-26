@@ -193,4 +193,20 @@ public class CampDAO {
 			}
 		}
 	}
+	
+	// 메인 캠핑장 추천 <select id="mainCampList" resultType="CampVO">
+	public static List<CampVO> mainCampList() {
+		SqlSession session = null;
+		List<CampVO> list = null;
+		try {
+			session = ssf.openSession();
+			list = session.selectList("mainCampList");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return list;
+	}
+	
 }

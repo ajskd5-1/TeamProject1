@@ -20,7 +20,7 @@ public class MainModel {
 		 //안전수칙 동영상
 		List<CampVideoVO> vd_vo = CampDAO.campVideo();
 		List<CampGoodsVO> list=CampGoodsDAO.campgoodsHomeData();
-		
+		List<CampVO> c_list = CampDAO.mainCampList();
 		for(CampGoodsVO vo : list) {
 			String image = vo.getG_image();
 			if(image.indexOf(";") != -1) {
@@ -28,7 +28,8 @@ public class MainModel {
 			} 
 			vo.setG_image(image);
 		}
-			
+		
+		request.setAttribute("c_list", c_list);
 		request.setAttribute("list",list);
 		request.setAttribute("vd_vo", vd_vo);
 		request.setAttribute("main_jsp", "../main/home.jsp");

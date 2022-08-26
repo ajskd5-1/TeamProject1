@@ -78,4 +78,9 @@ RE_TYPE    NOT NULL NUMBER
 		WHERE re_no=#{re_no}
 	</update>
 
+	<!-- 메인페이지 추천 캠핑장 -->
+	<select id="mainCampList" resultType="CampVO">
+		SELECT no, c_title, c_poster, c_addr, c_hit, rownum
+		FROM (SELECT no, c_title, c_poster, c_addr, c_hit FROM camp_1 ORDER BY c_hit DESC) WHERE rownum &lt;= 3
+	</select>
 </mapper>

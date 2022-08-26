@@ -80,66 +80,23 @@ section{
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>캠핑장</h2>
-          <p>Architecto nobis eos vel nam quidem vitae temporibus voluptates qui hic deserunt iusto omnis nam voluptas asperiores sequi tenetur dolores incidunt enim voluptatem magnam cumque fuga.</p>
+          <h2>인기 캠핑장</h2>
         </div>
 
         <div class="row gy-5">
-
-          <div class="col-xl-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="200">
+		  <c:forEach var="vo" items="${c_list }">
+          <div class="col-xl-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="200" onclick="location.href='../camp/detail_before.do?no=${vo.no}'" style="cursor: pointer">
             <div class="team-member">
               <div class="member-img">
-                <img src="../assets/img/team/team-1.jpg" class="img-fluid" alt="">
+                <img src="${vo.c_poster }" class="img-fluid" alt="">
               </div>
               <div class="member-info">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
+                <h4>${vo.c_title }</h4>
+                <span>${vo.c_addr }</span>
               </div>
             </div>
           </div><!-- End Team Member -->
-
-          <div class="col-xl-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="400">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="../assets/img/team/team-2.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-                <h4>Sarah Jhonson</h4>
-                <span>Product Manager</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-xl-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="600">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="../assets/img/team/team-3.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-                <h4>William Anderson</h4>
-                <span>CTO</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
+		  </c:forEach>
         </div>
 
       </div>
@@ -153,11 +110,10 @@ section{
 			<div class="timeline"><div class="cursor"></div></div>
 			<ul class="wrapper">
 			  <c:forEach var="vo" items="${list }">
-								<li class="card-slide item">
-				<a href="../campgoods/campgoods_detail_before.do?g_id=${vo.g_id}"><img src="${vo.g_image }"></a>
-					
+				<li class="card-slide item">
+				  <a href="../campgoods/campgoods_detail_before.do?g_id=${vo.g_id}"><img src="${vo.g_image }"></a>
 				</li>
-</c:forEach>
+			  </c:forEach>
 			</ul>
 			<div class="controls">
 				<button class="btn-prev btn btn-info">이전</button>
@@ -183,7 +139,7 @@ section{
             <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200" style="margin-bottom: 50px;">
               <div class="service-item" style="height: 250px;">
                 <div class="img" style="height: 100%;">
-                  <iframe width="100%" height="100%" src="${video.cv_link }?controls=1&showinfo=0&modestbranding=1"></iframe>
+                  <iframe width="100%" height="100%" src="${video.cv_link }?controls=1&showinfo=0&modestbranding=1" allowfullscreen="true" loading="lazy"></iframe>
                 </div>
                 <div class="p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end" style="margin-top: 10px;">
                   ${video.cv_title }
@@ -197,7 +153,7 @@ section{
     </section><!-- End Services Section -->
 
 
-    <!-- ======= F.A.Q Section ======= -->
+        <!-- ======= F.A.Q Section ======= -->
     <section id="faq" class="faq">
       <div class="container-fluid" data-aos="fade-up">
 
@@ -273,99 +229,6 @@ section{
 
       </div>
     </section><!-- End F.A.Q Section -->
-
-
-    <!-- ======= Contact Section ======= -->
-    
-
-      
-
-      
-          
-
-     
-    
-    <!-- START 추천 캠핑장 -->
-    <section id="features" class="features">
-    
-    <div id="demo" class="carousel slide" data-bs-ride="carousel">
-			
-	  <!-- Indicators/dots -->
-	  <div class="carousel-indicators">
-	    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active" style="background-color: black;"></button>
-	    <button type="button" data-bs-target="#demo" data-bs-slide-to="1" style="background-color: black;"></button>
-	    <button type="button" data-bs-target="#demo" data-bs-slide-to="2" style="background-color: black;"></button>
-	  </div>
-	  
-	  <!-- The slideshow/carousel -->
-	  <div class="carousel-inner">
-	  
-	    <div class="carousel-item active">
-	      <div class="container" data-aos="fade-up">
-	        <div class="tab-content">
-	          <div class="tab-pane active show" id="tab-1">
-	            <div class="row gy-4">
-	              <div class="col-lg-8 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="100">
-	                <h3>Modinest</h3>
-	                <p class="fst-italic">
-	                  Lorem ipsum dolor sit amet, co
-	                </p>
-	                <ul>
-	                  <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-	                  <li><i class="bi bi-check-circle-fill"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-	                  <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut alrideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-	                </ul>
-	              </div>
-	              <div class="col-lg-4 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-	                <img src="../assets/img/features-1.svg" alt="" class="img-fluid">
-	              </div>
-	            </div>
-	          </div><!-- End Tab Content 1 -->
-	        </div>
-	      </div>
-        </div>
-      
-      <!-- asdf -->
-	    <div class="carousel-item active">
-	      <div class="container" data-aos="fade-up">
-	        <div class="tab-content">
-	          <div class="tab-pane active show" id="tab-1">
-	            <div class="row gy-4">
-	              <div class="col-lg-8 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="100">
-	                <h3>Modinest</h3>
-	                <p class="fst-italic">
-	                  Lorem ipsum dolor sit amet, co
-	                </p>
-	                <ul>
-	                  <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-	                  <li><i class="bi bi-check-circle-fill"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-	                  <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut alrideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-	                </ul>
-	              </div>
-	              <div class="col-lg-4 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-	                <img src="../assets/img/features-1.svg" alt="" class="img-fluid">
-	              </div>
-	            </div>
-	          </div><!-- End Tab Content 1 -->
-	        </div>
-	      </div>
-        </div>
-      <!-- asdf -->
-      
-      </div>
-      
-      <!-- 화살표 -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-	    <span class="carousel-control-prev-icon" style="background-color: black;"></span>
-	  </button>
-	  <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-	    <span class="carousel-control-next-icon" style="background-color: black;"></span>
-	  </button>
-  	  <!-- 화살표 -->
-  	  
-      </div>
-    </section>
-	<!-- END 추천 캠핑장 -->
 
   </main><!-- End #main -->
   <!-- partial -->
