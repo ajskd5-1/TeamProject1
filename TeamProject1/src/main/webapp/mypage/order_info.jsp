@@ -41,7 +41,7 @@
     <c:forEach var="cvo" items="${list }">
       <tr>
         <td><img src="${cvo.g_image }" style="width: 100px; height: 100px;"></td>
-        <td>${cvo.g_name }</td>
+        <td><a href="../campgoods/campgoods_detail_before.do?g_id=${cvo.g_id }">${cvo.g_name }</a></td>
         <td>${cvo.g_price }원</td>
         <td>${cvo.c_account }개</td>
         <td>${cvo.c_price }원</td>

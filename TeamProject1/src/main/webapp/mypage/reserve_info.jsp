@@ -30,7 +30,7 @@
     </tr>
     <tr>
       <td width="20%">캠핑장</td>
-      <td width="80%">${vo.c_title }</td>
+      <td width="80%"><a href="../camp/detail_before.do?no=${vo.fno}">${vo.c_title }</a></td>
     </tr>
     <tr>
       <td width="20%">주소</td>
