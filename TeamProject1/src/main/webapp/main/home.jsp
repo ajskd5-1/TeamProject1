@@ -31,7 +31,7 @@ section{
   <main id="main">
 
     <!-- ======= Featured Services Section ======= -->
-    <section id="featured-services" class="featured-services">
+    <section id="featured-services" class="featured-services" style="margin-top: -100px;">
       <div class="container">
 
         <div class="row gy-4">
