@@ -44,9 +44,9 @@
     <selectKey keyProperty="no" resultType="int" order="BEFORE">
       SELECT NVL(MAX(no)+1,1) as no FROM qna_board_1
     </selectKey>
-	INSERT INTO qna_board_1(no,name,title,content,filename,filesize,group_id)
+	INSERT INTO qna_board_1(no,name,title,content,filename,filesize,group_id, id)
     VALUES(#{no},#{name},#{title},#{content},#{filename},#{filesize},
-    (SELECT NVL(MAX(group_id)+1,1) FROM qna_board_1))
+    (SELECT NVL(MAX(group_id)+1,1) FROM qna_board_1), #{id})
 </insert>
 <!-- 게시글 수정 -->
 <update id="qnaboardUpdate" parameterType="QnaBoardVO">

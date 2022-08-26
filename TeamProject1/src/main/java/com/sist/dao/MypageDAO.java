@@ -31,7 +31,9 @@ public class MypageDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			session.close();
+			if(session != null) {
+				session.close();
+			}
 		}
 		return vo;
 	}
@@ -45,6 +47,10 @@ public class MypageDAO {
 			vo = session.selectOne("mypageOrderListData", id);
 		} catch (Exception e) {
 			// TODO: handle exception
+		} finally {
+			if(session != null) {
+				session.close();
+			}
 		}
 		return vo;
 	}
@@ -58,6 +64,10 @@ public class MypageDAO {
 			list = session.selectList("mypageOrderList", id);
 		} catch (Exception e) {
 			// TODO: handle exception
+		} finally {
+			if(session != null) {
+				session.close();
+			}
 		}
 		return list;
 	}
@@ -71,6 +81,10 @@ public class MypageDAO {
 			list = session.selectList("mypageOrderGoods", o_no);
 		} catch (Exception e) {
 			// TODO: handle exception
+		} finally {
+			if(session != null) {
+				session.close();
+			}
 		}
 		return list;
 	}
@@ -83,6 +97,10 @@ public class MypageDAO {
 			vo = session.selectOne("mypageOrderDetailData", no);
 		} catch (Exception e) {
 			// TODO: handle exception
+		} finally {
+			if(session != null) {
+				session.close();
+			}
 		}
 		return vo;
 	}
@@ -96,6 +114,10 @@ public class MypageDAO {
 			list = session.selectList("mypageQnaBoard", id);
 		} catch (Exception e) {
 			// TODO: handle exception
+		} finally {
+			if(session != null) {
+				session.close();
+			}
 		}
 		return list;
 	}
@@ -108,8 +130,64 @@ public class MypageDAO {
 			list = session.selectList("mypageQnaBoardNo", id);
 		} catch (Exception e) {
 			// TODO: handle exception
+		} finally {
+			if(session != null) {
+				session.close();
+			}
+		}
+		return list;
+	}
+	
+	//<!-- 리뷰 가져오기 -->
+	//<select id="mypageRecipeReview" resultType="ReviewVO" parameterType="String">
+	public static List<ReviewVO> mypageRecipeReview(String id){
+		List<ReviewVO> list = null;
+		SqlSession session = null;
+		try {
+			session = ssf.openSession();
+			list = session.selectList("mypageRecipeReview", id);
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			if(session != null) {
+				session.close();
+			}
 		}
 		return list;
 	}
 
+	//<select id="mypageCampReview" resultType="ReviewVO" parameterType="String">
+	public static List<ReviewVO> mypageCampReview(String id){
+		List<ReviewVO> list = null;
+		SqlSession session = null;
+		try {
+			session = ssf.openSession();
+			list = session.selectList("mypageCampReview", id);
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			if(session != null) {
+				session.close();
+			}
+		}
+		return list;
+	}
+	
+	//<select id="mypageGoodsReview" resultType="ReviewVO" parameterType="String">
+	public static List<ReviewVO> mypageGoodsReview(String id){
+		List<ReviewVO> list = null;
+		SqlSession session = null;
+		try {
+			session = ssf.openSession();
+			list = session.selectList("mypageGoodsReview", id);
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			if(session != null) {
+				session.close();
+			}
+		}
+		return list;
+	}
+	
 }

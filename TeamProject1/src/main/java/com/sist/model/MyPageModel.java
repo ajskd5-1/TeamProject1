@@ -31,30 +31,37 @@ public class MyPageModel {
 		// 최근 예약 내역 한줄
 		ReserveVO rvo = new ReserveVO();
 		List<ReserveVO> list = ReserveDAO.reserveMypageData(id);
-		rvo.setNo(list.get(0).getNo());
-		rvo.setC_title(list.get(0).getC_title());
-		rvo.setCin(list.get(0).getCin());
-		rvo.setCout(list.get(0).getCout());
-		rvo.setInwon(list.get(0).getInwon());
-		rvo.setIscheck(list.get(0).getIscheck());
-		rvo.setDbday(list.get(0).getDbday().substring(0, list.get(0).getDbday().indexOf("일")+1));
-		String title =list.get(0).getC_title();
-		String date = rvo.getCin() + " ~ " + rvo.getCout();
-		request.setAttribute("rvo", rvo);
-		request.setAttribute("date", date);
-		request.setAttribute("title", title);
-		request.setAttribute("vo", vo);
+		if(list.size() != 0) {
+			rvo.setNo(list.get(0).getNo());
+			rvo.setC_title(list.get(0).getC_title());
+			rvo.setCin(list.get(0).getCin());
+			rvo.setCout(list.get(0).getCout());
+			rvo.setInwon(list.get(0).getInwon());
+			rvo.setIscheck(list.get(0).getIscheck());
+			rvo.setDbday(list.get(0).getDbday().substring(0, list.get(0).getDbday().indexOf("일")+1));
+			String title =list.get(0).getC_title();
+			String date = rvo.getCin() + " ~ " + rvo.getCout();
+			request.setAttribute("rvo", rvo);
+			request.setAttribute("date", date);
+			request.setAttribute("title", title);
+
+		}
 		
 		// 최근 결제 내역
 		OrderVO ovo = MypageDAO.mypageOrderListData(id);
-		String addr = ovo.getO_addr1() + ovo.getO_addr2();
-		request.setAttribute("ovo", ovo);
-		request.setAttribute("addr", addr);
+		if(ovo != null) {
+			String addr = ovo.getO_addr1() + ovo.getO_addr2();
+			request.setAttribute("ovo", ovo);
+			request.setAttribute("addr", addr);
+		}
 		
 		// 내가 쓴 게시글 (미답변) mypageQnaBoardNo
 		List<QnaBoardVO> q_list = MypageDAO.mypageQnaBoardNo(id);
-		request.setAttribute("q_list", q_list);
+		if(q_list.size() != 0) {
+			request.setAttribute("q_list", q_list);
+		}
 		
+		request.setAttribute("vo", vo);
 		request.setAttribute("mypage_jsp", "../mypage/myhome.jsp");
 		request.setAttribute("main_jsp", "../mypage/mypage.jsp");
 		return "../main/main.jsp";
@@ -118,6 +125,24 @@ public class MyPageModel {
 		List<QnaBoardVO> list = MypageDAO.mypageQnaBoard(id);
 		request.setAttribute("list", list);
 		request.setAttribute("mypage_jsp", "../mypage/mypage_qnaboard.jsp");
+		request.setAttribute("main_jsp", "../mypage/mypage.jsp");
+		return "../main/main.jsp";
+	}
+	
+	// 리뷰 목록
+	@RequestMapping("mypage/mypage_review.do")
+	public String mypage_review(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("id");
+		
+		List<ReviewVO> r_list = MypageDAO.mypageRecipeReview(id);
+		List<ReviewVO> c_list = MypageDAO.mypageCampReview(id);
+		List<ReviewVO> g_list = MypageDAO.mypageGoodsReview(id);
+		
+		request.setAttribute("r_list", r_list);
+		request.setAttribute("c_list", c_list);
+		request.setAttribute("g_list", g_list);
+		request.setAttribute("mypage_jsp", "../mypage/mypage_review.jsp");
 		request.setAttribute("main_jsp", "../mypage/mypage.jsp");
 		return "../main/main.jsp";
 	}

@@ -17,5 +17,17 @@
     	FROM qna_board_1 WHERE id=#{id} AND recount=0 ORDER BY no DESC
 	</select>
 	
-	
+	<!-- 리뷰 가져오기 -->
+	<select id="mypageRecipeReview" resultType="ReviewVO" parameterType="String">
+		SELECT re_no, re_msg, re_writer, re_regdate, re_score, re_tno, re_type
+		FROM review_1 WHERE re_writer=#{id} AND re_type=1 ORDER BY re_no DESC
+	</select>
+	<select id="mypageCampReview" resultType="ReviewVO" parameterType="String">
+		SELECT re_no, re_msg, re_writer, re_regdate, re_score, re_tno, re_type
+		FROM review_1 WHERE re_writer=#{id} AND re_type=2 ORDER BY re_no DESC
+	</select>
+	<select id="mypageGoodsReview" resultType="ReviewVO" parameterType="String">
+		SELECT re_no, re_msg, re_writer, re_regdate, re_score, re_tno, re_type
+		FROM review_1 WHERE re_writer=#{id} AND re_type=3 ORDER BY re_no DESC
+	</select>
 </mapper>

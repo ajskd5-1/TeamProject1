@@ -5,6 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+
+</script>
 </head>
 <body>
   <main id="main">
@@ -14,7 +18,7 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <a href="../mypage/mypage.do"><h2 class="title">캠핑<sup>+</sup> 마이페이지</h2></a>
+          <a href="../mypage/myhome.do"><h2 class="title">캠핑<sup>+</sup> 마이페이지</h2></a>
           <ol>
             <li><a href="index.html">Home</a></li>
             <li>마이페이지</li>
@@ -50,8 +54,7 @@
                 <div class="mt-3">
                   <ul>
                     <li><a href="../mypage/mypage_qnaboard.do">묻고답하기</a></li>
-                    <li><a href="#">댓글</a></li>
-                    <li><a href="#">리뷰</a></li>
+                    <li><a href="../mypage/mypage_review.do">리뷰</a></li>
                   </ul>
                 </div>
               </div>

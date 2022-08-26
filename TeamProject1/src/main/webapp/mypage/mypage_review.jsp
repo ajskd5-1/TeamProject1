@@ -18,34 +18,57 @@
 			    
               <div class="content">
 				<h2 class="title">내 리뷰</h2>
+				<h3>캠핑장</h3>
               	<table class="table table-hover">
                   <tr class="text-center table-info">
-                    <th>글번호</th>
-                    <th>제목</th>
-                    <th>작성일</th>
-                    <th>조회수</th>
-                    <th>답변상태</th>
-                    <!-- <th> </th> -->
+                    <th width="10%">글번호</th>
+                    <th width="70%">내용</th>
+                    <th width="20%">별점</th>
                   </tr>
-                  <c:forEach var="vo" items="${list }" varStatus="a">
-                    <tr class="text-center" style=" cursor: pointer; margin-bottom: 50px;" onclick="location.href='../qnaboard/detail.do?no=${vo.no}'">
-                      <td class="text-center">${vo.no }</td>
-                      <td>${vo.title }</td>
-                      <td>${vo.dbday }</td>
-                      <td>${vo.count}</td>
-                      <c:if test="${vo.recount > 0 }">
-                        <td>답변완료</td>
-                      </c:if>
-                      <c:if test="${vo.recount == 0 }">
-                        <td>미답변</td>
-                      </c:if>
-                      <%-- <td><input type="text" class="btn btn-sm btn-primary orders" value="상세정보" size="15" data-no=${vo.no }></td> --%>
+                  <c:forEach var="cvo" items="${c_list }" varStatus="a">
+                    <tr style=" cursor: pointer; margin-bottom: 50px;" onclick="location.href='../camp/detail_before.do?no=${cvo.re_tno}'">
+                      <td class="text-center" >${cvo.re_no }</td>
+                      <td class="text-left">${cvo.re_msg }</td>
+                      <td class="text-center" >${cvo.re_score}</td>
                     </tr>
                   </c:forEach>
                 </table>
-				<div id="print">
-				
-				</div>
+                
+                <hr>
+                
+                <h3>캠핑용품</h3>
+              	<table class="table table-hover">
+                  <tr class="text-center table-info">
+                    <th width="10%">글번호</th>
+                    <th width="70%">내용</th>
+                    <th width="20%">별점</th>
+                  </tr>
+                  <c:forEach var="gvo" items="${g_list }" varStatus="a">
+                    <tr style=" cursor: pointer; margin-bottom: 50px;" onclick="location.href='../campgoods/campgoods_detail_before.do?g_id=${gvo.re_tno}'">
+                      <td class="text-center" >${gvo.re_no }</td>
+                      <td class="text-left">${gvo.re_msg }</td>
+                      <td class="text-center" >${gvo.re_score}</td>
+                    </tr>
+                  </c:forEach>
+                </table>
+                
+                <hr>
+                
+                <h3>레시피</h3>
+              	<table class="table table-hover">
+                  <tr class="text-center table-info">
+                    <th width="10%">글번호</th>
+                    <th width="70%">내용</th>
+                    <th width="20%">별점</th>
+                  </tr>
+                  <c:forEach var="rvo" items="${r_list }" varStatus="a">
+                    <tr style=" cursor: pointer; margin-bottom: 50px;" onclick="location.href='../recipe/recipe_detail_before.do?cr_no=${rvo.re_tno}'">
+                      <td class="text-center" >${rvo.re_no }</td>
+                      <td class="text-left">${rvo.re_msg }</td>
+                      <td class="text-center" >${rvo.re_score}</td>
+                    </tr>
+                  </c:forEach>
+                </table>
 
               </div><!-- End post content -->
 

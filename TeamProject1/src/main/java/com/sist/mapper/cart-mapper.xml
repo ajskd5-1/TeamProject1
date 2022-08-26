@@ -26,7 +26,8 @@ G_IMAGE            VARCHAR2(2000)
 		<selectKey keyProperty="no" resultType="int" order="BEFORE"><!-- 시퀀스 -->
 			SELECT NVL(MAX(no)+1, 1) as no FROM cart_1
 		</selectKey>
-		INSERT INTO cart_1(no, c_account, c_price, id, g_id, g_name, g_price, g_image) VALUES(#{no}, #{c_account}, #{c_price}, #{id}, #{g_id}, #{g_name}, #{g_price}, #{g_image})
+		INSERT INTO cart_1(no, c_account, c_price, id, g_id, g_name, g_price, g_image)
+		VALUES(#{no}, #{c_account}, #{c_price}, #{id}, #{g_id}, #{g_name}, #{g_price}, #{g_image})
 	</insert>
 	
 	<!-- 선택 상품 삭제 -->

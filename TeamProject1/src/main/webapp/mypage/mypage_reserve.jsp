@@ -35,7 +35,7 @@ $(function(){
               <div class="content">
 				<h2 class="title">예약내역</h2>
               	<table class="table table-hover">
-                  <tr class="text-center">
+                  <tr class="text-center table-info">
                     <th></th>
                     <th>캠핑장</th>
                     <th>예약 기간</th>

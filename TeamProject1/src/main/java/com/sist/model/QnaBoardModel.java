@@ -75,7 +75,9 @@ public class QnaBoardModel {
 	
 	@RequestMapping("qnaboard/insert_ok.do")
 	public String qnaboard_insert_ok(HttpServletRequest request, HttpServletResponse response)
-	{
+	{	
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("id");
 		String path="c:\\download";
 		try
 		{
@@ -94,7 +96,7 @@ public class QnaBoardModel {
 		String content=mr.getParameter("content");
 		String filename=mr.getOriginalFileName("upload");
 		QnaBoardVO vo=new QnaBoardVO();
-		
+		vo.setId(id);
 		vo.setName(name);
 		vo.setTitle(title);
 		vo.setContent(content);
