@@ -49,7 +49,7 @@ $(function(){
 	
 	let addr1 = $('#c_addr1').val();
 	let addr2 = $('#c_addr2').val();
-	let content = $('#c_order_notes').val();
+	let content = $('#c_content').val();
 	
 	IMP.init("imp68206770");// 강사님 코드 : imp68206770   내 코드 : imp20872771
 	function requestPay(){
@@ -103,6 +103,18 @@ $(function(){
 	}
 	
 	$('#orderBtn').click(function(){
+		name = $('#g_name').text();
+		total1 = $('#total').text();
+		total = parseInt(total1);
+		bemail = $('#c_email').val();
+		bname = $('#c_name').val();
+		btel = $('#c_tel').val();
+		baddr = $('#c_addr1').val() + ' ' + $('#c_addr2').val();
+		bpost = $('#c_post').val();
+		
+		addr1 = $('#c_addr1').val();
+		addr2 = $('#c_addr2').val();
+		content = $('#c_content').val();
 		requestPay();
 	})
 	
@@ -111,9 +123,6 @@ $(function(){
 
   </head>
   <body>
- 
-    
-
     <div class="site-section">
       <div class="container">
         <div class="row mb-1">
@@ -170,7 +179,7 @@ $(function(){
 
               <div class="form-group">
                 <label for="c_order_notes" class="text-black">요구사항</label>
-                <textarea name="c_order_notes" id="c_order_notes" cols="30" rows="5" class="form-control" placeholder="요구사항 입력"></textarea>
+                <textarea name="c_order_notes" id="c_content" cols="30" rows="5" class="form-control" placeholder="요구사항 입력"></textarea>
               </div>
 
             </div>
@@ -183,15 +192,15 @@ $(function(){
                 <div class="p-3 p-lg-5 border">
                   <table class="table site-block-order-table mb-5">
                     <thead>
-                      <th>상품명</th>
-                      <th>수량</th>
-                      <th>금액</th>
+                      <th width="65%">상품명</th>
+                      <th width="15%">수량</th>
+                      <th width="20%">금액</th>
                     </thead>
                     <tbody>
                       <c:forEach var="cvo" items="${list }" varStatus="s">
                         <tr>
                           <td id="g_name">${cvo.g_name }</td>
-                          <td>${cvo.c_account }</td>
+                          <td>${cvo.c_account }개</td>
                           <td>${cvo.c_price }원</td>
                         </tr>
 					  </c:forEach>

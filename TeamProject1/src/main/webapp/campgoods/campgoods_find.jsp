@@ -159,7 +159,7 @@ color:#ffffff;
          ￦: ${vo.g_price}
         </p>
         <div class="product__button-content">
-          <a href="#" class="product__button"style="background-color: #0ea2bd; hover-color:#ffffff; font-family: 'NanumSquareRound'; font-weight:bold">
+          <a href="../cart/cart_insert.do?g_id=${vo.g_id }&g_price=${vo.g_price}" class="product__button"style="background-color: #0ea2bd; hover-color:#ffffff; font-family: 'NanumSquareRound'; font-weight:bold">
             <i class="fas fa-shopping-basket"></i>
           장바구니 담기
           </a>

@@ -105,7 +105,7 @@ public class ShoppingCartModel {
 		String o_tel = request.getParameter("o_tel");
 		String o_content = request.getParameter("o_content");
 		String o_total = request.getParameter("o_total");
-		
+
 		OrderVO vo = new OrderVO();
 		vo.setO_name(o_name);
 		vo.setO_post(o_post);
